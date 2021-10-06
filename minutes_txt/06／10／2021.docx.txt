@@ -1,0 +1,240 @@
+Participants:
+
+Bettina Klimek (BK)
+
+Christian Chiarcos (CC)
+
+Jakub Šimek
+
+Max Ionov
+
+Stefania Racioppa (DFKI)
+
+John McCrae
+
+Matteo Pellegrini
+
+Katerina Gkirtzou
+
+ 1.
+        Module draft 4.4
+
+[image1]
+
+Adaptations of module draft 4.4 to be included for next telco:
+
+  • 
+        CC: move object of morph:InflectionRule -morph:generates-> to
+        morph:Morph
+
+  • 
+        JM: remove cardinality restriction of exactly 1 on morph:generates
+
+  • 
+        look at representation of blank node class in LIAM (http://
+        lemon-model.net/liam website is down, github.com/jmccrae/
+        lemon-model.net [which file?])
+
+  • 
+        MI: collect controversial names/properties and vote upon
+
+  • 
+        controversial names
+
+      □ 
+            generates (for WordFormationRule) => morph:derives
+
+      □ 
+            generates (for InflectionRule -> morph:Morph) => morph:inflects
+
+      □ 
+            generates (for InflectionRule -> morph:Form) [?] (skip)
+
+      □ 
+            consistsOf
+
+      □ 
+            replace both :generates properties with 1) morph:inflects domain
+            :InflectionRule and range :Morph and 2) morph:derives domain
+            :WordFormationRule and range :LexicalEntry
+
+      □ 
+            replace (original) :inflects with :rule and :hasParadigm with
+            :paradigm
+
+  • 
+        for generation, we would need a workflow diagram in the final report
+
+ 2.
+        Max: Finnish example with generated morph:Morph resources
+
+# Words
+
+<#kissa> a ontolex:Word ;
+
+ontolex:canonicalForm [ontolex:writtenRep "kissa"@fi];
+
+morph:inflectionType <#finnish_noun_type_kissa_number>, <#
+finnish_noun_type_kissa_number_obl> . # the first category after the stem
+
+# Inflection types
+
+# They are combined with the `:next` property.
+
+# This is actually quite usual for linguists: the same approach is used in the
+`lexc` formalism widely used in computational morphology (incl. xfst and foma)
+
+<#finnish_noun_type_kissa_number> a morph:InflectionType ;
+
+morph:hasParadigm <#regular_finnish_noun> ;
+
+morph:next <#finnish_noun_type_kissa_case> ;
+
+morph:inflects <#finnish_noun_type_kissa_sg>, <#finnish_noun_type_kissa_pl> .
+
+<#finnish_noun_type_kissa_number_obl> a morph:InflectionType ;
+
+morph:hasParadigm <#regular_finnish_noun> ;
+
+morph:next <#finnish_noun_type_kissa_case> .
+
+<#finnish_noun_type_kissa_case> a morph:InflectionType ;
+
+morph:hasParadigm <#regular_finnish_noun> ;
+
+morph:inflects <#finnish_noun_type_kissa_nom>, <#finnish_noun_type_kissa_ine> .
+
+<#finnish_noun_type_kissa_nom> a morph:InflectionRule ;
+
+morph:inflectionType <#finnish_noun_type_kissa_case> ;
+
+morph:generates [ lexinfo:case lexinfo:nominative ] ;
+
+morph:replacement [ morph:source "$"; morph:target "" ] .
+
+<#finnish_noun_type_kissa_sg> a morph:InflectionRule ;
+
+morph:inflectionType <#finnish_noun_type_kissa_number> ;
+
+morph:generates [ lexinfo:number lexinfo:singular ] ;
+
+morph:replacement [morph:source "$", morph:target ""] . # we can actually
+create nodes for widely used replacements, like _no replacement_
+
+<#finnish_noun_type_kissa_obl> a morph:InflectionRule ;
+
+morph:inflectionType <#finnish_noun_type_kissa_number_obl> ;
+
+morph:replacement [morph:source "t$", "oi"] .
+
+<#finnish_noun_type_kissa_ine> a morph:InflectionRule ;
+
+morph:inflectionType <#finnish_noun_type_kissa_case> ;
+
+morph:generates [ lexinfo:case lexinfo:inessive ]; # it's a convenient example
+even though the inessive of a cat is a bit weird
+
+morph:replacement [morph:source "$", morph:target "ssa"] .
+
+<#finnish_noun_type_kissa_pl> a morph:InflectionRule ;
+
+morph:inflectionType <#finnish_noun_type_kissa_number> ;
+
+morph:generates [ lexinfo:number lexinfo:plural ] ;
+
+morph:replacement [morph:source "$", morph:target "t"] .
+
+##### generated #####
+
+<#finnish_noun_type_kissa_morph_nom> a morph:Morph .
+
+<#finnish_noun_type_kissa_morph_ine> a morph:Morph .
+
+<#finnish_noun_type_kissa_morph_sg> a morph:Morph .
+
+<#finnish_noun_type_kissa_morph_pl> a morph:Morph .
+
+<#kissa_1> a ontolex:Form ;
+
+ontolex:writtenRep "kissa"@fi ;
+
+lexinfo:case lexinfo:nominative ;
+
+lexinfo:number lexinfo:singular ;
+
+morph:consistsOf <#finnish_noun_type_kissa_morph_sg>, <#
+finnish_noun_type_kissa_morph_nom> .
+
+<#kissa_2> a ontolex:Form ;
+
+ontolex:writtenRep "kissat"@fi ;
+
+lexinfo:case lexinfo:nominative ;
+
+lexinfo:number lexinfo:plural ;
+
+morph:consistsOf <#finnish_noun_type_kissa_morph_pl>, <#
+finnish_noun_type_kissa_morph_nom> .
+
+<#kissa_3> a ontolex:Form ;
+
+ontolex:writtenRep "kissa"@fi ;
+
+lexinfo:case lexinfo:inessive ;
+
+lexinfo:number lexinfo:singular ;
+
+morph:consistsOf <#finnish_noun_type_kissa_morph_sg>, <#
+finnish_noun_type_kissa_morph_ine> .
+
+<#kissa_4> a ontolex:Form ;
+
+ontolex:writtenRep "kissaissa"@fi ;
+
+lexinfo:case lexinfo:inessive ;
+
+lexinfo:number lexinfo:plural ;
+
+morph:consistsOf <#finnish_noun_type_kissa_morph_pl>, <#
+finnish_noun_type_kissa_morph_ine> .
+
+→ this procedure is applicable when no morph:Morph resources are available in
+the dataset
+
+  • 
+        the property morph:generates contains a set of grammatical categories
+        and has a blank node as object, which is a prototype
+
+  • 
+        additional statements ontolex:LexicalEntry ontolex:lexicalForm
+        ontolex:Form have to be generated as well
+
+Todos for next telco (create workflow diagrams together):
+
+Bettina:
+
+  • 
+        move diagram drafts to git
+
+  • 
+        have a look into LIAM representation of blank nodes
+
+Max: create
+
+  • 
+        create workflow diagram (and share it to Bettina) for the process of
+        creating the finnish example data above with the starting point of
+        having no morph:Morph resources and generating:
+
+      □ 
+            ontolex:Form resources
+
+      □ 
+            ontolex:Morph resources
+
+      □ 
+            triples: ontolex:LexicalEntry ontolex:lexicalForm ontolex:Form
+
+      □ 
+            triples: ontolex:Form morph:consistsOf morph:Morph
+

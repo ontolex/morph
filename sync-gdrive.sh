@@ -6,4 +6,16 @@
 # configure rclone: https://wiki.linuxquestions.org/wiki/Rsync_with_Google_Drive
 # default: use "drive" as name of the rclone remote
 
+# retrieve GDoc content
 rclone sync "drive:/OntoLex Telco Minutes" minutes/
+
+# export to text format to facilitate search
+# requires pandoc and w3m
+for file in `find minutes/ | grep 'docx$'`; do
+  tgt=`echo $file | sed s/'minutes'/'minutes_txt'/`.txt
+  dir=`dirname $tgt`
+  if [ ! -d $dir ]; then
+    mkdir -p $dir
+  fi
+  pandoc $file | w3m -T text/html > $tgt
+done

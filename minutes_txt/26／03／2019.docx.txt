@@ -1,0 +1,78 @@
+Participants:
+
+Bettina
+
+Julia
+
+Maria
+
+John
+
+Fahad
+
+Max
+
+Stefania
+
+Christian
+
+ 1.
+        Working definition for purpose and scope of the morphology module
+
+https://www.w3.org/community/ontolex/wiki/Morphology#Purpose_and_scope
+
+ 2.
+        Discussing: 1.1 Morphological decomposition on the lexical entry level
+
+E1: Representing the lexical entries of which a derived word (as a lexical
+entry) consists:
+
+  • 
+        Agreement on reusing decomp vocabulary by adapting decomp:constituent
+        and decomp:Component
+
+Working draft for new elements or adapted vocabulary
+
+E2: Stating that a derived word is derived from another (derived) word:
+
+MODELLING OPTION 1: create subproperty of vartrans:lexicalRel
+
+ex:driver_n a ontolex:LexicalEntry ;
+
+morph:derivRel ex:lex_drive_n .
+
+MODELLING OPTION 2: create subclass of vartrans:LexicalRelation
+
+ex:driver_AgentNoun a morph:DerivationalRelation ;
+
+vartrans:source :lex_drive_v ;
+
+vartrans:target :lex_driver_n .
+
+RESULT: use both
+
+Definition of Morph class:
+
+  • 
+        JM + BK: prefer Morph as top level class
+
+  • 
+        What is relation between Form and Morph
+
+  • 
+        Have Morph elements a one to many meanings relation or should there be
+        a 1:1 correspondence restriction?
+
+  • 
+        Make example for new model draft
+
+Other issues:
+
+  • 
+        Needs surface representation, e.g. datatype property
+        morph:representation
+
+  • 
+        CC: segmentation ordering via dedicated properties rather than rdf list
+        property
+

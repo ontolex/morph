@@ -1,0 +1,88 @@
+Participants:
+
+Bettina
+
+Christian
+
+Stefania
+
+Max
+
+Fahad (only until 1330)
+
+Julia
+
+Marco
+
+Matteo
+
+Eleonora
+
+Agenda
+
+ 1.
+        Marco’s team presentation Latin word-formation extension
+
+  • 
+        Brief presentation of the WFL lexical resource
+
+  • 
+        Proposal of extension of the model: examples of treatment of
+        prefixation, suffixation, conversion and compounding
+
+Description of WFL , examples, ontology and model are available at: https://
+drive.google.com/drive/folders/1SiSBuGVN5uoK0zAQUYzUCuGLFiydjkjt
+
+Using morph:DerivationalRel also for compounding? In WFLRule derivational and
+compounding rules are defined.
+
+  • 
+        Ontolex decomp module reserved for representing compounding
+
+Modeling conversion
+
+  • 
+        Option 1: use morph:DerivationalRel without explicit requirement “by
+        means of derivational affix”
+
+  • 
+        Option 2: use morph:DerivationalRel with explicit requirement “by means
+        of derivational affix” and use morph:ZeroAffix
+
+    → Either eliminate “conversion” als derivational relation or eliminate
+    morph:ZeroMorph
+
+→ eliminate morph:ZeroMorph and represent it as morph:AffixMorph with an empty
+form
+
+→ rephrase conversion as a deriv. Relation that involves a zero morph
+
+→ redefine of morph:DerivationalRel to not require an affix, e.g. “by means of
+a derivational rule”
+
+Decision to be reviewed:
+
+  • 
+        Create morph:DerivationalRule class
+
+  • 
+        Create property between morph:DerivationalRel and
+        morph:DerivationalRule but without forcing to have a required
+        morph:Rule
+
+  • 
+        Create morph:Rule class and make morph:InflectionalRule and
+        morph:DerivationalRule subclass
+
+ToDos for next telco:
+
+  • 
+        Bettina will provide current OWL file to Max
+
+  • 
+        Max to update OWL file with draft for automatic generation of
+        morphological data
+
+  • 
+        Next telco reserve 10min at beginning for follow-up on WLF by Marco
+

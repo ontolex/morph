@@ -1,0 +1,194 @@
+Participants:
+
+Bettina Klimek (BK)
+
+Jakub Šimek
+
+Matteo Pellegrini
+
+Julia Bosque-Gil (UNIZAR)
+
+Stefania Racioppa (DFKI)
+
+Max Ionov (GUF)
+
+Fahad Khan (CNR)
+
+ 1.
+        Module draft 4.1
+
+[image1]
+
+Adaptions of module draft 4.1 to be included for next telco:
+
+  • 
+        insert morph:generates from moprh:InflectionRule to ontolex:Form
+
+  • 
+        property morph:evokes with morph:Morph in domain and
+        ontolex:LexicalConcept (DerivationalConcept as subclass) in range
+
+  • 
+        property morph:sense with morph:Morph in domain and
+        ontolex:LexicalSense in range
+
+      □ 
+            JBG> With the use of ontolex:LexicalSense we are assuming an
+            ontological reference, so we might run into the same problems as
+            the ones we found when converting dictionaries (which ontological
+            references to point to?). Since in the lexicog specification we
+            opted to stick to ontolex:LexicalConcepts for the meaning of
+            lexical entries in the conversion of dict entries to LLD, why would
+            we want to point to LexicalSense in this case, instead of Concept?
+
+ 2. Vocabulary for N4: Inflectional paradigm
+
+    Proposed definitions as of telco from 10.12.2019
+
+Classes
+
+morph:Paradigm
+
+A class that represents a theoretically motivated type of declination, e.g.
+
+  • 
+        “a” stem declension in Latin
+
+  • 
+        First declension in Russian
+
+May contain metadata information about this type of declination.
+
+Book analogy: a full paradigm table with possible allomorphy/alternative
+variants
+
+morph:InflectionType
+
+A class that represents a single slot for a single grammatical category for all
+its possible values (e.g. all the cases)
+
+Book analogy: a column from a paradigm table without allomorphy/alternative
+variants for just a single morpheme
+
+morph:Rule
+
+A class containing necessary information to add one morpheme to a single word
+form. It must contain either morph:example or morph:replacement (or both).
+“Tabular” value of a morpheme must be stored in rdfs:label (e.g. “-s”@en for
+usual PL in English)
+
+Properties
+
+morph:paradigm
+
+Domain: morph:InflectionType
+
+Range: morph:Paradigm
+
+A link to the paradigm for the inflection type
+
+morph:example
+
+Domain: morph:Rule
+
+Range: string literal
+
+A single generated form that was generated using this rule
+
+morph:next
+
+Domain: morph:InflectionType
+
+Range: morph:InflectionType
+
+Links two consecutive inflection types (“slots”), e.g. number and case in
+Finnish
+
+morph:inflects
+
+Domain: ontolex:Word
+
+Range: morph:InflectionType
+
+A link to the first “slot” (inflection type), e.g. an inflection type for
+number for English nouns
+
+morph:inflectionType
+
+Domain: morph:Rule
+
+Range: morph:InflectionType
+
+morph:replacement
+
+Domain: morph:Rule
+
+Range: [morph:source, morph:target, both are string literals]
+
+morph:generates
+
+Domain: morph:Rule
+
+Range: unrestricted?
+
+BK: currently missing in draft image, does the inflection rule generate the
+ontolex:Form resources? yes
+
+3. Representation needs modeling
+
+modeled as draft:
+
+N11: Meanings of stems and roots
+
+BK proposal: The description of meanings of stems and roots could be realized
+in the same way as the description of meanings of lexical entries as given in
+ontolex. For the representation of roots maybe external resources such as
+Concepticon could be recommended or the possibility of a plain textual
+definition could be established in addition.
+
+Extend domain of ontolex:sense: domain: ontolex:LexicalEntry and
+morph:StemMorph and morph:RootMorph
+
+JMC: not in favour of extending ontolex:sense domain with morph:Morph, proposes
+new property morph:sense with ontolex:LexicalSense and another Concept class
+
+draft: property morph:sense with morph:Morph in domain and ontolex:LexicalSense
+in range
+
+not modeled yet:
+
+N12: Derivational Meanings
+
+John: Model derivational meanings as concepts and link morph instances to this
+concept.
+
+Fahad: Ignore examples with lexicalized words (e.g. computer). We do not need
+to model too deeply - just state “diminutive”.
+
+John: Proposes to have DerivationalConcept as subclass of ontolex:Concept (but
+no need for InflectionalConcept subclass).
+
+property morph:evokes with morph:Morph in domain and ontolex:LexicalConcept
+(DerivationalConcept as subclass) in range
+
+N5: Morphology crosses part-of-speech boundaries (derivation)
+
+BK proposal: use established means for derivation to represent conversion and
+specify zero morph, e.g. “play” (noun):
+
+ex:lex_play_noun ontolex:lexicalForm ex:form_play_noun_sg .
+
+ex:form_play_noun_sg morph:consistOf morph:ZeroMorph .
+
+WFL: implemented alternative option by creating wfl:ConversionRelation with no
+zero morph
+
+N6: Morphs linked to Lexical Entries
+
+BK proposal: created object property morph:morphologicalForm (in parallel to
+ontolex:lexicalForm) with domain ontolex:LexicalEntry and range morph:Morph
+
+→ different positions on whether this should be representable in the module at
+all because all information/data is already covered with the vocabulary and it
+is a need of space-restricted print dictionaries - discuss again later
+

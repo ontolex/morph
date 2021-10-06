@@ -1,0 +1,103 @@
+Participants:
+
+Bettina
+
+John
+
+Max
+
+Maria
+
+Thierry
+
+Current state of the morphology module according to the goals:
+
+The morphology module aims at fulfilling two modelling purposes:
+
+1.Stating elements that are involved in the decomposition of lexical entries
+and forms.
+
+1.1 Morphological decomposition on the lexical entry level.
+
+scope: The kind of elements of which a lexical entry can consist should be as
+non-restrictive as possible. I.e. The decomposition of lexical entries
+encompass lexical entries, components, derivational affixes, inflectional
+affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be
+composed of a form!
+
+1.2 Morphological decomposition on the form level.
+
+scope: Elements of which a form can consist include roots, stems, inflectional
+affixes and zero morphs. A form can NEVER be decomposed into lexical entries
+(including ontolex:Affix), components and forms.
+
+→ apart from agreeing upon the exact wording of the definitions of classes and
+properties, these two purposes are basically finished. The results have been
+published in the following paper:
+
+https://drive.google.com/open?id=1c1uZilI2XRT1BFwE-CUUqKkfbVDG6xub
+
+2. Enabling the representation of building patterns that are involved in the
+formation of lexical entries and forms.
+
+2.1 Representation of decompositional building patterns for lexical entries.
+
+2.2 Representation of decompositional building patterns for forms.
+
+→ a coherent proposal for modeling the automatic generation of forms (2.2) came
+from Max and Christian. It is still under discussion and needs refinement.
+
+→ the model has to take the modeling of morph:InflectionalParadigm and
+morph:MorphologicalPattern into account
+
+→ purpose 2.1 has been not addressed yet
+
+Two issues to be discussed after the summer break:
+
+ 1.
+        Make clear what kind of instance data goes into the three classes
+        :Paradigm, :InflectionType and :Rule. This is not so clear from looking
+        at the URI design of the example code above, e.g.:
+
+<#finnish_noun_type_kala_pl> a morph:Rule .
+
+<#finnish_noun_type_9> a morph:Paradigm .
+
+<#finnish_noun_type_kala_case> a morph:InflectionType .
+
+What is the difference between them? They look very similar to me here.
+
+ 2.
+        It would be great to either REUSE or CREATE morph:Morph instance data
+        with this modelling. E.g.:
+
+morph:replacement [morph:source "$", morph:target "ssa"]
+
+The string “ssa” should be either the representation of an existing
+morph:SuffixMorph instance or it should be created as one together with the
+morph:SuffixMorph instance. Even better would be to also arrive at statements
+decomposing the created ontolex:Form instances again, e.g.
+
+:kissasssa a ontolex:Form ;
+
+morph:consistsOf :stem_kissa , :suffix_ssa .
+
+Future procedure/tasks
+
+  • 
+        Bettina and John starting to write Specification
+
+  • 
+        Max and Christian working on automatic generation
+
+      □ 
+            State and describe different input methods
+
+      □ 
+            Create reference documentation taking morphology module input and
+            generates all forms
+
+      □ 
+            Max makes diagrams with new proposed elements and maybe reference
+            implementation
+

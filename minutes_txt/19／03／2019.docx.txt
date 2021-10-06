@@ -1,0 +1,88 @@
+Participants:
+
+Bettina
+
+Julia
+
+Fahad
+
+Gigi
+
+John
+
+Thierry
+
+Max
+
+Ilan
+
+ 1.
+        Using polls for decision making
+
+https://docs.google.com/spreadsheets/d/
+10q3LcQ5giI5Ds4x4FzzZgMX6hFK8Q5lVO0aP88scUjw/edit?usp=sharing
+
+ 2.
+        Create poll for adjusting existing OntoLex modules
+
+John:
+
+changes require need a new version
+
+Keep backwards compatibility
+
+Ilan:
+
+Pro changing for an improved model
+
+Julia:
+
+Danger that decomp will be too detailed and people could be confused
+
+Thierry:
+
+The labels might hold people back to use decomp for all kind of segmentations
+
+Only adapt existing module vocabularies if:
+
+  • 
+        The change does not affect the backwards compatibility
+
+  • 
+        The wording of property or classes shall be clarified
+
+  • 
+        Add classes to ranges
+
+  • 
+        Errors should be corrected
+
+ 3.
+        Looking at Module Draft 1.2
+
+John:
+
+  • 
+        Reuse vartrans to reuse interrelations between lexical entries
+
+  • 
+        Extending definition of decomp:constitutent to clarify that derived
+        words are included
+
+Allow that lexical entries can also consists of inflectional morphs
+
+ontolex:Affix for affixes that are lexical entries and morph:AffixMorph that
+are inflectional morph
+
+https://en.wiktionary.org/wiki/%E3%81%9F%E3%81%84#Japanese
+
+Ilan:
+
+  • 
+        Allow modelling of segmentation binary and full linear segmentation
+        mixing inflectional and derivational morphs
+
+  • 
+        Add questions for lexicographers in one document and share on mailing
+        list
+

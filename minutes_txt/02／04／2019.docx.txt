@@ -1,0 +1,149 @@
+Participants:
+
+Bettina
+
+Julia
+
+Max
+
+Fahad
+
+Maria
+
+Ilan
+
+Thierry
+
+John
+
+ 1.
+        Relating word-forms to lexical entries (already discussed)
+
+ex:play_v a ontolex:LexicalEntry ;
+
+ontolex:canonicalForm ex:play ,
+
+    ontolex:otherForm ex:plays ,
+
+    ontolex:otherForm ex:played ,
+
+    ontolex:otherForm ex:playing .
+
+All word-forms of a lexical entry can be stated by using ontolex:canonicalFom
+and ontolex:otherForm.
+
+ 2.
+        Relating morphs to forms via new property
+
+morph:consistsOf
+
+definition: This property states into which Morph resources a Form resource can
+be segmented.
+
+domain: ontolex:Form
+
+range: morph:Morph
+
+ex:plays_3_sg a ontolex:Form ;
+
+morph:consistsOf ex:Stem_play , ex:Suffix_s_3_sg .
+
+ex:Stem_play a morph:StemMorph .
+
+ex:Suffix_s_3_sg a morph:AffixMorph .
+
+Form instances can be decomposed into inflectional elements or phonological
+stem alternants but never into elements that entail a lexical meaning (i.e.
+derivational affixes or parts of compounds).
+
+John example: deiontic affixes ‘wanting, being able to do something’ could be
+modelled as derivational and inflectional affixes
+
+ 3.
+        Assigning forms to inflectional paradigms
+
+Ontolex:morphologicalPattern adaption extending the domain with Ontolex:Form?
+
+The entirety of all inflectional tables in a Wiktionary verb entry for instance
+is regarded to be a morphological pattern. The single tables represent separate
+inflectional paradigms. Model paradigms, create a connection to morphological
+pattern and to ontolex:Form
+
+ 4.
+        Representing ordering of elements in lexical entries and morphs in
+        forms
+
+CC: segmentation ordering via dedicated properties rather than rdf list
+property, :next property
+
+JM: Other options are RDF Seqs and RDF Lists, see https://www.w3.org/TR/
+rdf-schema/#ch_containervocab
+
+Thierry: we are using RDF:_1, RDF:_2 (or so) in the decomp module
+
+ 5.
+        Surface representation of morph:Morph resources
+
+e.g. datatype property morph:representation
+
+ 6.
+        Definition of morph:Morph
+
+mmoon:Morph definition:
+
+A morph is a concrete realization of a single morpheme which usually results
+from segmentation.
+
+Haspelmath and Sims 2013: Understanding Morphology:
+
+Morph: A concrete primitive element of morphological analysis.
+
+Lehmann:Lido: definition of ‘morph’
+
+A morph is an uncategorized smallest meaningful unit as resulting from
+segmentation. It manifests the morpheme.
+
+Lehmann:Lido: definition of ‘morpheme’:
+
+A morpheme is a smallest linguistic sign, i.e. a smallest unit that is
+semantically distinct from all other signs of the language.
+
+Delimitation and History:
+
+The significance of the two conditions of the definition is as follows:
+
+1) A morpheme is irreducible to smaller significative units; i.e. what results
+if it is segmented may only be distinctive units. This condition distinguishes
+it from larger units, esp. the word.
+
+2) To be distinct from all other morphemes of the language, it isn’t allowed to
+be in complementary distribution or free variation with another morpheme. This
+condition distinguishes it from the morph.
+
+Glottopedia Entry for ‘Morph’
+
+Morph is a term which refers to alternative forms or realizations of a single
+morpheme.
+
+Example:
+
+the English plural suffix is found in precisely three different
+pronounciations, /s/, /z/, and /@z/: cats /kats/, dogs /dogz/, and horses /
+ho:s@z/. Since these three elements all represent a single morpheme, they are
+called morphs, and we say that /s/, /z/, and /@z/ are allomorphs of the
+abstract or underspecified plural suffix /-Z/.
+
+University Düsseldorf Glossary entry for ‘Morph’:
+
+Any item of language which cannot be broken down any further without a loss of
+meaning. A morph usually realises a morpheme, the unit of grammar on an
+abstract level, e.g. /ʌn/ in undoable but also /ɪm/ in impossible.
+
+Discussion for the definition of morph:Morph:
+
+It must clearly state that the instances of this class cannot be lexical
+entries. This is what distinguishes it from ontolex:Affix which could otherwise
+be a subclass of morph:Morph. I would also avoid to reduce it to inflectional
+morphs because it hinders the description of phonological alternations that can
+be involved in forming word-forms with morph:Morph resources.
+

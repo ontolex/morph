@@ -1,0 +1,33 @@
+Participants:
+
+Bettina
+
+John
+
+Fahad
+
+Julia
+
+Modelling meaning:
+
+John: Morph meanings are more like ontolex:Concept
+
+Bettina: find dataset with derivational affixes as lexical entries
+
+John: model derivational meanings as concepts and link morph instances to this
+concept
+
+Fahad: don’t look at examples with lexicalized words (e.g. computer)
+
+We do not need to model too deeply - just state “diminutive”
+
+John: maybe have derivationalConcept as subclass of ontolex:Concept (no need
+for inflectionaConcept subclass)
+
+N20:
+
+John: make a statement that a property does not exist with owl. E.g. morph does
+not have Concept
+
+2c
+

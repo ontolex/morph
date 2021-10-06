@@ -1,0 +1,67 @@
+Participants:
+
+Bettina
+
+Max
+
+Christian
+
+Julia
+
+Katrien
+
+Jesse
+
+Agenda:
+
+1) Discussion reduced MMoOn model als starting point
+
+CC:
+
+Start with ontolex definitions for elements that already exist.
+
+Classes:
+
+Word:
+
+Jesse: instead of linking ontolex:From or ontolex:LexicalEntry just link to
+ontolex:Form
+
+Replace mmoon:Wordform with ontolex:Form class and interrelate other elements
+with properties to it
+
+B: represent derivation and compounding on LexicalEntry level and inflection on
+Form level (CC agrees)
+
+Max: cluster examples in types of use cases
+
+Morph:
+
+Meaning:
+
+CC: cover morphology generation aspect, collect use case
+
+Relations:
+
+consistsOf and belongsTo as inverse properties:
+
+isDerivedFrom:
+
+isComposedOf:
+
+2) Discussion of example data
+
+Althochdeutsches Wörterbuch (proposed by CC)
+
+postponed
+
+3) Emerging issues/questions
+
+Julia: Table with opposing definitions of ontolex and moon classes (Bettina
+Todo)
+
+K: likes to have example data with mmoon and its source data (Bettina Hebrew
+and Xhosa Todo), provides examples as well
+
+Julia: provide KD examples
+

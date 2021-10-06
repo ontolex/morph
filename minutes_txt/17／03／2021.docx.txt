@@ -1,0 +1,199 @@
+Participants:
+
+Bettina Klimek (BK)
+
+Christian Chiarcos (CC)
+
+Max Ionov (MI)
+
+Francesco Mambrini (FM)
+
+Julia Bosque-Gil (JBG) (might need to leave the call earlier)
+
+Fahad Khan (CNR)
+
+Marco Passarotti (MP)
+
+John McCrae (JMC)
+
+Ana R. Luís (AL -- I have sent a request to join the group)
+
+Agenda
+
+ 1.
+        Follow-up of Marco’s presentation Latin word-formation extension
+
+  • 
+        three main contributions
+
+      □ 
+            distinguish and link XYRule and XYRelation
+
+      □ 
+            moph:WordFormationRelation to generalize over ConversionRelation,
+            DerivationRelation, possibly also CompositionRelation
+
+      □ 
+            CompositionRelation within morph
+
+  • 
+        Clear differentiation between relations and rules
+
+      □ 
+            and explicit link between them
+
+  • 
+        WordFormationRelation
+
+      □ 
+            proposal: create broader class moph:WordFormationRelation as
+            generalization over morph:DerivationalRelation, ConversionRelation,
+            possibly CompositionRelation
+
+      □ 
+            discussion whether to maintain morph:DerivationalRelation as
+            subclass of this and further subclasses, e.g. neoclassical
+            compounding, blending, clipping
+
+      □ 
+            Possible definition of moph:WordFormationRelation “A word formation
+            relation is a relation that relates one or multiple source lexical
+            entries with a target lexical entry.”
+
+          ☆ 
+                E.g. indicate that there are two vartrans:source elements and
+                one vartrans:target
+
+      □ 
+            questions:
+
+          ☆ 
+                have only one class moph:WordFormationRelation (would include
+                both derivational and compounding rules) or have also
+                subclasses thereof, e.g. morph:DerivationalRelation,
+                morph:Conversion, morph:CompoundingRelation
+
+              ○ 
+                    CC > these can be distinguished from the elements involved.
+                    the model would be much more compact, then
+
+          ☆ 
+                if and how to include compounding rules into this =>
+                Composition relation
+
+  • 
+        CompositionRelation
+
+      □ 
+            main problem for WFL is inadequacy of using decomp for generating
+            compounds
+
+          ☆ 
+                ago + pes => agipes (thematic vowel)
+
+          ☆ 
+                sometimes, the form in the compound is not the canonical form,
+                but an inflected form, e.g. fructis > frugo-
+
+      □ 
+            WFL model: one compound involves one composition rule (V+N => adj)
+            but two composition relations (ago => agipes, pes => agipes)
+
+          ☆ 
+                CC > could also be modelled by having multiple sources in one
+                composition relation [~ decomp]
+
+          ☆ 
+                Bettina > In favor of binary segmentation (pointer to MMOOn).
+
+      □ 
+            WFL needs reification of relation between the lexical entries
+            involved in compounding processes. Problematic with decomp -> no
+            way of stating that there are two word formation processes/
+            relations involved, we can only indicate that something is composed
+            of a set of items
+
+          ☆ 
+                CC > decomp has no direct links with morphological rules, this
+                could be a motivation to introduce a morph:CompositionRelation
+
+      □ 
+            CC > We could also link directly from decomp to the rule
+
+          ☆ 
+                :Lungenentzündung a ontolex:LexicalEntry ;
+
+          ☆ 
+                decomp:subterm :Lunge_lex;
+
+          ☆ 
+                decomp:subterm :Entzündung_lex ;
+
+          ☆ 
+                wfl:hasMorphologicalRule [ … a morph:CompositionRule];
+
+          ☆ 
+                CC> understanding that the decomp:subterm object is kind of the
+                source
+
+      □ 
+            CC+BK > previously discussed to permit morph:Morph as decomp
+            subterm objects
+
+      □ 
+            MP > inelegant within WFL because similar things are treated
+            differently, proposal to distinguish decomp and morph:Composition
+            as lexeme-based vs. morpheme-based approaches to composition
+
+    > the module should be able to represent both kinds of resources
+
+  • 
+        general consensus for handling composition within morph if redundancy
+        with decomp is approved by ontolex chairs
+
+  • 
+        Then: Clarify distinction between morph and decomp module needed!
+
+    Rules of thumb:
+
+  • 
+        if information about lexemes without order, use decomp module
+
+    JMC > probably if you are doing general-purpose lexicography, decomp would
+    suffice
+
+  • 
+        if information about morphs together with order and/or details of
+        morphophonology (thema vowel, interfixes), use morph module (requires
+        the modelling of order) (or if you want to enrich your resource at a
+        later stage)
+
+CC > Risk of superseding decomp? (morph composition allows to express every
+piece of information from decomp, so, why keeping it?) We want to make
+something that is downward compatible
+
+Fahad, CC > It might get confusing if we have different ways of modelling the
+same thing
+
+Marco > But these two ways reflect two different theoretical approaches and
+types of resources. We are giving people the opportunity to treat their
+resources differently.
+
+CC > We could (maybe) justify the presence of two different modelling choices,
+specially if we put a disclaimer
+
+Bettina > We might need more examples
+
+CC> We would need confirmation from OntoLex chairs that it’s OK to create a
+partially redundant model with the decomp module. TO-DO
+
+ToDos for next telco:
+
+Julia: Ask ontolex chairs: confirmation to create partially redundant model for
+decomp and morphology (if that is okay the WFL proposal is a starting point for
+testing data after adapting the morph module draft)
+
+Look at https://ufal.mff.cuni.cz/universal-derivations and consider it as test
+data resource to be included into OntoLex Morph Vocabulary Test Data Google
+folder.
+

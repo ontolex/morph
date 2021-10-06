@@ -1,0 +1,90 @@
+Participants:
+
+Bettina
+
+John
+
+Maria
+
+Julia
+
+Max
+
+Representing the meaning of morphs
+
+Concepts/roots:
+
+ex:ktb_root a morph:RootMorph ;
+
+morph:meaning? ontolex:LexicalConcept .
+
+A concept can exist without a lemma but a lemma has to have a sense.
+
+Lexical meanings of stems:
+
+Via ontolex:sense and ontolex:reference?
+
+Define axiom that the stem instances of which a form resource consists inherit
+the same lexical meanings as the lexical entry to which the form resources
+belong?
+
+ex:stem_consumption a morph:StemMorph; [DEL:a ontolex:LexicalEntry ;:DEL]
+
+morph:meaning? ex:consumption_sense1 .
+
+ex:consumption_sense1 a ontolex:LexicalSense;
+
+ontolex:reference <http://dbpedia.org/resource/Consumption_(ecology)> ;
+
+ontolex:isSenseOf ex:stem_consumption , ex:lex_consumption .
+
+Create code on property morph:meaning? no state that the stem resources have
+the same senses as the lexical entry it belongs to?
+
+Leave opportunity to represent senses of stems with morph:meaning? Property
+(John, Max).
+
+Grammatical meanings of affixes:
+
+Via lexinfo vocabulary?
+
+What to use if lexinfo is not sufficient? Create new property?
+
+ex:suffix_s a morph:AffixMorph ;
+
+lexinfo:number lexinfo:plural .
+
+John: modelling is sufficient:
+
+Julia: maybe this makes a different statement as intended, lexinfo usually used
+for marking a grammatical value of ontolex:Form instances.
+
+Ask others on mailing list.
+
+Derivational meanings of affixes:
+
+ a.
+        Additional lexical meaning, e.g. diminutive, agent noun.
+
+ b.
+        Only wordclass change with additional marking, e.g. large → largely;
+        without additional marking (zero derivation), e.g. to call → the call.
+
+Also via ontolex:sense and ontolex:reference?
+
+Defining the subclasses of morph:Morph
+
+RootMorph:
+
+StemMorph:
+
+AffixMorph:
+
+TransfixMorph:
+
+SimulfixMorph:
+
+ZeroMorph:
+
+Currently no suffix, prefix, circumfix classes. Give usage recommendation.
+

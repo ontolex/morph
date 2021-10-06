@@ -1,0 +1,83 @@
+Participants:
+
+Bettina
+
+Max
+
+James
+
+John
+
+Fahad
+
+Elements of Ontolex/Decomp and MMoOn
+
+https://docs.google.com/document/d/1ZqVKubKg1YdUB-N2PN-YvUP76Mq5PJTV19nto7pnJZI
+/edit?usp=sharing
+
+Google folder with example data:
+
+https://drive.google.com/drive/folders/1zKCRUShvRiGK0N0FB_wJsIVxkzJa8dj6?usp=
+sharing
+
+Discussion of example data
+
+1) Max: LiODi IGT representations
+
+Conversion from FLEX data and representation of it in own vocabulary
+
+Max: modelling of segmentation as in IGT
+
+  • 
+        Data includes stems, affixes, interlinear glosses, ordering of morphs
+        (especially discontinuous morphs like infixes)
+
+2) Christian: lexicography samples
+
+Splett: contains prefixes and suffixes as lexical entries
+
+Max:
+
+Contains: COMPLETE relations between lexical entries and not between forms
+
+Overlap between lexical entries and form
+
+Model derivation between lexemes and not forms
+
+Contains derivational affixes with its derivational meaning (discussing
+derivational meanings)
+
+Provide sources for different meaning assignments
+
+Would be nice to store the rules to generate the structure of the derived words
+(i.e. (p[((wS)sA)Vên]))
+
+Where and how to store this information: ‘sA - suffix, forming an Adjective’
+
+Samples for dictionary entries:
+
+Examples for further discussion
+
+3) James: Greek Morphological Lexicon Examples
+
+Has extensive data for morphological analysis for verbs
+
+Emphasis on stem formation
+
+5. Possible with MMoOn
+
+Modell historical information in stem formation or in general in morph module?
+→ John: that should go into a new diachronic module for OntoLex
+
+4) Bettina: Open Bantu Xhosa dataset
+
+  • 
+        Root and Prefix resources
+
+  • 
+        allomorph and homonym relations
+
+Discuss modelling semantic transparency
+
+Discuss modelling of relation between synchronic and historical data
+

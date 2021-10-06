@@ -1,0 +1,82 @@
+Participants:
+
+Bettina
+
+Julia
+
+Max
+
+Fahad
+
+James
+
+N6:
+
+Bettina: use ontolex:Form but add subproperty wordform
+
+James: in dictionaries the term “word-form” is not used, “other form” is
+sufficient
+
+Julia: canonical form includes a shorter stem but other form need a longer stem
+(Georgian)
+
+Bettina: for lexicographers ontolex modelling should be sufficient
+
+James: easy way to extract all wordforms of a lexical entry would be nice, at
+the moment one has to query all “otherForm” Forms plus the “canonicalForm” Form
+
+Bettina: property ontolex:lexicalForm is mmoon:hasWordform
+
+Fahad: just query by using superproperty ontolex:lexicalForm
+
+Fahad: a lexical entry/lemma/headword is not always a member of the paradigm
+
+Bettina: Result: 2c
+
+Provide usage recommendation and how to represent all wordforms of a lexical
+entry, also if the lexical entry is not one member of the wordforms in the
+paradigm (Julia: put that statement somewhere in the lexicography module (e.g.
+label of lexicog:Entry), because it is not a part of the morphology domain)
+
+Julia: refer to lexicography module here and combine it in the usage
+recommendation
+
+Bettina: also add to usage recommendation whether to stick to this naming of
+Form instances:
+
+:lex_child a ontolex:LexicalEntry ;
+ontolex:lexicalForm :form_child_singular, :form_child_plural .
+
+:form_child_singular a ontolex:Form ;
+ontolex:writtenRep "child"@en .
+
+:form_child_plural a ontolex:Form ;
+ontolex:writtenRep "children"@en .
+
+Or if they should better be written as they are: :form_children instead of
+:form_child_plural because if a form entails multiple grammatical meanings they
+might get very long
+
+N8 + N9:
+
+Julia: has not found this data explicitly in lexicographic data
+
+Bettina: maybe it is sufficient to just distinguish instances (via enummeration
+for example) and infer relations via same writtenRep or same meaning
+
+Bettina: Decision: 1, lexicographers would probably also not use “allomorph” or
+“homonymous morph” but “don’t confuse with” or something more specific
+
+James: is fine without the relations
+
+General issue: model phonological processes explicitly?
+
+James: prefers labeling the phonological process (Ablaut, inner modification
+ect.) instead of naming the particular phones involved; personal solution:
+collect all stems and interrelate them with the phonological process - would
+entail a list offering phonological processes
+
+Bettina: generating wordforms goes beyond just describing existing
+morphological data within lexical datasets/traditional dictionaries (data
+enrichment, generating additional data)
+

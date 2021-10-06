@@ -1,0 +1,265 @@
+Participants:
+
+Bettina
+
+Max
+
+Fahad
+
+Maria
+
+Fahad: approach we took to modelling Italian morphology using SWRL
+
+https://docs.google.com/presentation/d/
+1pHt8IG0ni5x9AkoPCsCCccRPEFIeObW7eR-PxY1JN7A/edit#slide=id.g226f12152c_0_4
+
+Christian and Max: Proposal for automatic generation of forms
+
+https://docs.google.com/document/d/1g6wcYKdPjgNvMrSrbVg44ja-i0OEtqqdgvG6AVIt_Hc
+/edit
+
+Finnish example
+
+Expected forms:
+
+Nom.SG: kissa
+
+Nom.PL: kissa-t
+
+Ine.SG: kissa-ssa
+
+Ine.PL: kisso-i-ssa
+
+<#kissa> a ontolex:Word ;
+
+ontolex:canonicalForm [ontolex:writtenRep "kissa"@fi];
+
+morph:inflectionType <#finnish_noun_type_kala> ;
+
+# the first category after the stem; the stem which works for a part of the
+forms
+
+morph:inflectionType <#finnish_noun_type_kala_oblique> .
+
+# the first category after the stem; the alternative stem which works only for
+a part of the forms
+
+# Inflection types
+
+# They are combined with the `:next` property.
+
+# This is actually quite usual for linguists: the same approach is used in the
+`lexc` formalism widely used in computational morphology (incl. xfst and foma)
+
+<#finnish_noun_type_kala> a morph:InflectionType ;
+
+a morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_number> ; # this means that there will be
+more grammatical categories
+
+<#finnish_noun_type_kala_oblique> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_number_oblique>
+
+morph:example "kisso"@fi ; # optional
+
+<#finnish_noun_type_kala_number> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_case>
+
+morph:example "kissa"@fi ; # optional
+
+<#finnish_noun_type_kala_number_oblique> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_case>
+
+morph:example "kissoissa"@fi ; # optional
+
+<#finnish_noun_type_9> a morph:Paradigm ;
+
+…
+
+.
+
+<#finnish_noun_type_kala_case> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:example "kissossa"@fi ; # optional
+
+<#finnish_noun_type_kala_nom> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala> ;
+
+lexinfo:case lexinfo:nominative ;
+
+morph:example "kissa"@fi ; # optional
+
+morph:replacement [morph:source "$", morph:target ""] . # we can actually
+create nodes for widely used replacements, like _no replacement_. Or just leave
+this empty
+
+<#finnish_noun_type_kala_sg> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_number> ;
+
+lexinfo:number lexinfo:singular ;
+
+morph:example "kissat"@fi ; # optional
+
+morph:replacement [morph:source "$", morph:target ""] .
+
+<#finnish_noun_type_kala_oblique> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala> ;
+
+morph:replacement [morph:source "a$", morph:target "o"] .
+
+<#finnish_noun_type_kala_ine> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_oblique> ;
+
+lexinfo:case lexinfo:inessive ; # it's a convenient example even though the
+inessive of a cat is weird a bit
+
+morph:example "kissassa"@fi ;
+
+morph:replacement [morph:source "$", morph:target "ssa"] .
+
+<#finnish_noun_type_kala_pl> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_number> ;
+
+lexinfo:number lexinfo:plural ;
+
+morph:example "kissat"@fi ; # optional
+
+morph:replacement [morph:source "$", morph:target "t"] ;
+
+<#finnish_noun_type_kala_pl_obl> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_number_oblique> ;
+
+lexinfo:number lexinfo:plural ;
+
+morph:example "kissaissa"@fi ; # optional
+
+morph:replacement [morph:source "$", morph:target "i"] ;
+
+Bettina:
+
+Two issues to be discussed after the summer break:
+
+ 1.
+        Make clear what kind of instance data goes into the three classes
+        :Paradigm, :InflectionType and :Rule. This is not so clear from looking
+        at the URI design of the example code above, e.g.:
+
+<#finnish_noun_type_kala_pl> a morph:Rule .
+
+<#finnish_noun_type_9> a morph:Paradigm .
+
+<#finnish_noun_type_kala_case> a morph:InflectionType .
+
+What is the difference between them? They look very similar to me here.
+
+ 2.
+        It would be great to either REUSE or CREATE morph:Morph instance data
+        with this modelling. E.g.:
+
+morph:replacement [morph:source "$", morph:target "ssa"]
+
+The string “ssa” should be either the representation of an existing
+morph:SuffixMorph instance or it should be created as one together with the
+morph:SuffixMorph instance. Even better would be to also arrive at statements
+decomposing the created ontolex:Form instances again, e.g.
+
+:kissasssa a ontolex:Form ;
+
+morph:consistsOf :stem_kissa , :suffix_ssa .
+
+Maria:
+
+About order of morphemes, take into account the behavior of pronominal verbs in
+romance languages wrt clitic position and concatenation.
+
+Some pro-drop languages have pronouns as inflectional attached affixes in the
+canonical form while in the inflected forms pronouns become clitics. Their
+position within the clitic cluster is fixed, but still there is not a clear
+relation between the order of the phrasal complements within a sentence and
+that of the clitics which represent the same complements.
+
+Below some examples in Italian.
+
+In Italian there are three different phenomena:
+
+ 1.
+        Reflexive and reciprocal verbs (a clitic marks the reflexive or
+        reciprocal construction, that is, the clitic plays the role of self in
+        English. Inflectional attached affix in the canonical form -> clitic in
+        some inflected forms)
+
+    1a. Pettinarsi (canonical form)
+
+    1b. Mi pettino (first person singular, present)
+
+This behavior is not regular and may change on the basis of tenses/moods (e.g.,
+1c. Pettinati - imperative)
+
+ 2.
+        Pronominal verbs (one or two affixes, direct and indirect objects, in
+        the canonical form -> particles may be partially or totally detached in
+        some inflected forms).
+
+    verb + [-ne]
+
+    verb + [-ci]
+
+    verb + [-la]
+
+    verb + [-si] + [la] → verb + [-sela]
+
+    verb + [-si] + [ne] → verb + [-sene]
+
+    verb + [-ci] + [la] → verb + [-cela]
+
+2a. Prendersela (canonical form)
+
+2b. Me la prendo (first person singular, present)
+
+2c. Prenditela (imperative)
+
+2d. Non te la prendere or Non prendertela (negative imperative)
+
+In pronominal verbs, when the first pronoun particle combines with a second
+one, the phonological shape changes. Thus, in the previous example si changes
+into se because it’s affected by the presence of other clitics starting with -l
+or -n.
+
+ 3.
+        Multiword pronominal verbs
+
+    Some pronominal verbs may be used in producing multiword units adding
+    adverbs, adjectives or nouns. These new verbs have different semantic
+    value.
+
+    3a. prendersela → prendersela + comoda (inflected form: se la prende
+    comoda)
+
+    3b. andarci → andarci + piano (inflected form: ci andava piano, vacci
+    piano)
+
+    3c. vederci → vederci + chiaro
+
+    In some cases, the multiword pronominal verb is derived from a simple verb,
+    which presents the particle pronoun as intensifier referring to the subject
+
+    3d. *dormirci (derived from dormire) -> dormirci + sopra
+

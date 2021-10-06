@@ -1,0 +1,713 @@
+Participants:
+
+Bettina
+
+Max
+
+Gulia
+
+Stefania
+
+Fahad
+
+ 1. Max: create SPARQL construct query that outputs the following kinds of
+    triples:
+
+Desired output triples:
+
+ 1.
+        [ ] a ontolex:Form
+
+ 2.
+        [ ] a morph:Morph
+
+ 3.
+        [ontolex:Form instance] morph:consistsOf [morph:Morph instance]
+
+ 4.
+        [morph:Morph instance] morph:grammaticalMeaning [lexinfo instance]
+
+2. Modelling draft for automatic generation process of ontolex:LexicalEntry and
+ontolex:Form instances
+
+input data output data
+
+[image1]
+
+3. Discussion of reverse applicability - Stefania data example
+
+Generating the inflection types and paradigms from existing non-segmented
+wordforms.
+
+Example: italian adjective abbondante:
+
+,pos,base,full,degree,gen,num
+
+0,adj,abbondante,abbondante,pos,f,s
+
+1,adj,abbondante,abbondante,pos,m,s
+
+2,adj,abbondante,abbondanti,pos,f,p
+
+3,adj,abbondante,abbondanti,pos,m,p
+
+4,adj,abbondante,abbondantissima,sup,f,s
+
+5,adj,abbondante,abbondantissime,sup,f,p
+
+6,adj,abbondante,abbondantissimi,sup,m,p
+
+7,adj,abbondante,abbondantissimo,sup,m,s
+
+:lex_abbondante a ontolex:LexicalEntry ;
+
+lexinfo:partOfSpeech lexinfo:adjective ;
+
+ontolex:canonicalForm :form_abbondante ;
+
+ontolex:otherForm :form_abbondante_pos_pl,
+
+:form_abbondante_sup_fem_pl,
+
+:form_abbondante_sup_fem_sg,
+
+:form_abbondante_sup_masc_pl,
+
+:form_abbondante_sup_masc_sg .
+
+:form_abbondante a ontolex:Form ;
+
+lexinfo:degree lexinfo:positive ;
+
+lexinfo:gender lexinfo:feminine,
+
+lexinfo:masculine ;
+
+lexinfo:number lexinfo:singular ;
+
+ontolex:writtenRep "abbondante"@it .
+
+:form_abbondante_pos_pl a ontolex:Form ;
+
+lexinfo:degree lexinfo:positive ;
+
+lexinfo:gender lexinfo:feminine,
+
+lexinfo:masculine ;
+
+lexinfo:number lexinfo:plural ;
+
+ontolex:writtenRep "abbondanti"@it .
+
+:form_abbondante_sup_fem_pl a ontolex:Form ;
+
+lexinfo:degree lexinfo:superlative ;
+
+lexinfo:gender lexinfo:feminine ;
+
+lexinfo:number lexinfo:plural ;
+
+ontolex:writtenRep "abbondantissime"@it .
+
+:form_abbondante_sup_fem_sg a ontolex:Form ;
+
+lexinfo:degree lexinfo:superlative ;
+
+lexinfo:gender lexinfo:feminine ;
+
+lexinfo:number lexinfo:singular ;
+
+ontolex:writtenRep "abbondantissima"@it .
+
+:form_abbondante_sup_masc_pl a ontolex:Form ;
+
+lexinfo:degree lexinfo:superlative ;
+
+lexinfo:gender lexinfo:masculine ;
+
+lexinfo:number lexinfo:plural ;
+
+ontolex:writtenRep "abbondantissimi"@it .
+
+:form_abbondante_sup_masc_sg a ontolex:Form ;
+
+lexinfo:degree lexinfo:superlative ;
+
+lexinfo:gender lexinfo:masculine ;
+
+lexinfo:number lexinfo:singular ;
+
+ontolex:writtenRep "abbondantissimo"@it .
+
+:lex_abbondante a ontolex:LexicalEntry ;
+
+lexinfo:partOfSpeech lexinfo:adjective ;
+
+ontolex:canonicalForm [ ontolex:writtenRep "abbondante"@it ] ;
+
+ontolex:MorphPattern :it-adj_002 .
+
+:it-adj_002 a ontolex:MorphPattern ;
+
+morph:transform [
+
+morph:rule "~/~"@it ;
+
+morph:generates [
+
+lexinfo:degree lexinfo:positive ;
+
+lexinfo:gender lexinfo:feminine,
+
+lexinfo:masculine ;
+
+lexinfo:number lexinfo:singular
+
+]
+
+] , [
+
+morph:rule "~e/~i"@it ;
+
+morph:generates [
+
+lexinfo:degree lexinfo:positive ;
+
+lexinfo:gender lexinfo:feminine,
+
+lexinfo:masculine ;
+
+lexinfo:number lexinfo:plural
+
+]
+
+] , [
+
+morph:rule "~e/~issima"@it ;
+
+morph:generates [
+
+lexinfo:degree lexinfo:superlative ;
+
+lexinfo:gender lexinfo:feminine ;
+
+lexinfo:number lexinfo:singular
+
+]
+
+] , [
+
+morph:rule "~e/~issime"@it ;
+
+morph:generates [
+
+lexinfo:degree lexinfo:superlative ;
+
+lexinfo:gender lexinfo:feminine ;
+
+lexinfo:number lexinfo:plural
+
+]
+
+] , [
+
+morph:rule "~e/~issimi"@it ;
+
+morph:generates [
+
+lexinfo:degree lexinfo:superlative ;
+
+lexinfo:gender lexinfo:masculine ;
+
+lexinfo:number lexinfo:plural
+
+]
+
+] , [
+
+morph:rule "~e/~issimo"@it ;
+
+morph:generates [
+
+lexinfo:degree lexinfo:superlative ;
+
+lexinfo:gender lexinfo:masculine ;
+
+lexinfo:number lexinfo:singular
+
+]
+
+] .
+
+Fahad’s SWRL modelling
+https://docs.google.com/presentation/d/
+1pHt8IG0ni5x9AkoPCsCCccRPEFIeObW7eR-PxY1JN7A/edit?usp=sharing&urp=gmail_link
+
+                 subject                     predicate           object
+          <#kissa_form_kissalle>              rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissalle>           www.w3.org/ns/       kissalle
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
+                                           lemon/ontolex# kissa_form_kissalle>
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_all_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+                                                          <https://www.w3.org/
+                    <#                        rdf:type     community/ontolex/
+finnish_noun_type_kala_assimilation_morph>                  wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissaksi>              rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissaksi>           www.w3.org/ns/       kissaksi
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
+                                           lemon/ontolex# kissa_form_kissaksi>
+                                             otherForm>
+                                                          <https://www.w3.org/
+  <#finnish_noun_type_kala_trans_morph>       rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+           <#kissa_form_kissan>               rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+           <#kissa_form_kissan>            www.w3.org/ns/        kissan
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/ <#kissa_form_kissan>
+                                           lemon/ontolex#
+                                             otherForm>
+                                                          <https://www.w3.org/
+  <#finnish_noun_type_kala_instr_morph>       rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissatta>              rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissatta>           www.w3.org/ns/       kissatta
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
+                                           lemon/ontolex# kissa_form_kissatta>
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_abe_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissalla>              rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissalla>           www.w3.org/ns/       kissalla
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
+                                           lemon/ontolex# kissa_form_kissalla>
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_ade_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissana>               rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissana>            www.w3.org/ns/        kissana
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/ <#kissa_form_kissana>
+                                           lemon/ontolex#
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_ess_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_gen_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissassa>              rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissassa>           www.w3.org/ns/       kissassa
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
+                                           lemon/ontolex# kissa_form_kissassa>
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_ine_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissalta>              rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissalta>           www.w3.org/ns/       kissalta
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
+                                           lemon/ontolex# kissa_form_kissalta>
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_abl_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+           <#kissa_form_kissa>                rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+           <#kissa_form_kissa>             www.w3.org/ns/         kissa
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/  <#kissa_form_kissa>
+                                           lemon/ontolex#
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_nom_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissaan>               rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissaan>            www.w3.org/ns/        kissaan
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/ <#kissa_form_kissaan>
+                                           lemon/ontolex#
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_ill_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissasta>              rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+          <#kissa_form_kissasta>           www.w3.org/ns/       kissasta
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
+                                           lemon/ontolex# kissa_form_kissasta>
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_ela_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+         <#kissa_form_kissaneen>              rdf:type    <http://www.w3.org/ns
+                                                          /lemon/ontolex#Form>
+                                              <http://
+         <#kissa_form_kissaneen>           www.w3.org/ns/       kissaneen
+                                           lemon/ontolex#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
+                                           lemon/ontolex# kissa_form_kissaneen>
+                                             otherForm>
+                                                          <https://www.w3.org/
+   <#finnish_noun_type_kala_comi_morph>       rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+
+prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#>
+
+prefix morph: <https://www.w3.org/community/ontolex/wiki/Morphology#>
+
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+#select ?w_end ?form
+
+construct
+
+{
+
+#?w ontolex:otherForm ?form .
+
+?form a ontolex:Form ;
+
+ontolex:writtenRep ?w_end .
+
+?w ontolex:otherForm ?form .
+
+?morphI a morph:Morph .
+
+?morphJ a morph:Morph .
+
+?morphEnd a morph:Morph .
+
+}
+
+where {
+
+# start with an ontolex:Word
+
+?w a ontolex:Word ;
+
+morph:inflects ?begin ;
+
+ontolex:canonicalForm/ontolex:writtenRep ?w_begin .
+
+?begin morph:next* ?midI .
+
+FILTER NOT EXISTS { [] morph:next ?begin }
+
+{
+
+?rule_I morph:inflectionType ?midI ;
+
+morph:replacement ?repl_I .
+
+?repl_I morph:source ?s_I ;
+
+morph:target ?t_I .
+
+}
+
+BIND(REPLACE(?w_begin, ?s_I, ?t_I) as ?w_midI)
+
+BIND (URI(concat(STR(?rule_I), "_morph")) as ?morphI)
+
+# go to next slot
+
+?midI morph:next ?midJ .
+
+{
+
+?rule_J morph:inflectionType ?midJ ;
+
+morph:replacement ?repl_J .
+
+?repl_J morph:source ?s_J ;
+
+morph:target ?t_J .
+
+}
+
+BIND(REPLACE(?w_midI, ?s_J, ?t_J) as ?w_midJ)
+
+BIND (URI(concat(STR(?rule_J), "_morph")) as ?morphJ)
+
+# get to the end of the path
+
+?midJ morph:next* ?end .
+
+FILTER NOT EXISTS { ?end morph:next [] }
+
+{
+
+?rule_end morph:inflectionType ?end ;
+
+morph:replacement ?repl_end .
+
+?repl_end morph:source ?s_end ;
+
+morph:target ?t_end .
+
+}
+
+BIND(REPLACE(?w_midJ, ?s_end, ?t_end) as ?w_end)
+
+BIND (URI(concat(STR(?rule_end), "_morph")) as ?morphEnd)
+
+BIND (URI(concat(STR(?w), concat("_form_", ?w_end))) as ?form)
+
+}
+
+order by ?start ?end
+
+@prefix : <file:///Users/max/Projects/LiODi/Ontolex-morph/
+dataset-generation-example.ttl#> .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+
+@prefix morph: <https://www.w3.org/community/ontolex/wiki/Morphology#> .
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<#kissa> a ontolex:Word ;
+
+ontolex:canonicalForm [ontolex:writtenRep "kissa"@fi];
+
+morph:inflects <#finnish_noun_type_kala> .
+
+<#finnish_noun_type_kala> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_number_direct> ; # this means that there
+will be more "slots" for grammatical categories
+
+morph:next <#finnish_noun_type_kala_number_oblique> .
+
+<#finnish_noun_type_kala_number_direct> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_case_direct> ;
+
+morph:example "kissa"@fi .
+
+<#finnish_noun_type_kala_number_oblique> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_case_oblique> ;
+
+morph:example "kissoi-"@fi .
+
+<#finnish_noun_type_kala_case_direct> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_post> ;
+
+morph:example "kissassa"@fi .
+
+<#finnish_noun_type_kala_case_oblique> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:next <#finnish_noun_type_kala_post> ;
+
+morph:example "kissoissa"@fi .
+
+<#finnish_noun_type_kala_post> a morph:InflectionType ;
+
+morph:paradigm <#finnish_noun_type_9> ;
+
+morph:example "kissojen"@fi .
+
+# *** CASES ***
+
+<#finnish_noun_type_kala_nom> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_direct> ;
+
+lexinfo:case lexinfo:nominative ;
+
+morph:example "kissa"@fi ; # optional
+
+morph:replacement [morph:source "$"; morph:target ""] . # we can actually
+create nodes for widely used replacements, like _no replacement_. Or just leave
+this empty
+
+<#finnish_noun_type_kala_gen> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:nominative ;
+
+morph:example "kissa"@fi ; # optional
+
+morph:replacement [morph:source "$"; morph:target "n"] .
+
+<#finnish_noun_type_kala_part> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:partitive ;
+
+morph:example "kissaa"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "a"] .
+
+<#finnish_noun_type_kala_ine> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:inessive ;
+
+morph:example "kissassa"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "ssa"] .
+
+<#finnish_noun_type_kala_ela> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:inessive ;
+
+morph:example "kissasta"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "sta"] .
+
+<#finnish_noun_type_kala_ill> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:illative ;
+
+morph:example "kissaan"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "an"] .
+
+<#finnish_noun_type_kala_ade> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:adessive ;
+
+morph:example "kissalla"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "lla"] .
+
+<#finnish_noun_type_kala_abl> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:ablative ;
+
+morph:example "kissalta"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "lta"] .
+
+<#finnish_noun_type_kala_all> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:allative ;
+
+morph:example "kissalle"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "lle"] .
+
+<#finnish_noun_type_kala_ess> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:essive ;
+
+morph:example "kissana"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "na"] .
+
+<#finnish_noun_type_kala_trans> a morph:Rule ;
+
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+
+lexinfo:case lexinfo:translative ;
+
+morph:example "kissaksi"@fi ;
+
+morph:replacement [morph:source "$"; morph:target "ksi"] .
+
