@@ -6,19 +6,17 @@ second level (and further even levels): properties
 for a given property, the last element with lower indent is the domain
 the next element(s) with larger indent are the range
 
-MorphTransform sub LemonElement
-  nextTransform
-    MorphTransform
-  rule
-    xsd:string
-  generates sub [ rule min 1 ]
-    Prototype sub LemonElement
-
 HasPattern sub LemonElement
   pattern
     MorphPattern sub LemonElement, HasLanguage
       transform
-        MorphTransform
+        MorphTransform sub LemonElement
+          nextTransform
+            MorphTransform
+          rule
+            xsd:string
+          generates sub [ rule min 1 ]
+            Prototype sub LemonElement
 
 HasLanguage sub LemonElement
   language
