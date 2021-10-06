@@ -1,0 +1,28 @@
+LIAM (reconstructed from https://github.com/jmccrae/lemon-model.net/blob/master/resources/lemon.rdf)
+
+indentation means domain and range
+first level (and further odd levels): classes
+second level (and further even levels): properties
+for a given property, the last element with lower indent is the domain
+the next element(s) with larger indent are the range
+
+MorphTransform sub LemonElement
+  nextTransform
+    MorphTransform
+  rule
+    xsd:string
+  generates sub [ rule min 1 ]
+    Prototype sub LemonElement
+
+HasPattern sub LemonElement
+  pattern
+    MorphPattern sub LemonElement, HasLanguage
+      transform
+        MorphTransform
+
+HasLanguage sub LemonElement
+  language
+    xsd:string
+
+LexicalEntry sub HasPattern, HasLanguage
+Lexicon sub HasPattern, HasLanguage
