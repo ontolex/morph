@@ -6,8 +6,15 @@
 # configure rclone: https://wiki.linuxquestions.org/wiki/Rsync_with_Google_Drive
 # default: use "drive" as name of the rclone remote
 
-# retrieve GDoc content
-rclone sync "drive:/OntoLex Telco Minutes" minutes/
+#
+# of course, all of this requires the data to be shared with you ;)
+#
+
+# retrieve sample data
+rclone sync "drive:/OntoLex Morph Vocabulary Test Data/" data/gdrive --drive-shared-with-me
+
+# retrieve GDoc content: minutes
+rclone sync "drive:/OntoLex Telco Minutes" minutes/ --drive-shared-with-me
 
 # export to text format to facilitate search
 # requires pandoc and w3m
