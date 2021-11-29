@@ -1,0 +1,160 @@
+@prefix : <file:///Users/max/Projects/LiODi/Ontolex-morph/dataset-generation-example.ttl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix morph: <https://www.w3.org/community/ontolex/wiki/Morphology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Do we need this?
+# morph:GramRule rdfs:subClassOf morph:Rule .
+
+<#kissa>    a ontolex:Word ;
+            ontolex:canonicalForm [ontolex:writtenRep "kissa"@fi];
+            morph:inflects <#finnish_noun_type_kala> .
+
+
+<#finnish_noun_type_kala> a morph:InflectionType ;
+                          morph:paradigm <#finnish_noun_type_9> ;
+                          morph:next <#finnish_noun_type_kala_number_direct> ; # this means that there will be more "slots" for grammatical categories
+                          morph:next <#finnish_noun_type_kala_number_oblique> .
+
+<#finnish_noun_type_kala_number_direct> a morph:InflectionType ;
+                               morph:paradigm <#finnish_noun_type_9> ;
+                               morph:next <#finnish_noun_type_kala_case_direct> ;
+                               morph:example "kissa"@fi .
+                               
+<#finnish_noun_type_kala_number_oblique> a morph:InflectionType ;
+                               morph:paradigm <#finnish_noun_type_9> ;
+                               morph:next <#finnish_noun_type_kala_case_oblique> ;
+                               morph:example "kissoi-"@fi .
+
+<#finnish_noun_type_kala_case_direct> a morph:InflectionType ;
+                                 morph:paradigm <#finnish_noun_type_9> ;
+                                 morph:next <#finnish_noun_type_kala_post> ;
+                                 morph:example "kissassa"@fi .
+
+<#finnish_noun_type_kala_case_oblique> a morph:InflectionType ;
+                                 morph:paradigm <#finnish_noun_type_9> ;
+                                 morph:next <#finnish_noun_type_kala_post> ;
+                                 morph:example "kissoissa"@fi .
+
+<#finnish_noun_type_kala_post> a morph:InflectionType ;
+                                 morph:paradigm <#finnish_noun_type_9> ;
+                                 morph:example "kissojen"@fi .
+
+# *** CASES ***
+
+<#finnish_noun_type_kala_nom> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_direct> ;
+lexinfo:case lexinfo:nominative ;
+morph:example "kissa"@fi ; # optional
+morph:replacement [morph:source "$"; morph:target ""] . # we can actually create nodes for widely used replacements, like _no replacement_. Or just leave this empty
+
+<#finnish_noun_type_kala_gen> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:nominative ;
+morph:example "kissa"@fi ; # optional
+morph:replacement [morph:source "$"; morph:target "n"] .
+
+<#finnish_noun_type_kala_part> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:partitive ;
+morph:example "kissaa"@fi ;
+morph:replacement [morph:source "$"; morph:target "a"] .
+
+<#finnish_noun_type_kala_ine> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:inessive ;
+morph:example "kissassa"@fi ;
+morph:replacement [morph:source "$"; morph:target "ssa"] .
+
+<#finnish_noun_type_kala_ela> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:inessive ;
+morph:example "kissasta"@fi ;
+morph:replacement [morph:source "$"; morph:target "sta"] .
+
+<#finnish_noun_type_kala_ill> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:illative ;
+morph:example "kissaan"@fi ;
+morph:replacement [morph:source "$"; morph:target "an"] .
+
+<#finnish_noun_type_kala_ade> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:adessive ;
+morph:example "kissalla"@fi ;
+morph:replacement [morph:source "$"; morph:target "lla"] .
+
+<#finnish_noun_type_kala_abl> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:ablative ;
+morph:example "kissalta"@fi ;
+morph:replacement [morph:source "$"; morph:target "lta"] .
+
+<#finnish_noun_type_kala_all> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:allative ;
+morph:example "kissalle"@fi ;
+morph:replacement [morph:source "$"; morph:target "lle"] .
+
+<#finnish_noun_type_kala_ess> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:essive ;
+morph:example "kissana"@fi ;
+morph:replacement [morph:source "$"; morph:target "na"] .
+
+<#finnish_noun_type_kala_trans> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:translative ;
+morph:example "kissaksi"@fi ;
+morph:replacement [morph:source "$"; morph:target "ksi"] .
+
+<#finnish_noun_type_kala_instr> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:instructive ;
+morph:example "kissoin"@fi ;
+morph:replacement [morph:source "$"; morph:target "n"] .
+
+<#finnish_noun_type_kala_abe> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:abessive ;
+morph:example "kissatta"@fi ;
+morph:replacement [morph:source "$"; morph:target "tta"] .
+
+<#finnish_noun_type_kala_comi> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_case_oblique> ;
+lexinfo:case lexinfo:comitative ;
+morph:example "kissoineen"@fi ;
+morph:replacement [morph:source "$"; morph:target "neen"] .
+
+# *** STEM TRANSFORMATIONS ***
+
+<#finnish_noun_type_kala_case_oblique> a morph:Rule ;
+                                  morph:inflectionType <#finnish_noun_type_kala_oblique> ;
+                                  morph:replacement [morph:source "a$"; morph:target "o"] .
+
+<#finnish_noun_type_kala_assimilation> a morph:Rule ;
+                                       morph:inflectionType <#finnish_noun_type_kala_post> ;
+                                       morph:replacement [morph:source "oi([ae])"; morph:target "oj\1"] .
+
+# *** NUMBER ***
+
+<#finnish_noun_type_kala_sg> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_number_direct> ;
+lexinfo:number lexinfo:singular ;
+morph:example "kissassa"@fi ; # optional
+morph:replacement [morph:source "$"; morph:target ""] .
+
+<#finnish_noun_type_kala_pl> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_number_direct> ;
+lexinfo:number lexinfo:plural ;
+morph:example "kissat"@fi ;
+morph:replacement [morph:source "$"; morph:target "t"] .
+
+<#finnish_noun_type_kala_pl_obl> a morph:Rule ;
+morph:inflectionType <#finnish_noun_type_kala_number_oblique> ;
+lexinfo:number lexinfo:plural ;
+morph:example "kissaissa"@fi ;
+morph:replacement [morph:source "$"; morph:target "i"] .
+
