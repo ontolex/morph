@@ -1,0 +1,3 @@
+[submodule "related/MMoOn"]
+	path = related/MMoOn
+	url = https://github.com/MMoOn-Project/MMoOn
