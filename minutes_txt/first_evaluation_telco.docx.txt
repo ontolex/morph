@@ -1,0 +1,73 @@
+In this documents content is collected that will be addressed in the first
+telco dealing with the evaluation of the representation needs (rename this
+document with the respective telco date and use it as minutes):
+
+From telco 23.6.2021
+
+Initial discussion of Stefania’s Latin word form generation example data
+
+Stefania’s example to apply the vocabulary for generating ontolex:Form
+resources:
+
+WordNet Latin Lexicon:
+
+,base,forms,uri,pos,number,gender,case,group,stem,degree
+
+25,abdicatio,abdication,a0031,noun,singular,feminine,nominative,3,,
+
+GitHub - latinwordnet/latinwordnet-archive: Repository for archived Latin
+WordNet data
+
+Italian example:
+
+abbracci abbraccio noun gen=m num=p
+
+abbraccio abbraccio noun gen=m num=s
+
+:lex_abbraccio a ontolex:LexicalEntry ;
+
+lexinfo:gender lexinfo:masculine ;
+
+lexinfo:partOfSpeech lexinfo:noun ;
+
+ontolex:canonicalForm [ ontolex:writtenRep "abbraccio"@it ] ;
+
+ontolex:morphologicalPattern :it-noun_002 .
+
+:it-noun_002 a morph:subParadigm ;
+
+morph:paradigm :it-noun .
+
+:it-noun_002_pl a morph:rule ;
+
+morph:inflectsFor [ lexinfo:number lexinfo:plural ] ;
+
+morph:replacement [ morph:source "o$" ;
+
+morph:target "" ] ;
+
+morph:subParadigm :it-noun_002 .
+
+:it-noun_002_sg a morph:rule ;
+
+morph:inflectsFor [ lexinfo:number lexinfo:singular ] ;
+
+morph:replacement [ morph:source "$" ] ;
+
+morph:subParadigm :it-noun_002 .
+
+Main issue that arised:
+
+What kind of data is processed by the morph:Rule? As it is now, only strings
+are processed but these are not interconnected to their respective morph:Morph
+resources.
+
+That means that in Stefania’s Latin example the resource :form_abdicatio_root
+has to be discussed for its morphological status (is it really a root, then it
+should be a morph:RootMorph or is it an ontolex:Form resource, then the “root”
+should be excluded from the URI)
+
+Is it possible to integrate the written representation strings of morph:Morph
+resources into the morph:Rule and provide this option in addition to using
+unrelated strings of the morphs an ontolex:Form consists of?
+

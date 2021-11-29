@@ -1,0 +1,188 @@
+Participants:
+
+Bettina
+
+Julia
+
+Max
+
+Jorge
+
+Lupe
+
+Agenda:
+
+1) Summary of morphology module start at OntoLex face2face meeting.
+
+  • 
+        Overall positive take up of the MMoOn Core ontology.
+
+  • 
+        Specific questions about the function and representation of the
+        meanings of morph occured.
+
+  • 
+        Everybody seems to have different needs or purposes for the morphology
+        module.
+
+2) Overview of main questions/demands/issues so far.
+
+Content:
+
+  • 
+        What? morphs and morphemes or only morphs
+
+  • 
+        Where? position/order of morphs in lexical entry or word form
+
+  • 
+        How? addition, internal modification, infixation
+
+  • 
+        Different notion of ‘sense’ required (different from
+        ontolex:LexicalSense)?
+
+→ What kind of morphological data exists and in what format?
+
+Modelling:
+
+  • 
+        Domain delimitation: how to avoid overlap to decomp and ontolex module?
+
+  • 
+        How should paradigms be represented?
+
+  • 
+        To what extent will MMoOn be reusable for the OntoLex morphology
+        module?
+
+    → MMoOn vocabulary aligned with module (only different namespace)
+
+    → new vocabulary aligned with MMoOn
+
+    → new vocabulary different from MMoOn (no reuse)
+
+  • 
+        Enable representation of more than 1 segmentation analysis of a lexical
+        entry or word form (Max)
+
+  • 
+        To what extent shall intensional modelling be usable?
+
+3) Discussing the content and purpose(s) of this module.
+
+→ What is the main purpose of the OntoLex morphology module (morph. data in
+dictionaries)?
+
+Goals as defined here: https://www.w3.org/community/ontolex/wiki/Morphology
+
+Many dictionaries contain information about the morphology, this is typically
+given relative to the lemma, e..g., (from "Langenscheidt Taschenwörterbuch
+Deutsch als Fremdsprache")
+
+  • 
+        Bedingung die; -, -en
+
+  • 
+        Bedürfnis das; -ses, -se
+
+  • 
+        Beitrag der; -(e)s, Beiträge
+
+Note the does not cover all forms of the German noun, e.g., "Bedürfnissen",
+"Beiträgen"
+
+It should be possible to model this information with two conditions:
+
+ 1.
+        It is not necessary to materialize all forms of the word, instead only
+        the relevant stems and minimal set of inflected forms or inflectional
+        morphemes
+
+ 2.
+        It is possible to generate any form in a programmatic manner
+
+-----------------------------------------------------------------------------------------------
+
+Minutes:
+
+Julia:
+
+Assumed that module should be glue between mmoon and ontolex
+
+Would like Bettina to create reduced version of mmoon as starting point
+
+Max:
+
+Still issues and examples that need to be taken into account in modelling
+
+Have flex and toolbox data - share it please
+
+Jorge:
+
+Collect representation needs that justifies adding this module
+
+MMoOn very large and complex - try to produce minimal modules covering the
+maximum
+
+Julia: are issues in Wiki issues found in dictionaries (contradiction to issues
+listed afterwards)?
+
+At which linguistic levels do these issues generally occur (lexical, syntactic
+level)?
+
+Max: yes in arabic dictionaries word-forms are listed as well
+
+Bettina: narrow scope to lexicographic needs or open widen scope to grammatical
+and morphological analysis?
+
+Max: against wide scope. Just representation of morphemes in relation to
+lexical entries, don’t represent meanings of morphemes in the module rather
+point to sense outside of module
+
+--------------------------------------------------------------------------------------------------------
+
+Procedure for creating the Morphology Module:
+
+ 1.
+        Preparation phase:
+
+Define the purpose and scope of the module by creating a showcase example for
+what should be the mandatorily expressible.
+
+ a.
+        Collect examples illustrating representation needs.
+
+ b.
+        Decide which elements and features are mandatory and which can be
+        solved by proposing usage notes (usage guideline) involving external
+        vocabularies.
+
+ c.
+        Create showcase example for morphology module with mandatory elements
+        and features.
+
+ 2.
+        Non-technical modelling phase:
+
+Model the example independently from existing vocabularies.
+
+ a.
+        Create first suggestion modelling.
+
+ b.
+        Research which vocabularies already express parts of the modelling.
+
+ c.
+        Find out which elements and features are not expressible yet and would
+        be unique and new to the morphology module.
+
+ 3.
+        Technical modelling phase:
+
+Develop modelling of morphology module according to showcase example.
+
+a. Decide on name and prefix for module
+
+b. Define classes, relations and axioms
+

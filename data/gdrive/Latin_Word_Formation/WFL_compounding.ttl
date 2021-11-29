@@ -1,0 +1,58 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lila: <http://lila-erc.eu/ontologies/lila/> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix morph: <https://www.w3.org/community/ontolex/wiki/Morphology#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix wfl_lexicon: <http://lila-erc.eu/data/lexicalResources/WFL/id/LexicalEntry/> .
+@prefix wfl_rel: <http://lila-erc.eu/data/lexicalResources/WFL/id/relations/> .
+@prefix wfl_rule: <http://lila-erc.eu/data/lexicalResources/WFL/rules/> .
+@prefix wfl: <http://lila-erc.eu/ontologies/lila/wfl/> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lila_lemma_bank: <http://lila-erc.eu/data/id/lemma/> .
+@prefix lila_pref: <http://lila-erc.eu/data/id/prefix/> .
+@prefix lila_suff: <http://lila-erc.eu/data/id/suffix/> .
+@prefix wfl_compounding: <http://lila-erc.eu/ontologies/lila/wfl/CompoundingRule/> .
+@prefix wfl_conversion: <http://lila-erc.eu/ontologies/lila/wfl/Conversion/> .
+@prefix wfl_prefixation: <http://lila-erc.eu/ontologies/lila/wfl/Prefixation/> .
+@prefix wfl_suffixation: <http://lila-erc.eu/ontologies/lila/wfl/Suffixation/> .
+
+wfl_lexicon:li_88140 a ontolex:LexicalEntry ;
+    rdfs:label "ago" ;
+    ontolex:canonicalForm lila_lemma_bank:88140 .
+
+wfl_lexicon:li_117499 a ontolex:LexicalEntry ;
+    rdfs:label "pes" ;
+    ontolex:canonicalForm lila_lemma_bank:117499 .
+
+wfl_lexicon:li_88097 a ontolex:LexicalEntry ;
+    rdfs:label "agipes" ;
+    ontolex:canonicalForm lila_lemma_bank:88097 .
+
+wfl_rel:r1137_li_88140_li_88097 a morph:WordFormationRelation ;
+    wfl:hasWordFormationRule wfl_rule:Compounding_li_88140_li_117499_To_li_88097 ;
+    wfl:positionInWFR 1 ;
+    rdfs:label "Relation between ago and agipes" ;
+    vartrans:source wfl_lexicon:li_88140 ;
+    vartrans:target wfl_lexicon:li_88097 .
+
+wfl_rel:r1137_li_117499_li_88097 a morph:WordFormationRelation ;
+    wfl:hasWordFormationRule wfl_rule:Compounding_li_88140_li_117499_To_li_88097 ;
+    wfl:positionInWFR 2 ;
+    rdfs:label "Relation between pes and agipes" ;
+    vartrans:source wfl_lexicon:li_117499 ;
+    vartrans:target wfl_lexicon:li_88097 .
+
+wfl_rule:Compounding_li_88140_li_117499_To_li_88097 a wfl_compounding:VerbPlusNounToAdjective;
+    rdfs:label "ago Plus pes To agipes" ;
+    wfl:has_pos_input lexinfo:VerbPOS ;
+    wfl:has_pos_input lexinfo:NounPOS ;
+    wfl:has_pos_output lexinfo:AdjectivePOS .
+
+
+wfl_compounding:VerbPlusNounToAdjective rdfs:subClassOf wfl:CompoundingRule .
+
+wfl:CompoundingRule rdfs:subClassOf wfl:WFLRule .
+
+wfl:WFLRule rdfs:subClassOf morph:WordFormationRule .

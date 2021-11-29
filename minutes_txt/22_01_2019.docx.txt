@@ -1,0 +1,42 @@
+Participants:
+
+Bettina
+
+Max
+
+John
+
+John: under purpose: we are at the intersection of the two. Go from traditional
+dictionaries up to the computational more structural lexical datasets.
+
+  • 
+        Description and generative aspects should be achieved with this module.
+        They are mirrors of each other. For every element there will be an
+        abstract version of it. A form will be composed of morphs. And then a
+        form pattern will be composed by morph patterns. Morph pattern is
+        composed of concrete morphs or of abstract morphs, which are slots
+        (like the stems). As in N7: suffixes are concrete morphs and all noun
+        stems that can be formed with these are the abstract stem slots, see
+        structure proposal https://www.w3.org/community/ontolex/wiki/
+        File:Morphology_structure_proposal.jpg
+
+N7: paradigm has a URL which will have a label
+
+N2: how do you represent a simulfix - need computational definitions
+
+Bettina: would lexicographers use it, if they have another term
+
+Discuss again root and stem as mandatory subclasses of Morph
+
+John: would prefer root and stem as separate class and not as subclass of Morph
+
+Max: there are languages with several important stem-forms (i.e. french -ir,
+-er verbs) where twoo different stems consist of the same root but different
+affixes → todo add examples
+
+N3:
+
+Bettina: decided to chose option 2a as a decision
+
+John: collect more concrete RDF examples
+

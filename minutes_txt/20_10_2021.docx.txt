@@ -1,0 +1,94 @@
+Participants:
+
+Bettina Klimek (BK)
+
+Katerina Gkirtzou (KG)
+
+John McCrae (JM)
+
+Matteo Pellegrini
+
+Christian Chiarcos CC
+
+ 1.
+        Module draft 4.5
+
+[image2]
+
+Included adaptations:
+
+  • 
+        renamed object property morph:hasParadigm to morph:paradigm
+
+  • 
+        renamed object property morph:hasInflection to morph:inflectionType
+
+  • 
+        renamed object property morph:generates between morph:InflectionRule
+        and ontolex:Form to morph:inflects and changed the range to morph:Morph
+
+  • 
+        removed the ex:1 restriction on morph:generates
+
+Adaptations of module draft 4.5 to be included for next telco:
+
+  • 
+        CC: note that we also need a corresponding rule to morph for derivation
+        relation and compound relation (that is, unless we permit Morph as
+        subject of vartrans:source and take multiple sources)
+
+      □ 
+            BK: proposal: remove morph:generates between
+            morph:WordFormationRule and ontolex:LexicalEntry (because it seems
+            to me as if it tries to represent the creation of the blank blank
+            node that contains the combination of the derivation/compound
+            elements while the resulting ontolex:LexicalEntry resource is then
+            the product of what is specified in this blank node) and instead
+            create the object property morph:contains (for example) between
+            morph:WordFormationRelation and morph:Morph
+
+General scope of the morph module vocabulary:
+
+BK proposal:
+
+  • 
+        include vocabulary that describes static morphological data
+
+  • 
+        exclude vocabulary or modeling elements that are involved in the
+        dynamic process of generating new (static) morphological data, e.g.
+        blank nodes and/or object properties that can be misunderstood as
+        “creating” or “generating” new resources and statements - instead
+        represent morphological data generation processes with workflow
+        diagrams
+
+      □ 
+            MI: use different namespace for data generation processes
+
+      □ 
+            MI: in favour of 2 separate diagrams - one for static data
+            representation and one for generation process representation
+
+      □ 
+            JC: in favour of releasing one diagram containing everything
+
+      □ 
+            CC: execution of rules is out of scope of the model but the
+            definition of rules should be contained
+
+ 2.
+        LIAM Model
+
+[image4]
+
+[image1]
+
+[image3]
+
+:MorphPattern → morph:InflectionType, morph:WordformationRelation
+
+:MorphTransform → morph:InflectionRule, morph:WordFormationRule
+
+:Prototype → blank node resulting from application of morph:InflectionRule and
+morph:WordFormationRule
+

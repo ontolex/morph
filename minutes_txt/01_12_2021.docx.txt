@@ -1,0 +1,144 @@
+Participants:
+
+Bettina Klimek (BK)
+
+ 1.
+        Module draft 4.7
+
+[image1]
+
+Adaptations of module draft 4.7 to be included for next telco:
+
+  • 
+        MorphValue is removed and lexinfo:TermElement (includes instances
+        lexinfo:inflectionElement) with property lexinfo:termElement used
+        instead
+
+  • 
+        remove morph:DerivationRelation (CC in favor of eliminating the
+        redundancy between DerivationRelation subclasses and DerivationRule
+        (would make diagram more readable) because the difference between
+        morph:DerivationRelation and morph:DerivationRule can be expressed in
+        morph:DerivationRule alone
+
+  • 
+        other proposed changes:
+
+      □ 
+            merge ontolex:LexicalEntry and ontolex:Affix subclasses, turning
+            ontolex:Affix and morph:Non-Affix subclasses of morph:Morph and
+            sort the morph affix subclasses under ontolex:Affix
+
+      □ 
+            composition with more than 2 elements resolved by CC by using
+            morph:CompositionalRelation and the decomp vocabulary
+
+      □ 
+            example (after call):
+
+          ☆ 
+                Blutspendezentrale Blut spenden Zentrale “blood donation
+                center” (GermaNet: https://www.sfs.uni-tuebingen.de/GermaNet/
+                documents/compounds/split_compounds_from_GermaNet16.0.txt)
+
+    <entry#Blutspendezentrale>
+
+    decomp:subterm <entry#Zentrale> ;
+
+    decomp:subterm <entry#spenden> ;
+
+    decomp:subterm <entry#Blut> ;
+
+    rdf:type ontolex:LexicalEntry ;
+
+    ontolex:canonicalForm <form#Blutspendezentrale> .
+
+    <form#Blutspendezentrale>
+
+    rdf:type ontolex:Form ;
+
+    ontolex:writtenRep "Blutspendezentrale" .
+
+    <entry#Blut> rdf:type ontolex:LexicalEntry ;
+
+    ontolex:canonicalForm <form#Blut> .
+
+    <form#Blut> rdf:type ontolex:Form ;
+
+    ontolex:writtenRep "Blut" .
+
+    <entry#spenden> rdf:type ontolex:LexicalEntry ;
+
+    ontolex:canonicalForm <form#spenden> .
+
+    <form#spenden> rdf:type ontolex:Form ;
+
+    ontolex:writtenRep "spenden" .
+
+    <entry#Zentrale> rdf:type ontolex:LexicalEntry ;
+
+    ontolex:canonicalForm <form#Zentrale> .
+
+    <form#Zentrale> rdf:type ontolex:Form ;
+
+    ontolex:writtenRep "Zentrale" .
+
+    <rule#0> morph:generates <entry#Blutspendezentrale> ;
+
+    morph:example "Blut + spenden > Zentrale" .
+
+    # currently, we only create a rule if there is an interfix involved
+
+    [] rdf:type morph:CompoundRelation;
+
+    vartrans:source <entry#Zentrale>;
+
+    vartrans:target <entry#Blutspendezentrale>.q
+
+ 1.
+        ontolex:Form generation workflow diagram
+
+  • 
+        for the process of creating the finnish example data generating:
+
+      □ 
+            ontolex:Form resources
+
+      □ 
+            ontolex:Morph resources
+
+      □ 
+            ontolex:LexicalEntry resources
+
+      □ 
+            triples: ontolex:LexicalEntry ontolex:lexicalForm ontolex:Form
+
+      □ 
+            triples: ontolex:Form morph:consistsOf morph:Morph
+
+[image2]
+
+  • 
+        BK: can we modify this diagram to include ontolex:LexicalEntry
+        wordformation by compounding and derivation as well?
+
+Todo for today:
+
+BK: look into lexinfo to be reused for MorphValue (CC: we can say
+"lexinfo:termElement lexinfo:inflectionElement", so MorphValue is not
+necessary) + create module diagram draft 4.7
+
+Matteo: reports about representing compounds in Lila with more than 2
+components
+
+Penny: shares Greek inflectional data example based on morph module vocabulary
+
+topics for the next telco:
+
+  • 
+        representing ordering
+
+  • 
+        creating a property to express <morph#dNV09%3E>
+        morph:PLEASE_GIVE_ME_A_NAME_FOR_CONSTRAINTS "Nn"
+

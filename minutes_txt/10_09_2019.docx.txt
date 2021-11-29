@@ -1,0 +1,67 @@
+Participants:
+
+Bettina
+
+Max
+
+Fahad
+
+Maria
+
+Form Generation
+
+Initial idea:
+
+[image2]
+
+Reversed:
+
+[image3]
+
+[image5]
+
+Ontolex connection:
+
+[image4]
+
+Connection to Morph
+
+[image1]
+
+Problems (?):
+
+ 1.
+        Recursive forms
+
+ 2.
+        Detachable affixes (clitics)
+
+ 3.
+        ???
+
+Bettina notes:
+
+  • 
+        morph:MorphologicalPattern replaced with max:Paradigm (different naming
+        but the same)
+
+  • 
+        morph:InflectionalParadigm replaced with max:InflectionType
+
+  • 
+        Proposal works for derivation and inflection, question: double the
+        vocab for inflection and derivation or choose a new more neutral (and
+        maybe more technical) vocabulary that covers both processes?
+
+  • 
+        Where is the data for max:InflectionType and max:Rule coming from?!
+        What is the minimal dataset to apply this generation process? A:
+        dataset should contain forms, inflection types and rules.
+
+To do for next telco:
+
+Max prepare documentation for how to create all forms of a finnish noun in for
+one case. Including: description of input data (in ontolex RDF or other
+structured data), description of how to use presented modelling, SPARQL query
+for the generation process and what the created output data would look like.
+

@@ -1,0 +1,80 @@
+Participants:
+
+Bettina Klimek (BK)
+
+Stefania Racioppa
+
+Matteo Pellegrini
+
+Fahad Khan
+
+Julia Bosque-Gil
+
+Max Ionov
+
+Jakub Šimek
+
+Agenda
+
+ 1.
+        Summary decomp vs. morph module chairs meeting
+
+→ develop morph module independent of existing docomp/vartrans vocabulary for
+dedicated purpose of representing generated morphological language data
+
+  • 
+        add disclaimer as in lexicog module: only use morph if you know that
+        you are doing
+
+  • 
+        as long as both modules are used for different use cases there is no
+        problem (no superseding, overlap or incompatibility) - we have to make
+        clear for what use case decomp and morph are applicable and that morph
+        is more complex
+
+  • 
+        no integration of the morph module into decomp/vartrans but keep all
+        separate for different use cases (and define them clearly)
+
+  • 
+        allows for different views on morphology (morph allows the same view
+        but with more granularity than decomp, and also different views)
+
+ 2.
+        Update and refinement of representation needs
+
+  • 
+        representation needs updated on https://www.w3.org/community/ontolex/
+        wiki/Morphology
+
+  • 
+        some information not finished, e.g. language example and required
+        vocabulary
+
+  • 
+        extend required vocabulary information during 1. evaluation round
+
+N2: keep prefix, suffix, circumfix out of morph module
+
+John: subclass specifications to morph:Affix can be added to the lexinfo
+vocabulary if required (https://github.com/ontolex/lexinfo)
+
+N5: try to merge with another derivational morphology need
+
+N6: KDictionary property “display” tag to select an ontolex:Form (or Morph)
+resource together with ontolex:LexicalEntry - look into TEI lex vocabulary
+solution
+
+property that links LexicalEntry to morphs
+
+Nx (new modeling need): ordering: generic ordering with rdf property
+insufficient. ordering needs to be explicit for the LexicalEntry and Form
+resources that are segmented, LiLa solution: datatype property on derivational
+relation with integers (position in rule is 1, 2)
+
+3. Current morph module draft images
+
+[image1]
+
+[image2]
+

@@ -1,0 +1,84 @@
+Participants:
+
+Bettina
+
+Julia
+
+Adrian
+
+Max
+
+Katrien
+
+Jesse
+
+N1:
+
+K: context is computational lexica, dictionary creation
+
+Making distinction between traditional dictionary content (no info about morph.
+Rules and paradigms) and structured computational lexical data (looking at
+that)
+
+Is pro a Morph class, also option b)
+
+Julia: tendency to option b)
+
+  • 
+        Mentioned development of NLP/corpora module, have it in mind when we
+        develop this
+
+N2:
+
+Jesse: would like to have the basic subclasses
+
+K: are there subclasses with general agreement
+
+M: infix and circumfix are debated in literature, fixed subclasses should be
+described theory neutral
+
+K: pragmatic decision to use external vocabulary for more specific morph types
+and keep prefix, suffix, circumfix as fixed subclasses in the module
+
+  • 
+        Come up with theory neutral definition for fixed subclasses
+
+B: maybe defining with regard to position of element to root and stem
+
+K: Bettina should make a list with the definitions of this morph types and then
+discuss based on that which could be among the fixed types
+
+Fixed subclass candidates:
+
+K: prefix, suffix, infix, circumfix
+
+N3:
+
+K: can imagine lexical entries that are inflectional morphs, inflectional morph
+could be a subtype of morph, does not like distinction between wordform and
+lexical entry level, yes likes to have to this distinction between infl. Deriv.
+Function of morphs, no strong bias how that should be modelled as long as
+information and elements are extractable
+
+N4:
+
+Jesse: prefers to refer to external ontologies, lexinfo
+
+CC:
+
+Terminology used in the ANW (Dictionary of Contemporary Dutch)
+
+Affix types, also lemma types in the dictionary
+
+Prefix
+
+Suffix
+
+Affixoid
+
+Confix
+
+Splinter
+
+(other lemma types: word, multi word unit, abbreviation, and “other”)
+

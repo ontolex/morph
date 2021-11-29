@@ -1,0 +1,46 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lila: <http://lila-erc.eu/ontologies/lila/> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix morph: <https://www.w3.org/community/ontolex/wiki/Morphology#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix wfl_lexicon: <http://lila-erc.eu/data/lexicalResources/WFL/id/LexicalEntry/> .
+@prefix wfl_rel: <http://lila-erc.eu/data/lexicalResources/WFL/id/relations/> .
+@prefix wfl_rule: <http://lila-erc.eu/data/lexicalResources/WFL/rules/> .
+@prefix wfl: <http://lila-erc.eu/ontologies/lila/wfl/> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lila_lemma_bank: <http://lila-erc.eu/data/id/lemma/> .
+@prefix lila_pref: <http://lila-erc.eu/data/id/prefix/> .
+@prefix lila_suff: <http://lila-erc.eu/data/id/suffix/> .
+@prefix wfl_compounding: <http://lila-erc.eu/ontologies/lila/wfl/CompoundingRule/> .
+@prefix wfl_conversion: <http://lila-erc.eu/ontologies/lila/wfl/Conversion/> .
+@prefix wfl_prefixation: <http://lila-erc.eu/ontologies/lila/wfl/Prefixation/> .
+@prefix wfl_suffixation: <http://lila-erc.eu/ontologies/lila/wfl/Suffixation/> .
+
+wfl_lexicon:li_88103 a ontolex:LexicalEntry ;
+    rdfs:label "agito" ;
+    ontolex:canonicalForm lila_lemma_bank:88103 .
+
+wfl_lexicon:li_88119 a ontolex:LexicalEntry ;
+    rdfs:label "agitatus" ;
+    ontolex:canonicalForm lila_lemma_bank:88119 .
+
+wfl_rel:r1143_li_88103_li_88119 a morph:WordFormationRelation ;
+    wfl:hasWordFormationRule wfl_rule:Derivation_Conversion_li_88103_To_li_88119 ;
+    rdfs:label "Relation between agito and agitatus" ;
+    vartrans:source wfl_lexicon:li_88103 ;
+    vartrans:target wfl_lexicon:li_88119 .
+  
+wfl_rule:Derivation_Conversion_li_88103_To_li_88119 a wfl_conversion:VerbToNoun ;
+    rdfs:label "agito To agitatus" ;
+    wfl:has_pos_input lexinfo:VerbPOS ;
+    wfl:has_pos_output lexinfo:NounPOS .
+
+wfl_conversion:VerbToNoun rdfs:subClassOf wfl:Conversion .
+
+wfl:Conversion rdfs:subClassOf wfl:DerivationalRule .
+
+wfl:DerivationalRule rdfs:subClassOf wfl:WFLRule .
+
+wfl:WFLRule rdfs:subClassOf morph:WordFormationRule .

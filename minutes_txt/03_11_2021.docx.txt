@@ -1,0 +1,207 @@
+Participants:
+
+Bettina Klimek (BK)
+
+Christian Chiarcos (CC)
+
+Matteo Pellegrini
+
+Penny Labropoulou (PL)
+
+ 1.
+        Module draft 4.5.1
+
+  • 
+        removed morph:generates between morph:WordFormationRule and
+        ontolex:LexicalEntry (advantage of morph:generates was to allow
+        interrelations between ontolex:LexicalEntry resources and their
+        underlying word formation processes in a general way without requiring
+        the statements of lexicosemantic relations for the entailed sources and
+        target resources)
+
+  • 
+        added morph:WordFormationType which represents the process (e.g. verb
+        to noun) and morph:WordFormationRule represents the actual way of
+        implementing it
+
+      □ 
+            JMC:Relation is between two specific lexical entries (compute/
+            computer). Type represents the linguistic process (add -(e)r). Rule
+            is a computational implementation (add "r" to end of string).
+
+[image3]
+
+CC tried to convert data with 4.5.1, evaluation:
+
+  • 
+        WordformationType and WordFormationRule are hard to distinguish in
+        practice and increase the size of data has been created without clear
+        added value
+
+  • 
+        object property between WordWormationRelation and Morph missing
+
+ 2.
+        Module draft 4.5.2
+
+  • 
+        morph:Morph as subclass of ontolex:LexicalEntry
+
+  • 
+        results in morph:sense and morph:evokes being unnecessary (removed)
+
+sample conversion of (complete) German UDer data under https://github.com/
+acoli-repo/acoli-morph/blob/main/uder:
+
+  • 
+        transformation (SPARQL): https://github.com/acoli-repo/acoli-morph/blob
+        /main/uder/sparql/relations.sparql
+
+  • 
+        output (TTL): https://github.com/acoli-repo/acoli-morph/blob/main/uder/
+        de/DErivBase/0.5/relations.ttl.gz
+
+  • 
+        input (TSV): https://github.com/lukyjanek/universal-derivations/tree/
+        master/de/DErivBase/0.5 (needs to be built by calling `make`)
+
+  • 
+
+[image1]
+
+CC tried to convert data with 4.5.2, evaluation:
+
+  • 
+        vatrans:source could be used because Morph is a subclass of
+        LexicalEntry
+
+  • 
+        WordFormationType class was not necessary
+
+URI: http://www.w3.org/ns/lemon/ontolex#LexicalEntry
+
+A lexical entry represents a unit of analysis of the lexicon that consists of a
+set of forms that are grammatically related and a set of base meanings that are
+associated with all of these forms. Thus, a lexical entry is a word, multiword
+expression or affix with a single part-of-speech, morphological pattern,
+etymology and set of senses.
+
+SubClassOf: lexicalForm min 1 Form, canonicalForm max 1 Form,
+semiotics:Expression
+
+URI: http://www.w3.org/ns/lemon/vartrans#source
+
+The source property indicates the lexical sense or lexical entry involved in a
+lexico-semantic relation as a 'source'.
+
+ 3.
+        Module draft 4.5.3
+
+  • 
+        added object property morph:contains (for example) between
+        morph:WordFormationRelation and morph:Morph
+
+[image2]
+
+Adaptations of module draft 4.5 to be included for next telco:
+
+  • 
+        CC in favour of combining 4.5.2 and 4.5.3 because reduced redundancy to
+        have morph:Morph as a subclasss of ontolex:LexicalEntry and since
+        vartrans:source has the restriction “subClassOf: relates exactly 2
+        (ontolex:LexicalEntry OR ontolex:LexicalSense OR
+        ontolex:LexicalConcept)” the additional morph:contains property in
+        draft 4.5.3 is required
+
+  • 
+        changes:
+
+      □ 
+            start with 4.5.2: Morph sub LexicalEntry
+
+      □ 
+            add contains (not more than 2 vartrans:relates/source/target
+            properties)
+
+      □ 
+            morph value as lexicalForm
+
+      □ 
+            merge ontolex:LexicalEntry and ontolex:Morph subclasses
+
+      □ 
+            allomorphs => otherForm
+
+      □ 
+            morpheme “value” => canonicalForm
+
+      □ 
+            ?rename morph:consistsOf?
+
+  • 
+        other changes:
+
+      □ 
+            not discussed, but CC in favor of eliminating the reundancy between
+            DeroivationRelation and DerivationRule
+
+      □ 
+            do we need generates, if we have WordFormationRelations
+
+addenda (post-call)
+
+  • 
+        CC: while converting sample data for composition, I was struggling *a
+        lot*.
+
+      □ 
+            GermaNet uses n-ary compounds, if these are to be represented as a
+            LexicoSemanticRelation (which is binary), the only way is to say
+            for every subterm invidually that the subterm is source and that
+            the compound is target. In this way, we loose order
+
+      □ 
+            we loose any information about which consituent is the
+            morphological head (this is annotated in GermaNet)
+
+      □ 
+            how does a CompoundRule work if it does not access all subterms =>
+            I guess it must have access to all subterms, but it is hard to see
+            how to write a replacement rule if the number of subterms and their
+            order is unknown
+
+          ☆ 
+                if it does not have access to all subterms, but only to one
+                suberm and the resulting compound, we cannot write replacement
+                rules either
+
+          ☆ 
+                I consider this basically unsolvable. but with morph subclass
+                of LexicalEntry, we can resort to decomp, here. we would
+                probably not have a CompoundRule, then, but a CompoundRelation
+                (to mark the morphological head)
+
+      □ 
+            as a last resort, we might restrict generative morphology to
+            inflection and derivation, only. no compound rule, then
+
+Todos:
+
+  • 
+        BK: create module diagram draft 4.6
+
+  • 
+        CC: provide example for Universal Derivations converted data with draft
+        4.6
+
+      □ 
+            DONE: commented data snippet under https://github.com/acoli-repo/
+            acoli-morph/blob/main/uder/Readme.md
+
+      □ 
+            NB: sample data for UniMorph (inflection) under https://github.com/
+            acoli-repo/acoli-morph/tree/main/unimorph
+
+  • 
+        PL: can share Parole Greek data set with inflectional data
+

@@ -16,6 +16,20 @@ rclone sync "drive:/OntoLex Morph Vocabulary Test Data/" data/gdrive --drive-sha
 # retrieve GDoc content: minutes
 rclone sync "drive:/OntoLex Telco Minutes" minutes/ --drive-shared-with-me
 
+# normalize names
+OIFS="$IFS"
+IFS=$'\n'
+src=`find data/gdrive/ minutes/ | egrep -m 1 '[^_a-zA-Z0-9\/\.\-]'`
+while echo $src | egrep . >/dev/null; do
+	tgt=`echo $src | sed -e s/'[^_a-zA-Z0-9\/\.\-]'/'_'/g -e s/'___*'/'_'/g`
+	echo $src ">" $tgt 1>&2;
+	if [ -e $tgt ]; then 
+		rm -rf $tgt;
+	fi;
+	mv $src $tgt;
+	src=`find data/gdrive/ minutes/ | egrep -m 1 '[^_a-zA-Z0-9\/\.\-]'`
+done;
+
 # export to text format to facilitate search
 # requires pandoc and w3m
 for file in `find minutes/ | grep 'docx$'`; do
