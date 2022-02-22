@@ -4,7 +4,11 @@ The Morphology Module for the OntoLex Model
 
 For more details see the Wiki: https://www.w3.org/community/ontolex/wiki/Morphology
 
-The current draft of the spec is available at https://ontolex.github.io/morph/
+## Draft spec
+
+Draft for definitions resides under [draft.md](draft.md).
+
+The [HTML template](index.html) is still empty, if finalized, it will be exposed via https://ontolex.github.io/morph/.
 
 ## GDrive
 
