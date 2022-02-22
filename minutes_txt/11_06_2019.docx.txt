@@ -81,55 +81,52 @@ We have to accommodate for three different use cases:
         Inflection table that contains all possible endings of the stem with
         allomorphs but no disambiguation between then
 
-           Third declension paradigm
+              Third declension paradigm
 
-                (i-stem nouns)
+                    (i-stem nouns)
 
-           Masculine &
-                                     Neuter
-           Feminine
+             Masculine &
+                               Neuter
+              Feminine
 
-           Singular                  Plural Singular Plural
-Nominative —                         -ēs    —        -ia
-           -em                       -ēs
-Accusative
-           -im                       -īs
+           Singular Plural Singular Plural
+Nominative    —      -ēs
+             -em     -ēs
+Accusative                    —      -ia
+             -im     -īs
 
-                                     -um             -um
-Genitive   -is                              -is
-                                     (-ium)          (-ium)
+                     -um             -um
+ Genitive    -is             -is
+                    (-ium)          (-ium)
 
-Dative     -ī                        -ibus  -ī       -ibus
-           -e
-Ablative
-           -ī
+  Dative      -ī
+              -e    -ibus     -ī    -ibus
+ Ablative
+              -ī
 
  2.
         The need to represent all forms of a lexical entry. The full paradigm
         of one particular word (no clue if that word is a lexical entry or
         form)
 
-amnis, amnis  pars, partis animal, animālis
+     amnis, amnis         pars, partis         animal, animālis
 
-   stream,    part, piece   animal, living
- torrent m.    f. (mixed)  being n. (pure)
-   (pure)
+  stream, torrent m.     part, piece f.     animal, living being n.
+        (pure)               (mixed)                (pure)
 
-Parisyllabic  Double       Special neuter
-rule          consonant    ending
-              rule
-Singular      Plural       Singular         Plural Singular Plural
-Nominative    amnis^[i]    amnēs            pars^  partēs   animal^  animālia
-                                            [i]             [i]
-              amnem        amnēs            partem partēs
-Accusative
-              amnim        amnīs            partim partīs
+  Parisyllabic rule     Double consonant     Special neuter ending
+                              rule
+ Singular     Plural   Singular   Plural    Singular      Plural
+Nominative  amnis^[i]    amnēs   pars^[i]    partēs
+              amnem      amnēs    partem     partēs
+Accusative                                              animal^[i]    animālia
+              amnim      amnīs    partim     partīs
 
-Genitive      amnis        amnium           partis partium  animālis animālium
-Dative        amnī         amnibus          partī  partibus animālī  animālibus
-              amne                          parte
-Ablative
-              amnī                          partī
+ Genitive     amnis     amnium    partis    partium      animālis    animālium
+  Dative       amnī                partī
+               amne     amnibus    parte    partibus     animālī     animālibus
+ Ablative
+               amnī                partī
 
  3.
         For generation process we need a table with any ambiguity

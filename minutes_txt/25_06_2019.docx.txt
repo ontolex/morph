@@ -179,26 +179,26 @@ feminine singular nominative = morph:InflectionalParadigm
 
 aminis, amnem, amnim, aminis... = ontolex:Form
 
-           Third declension paradigm
+              Third declension paradigm
 
-                (i-stem nouns)
+                    (i-stem nouns)
 
-           Masculine &
-                                     Neuter
-           Feminine
+             Masculine &
+                               Neuter
+              Feminine
 
-           Singular                  Plural Singular Plural
-Nominative —                         -ēs    —        -ia
-           -em                       -ēs
-Accusative
-           -im                       -īs
+           Singular Plural Singular Plural
+Nominative    —      -ēs
+             -em     -ēs
+Accusative                    —      -ia
+             -im     -īs
 
-                                     -um             -um
-Genitive   -is                              -is
-                                     (-ium)          (-ium)
+                     -um             -um
+ Genitive    -is             -is
+                    (-ium)          (-ium)
 
-Dative     -ī                        -ibus  -ī       -ibus
-           -e
-Ablative
-           -ī
+  Dative      -ī
+              -e    -ibus     -ī    -ibus
+ Ablative
+              -ī
 

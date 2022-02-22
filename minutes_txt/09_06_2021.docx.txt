@@ -43,7 +43,7 @@ Adaptions of module draft 4.1 to be included for next telco:
 
  2. Vocabulary for N4: Inflectional paradigm
 
-Proposed definitions as of telco from 10.12.2019
+    Proposed definitions as of telco from 10.12.2019
 
 Classes
 

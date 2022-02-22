@@ -20,7 +20,8 @@ Eleonora
 
 Agenda
 
- 1. Marco’s team presentation Latin word-formation extension
+ 1.
+        Marco’s team presentation Latin word-formation extension
 
   • 
         Brief presentation of the WFL lexical resource

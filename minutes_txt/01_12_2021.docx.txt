@@ -2,44 +2,86 @@ Participants:
 
 Bettina Klimek (BK)
 
+Matteo Pellegrini
+
+Fahad Khan
+
+Katerina Gkirtzou (KG)
+
+Christian Chiarcos (CC)
+
+Penny Labropoulou (PL)
+
+Stefania Racioppa (DFKI)
+
  1.
         Module draft 4.7
 
-[image1]
+[image2]
 
-Adaptations of module draft 4.7 to be included for next telco:
+Adaptations included into module draft 4.7:
 
   • 
-        MorphValue is removed and lexinfo:TermElement (includes instances
+        MorphValue class removed and lexinfo:TermElement (includes instances
         lexinfo:inflectionElement) with property lexinfo:termElement used
         instead
 
   • 
-        remove morph:DerivationRelation (CC in favor of eliminating the
+        removed morph:DerivationRelation (CC in favor of eliminating the
         redundancy between DerivationRelation subclasses and DerivationRule
         (would make diagram more readable) because the difference between
         morph:DerivationRelation and morph:DerivationRule can be expressed in
         morph:DerivationRule alone
 
   • 
-        other proposed changes:
+        composition with more than 2 elements resolved by CC by using
+        morph:CompositionalRelation and the decomp vocabulary
 
       □ 
-            merge ontolex:LexicalEntry and ontolex:Affix subclasses, turning
-            ontolex:Affix and morph:Non-Affix subclasses of morph:Morph and
-            sort the morph affix subclasses under ontolex:Affix
+            suggestion: use CompositionalRelation *only* to mark the
+            morphological head, modifiers go unmarked
+
+Adaptations to be included into module draft 4.8:
+
+  • 
+        morph:CompoundHead is subclass of morph:CompoundRelation
+
+  • 
+        object property: morph:baseConstraint with domain: morph:Morph and
+        range: morph:GrammaticalMeaning
+
+  • 
+        replace “external resource” as object of morph:grammaticalMeaning with
+        class morph:GrammaticalMeaning
+
+  • 
+        one of the affix class merge options
+
+Other proposed changes:
+
+  • 
+        merge ontolex:LexicalEntry and ontolex:Affix subclasses, turning
+        ontolex:Affix and morph:Non-Affix subclasses of morph:Morph into ? and
+        sort the morph affix subclasses under ontolex:Affix (still unclear,
+        needs to be explained by CC again)
 
       □ 
-            composition with more than 2 elements resolved by CC by using
-            morph:CompositionalRelation and the decomp vocabulary
+            option 1) morph:AffixMorph as a subclass of both morph:Morph and
+            ontolex:Affix
 
       □ 
-            example (after call):
+            option 2) merge morph:AffixMorph into ontolex:Affix and make it a
+            subclass of morph:Morph
 
-          ☆ 
-                Blutspendezentrale Blut spenden Zentrale “blood donation
-                center” (GermaNet: https://www.sfs.uni-tuebingen.de/GermaNet/
-                documents/compounds/split_compounds_from_GermaNet16.0.txt)
+ 2.
+        Representing compounds with >2 elements
+
+Example representation by CC using decomp:
+
+  • 
+        Blutspendezentrale Blut spenden Zentrale “blood donation center”
+        (GermaNet: https://www.sfs.uni-tuebingen.de/GermaNet/documents/
+        compounds/split_compounds_from_GermaNet16.0.txt)
 
     <entry#Blutspendezentrale>
 
@@ -95,8 +137,102 @@ Adaptations of module draft 4.7 to be included for next telco:
 
     vartrans:target <entry#Blutspendezentrale>.q
 
- 1.
-        ontolex:Form generation workflow diagram
+→ create compound relation between 2 elements (the base “Zentrale” (not the
+head “Blutspende”) and the result of the composition process
+“Blutspendezentrale”) only and have all elements as decomp:subterm
+
+Representation in LiLa by Matteo
+
+  • 
+        did not use decomp
+
+  • 
+        explicit property to express order: https://lila-erc.eu/lodview/
+        ontologies/lila/wfl/positionInWFR
+
+  • 
+        no head information
+
+  • 
+        used 3 relations for the 3 elements between the 3 bases (also not the
+        head) and the resulting compound word with each one vartrans:source and
+        vartrans:target and one CompoundRule
+
+[image3]
+
+CC:
+
+  • 
+        attribute needed to mark morphological head
+
+  • 
+        1 triple if morph:CompoundHead is subclass of morph:CompoundRelation or
+
+  • 
+        2 triples if head should be expressed explicitly
+
+Fahad:
+
+  • 
+        2 different analysis: one involving expressing the head and one without
+
+  • 
+        → then 2 rules are used which indicate the two different analysis,
+        i.e., rules disambiguate analyses
+
+ 3.
+        New property to express wordclass constraints in word-formation
+
+<morph#dNV09%3E> morph:PLEASE_GIVE_ME_A_NAME_FOR_CONSTRAINTS "Nn"
+
+express that a morph is only applicable to a certain part of speech
+
+CC: In mathematical terms, an adequate term would be "domain", but this will be
+incomprehensible to linguists. I guess it should be an object property because
+in addition to providing a string value (which we should maintain as it is the
+original information), we would also want to spell it out in lexinfo features.
+Maybe "morph:baseConstraint"?
+
+object property: morph:baseConstraint
+
+domain: morph:Morph
+
+range: morph:GrammaticalMeaning
+
+The class morph:GrammaticalMeaning is like a container object containing
+lexinfo instances other instances which can have a plain string if we don’t
+have a lexinfo mapping
+
+ 4.
+        Greek inflectional data example by Penny
+
+Used Lexis data (Greek extension of parole/simple)
+
+What was aimed to be represented:
+
+  • 
+        morphological unit has grammatical category (part of speech) and
+        canonical from, has an inflectional paradigm and is linked to the stems
+
+  • 
+        inflectional paradigm consists of constraints for part of speech and a
+        set of grammatical features (number, case..) and a number reference to
+        a stem and an ending (a suffix)
+
+  • 
+        representation of stress movement on syllables with morphophonological
+        change
+
+  • 
+        representation of of link between morphological unit and graphic
+        morphological unit
+
+ 5.
+        Representing the order of morphs
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+    ontolex:Form generation workflow diagram
 
   • 
         for the process of creating the finnish example data generating:
@@ -116,29 +252,23 @@ Adaptations of module draft 4.7 to be included for next telco:
       □ 
             triples: ontolex:Form morph:consistsOf morph:Morph
 
-[image2]
+[image1]
 
   • 
         BK: can we modify this diagram to include ontolex:LexicalEntry
         wordformation by compounding and derivation as well?
 
-Todo for today:
+After x-mas break next telco on January 12th 2022
 
-BK: look into lexinfo to be reused for MorphValue (CC: we can say
-"lexinfo:termElement lexinfo:inflectionElement", so MorphValue is not
-necessary) + create module diagram draft 4.7
-
-Matteo: reports about representing compounds in Lila with more than 2
-components
-
-Penny: shares Greek inflectional data example based on morph module vocabulary
-
-topics for the next telco:
+Upcoming topics:
 
   • 
-        representing ordering
+        Continue discussing Penny’s Greek inflectional data
 
   • 
-        creating a property to express <morph#dNV09%3E>
-        morph:PLEASE_GIVE_ME_A_NAME_FOR_CONSTRAINTS "Nn"
+        Matteo: sends his presentation from 15th December and report on
+        feedback
+
+  • 
+        Discussion of ordering
 

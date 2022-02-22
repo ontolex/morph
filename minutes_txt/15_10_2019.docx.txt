@@ -244,182 +244,182 @@ https://docs.google.com/presentation/d/
 1pHt8IG0ni5x9AkoPCsCCccRPEFIeObW7eR-PxY1JN7A/edit?usp=sharing&urp=gmail_link
 
                  subject                     predicate           object
-<#kissa_form_kissalle>                     rdf:type       <http://www.w3.org/ns
+          <#kissa_form_kissalle>              rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissalle>                     www.w3.org/ns/ kissalle
+                                              <http://
+          <#kissa_form_kissalle>           www.w3.org/ns/       kissalle
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
                                            lemon/ontolex# kissa_form_kissalle>
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_all_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
+   <#finnish_noun_type_kala_all_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
                                                           <https://www.w3.org/
-<#                                         rdf:type       community/ontolex/
-finnish_noun_type_kala_assimilation_morph>                wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissaksi>                     rdf:type       <http://www.w3.org/ns
+                    <#                        rdf:type     community/ontolex/
+finnish_noun_type_kala_assimilation_morph>                  wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissaksi>              rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissaksi>                     www.w3.org/ns/ kissaksi
+                                              <http://
+          <#kissa_form_kissaksi>           www.w3.org/ns/       kissaksi
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
                                            lemon/ontolex# kissa_form_kissaksi>
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_trans_morph>      rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissan>                       rdf:type       <http://www.w3.org/ns
+  <#finnish_noun_type_kala_trans_morph>       rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+           <#kissa_form_kissan>               rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissan>                       www.w3.org/ns/ kissan
+                                              <http://
+           <#kissa_form_kissan>            www.w3.org/ns/        kissan
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#kissa_form_kissan>
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/ <#kissa_form_kissan>
                                            lemon/ontolex#
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_instr_morph>      rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissatta>                     rdf:type       <http://www.w3.org/ns
+  <#finnish_noun_type_kala_instr_morph>       rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissatta>              rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissatta>                     www.w3.org/ns/ kissatta
+                                              <http://
+          <#kissa_form_kissatta>           www.w3.org/ns/       kissatta
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
                                            lemon/ontolex# kissa_form_kissatta>
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_abe_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissalla>                     rdf:type       <http://www.w3.org/ns
+   <#finnish_noun_type_kala_abe_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissalla>              rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissalla>                     www.w3.org/ns/ kissalla
+                                              <http://
+          <#kissa_form_kissalla>           www.w3.org/ns/       kissalla
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
                                            lemon/ontolex# kissa_form_kissalla>
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_ade_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissana>                      rdf:type       <http://www.w3.org/ns
+   <#finnish_noun_type_kala_ade_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissana>               rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissana>                      www.w3.org/ns/ kissana
+                                              <http://
+          <#kissa_form_kissana>            www.w3.org/ns/        kissana
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#kissa_form_kissana>
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/ <#kissa_form_kissana>
                                            lemon/ontolex#
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_ess_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
+   <#finnish_noun_type_kala_ess_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_gen_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissassa>                     rdf:type       <http://www.w3.org/ns
+   <#finnish_noun_type_kala_gen_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissassa>              rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissassa>                     www.w3.org/ns/ kissassa
+                                              <http://
+          <#kissa_form_kissassa>           www.w3.org/ns/       kissassa
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
                                            lemon/ontolex# kissa_form_kissassa>
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_ine_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissalta>                     rdf:type       <http://www.w3.org/ns
+   <#finnish_noun_type_kala_ine_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissalta>              rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissalta>                     www.w3.org/ns/ kissalta
+                                              <http://
+          <#kissa_form_kissalta>           www.w3.org/ns/       kissalta
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
                                            lemon/ontolex# kissa_form_kissalta>
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_abl_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissa>                        rdf:type       <http://www.w3.org/ns
+   <#finnish_noun_type_kala_abl_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+           <#kissa_form_kissa>                rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissa>                        www.w3.org/ns/ kissa
+                                              <http://
+           <#kissa_form_kissa>             www.w3.org/ns/         kissa
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#kissa_form_kissa>
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/  <#kissa_form_kissa>
                                            lemon/ontolex#
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_nom_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissaan>                      rdf:type       <http://www.w3.org/ns
+   <#finnish_noun_type_kala_nom_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissaan>               rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissaan>                      www.w3.org/ns/ kissaan
+                                              <http://
+          <#kissa_form_kissaan>            www.w3.org/ns/        kissaan
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#kissa_form_kissaan>
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/ <#kissa_form_kissaan>
                                            lemon/ontolex#
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_ill_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissasta>                     rdf:type       <http://www.w3.org/ns
+   <#finnish_noun_type_kala_ill_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+          <#kissa_form_kissasta>              rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissasta>                     www.w3.org/ns/ kissasta
+                                              <http://
+          <#kissa_form_kissasta>           www.w3.org/ns/       kissasta
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
                                            lemon/ontolex# kissa_form_kissasta>
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_ela_morph>        rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
-<#kissa_form_kissaneen>                    rdf:type       <http://www.w3.org/ns
+   <#finnish_noun_type_kala_ela_morph>        rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
+         <#kissa_form_kissaneen>              rdf:type    <http://www.w3.org/ns
                                                           /lemon/ontolex#Form>
-                                           <http://
-<#kissa_form_kissaneen>                    www.w3.org/ns/ kissaneen
+                                              <http://
+         <#kissa_form_kissaneen>           www.w3.org/ns/       kissaneen
                                            lemon/ontolex#
-                                           writtenRep>
-                                           <http://
-<#kissa>                                   www.w3.org/ns/ <#
+                                            writtenRep>
+                                              <http://
+                 <#kissa>                  www.w3.org/ns/          <#
                                            lemon/ontolex# kissa_form_kissaneen>
-                                           otherForm>
+                                             otherForm>
                                                           <https://www.w3.org/
-<#finnish_noun_type_kala_comi_morph>       rdf:type       community/ontolex/
-                                                          wiki/Morphology#
-                                                          Morph>
+   <#finnish_noun_type_kala_comi_morph>       rdf:type     community/ontolex/
+                                                            wiki/Morphology#
+                                                                 Morph>
 
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 

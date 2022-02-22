@@ -190,7 +190,7 @@ N15: Lexeme generation takes LexicalEntry and Form as input
   take resources of the type ontolex:LexicalEntry as well as ontolex:Form as
    input sources. This is required for languages which form new lexemes with
                              inflected word-forms.
-BK suggestion: extend morph:consistOf range to ontolex:LexicalEntry next to
-morph:Morph and ontolex:Form- no, keep vartrans:source and vatrans:target
-restricted to ontolex:LexicalEntry
+  BK suggestion: extend morph:consistOf range to ontolex:LexicalEntry next to
+   morph:Morph and ontolex:Form- no, keep vartrans:source and vatrans:target
+                      restricted to ontolex:LexicalEntry
 

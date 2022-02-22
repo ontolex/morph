@@ -9,7 +9,7 @@ Fahad
 Updated modelling draft for automatic generation process of
 ontolex:LexicalEntry and ontolex:Form instances
 
-[image1]
+[image2]
 
 Modelling issues:
 
@@ -27,7 +27,7 @@ Modelling issues:
 
 Current modelling draft (as published in eLex paper)
 
-[image2]
+[image1]
 
 Original ontolex:morphologicalPattern
 

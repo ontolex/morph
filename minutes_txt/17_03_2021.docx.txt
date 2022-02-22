@@ -20,7 +20,8 @@ Ana R. Luís (AL -- I have sent a request to join the group)
 
 Agenda
 
- 1. Follow-up of Marco’s presentation Latin word-formation extension
+ 1.
+        Follow-up of Marco’s presentation Latin word-formation extension
 
   • 
         three main contributions
@@ -158,8 +159,8 @@ Agenda
   • 
         if information about lexemes without order, use decomp module
 
-JMC > probably if you are doing general-purpose lexicography, decomp would
-suffice
+    JMC > probably if you are doing general-purpose lexicography, decomp would
+    suffice
 
   • 
         if information about morphs together with order and/or details of
