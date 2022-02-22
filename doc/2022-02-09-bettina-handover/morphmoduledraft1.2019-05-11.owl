@@ -1,0 +1,198 @@
+@prefix : <http://www.example.org/lemon/morph#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.example.org/lemon/morph#> a owl:Ontology ;
+	owl:imports <http://www.w3.org/ns/lemon/decomp> , <http://www.w3.org/ns/lemon/ontolex> , <http://www.w3.org/ns/lemon/vartrans> .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.example.org/lemon/morph#belongsToMorphPattern
+
+:belongsToMorphPattern a owl:ObjectProperty ;
+	rdfs:domain :InflectionalParadigm ;
+	rdfs:range :MorphologicalPattern ;
+	rdfs:comment "This property assigns an inflectional pattern of a form as belonging to a morphological pattern of a lexical entry."@en ;
+	rdfs:label "belongs to morphological pattern"@en .
+# 
+# http://www.example.org/lemon/morph#consistsOf
+
+:consistsOf a owl:ObjectProperty ;
+	rdfs:domain <http://www.w3.org/ns/lemon/ontolex#Form> ;
+	rdfs:range :Morph ;
+	rdfs:comment "This property states into which Morph resources a Form resource can be segmented."@en ;
+	rdfs:label "consists of"@en .
+# 
+# http://www.example.org/lemon/morph#derivationalRel
+
+:derivationalRel a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://www.w3.org/ns/lemon/vartrans#lexicalRel> ;
+	rdfs:comment "The 'derivationalRel' property relates two lexical entries that stand in some derivational relation."@en .
+# 
+# http://www.example.org/lemon/morph#grammaticalMeaning
+
+:grammaticalMeaning a owl:ObjectProperty ;
+	rdfs:domain :Morph ;
+	rdfs:comment "This property assigns a grammatical meaning to a morph resource."@en ;
+	rdfs:label "grammatical meaning"@en .
+# 
+# http://www.example.org/lemon/morph#hasMorphStatus
+
+:hasMorphStatus a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :Morph , <http://www.w3.org/ns/lemon/ontolex#Affix> ;
+	rdfs:range :MorphValue ;
+	rdfs:comment "States whether a morphological element functions as inflectional or derivational."@en ;
+	rdfs:label "has morph status"@en .
+# 
+# http://www.example.org/lemon/morph#hasParadigm
+
+:hasParadigm a owl:ObjectProperty ;
+	rdfs:domain <http://www.w3.org/ns/lemon/ontolex#Form> ;
+	rdfs:range :InflectionalParadigm ;
+	rdfs:comment "This property assigns a form to an inflectional paradigm."@en ;
+	rdfs:label "has paradigm"@en .
+# 
+# http://www.example.org/lemon/morph#meaning
+
+:meaning a owl:ObjectProperty ;
+	rdfs:domain :Morph ;
+	rdfs:range <http://www.w3.org/ns/lemon/ontolex#LexicalSense> ;
+	rdfs:comment "This property assigns a lexical sense to a morph resource."@en ;
+	rdfs:label "meaning"@en .
+# 
+# http://www.w3.org/ns/lemon/ontolex#morphologicalPattern
+
+<http://www.w3.org/ns/lemon/ontolex#morphologicalPattern> rdfs:range :MorphologicalPattern .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.example.org/lemon/morph#AffixMorph
+
+:AffixMorph a owl:Class ;
+	rdfs:subClassOf :Morph ;
+	rdfs:comment "An affix is a bound segmental morph."@en ;
+	rdfs:label "affix morph"@en .
+# 
+# http://www.example.org/lemon/morph#DerivationalRelation
+
+:DerivationalRelation a owl:Class ;
+	rdfs:subClassOf <http://www.w3.org/ns/lemon/vartrans#LexicalRelation> ;
+	rdfs:comment "A 'derivational relation' is a lexical relation that relates two lexical entries by means of a derivational affix."@en .
+# 
+# http://www.example.org/lemon/morph#InflectionalParadigm
+
+:InflectionalParadigm a owl:Class ;
+	rdfs:comment "A structured set of inflected forms according to specific grammatical parameters."@en ;
+	rdfs:label "inflectional paradigm"@en .
+# 
+# http://www.example.org/lemon/morph#Morph
+
+:Morph a owl:Class ;
+	owl:disjointWith <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> ;
+	rdfs:comment "A morph is a concrete primitive element of morphological analysis."@en ;
+	rdfs:label "morph"@en .
+# 
+# http://www.example.org/lemon/morph#MorphValue
+
+:MorphValue a owl:Class ;
+	rdfs:comment "The value of a morph states the relationship that holds between the morph and the forms or lexical entries in which it can occur."@en ;
+	rdfs:label "morph value"@en .
+# 
+# http://www.example.org/lemon/morph#MorphologicalPattern
+
+:MorphologicalPattern a owl:Class ;
+	rdfs:comment "The morphological pattern states the inflectional, derivational or compositional building pattern that applies to a lexical entry."@en ;
+	rdfs:label "morphological pattern"@en .
+# 
+# http://www.example.org/lemon/morph#RootMorph
+
+:RootMorph a owl:Class ;
+	rdfs:subClassOf :Morph ;
+	rdfs:comment "A morph that constitutes the semantic nucleus of a stem. It cannot be further segmented and is often not specified for a part of speech."@en ;
+	rdfs:label "root morph"@en .
+# 
+# http://www.example.org/lemon/morph#SimulfixMorph
+
+:SimulfixMorph a owl:Class ;
+	rdfs:subClassOf :Morph ;
+	rdfs:comment "A simulfix is a bound morph that entails a change or replacement of vowels or consonants (usually vowels) which changes the meaning of a word, e.g. \\\"eat\\\" in past tense becomes \\\"ate \\\"tooth\\\" becomes \\\"teeth\\\" when plural."@en ;
+	rdfs:label "simulfix morph"@en .
+# 
+# http://www.example.org/lemon/morph#StemMorph
+
+:StemMorph a owl:Class ;
+	rdfs:subClassOf :Morph ;
+	rdfs:comment "The stem is the morph to which inflectional marking applies."@en ;
+	rdfs:label "stem morph"@en .
+# 
+# http://www.example.org/lemon/morph#TransfixMorph
+
+:TransfixMorph a owl:Class ;
+	rdfs:subClassOf :Morph ;
+	rdfs:comment "A transfix is a discontinuous affix."@en ;
+	rdfs:label "transfix morph"@en .
+# 
+# http://www.example.org/lemon/morph#ZeroMorph
+
+:ZeroMorph a owl:Class ;
+	rdfs:subClassOf :Morph ;
+	rdfs:comment "A morphs that that corresponds to no overt form, i.e. orthographic or phonetic representation."@en ;
+	rdfs:label "zero morph"@en .
+# 
+# http://www.w3.org/ns/lemon/ontolex#LexicalEntry
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://www.example.org/lemon/morph#derivational
+
+:derivational a owl:NamedIndividual , :MorphValue .
+# 
+# http://www.example.org/lemon/morph#inflectional
+
+:inflectional a owl:NamedIndividual , :MorphValue .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+
+_:genid1 a owl:AllDifferent ;
+	owl:distinctMembers _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :derivational ;
+	rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first :inflectional ;
+	rdf:rest rdf:nil .
+# 
+# Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
