@@ -5,23 +5,23 @@
 Definitions as of [2019-12-19](https://docs.google.com/document/d/1wybx2_U0EcqmefRRiAABha-cFII6H2rZBtlgTcjLYjg/edit?usp=sharing)
 
 ## Contents
-  * [Morphological segments](#morphological-segments)
-  * [Morphological rules](#morphological-rules)
+
+  * [MorphologicalSegments](#morphologicalsegments)
+    + [morph:Morph](#morph-morph)
+    + [morph:GrammaticalMeaning](#morph-grammaticalmeaning)
+    + [morph:morphophonologicalRelation](#morph-morphophonologicalrelation)
+  * [Morphological Rules](#morphological-rules)
     + [morph:example](#morph-example)
-    + [morph:replacement](#morph-replacement)
+    + [morph:Replacement](#morph-replacement)
   * [Inflection](#inflection)
     + [morph:Paradigm](#morph-paradigm)
-    + [morph:paradigm](#morph-paradigm)
     + [morph:InflectionType](#morph-inflectiontype)
-    + [morph:next](#morph-next)
-    + [morph:inflects](#morph-inflects)
-    + [morph:inflectionType](#morph-inflectiontype)
     + [morph:InflectionRule](#morph-inflectionrule)
+    + [morph:stemType](#morph-stemtype)
   * [Word Formation](#word-formation)
     + [morph:WordFormationRule](#morph-wordformationrule)
-    + [morph:generates](#morph-generates)
+  * [morph:WordFormationRelation](#morph-wordformationrelation)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 ## Morphological segments
