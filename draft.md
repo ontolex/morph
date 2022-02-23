@@ -2,7 +2,7 @@
 
 (use this for drafting text fragments, the HTML template is under [index.html](index.html) -- but this is empty)
 
-Definitions as of [2019-12-19](https://docs.google.com/document/d/1wybx2_U0EcqmefRRiAABha-cFII6H2rZBtlgTcjLYjg/edit?usp=sharing)
+Definitions, when given, follow the wording of [2019-12-19](https://docs.google.com/document/d/1wybx2_U0EcqmefRRiAABha-cFII6H2rZBtlgTcjLYjg/edit?usp=sharing). For elements not defined by then, they are marked as to be defined. (Definitions are scattered in minutes.)
 
 ## Contents
 
