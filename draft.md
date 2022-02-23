@@ -2,8 +2,10 @@
 # OntoLex-Morph definitions
 
 (use this for drafting text fragments, the HTML template is under [index.html](index.html) -- but this is empty)
-When
+
 When given and unless marked otherwise, definitions follow the wording of [2019-12-19](https://docs.google.com/document/d/1wybx2_U0EcqmefRRiAABha-cFII6H2rZBtlgTcjLYjg/edit?usp=sharing), resp., the [eLex -2019 paper](https://elex.link/elex2019/wp-content/uploads/2019/09/eLex_2019_33.pdf)
+
+Current diagram under [doc/diagrams](doc/diagrams).
 
 ## Acknowledgements
 
