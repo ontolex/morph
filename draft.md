@@ -27,22 +27,7 @@ contributors (alph, **incomplete/please add yourself/people you remember to have
 - John P. McCrae (since 2018)
 - Matteo Pellegrini
 - James K. Tauber
-
-## Acknowledgements
-
-editors (= past and present telco moderators, alph.; please double-check):
-- Christian Chiarcos (since 2022)
-- Maxim Ionov (since 2018)
-- Bettina Klimek (2018-2022)
-
-contributors (alph, **please add yourself**):
-- Julia Bosque-Gil (2018-2022)
-- Christian Chiarcos (since 2018)
-- Maxim Ionov (since 2018)
-- Bettina Klimek (2018-2022)
-- John P. McCrae (since 2018)
-
-
+/tree/master/doc/diagrams
 ## Contents
 - [Purpose and Scope](#purpose-and-scope)
 - [Morphological Segments](#morphological-segments)
