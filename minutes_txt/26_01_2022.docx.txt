@@ -1,0 +1,224 @@
+Participants:
+
+Bettina Klimek (BK) bettina.klimek@semalytix.com
+
+Matteo Pellegrini
+
+ 1.
+        Module draft 4.9
+
+[image1]
+
+Adaptations included into module draft 4.9:
+
+  • 
+        datatype property morph:stemType with a literal and domain
+        morph:InflectionRule
+
+  • 
+        add morph:baseForm as subproperty of ontolex:lexicalForm (in order to
+        link a stem morph with a lexical entry)
+
+  • 
+        datatype property morph:morphophonologicalRelation on
+        ontolex:LexicalEntry and ontolex:Form
+
+Adaptations to be included into module draft 4.10:
+
+  • 
+        add domain ontolex:LexicalEntry to property morph:stemType
+
+→ to be developed as part of the vartrans module but applied in order to
+connect two ontolex:LexicalEntry resources that only differ in their
+orthographic representation but share the same senses: a vartrans:orthVariant
+subproperty of vartrans:lexicalRel that entails that the same senses apply to
+both variants (restriction has to be formulated)
+
+ 2.
+        Evaluation of inflectional data modeling
+
+Greek inflectional data example including lexicog vocabulary by Penny
+
+# example of a lemma with two orthographic variants (GMus)
+
+lexis_data_lexis:augo_UMNo29917 a lexicog:Entry ;
+
+rdfs:label "αυγό"@el ;
+
+rdfs:member augo_GMu26232, augo_GMu34067 .
+
+lexis_data_lexis:augo_GMu26232 a lexicog:LexicographicComponent ;
+
+lexicog:describes augo_26232 .
+
+lexis_data_lexis:augo_GMu34067 a lexicog:LexicographicComponent ;
+
+lexicog:describes augo_34067 .
+
+lexis_data_lemon:augo_26232 a ontolex:LexicalEntry ;
+
+rdfs:label "αυγό"@el ;
+
+lexinfo:partOfSpeech lexinfo:commonNoun ;
+
+morph:paradigm lexis_data:vouno ;
+
+ontolex:sense lexis_data:augo_sense_USem1074 ;
+
+synsem:synBehavior lexis_data:augo_SUNo25013 .
+
+lexis_data_lemon:avgo_34067 a ontolex:LexicalEntry ;
+
+rdfs:label "αβγό"@el ;
+
+lexinfo:partOfSpeech lexinfo:commonNoun ;
+
+morph:paradigm lexis_data:vouno ;
+
+ontolex:sense lexis_data:augo_sense_USem1074 ;
+
+synsem:synBehavior lexis_data:augo_SUNo25013 .
+
+It works but multiplies the lexical entry data, e.g. senses have to be created
+for all lexicographic components.
+
+  • 
+        CC suggestion: create separate entries and link them with a subproperty
+        of vartrans:lexicalRel (your_namespace:orthVariant sub
+        vartrans:lexicalRel) between two ontolex:LexicalEntries that are
+        orthographic variants - the shared data of both would have to be
+        repeated for both entries then or it has to be stated only on one
+        lexical entry resource (duplicate all senses)
+
+      □ 
+            alternatively, leave senses of the variant empty, define in the
+            semantics of orthVariant that this entails that the same senses
+            apply to both variants)
+
+  • 
+        another possibility: use owl:sameAs and share senses (a bit messy,
+        because semantically this means they are the same thing)
+
+  • 
+        FK: make a design decision by lexicographer
+
+  • 
+        CC: consumer should be able to decide
+
+Latin inflectional data example by Matteo
+
+URL to presentation: slide 28 ongoing https://drive.google.com/file/d/
+1v2M-LbCdrdaPl2LVuPKzOfU-fQjv_5_1/view?usp=sharing
+
+Representation of inflectional information of orthographic variants:
+
+class: lila:Flexeme (subclass of ontolex:LexicalEntry) are linked to lila:Lemma
+
+lexemes → lexical units with a unique meaning
+
+▶ flexemes → lexical units with a unique form (i.e., a unique inflectional
+paradigm)
+
+object property between lila:Lemma: lila:lemmaVariant (subclass of
+ontolex:Form)
+
+Todo:
+
+Fahad tries to provide Old English examples for orth. variants
+
+Matteo continues his presentation on Latin inflection and raises further
+questions.
+
+Latest vocabulary definitions:
+
+Proposed definitions as of telco from 10.12.2019
+
+Classes
+
+morph:Paradigm
+
+A class that represents a theoretically motivated type of declination, e.g.
+
+  • 
+        “a” stem declension in Latin
+
+  • 
+        First declension in Russian
+
+May contain metadata information about this type of declination.
+
+Book analogy: a full paradigm table with possible allomorphy/alternative
+variants
+
+morph:InflectionType
+
+A class that represents a single slot for a single grammatical category for all
+its possible values (e.g. all the cases)
+
+Book analogy: a column from a paradigm table without allomorphy/alternative
+variants for just a single morpheme
+
+morph:Rule
+
+A class containing necessary information to add one morpheme to a single word
+form. It must contain either morph:example or morph:replacement (or both).
+“Tabular” value of a morpheme must be stored in rdfs:label (e.g. “-s”@en for
+usual PL in English)
+
+Properties
+
+morph:paradigm
+
+Domain: morph:InflectionType
+
+Range: morph:Paradigm
+
+A link to the paradigm for the inflection type
+
+morph:example
+
+Domain: morph:Rule
+
+Range: string literal
+
+A single generated form that was generated using this rule
+
+morph:next
+
+Domain: morph:InflectionType
+
+Range: morph:InflectionType
+
+Links two consecutive inflection types (“slots”), e.g. number and case in
+Finnish
+
+morph:inflects
+
+Domain: ontolex:Word
+
+Range: morph:InflectionType
+
+A link to the first “slot” (inflection type), e.g. an inflection type for
+number for English nouns
+
+morph:inflectionType
+
+Domain: morph:Rule
+
+Range: morph:InflectionType
+
+morph:replacement
+
+Domain: morph:Rule
+
+Range: [morph:source, morph:target, both are string literals]
+
+morph:generates
+
+Domain: morph:Rule
+
+Range: unrestricted?
+
+BK: currently missing in draft image, does the inflection rule generate the
+ontolex:Form resources? yes
+

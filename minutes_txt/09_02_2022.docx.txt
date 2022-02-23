@@ -1,0 +1,97 @@
+Participants:
+
+Bettina Klimek (BK)
+
+Max Ionov (MI)
+
+Matteo Pellegrini
+
+https://datathon2022.linkeddata.es/
+
+ 1.
+        Module draft 4.10
+
+[image1]
+
+Adaptations included into module draft 4.10:
+
+  • 
+        added domain ontolex:LexicalEntry to property morph:stemType
+
+Adaptations to be included into module draft 4.11:
+
+  • 
+        create morph:MorphosyntacticPropertySet
+
+  • 
+        add ontolex:Form as domain of morph:grammaticalMeaning and
+        morph:MorphosyntacticPropertySet as range
+
+OR
+
+  • 
+        create morph:MorphosyntacticPropertySet as a subclass of
+        morph:GrammaticalMeaning
+
+  • 
+        add ontolex:Form as domain of morph:grammaticalMeaning
+
+Latin inflectional data example by Matteo (continued from telco on 26.01.2022)
+
+URL to presentation: slide 28 ongoing https://drive.google.com/file/d/
+1v2M-LbCdrdaPl2LVuPKzOfU-fQjv_5_1/view?usp=sharing
+
+  • 
+        establish a latinflexi:MicroClass in order to apply the LiLa modeling
+        to the morph module vocabulary
+
+      □ 
+            CC: is latinflexi:MicroClass similar to morph:InflectionType? MP:
+            yes, the idea is that the concatenation of all patterns is the
+            inflection type
+
+  • 
+        latinflexi:fillsCell domain ontolex:Form and domain latinflexi:Cell,
+        latinflexi:Cell is the intersection of lexeme and the paradigm cells
+        with the morphosyntactic properties and values expressed by a form
+
+      □ 
+            MP question: is a link between a Form and the whole set of infl.
+            property-values like latinflexi:fillsCell in the morph module? CC:
+            the latinflexi:Cell class accumulates all grammatical meanings of a
+            form but there are different ways to express grammatical meanings
+            across datasets
+
+      □ 
+            In LiLa inflection dataset this would be the only way to express
+            the grammatical meanings, which are linked to a full wordform and
+            not their individual morphs
+
+      □ 
+            CC: another less-ambiguous name for latinflexi:Cell would be
+            helpful to differentiate it from morph:grammaticalMeaning, e.g.
+            morphosyntactic property set
+
+Max current inflectional modeling :
+
+lexinfo:tense lexinfo:present ;
+
+lexinfo:person lexinfo:secondPerson ;
+
+lexinfo:number lexinfo:singular ;
+
+ontolex:writtenRep "amas"@es .
+
+MP: the ontolex:Form should be able to be linked to a set of these lexinfo
+morphos. features as one resource (= latinflexi:Cell)
+
+<#spanish_verb_type_1a_amar_conj_2sg> a morph:Morph ;
+
+lexinfo:tense lexinfo:present ;
+
+lexinfo:person lexinfo:secondPerson ;
+
+lexinfo:number lexinfo:singular ;
+
+ontolex:writtenRep "-as"@es .
+

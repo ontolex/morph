@@ -1,0 +1,231 @@
+Link: https://meet.google.com/nsj-tbcy-yop
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC) christian.chiarcos@gmail.com
+
+Matteo Pellegrini (MP)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Penny Labropoulou (PL)
+
+Fahad Khan (FK)
+
+Agenda (please add, but do not edit table of contents directly, but add
+sections below and then update here):
+
+1. Module draft 1
+
+2 LDL submission ? 2
+
+3 Evaluation of inflectional data modeling 3
+
+    3.1 morph:stemType (Greek/Latin) 3
+
+    3.2 vartrans:orthVariant (Greek/Penny; Old English/Fahad) 3
+
+    3.3 POSTPONED: Other data 4
+
+4. Other todos 5
+
+    3.1 OntoLex TermElement vs. Morph subclasses 5
+
+    3.2 crafting/collecting definitions 5
+
+1. Module draft
+
+    draft 4.12
+
+[image1]
+
+Model draft 4.12 updates
+
+  • 
+        morph:morphophonologicalRelation dropped
+
+  • 
+        grammaticalMeaning also pointing from ontolex:Form to
+        GrammaticalMeaning (per request by Matteo and Penny) – mostly for
+        filtering convenience
+
+  • 
+        stemType moving from LexicalEntry to ontolex:Form
+
+  • 
+        the arrow for involves *filled*
+
+Model draft 4.13 updates:
+
+  • 
+        …
+
+2 LDL submission ?
+
+suggested last week, could document modelling progress
+
+3 Evaluation of inflectional data modeling
+
+3.1 morph:stemType (Greek/Latin)
+
+  • 
+        different base forms for generation
+
+      □ 
+            stemType for “co-indexing” inflection rules and baseForms
+
+      □ 
+            Penny: my example is computational, not lexicographical, needed
+            there
+
+(from modern Greek inflection)
+
+    => morph:stemType (identifier for different stems, also needed for Latin)
+
+    question: why at inflection rule and at ontolex:LexicalEntry ?
+
+cf. Question (CC, 2022-02-23, offline): wouldn't it make more sense to model
+stemType at a (base) form rather than at the level of lexical entries?
+
+tbc whether this works for Latin/Matteo
+
+Added slides for tomorrow's discussion: https://docs.google.com/presentation/d/
+1DI50ytMI1xcDjxpPQhAT1t6-jWbr5zCX/edit#slide=id.p1
+
+- Greek inflection: slides 1-3
+
+- orthographic variants: slide 4
+
+3.2 vartrans:orthVariant (Greek/Penny; Old English/Fahad)
+
+OE sample data: …
+
+New examples with vartrans:orthVariant as a vartrans:category (found it more
+interesting to instead of adding it just as a subproperty). What is still not
+clear though is how to define that the two (or more) orthographic variants
+share the same senses and syntactic behaviour.
+
+lexis_data:augo_26232 a ontolex:LexicalEntry ;
+
+rdfs:label "αυγό"@el ;
+
+ontolex:canonicalForm lexis_data:augo_form
+
+lexinfo:partOfSpeech lexinfo:commonNoun ;
+
+morph:paradigm lexis_data:vouno ;
+
+ontolex:sense lexis_data:augo_sense_USem1074 ;
+
+synsem:synBehavior lexis_data:augo_SUNo25013 .
+
+lexis_data:avgo_34067 a ontolex:LexicalEntry ;
+
+rdfs:label "αβγό"@el ;
+
+ontolex:canonicalForm lexis_data:avgo_form
+
+lexinfo:partOfSpeech lexinfo:commonNoun ;
+
+morph:paradigm lexis_data:vouno ;
+
+[DEL:ontolex:sense lexis_data:augo_sense_USem1074 ;:DEL]
+
+[DEL:synsem:synBehavior lexis_data:augo_SUNo25013:DEL] .
+
+lexis_data:avgo_form ontolex:writtenRep "αβγό"@el .
+
+lexis_data:augo_form ontolex:writtenRep "αυγό"@el .
+
+lexis_data:avgo_orthVariants a vartrans:LexicalRelation ;
+
+vartrans:source lexis_data:avgo ;
+
+vartrans:target lexis_data:augo ;
+
+vartrans:category lexis:orthVariant .
+
+Questions:
+
+  • 
+        termbase instead of lexis for orthVariant?
+
+  • 
+        any relation with `morph:baseForm` ?
+
+Option with lexicog module works but multiplies the lexical entry data, e.g.
+senses have to be created for all lexicographic components.
+
+  • 
+        consensus
+
+    → to be developed as part of the vartrans module but applied in order to
+    connect two ontolex:LexicalEntry resources that only differ in their
+    orthographic representation but share the same senses: a
+    vartrans:orthVariant subproperty of vartrans:lexicalRel that entails that
+    the same senses apply to both variants (restriction has to be formulated)
+
+  • 
+        possibilities (last time):
+
+ 1.
+        create separate entries and link them with a subproperty of
+        vartrans:lexicalRel (your_namespace:orthVariant sub
+        vartrans:lexicalRel) between two ontolex:LexicalEntries that are
+        orthographic variants - the shared data of both would have to be
+        repeated for both entries then or it has to be stated only on one
+        lexical entry resource (duplicate all senses)
+
+ 2.
+        alternatively, leave senses of the variant empty, define in the
+        semantics of orthVariant that this entails that the same senses apply
+        to both variants)
+
+ 3.
+        use owl:sameAs and share senses (a bit messy, because semantically this
+        means they are the same thing)
+
+3.3 POSTPONED: Other data
+
+define discussion order for
+
+  • 
+        FST grammars (German, Christian+Max, https://github.com/acoli-repo/
+        acoli-morph/tree/main/morphisto)
+
+  • 
+        sample data on GDrive
+
+4. Other todos
+
+3.1 OntoLex TermElement vs. Morph subclasses
+
+  • 
+        https://www.w3.org/community/ontolex/wiki/Morphology#
+        Fixed_set_of_morph:Morph_classes:_Telco_12.05.2021
+
+  • 
+        https://github.com/ontolex/lexinfo/issues/21
+
+  • 
+        question: extend lexinfo (and abandon morph subclasses) or morph
+        subclasses (and replicate lexinfo) ?
+
+      □ 
+            the current modelling with some subtypes of morph(eme)s modelled as
+            subclasses and others as TermElements is inconsistent
+
+3.2 crafting/collecting definitions
+
+  • 
+        https://github.com/ontolex/morph/blob/master/draft.md
+
+  • 
+        you can contribute suggestions by creating issues (https://github.com/
+        ontolex/morph/issues), via pull requests, or by direct editing (share
+        your GitHub password)
+       

@@ -13,7 +13,7 @@ Christian Chiarcos CC
  1.
         Module draft 4.5
 
-[image3]
+[image1]
 
 Included adaptations:
 
@@ -79,11 +79,11 @@ BK proposal:
  2.
         LIAM Model
 
-[image4]
-
 [image2]
 
-[image1]
+[image3]
+
+[image4]
 
 :MorphPattern → morph:InflectionType, morph:WordformationRelation
 

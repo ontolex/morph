@@ -1,0 +1,142 @@
+Participants:
+
+Bettina Klimek (BK) bettina.klimek@semalytix.com
+
+Fahad Khan (FK)
+
+Matteo Pellegrini (MP)
+
+ 1.
+        Module draft 4.8
+
+[image1]
+
+Adaptations included into module draft 4.8:
+
+  • 
+        morph:CompoundHead is subclass of morph:CompoundRelation
+
+  • 
+        object property: morph:baseConstraint with domain: morph:Morph and
+        range: morph:GrammaticalMeaning
+
+  • 
+        replaced “external resource” as object of morph:grammaticalMeaning with
+        class morph:GrammaticalMeaning
+
+  • 
+        one of the affix class merge options: removed morph:AffixMorph class,
+        ontolex:Affix is a subclass of morph:Morph and the affix classes are
+        subclasses of ontolex:Affix
+
+  • 
+        removed ontolex:Affix as subclass of ontolex:LexicalEntry
+
+Adaptations to be included into module draft 4.9:
+
+  • 
+        datatype property morph:stemType with a literal and domain
+        morph:InflectionRule
+
+  • 
+        add morph:baseForm as subproperty of ontolex:lexicalForm (in order to
+        link a stem morph with a lexical entry)
+
+  • 
+        datatype property morph:morphophonologicalRelation on
+        ontolex:LexicalEntry an ontolex:Form
+
+2. Greek inflectional data example by Penny
+
+Used greek LEXIS lexicon data (Greek extension of parole/simple)
+
+What was aimed to be represented:
+
+  • 
+        morphological unit has grammatical category (part of speech) and
+        canonical from, has an inflectional paradigm and is linked to the stems
+
+  • 
+        inflectional paradigm consists of constraints for part of speech and a
+        set of grammatical features (number, case..) and a number reference to
+        a stem and an ending (a suffix)
+
+  • 
+        representation of stress movement on syllables with morphophonological
+        change
+
+  • 
+        representation of of link between morphological unit and graphic
+        morphological unit
+
+Questions:
+
+ 1.
+        How to link similar lemmas together with morphophonological relations
+        to state which has been derived from the other?
+
+datatype property morph:morphophonologicalRelation on ontolex:LexicalEntry and
+ontolex:Form
+
+ 2.
+        Orthographic variants of lemmas with similar inflectional paradigms
+        should be linked.
+
+E.g. different spellings in German words with “ph” and “f” which are both
+allowed (Foto vs. Photo)
+
+Fahad: link both lexical entries with owl:seeAlso
+
+CC: use lexicog vocabulary and treat both lexical entries under a single
+lexicon headword
+
+→ Penny will look into lexicog module
+
+3) How to represent the prototypical inflectional paradigm? Specifying the
+correct base form for a particular rule.
+
+CC: proposes datatype property morph:stemType with a literal and domain
+morph:InflectionRule
+
+3. Representing the order of morphs
+
+General questions:
+
+  • 
+        granularity: ordering of morph:Morph resources in ontolex:LexicalEntry,
+        ontolex:Form, morph:Morph?
+
+  • 
+        scope: unspecified ordering (linear enumeration) vs. relational
+        ordering (before/after stem) - resurrecting morph:Prefix and
+        morph:Suffix?
+
+  • 
+        representing non-linear morphs, i.e. transfixes and circumfixes in a
+        generic way
+
+  • 
+        inclusion of decomp:Component resources?
+
+Option 1: Reuse of ordered lists with RDF containers:
+
+morph:Seq a rdf:Seq;
+
+rdf:_1 :resource 1;
+
+rdf:_2 :resource 2 .
+
+Todo:
+
+  • 
+        Penny will update the Greek example data by using the lexicog module
+        vocabulary
+
+  • 
+        all: look into Matteo’s presentation about Latin inflectional data:
+        MATTEO ADD URL to presentation https://drive.google.com/file/d/
+        1v2M-LbCdrdaPl2LVuPKzOfU-fQjv_5_1/view?usp=sharing
+
+[MP: the part that I would like to discuss is the one on inflection, from slide
+28]
+
