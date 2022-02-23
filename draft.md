@@ -157,14 +157,6 @@ Note: the eLex-2019 draft also had `morph:meaning`, but with Morph being subclas
 >
 > ------
 
-### morph:morphophonologicalRelation
-
-> ----
-> Datatype **morph:morphophonologicalRelation** is *to be defined*
-> Domain: `ontolex:LexicalEntry` or `ontolex:Form`
-> 
-> ----
-
 ### morph:baseForm
 > ----
 > Property **baseForm** is an `ontolex:lexicalForm` property that indicates the morphological base form of a lexical entry
@@ -300,15 +292,14 @@ Note: originally, we had the class Rule which contains necessary information to 
 
 > ----
 > Datatype property **morph:stemType** is used for coindexing a stem and an inflection rule in cases in which a single lexical entry can have multiple stem classes, in which a type of inflection rules operates with one stem class
-> Domain: ontolex:LexicalEntry or ontolex:InflectionRule
+> Domain: ontolex:Form or ontolex:InflectionRule
 > Range: literal
 >
 >---
 
 Note: This was introduced for modelling stem alternations. In this definition, we assume that we have one lexical entry for each stem variant, so that an inflection rule whose stemType doesn't match of its lexical entry doesn't fire.
 
-Question (CC, 2022-02-23, offline): wouldn't it make more sense to model stemType at a (base) form rather than at the level of lexical entries?
-
+- telco 2022-02-23: moved from LexicalEntry to forms that are baseForm objects
 
 ## Word Formation
 
@@ -400,3 +391,13 @@ CC 2022-02-23 (offline): is that really necessary? why can't we just use `decomp
 > ----
 
 
+## Open questions
+
+These are questions we decided to postpone until finalization of the module. Don't use that for on-going discussions, that's what minutes are for.
+
+- shouldn’t LexicalEntry (except as superclass of morph:Morph) be an ontolex:Word 
+	- MI: I think there was a discussion about this in the very beginning (about affixes). To check
+	- CC: PRO: semantics: otherwise everything we define for lexical entry then also applies to `morph:Morph`, this could be abused in unforeseen ways
+	- CC: CON: makes a more complicated diagram
+	- JM: tbc whether there are inflected multi-word expressions (if so => CON)
+	- JM: CON: in general, users should be clever enough to figure that out without putting it explicitly into the diagram
