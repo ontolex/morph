@@ -4,6 +4,21 @@
 When
 When given and unless marked otherwise, definitions follow the wording of [2019-12-19](https://docs.google.com/document/d/1wybx2_U0EcqmefRRiAABha-cFII6H2rZBtlgTcjLYjg/edit?usp=sharing)
 
+## Acknowledgements
+
+editors (= past and present telco moderators, alph.; please double-check):
+- Christian Chiarcos (since 2022)
+- Maxim Ionov (since 2018)
+- Bettina Klimek (2018-2022)
+
+contributors (alph, **please add yourself**):
+- Julia Bosque-Gil (2018-2022)
+- Christian Chiarcos (since 2018)
+- Maxim Ionov (since 2018)
+- Bettina Klimek (2018-2022)
+- John P. McCrae (since 2018)
+
+
 ## Contents
 - [Morphological Segments](#morphological-segments)
   * [morph:Morph](#morph-morph)
@@ -76,7 +91,7 @@ Notes: should use lexinfo resources por instances with `rdfs:label`
 > ----
 > Datatype **morph:morphophonologicalRelation** is *to be defined*
 > Domain: `ontolex:LexicalEntry` or `ontolex:Form`
-> 
+>
 > ----
 
 ### morph:baseForm
@@ -96,7 +111,7 @@ This property is necessary in cases in which inflection or derivation relations 
 >
 > -------
 
-Note: This class was in the Dec 2019 draft, but before Feb 2022, this class had been abandoned from diagram for visual reasons, it is a superclass of `morph:WordFormationRule` and `morph:InflectionRule` and defined as the domain of the properties `morph:replacement` and `morph:example`. Its deletion is to be reassessed, as this was for visual reasons only. Anyway, any information about both kinds of rules should go into this section. 
+Note: This class was in the Dec 2019 draft, but before Feb 2022, this class had been abandoned from diagram for visual reasons, it is a superclass of `morph:WordFormationRule` and `morph:InflectionRule` and defined as the domain of the properties `morph:replacement` and `morph:example`. Its deletion is to be reassessed, as this was for visual reasons only. Anyway, any information about both kinds of rules should go into this section.
 
 ### morph:example
 
@@ -110,18 +125,18 @@ Note: This class was in the Dec 2019 draft, but before Feb 2022, this class had 
 ### morph:Replacement
 
 > ----
-> property **morph:replacement** *is to be defined* 
+> property **morph:replacement** *is to be defined*
 > Domain: morph:WordFormationRule or morph:InflectionRule
-> Range: morph:Replacement 
-> 
+> Range: morph:Replacement
+>
 > ----
 
-note: 
+note:
 - Until 2022-02-22, this was incorrectly shown in diagram as datatpe property
 
 > ---
 > class **morph:Replacement** *is to be defined*
-> 
+>
 > ---
 
 processing analogy: replacement operations with regular expressions as in Perl or Sed
@@ -130,14 +145,14 @@ processing analogy: replacement operations with regular expressions as in Perl o
 > datatype property **morph:source** *is to be defined*
 > domain: morph:Replacement
 > range: string literal
-> 
+>
 > ----
 
 > ---
 > datatype property **morph:target** *is to be defined*
 > domain: morph:Replacement
 > range: string literal
-> 
+>
 > ----
 
 ## Inflection
@@ -158,7 +173,7 @@ Book analogy: a full paradigm table with possible allomorphy/alternative variant
 > property **morph:paradigm**: A link to the paradigm for the inflection type
 > Domain: morph:InflectionType
 > Range: morph:Paradigm
-> 
+>
 > ---
 
 
@@ -168,7 +183,7 @@ Book analogy: a full paradigm table with possible allomorphy/alternative variant
 > Class **morph:InflectionType**  represents a single slot for a single grammatical category for all its possible values (e.g. all the cases)
 >
 > --------
-> 
+>
 Book analogy: a column from a paradigm table without allomorphy/alternative variants for just a single morpheme
 
 
@@ -236,7 +251,7 @@ Note: originally, we had the class Rule which contains necessary information to 
 > Property **morph:involves** *is to be defined*
 > Domain: morph:WordFormationRule
 > Range: morph:Morph
-> 
+>
 > ----
 
 links a word formation rule with one or multiple morphemes involved in the process. Note that this does not encode order. One possibility to approximate order for most cases would be to restore `morph:Suffix` and `morph:Prefix`.
@@ -244,7 +259,7 @@ links a word formation rule with one or multiple morphemes involved in the proce
 question: this corresponds to `morph:inflects` for inflection rules. Can we generalize over both? (If so, we probably need to re-instatiate `morph:Rule`.
 
 > ---
-> Property **morph:generates** *is to be defined* 
+> Property **morph:generates** *is to be defined*
 > Domain: morph:WordFormationRule
 > Range: ontolex:LexicalEntry
 >
@@ -258,12 +273,12 @@ subclasses CompoundRule and DerivationRule. Normally, a derivation rule will inv
 
 > ---
 > class **morph:WordFormationRelation** is an `vartrans:LexicoSemanticRelation` that describes the way that a specific lexical entry is formed, with the `vartrans:target` representing the resulting lexical entry, and the `vartrans:source` representing the morphological base (in derivation) or head (in compounding).
-> 
+>
 > ----
 
 CC: new; note that this definition covers derivation and `morph:CompoundHead` but not `morph:CompoundRelation`.
 
-Note that word formation relations do not (= no longer) replicate the full typology of word formation processes. Also, a word formation does not provide a link with derivational affixes or interfixes in compounding involved in the compound. 
+Note that word formation relations do not (= no longer) replicate the full typology of word formation processes. Also, a word formation does not provide a link with derivational affixes or interfixes in compounding involved in the compound.
 Instead, this is modelled via `morph:WordFormationRule`:
 
 >----
@@ -290,15 +305,13 @@ Accordingly, the morphological derivation of German *Schönheit* "beauty" can be
 	            ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
 
 > ---
-> class **morph:CompoundRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound. 
-> 
+> class **morph:CompoundRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound.
+>
 > ----
 
 CC 2022-02-23 (offline): is that really necessary? why can't we just use `decomp` ? I guess this is for cases in which we don't know the head, but then, we can also just omit the source.
 
 > ---
-> class **morph:CompoundHead** is a `morph:WordFormationRelation` that connects the (lexical entry representing the) morphological head of a compound with the (lexical entry representing the) compound. 
-> 
+> class **morph:CompoundHead** is a `morph:WordFormationRelation` that connects the (lexical entry representing the) morphological head of a compound with the (lexical entry representing the) compound.
+>
 > ----
-
-
