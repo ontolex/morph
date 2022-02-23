@@ -208,7 +208,7 @@ note:
 > 
 > ---
 
-processing analogy: replacement operations with regular expressions as in Perl or Sed
+processing analogy: replacement operations with regular expressions as in Perl or Sed.
 
 > ---
 > datatype property **morph:source** *is to be defined*
@@ -223,6 +223,8 @@ processing analogy: replacement operations with regular expressions as in Perl o
 > range: string literal
 > 
 > ----
+
+As an example, a simple replacement operation would be concatenation, i.e., retrieve the baseForm (or canonicalForm, if no baseForm provided), check that it has the same stem type as the rule (if applicable), then append an affix to the written representation of the baseForm.
 
 ## Inflection
 
