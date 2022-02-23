@@ -143,12 +143,16 @@ Note: we still have no way to encode the order of morphemes.  We can model forms
 >
 > -------
 
-Notes: should use lexinfo resources por instances with `rdfs:label`
+Notes: 
+- should use lexinfo resources or instances with `rdfs:label`
+- can represent *either* an individual feature or a feature bundle
 
 > ------
-> property **morph:grammaticalMeaning** assigns a grammatical  meaning to a morph resource
+> property **morph:grammaticalMeaning** assigns a grammatical  meaning to a morph resource or a form
 >
 > -------
+
+Note: the extension to forms was introduced 2022-02-23 per request from Penny and Matteo for more conveniently providing re-usable and directly indexable "feature bundles".
 
 Note: the eLex-2019 draft also had `morph:meaning`, but with Morph being subclass of LexicalEntry, this role is taken over by `ontolex:sense`.
 
