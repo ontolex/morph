@@ -6,7 +6,7 @@ For more details see the Wiki: https://www.w3.org/community/ontolex/wiki/Morphol
 
 ## Draft spec
 
-Draft for definitions resides under [draft.md](draft.md).
+Current draft can be inspected on the [website](https://ontolex.github.io/morph/draft.html) and edited under [draft.md](draft.md).
 
 The [HTML template](index.html) is still empty, if finalized, it will be exposed via https://ontolex.github.io/morph/.
 
