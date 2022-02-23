@@ -41,33 +41,32 @@
 			<yjs:SolidColorFill x:Key="6" color="Black"/>
 			<yjs:SolidColorFill x:Key="7" color="Black"/>
 			<yjs:SolidColorFill x:Key="8" color="Black"/>
-			<yjs:Font x:Key="9" fontFamily="'Arial'"/>
-			<yjs:SolidColorFill x:Key="10" color="Blue"/>
+			<yjs:SolidColorFill x:Key="9" color="Black"/>
+			<yjs:SolidColorFill x:Key="10" color="Black"/>
 			<yjs:SolidColorFill x:Key="11" color="Black"/>
-			<yjs:SolidColorFill x:Key="12" color="Black"/>
-			<yjs:SolidColorFill x:Key="13" color="Black"/>
-			<yjs:Stroke x:Key="14" fill="#FF000000"/>
-			<yjs:PolylineEdgeStyle x:Key="15" stroke="{y:GraphMLReference 14}">
+			<yjs:Stroke x:Key="12" fill="#FF000000"/>
+			<yjs:PolylineEdgeStyle x:Key="13" stroke="{y:GraphMLReference 12}">
 				<yjs:PolylineEdgeStyle.sourceArrow>
-					<yjs:Arrow type="TRIANGLE" stroke="{y:GraphMLReference 14}" fill="#FFFFFFFF"/>
+					<yjs:Arrow type="TRIANGLE" stroke="{y:GraphMLReference 12}" fill="#FFFFFFFF"/>
 				</yjs:PolylineEdgeStyle.sourceArrow>
 			</yjs:PolylineEdgeStyle>
-			<yjs:Stroke x:Key="16" fill="{y:GraphMLReference 2}" miterLimit="1.45"/>
-			<yjs:Arrow x:Key="17" stroke="#FF000000" fill="{y:GraphMLReference 2}"/>
-			<yjs:SolidColorFill x:Key="18" color="Black"/>
-			<yjs:SolidColorFill x:Key="19" color="Blue"/>
+			<yjs:Stroke x:Key="14" fill="{y:GraphMLReference 2}" miterLimit="1.45"/>
+			<yjs:Arrow x:Key="15" stroke="#FF000000" fill="{y:GraphMLReference 2}"/>
+			<yjs:SolidColorFill x:Key="16" color="Black"/>
+			<yjs:SolidColorFill x:Key="17" color="Black"/>
+			<yjs:SolidColorFill x:Key="18" color="Blue"/>
+			<yjs:Font x:Key="19" fontFamily="'Arial'"/>
 			<yjs:SolidColorFill x:Key="20" color="Black"/>
 			<yjs:SolidColorFill x:Key="21" color="Black"/>
 			<yjs:SolidColorFill x:Key="22" color="Black"/>
-			<yjs:SolidColorFill x:Key="23" color="Black"/>
-			<yjs:SolidColorFill x:Key="24" color="Blue"/>
+			<yjs:SolidColorFill x:Key="23" color="Blue"/>
+			<yjs:SolidColorFill x:Key="24" color="Black"/>
 			<yjs:SolidColorFill x:Key="25" color="Black"/>
-			<yjs:SolidColorFill x:Key="26" color="Black"/>
-			<yjs:SolidColorFill x:Key="27" color="Blue"/>
+			<yjs:SolidColorFill x:Key="26" color="Blue"/>
+			<yjs:SolidColorFill x:Key="27" color="Black"/>
 			<yjs:SolidColorFill x:Key="28" color="Black"/>
-			<yjs:SolidColorFill x:Key="29" color="Black"/>
-			<yjs:Stroke x:Key="30" fill="#FF000000"/>
-			<yjs:PolylineEdgeStyle x:Key="31" stroke="{y:GraphMLReference 16}" targetArrow="{y:GraphMLReference 17}" sourceArrow="{y:GraphMLReference 4}"/>
+			<yjs:Stroke x:Key="29" fill="#FF000000"/>
+			<yjs:PolylineEdgeStyle x:Key="30" stroke="{y:GraphMLReference 14}" targetArrow="{y:GraphMLReference 15}" sourceArrow="{y:GraphMLReference 4}"/>
 		</y:SharedData>
 	</data>
 	<graph id="G" edgedefault="directed">
@@ -185,38 +184,6 @@ string: morph:stemType]]></y:Label.Text>
 			</port>
 		</node>
 		<node id="n3">
-			<data key="d0">13</data>
-			<data key="d4">
-				<x:List>
-					<y:Label>
-						<y:Label.Text>morph:Paradigm</y:Label.Text>
-						<y:Label.LayoutParameter>
-							<y:RatioAnchoredLabelModelParameter LayoutOffset="0.9808529338334324,7.93359375"/>
-						</y:Label.LayoutParameter>
-						<y:Label.Style>
-							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" autoFlip="false" textFill="#FF0000FF">
-								<yjs:DefaultLabelStyle.font>
-									<yjs:Font fontSize="12" fontFamily="'Arial'"/>
-								</yjs:DefaultLabelStyle.font>
-							</yjs:DefaultLabelStyle>
-						</y:Label.Style>
-					</y:Label>
-				</x:List>
-			</data>
-			<data key="d5">
-				<y:RectD X="454.3539378823329" Y="102.25095741067912" Width="98.74686211766686" Height="30"/>
-			</data>
-			<data key="d7">
-				<yjs:ShapeNodeStyle>
-					<yjs:ShapeNodeStyle.stroke>
-						<yjs:Stroke fill="#FF000000" miterLimit="1.45"/>
-					</yjs:ShapeNodeStyle.stroke>
-				</yjs:ShapeNodeStyle>
-			</data>
-			<port name="p0"/>
-			<port name="p1"/>
-		</node>
-		<node id="n4">
 			<data key="d0">14</data>
 			<data key="d4">
 				<x:List>
@@ -259,7 +226,7 @@ string: morph:stemType]]></y:Label.Text>
 			<port name="p3"/>
 			<port name="p4"/>
 		</node>
-		<node id="n5">
+		<node id="n4">
 			<data key="d0">16</data>
 			<data key="d2"><![CDATA[]]></data>
 			<data key="d4">
@@ -306,7 +273,7 @@ string: morph:example]]></y:Label.Text>
 			<port name="p4"/>
 			<port name="p5"/>
 		</node>
-		<node id="n6">
+		<node id="n5">
 			<data key="d0">22</data>
 			<data key="d4">
 				<x:List>
@@ -347,7 +314,7 @@ string: target]]></y:Label.Text>
 			</port>
 			<port name="p3"/>
 		</node>
-		<node id="n7">
+		<node id="n6">
 			<data key="d0">-2</data>
 			<data key="d4">
 				<x:List>
@@ -360,14 +327,14 @@ string: target]]></y:Label.Text>
 				</x:List>
 			</data>
 			<data key="d5">
-				<y:RectD X="-72.25" Y="-97.69999999999999" Width="1177.75" Height="174"/>
+				<y:RectD X="-35.25" Y="-97.69999999999999" Width="1140.75" Height="174"/>
 			</data>
 			<data key="d7">
 				<bpmn:GroupNodeStyle background="#21DC8888"/>
 			</data>
-			<graph id="n7:" edgedefault="directed"/>
+			<graph id="n6:" edgedefault="directed"/>
 		</node>
-		<node id="n8">
+		<node id="n7">
 			<data key="d0">-3</data>
 			<data key="d4">
 				<x:List>
@@ -380,13 +347,13 @@ string: target]]></y:Label.Text>
 				</x:List>
 			</data>
 			<data key="d5">
-				<y:RectD X="-72.25" Y="74.8988" Width="1177.75" Height="479.89970000000034"/>
+				<y:RectD X="-35.25" Y="74.8988" Width="1140.75" Height="458.89970000000034"/>
 			</data>
 			<data key="d7">
 				<bpmn:GroupNodeStyle background="#19889CDC"/>
 			</data>
-			<graph id="n8:" edgedefault="directed">
-				<node id="n8::n0">
+			<graph id="n7:" edgedefault="directed">
+				<node id="n7::n0">
 					<data key="d0">0</data>
 					<data key="d4">
 						<x:List>
@@ -427,7 +394,7 @@ string: target]]></y:Label.Text>
 					</port>
 					<port name="p2"/>
 				</node>
-				<node id="n8::n1">
+				<node id="n7::n1">
 					<data key="d0">1</data>
 					<data key="d4">
 						<x:List>
@@ -463,7 +430,7 @@ string: target]]></y:Label.Text>
 					</port>
 					<port name="p1"/>
 				</node>
-				<node id="n8::n2">
+				<node id="n7::n2">
 					<data key="d0">2</data>
 					<data key="d4">
 						<x:List>
@@ -504,7 +471,7 @@ string: target]]></y:Label.Text>
 					</port>
 					<port name="p2"/>
 				</node>
-				<node id="n8::n3">
+				<node id="n7::n3">
 					<data key="d0">3</data>
 					<data key="d4">
 						<x:List>
@@ -520,7 +487,7 @@ string: target]]></y:Label.Text>
 						</x:List>
 					</data>
 					<data key="d5">
-						<y:RectD X="410.8126263422965" Y="267.49861262128996" Width="128.55999999999995" Height="30.00000000000003"/>
+						<y:RectD X="440.62576422462956" Y="267.49861262128996" Width="98.74686211766686" Height="30.00000000000003"/>
 					</data>
 					<data key="d7">
 						<yjs:ShapeNodeStyle fill="#FFC0C0C0">
@@ -541,29 +508,24 @@ string: target]]></y:Label.Text>
 					</port>
 					<port name="p2">
 						<data key="d16">
-							<y:FreeNodePortLocationModelParameter Ratio="0.9997399202802408,0.9373538923026499"/>
+							<y:FreeNodePortLocationModelParameter Ratio="0.7227344632768362,0.21874466651844043"/>
 						</data>
 					</port>
 					<port name="p3">
 						<data key="d16">
-							<y:FreeNodePortLocationModelParameter Ratio="0.7227344632768362,0.21874466651844043"/>
-						</data>
-					</port>
-					<port name="p4">
-						<data key="d16">
 							<y:FreeNodePortLocationModelParameter Ratio="0.10735739680204578,0" Offset="0,-0.010932500000023992"/>
 						</data>
 					</port>
+					<port name="p4"/>
 					<port name="p5"/>
 				</node>
-				<node id="n8::n4">
+				<node id="n7::n4">
 					<data key="d0">4</data>
 					<data key="d4">
 						<x:List>
 							<y:Label>
 								<y:Label.Text><![CDATA[ontolex:Form
 -----------
-morph:morphophonologicalRelation
 morph:stemType]]></y:Label.Text>
 								<y:Label.LayoutParameter>
 									<y:RatioAnchoredLabelModelParameter LayoutOffset="1.9519590625000092,4.215264375000004"/>
@@ -575,7 +537,7 @@ morph:stemType]]></y:Label.Text>
 						</x:List>
 					</data>
 					<data key="d5">
-						<y:RectD X="662.0056800000003" Y="255.9986126212902" Width="179.32384000000002" Height="74.10127475741996"/>
+						<y:RectD X="702.294168941167" Y="255.99861262129025" Width="98.74686211766686" Height="51.10127475741996"/>
 					</data>
 					<data key="d7">
 						<yjs:ShapeNodeStyle fill="#FFC0C0C0">
@@ -595,7 +557,7 @@ morph:stemType]]></y:Label.Text>
 					</port>
 					<port name="p5"/>
 				</node>
-				<node id="n8::n5">
+				<node id="n7::n5">
 					<data key="d0">5</data>
 					<data key="d4">
 						<x:List>
@@ -626,7 +588,7 @@ morph:stemType]]></y:Label.Text>
 					</data>
 					<port name="p0"/>
 				</node>
-				<node id="n8::n6">
+				<node id="n7::n6">
 					<data key="d0">6</data>
 					<data key="d4">
 						<x:List>
@@ -676,7 +638,7 @@ morph:stemType]]></y:Label.Text>
 					<port name="p10"/>
 					<port name="p11"/>
 				</node>
-				<node id="n8::n7">
+				<node id="n7::n7">
 					<data key="d0">7</data>
 					<data key="d4">
 						<x:List>
@@ -707,7 +669,7 @@ morph:stemType]]></y:Label.Text>
 					</data>
 					<port name="p0"/>
 				</node>
-				<node id="n8::n8">
+				<node id="n7::n8">
 					<data key="d0">8</data>
 					<data key="d4">
 						<x:List>
@@ -738,7 +700,7 @@ morph:stemType]]></y:Label.Text>
 					</data>
 					<port name="p0"/>
 				</node>
-				<node id="n8::n9">
+				<node id="n7::n9">
 					<data key="d0">9</data>
 					<data key="d4">
 						<x:List>
@@ -769,7 +731,7 @@ morph:stemType]]></y:Label.Text>
 					</data>
 					<port name="p0"/>
 				</node>
-				<node id="n8::n10">
+				<node id="n7::n10">
 					<data key="d0">10</data>
 					<data key="d4">
 						<x:List>
@@ -800,7 +762,7 @@ morph:stemType]]></y:Label.Text>
 					</data>
 					<port name="p0"/>
 				</node>
-				<node id="n8::n11">
+				<node id="n7::n11">
 					<data key="d0">11</data>
 					<data key="d4">
 						<x:List>
@@ -831,7 +793,7 @@ morph:stemType]]></y:Label.Text>
 					</data>
 					<port name="p0"/>
 				</node>
-				<node id="n8::n12">
+				<node id="n7::n12">
 					<data key="d0">12</data>
 					<data key="d4">
 						<x:List>
@@ -851,7 +813,7 @@ morph:stemType]]></y:Label.Text>
 						</x:List>
 					</data>
 					<data key="d5">
-						<y:RectD X="754.3693841269842" Y="456.5906217902342" Width="174.7460317460317" Height="30"/>
+						<y:RectD X="805.3693841269842" Y="446.69722524258" Width="174.7460317460317" Height="30"/>
 					</data>
 					<data key="d7">
 						<yjs:ShapeNodeStyle>
@@ -868,7 +830,7 @@ morph:stemType]]></y:Label.Text>
 					<port name="p1"/>
 					<port name="p2"/>
 				</node>
-				<node id="n8::n13">
+				<node id="n7::n13">
 					<data key="d0">13</data>
 					<data key="d4">
 						<x:List>
@@ -899,7 +861,7 @@ morph:stemType]]></y:Label.Text>
 					</data>
 					<port name="p0"/>
 				</node>
-				<node id="n8::n14">
+				<node id="n7::n14">
 					<data key="d0">14</data>
 					<data key="d4">
 						<x:List>
@@ -933,7 +895,7 @@ morph:stemType]]></y:Label.Text>
 					<port name="p2"/>
 					<port name="p3"/>
 				</node>
-				<node id="n8::n15">
+				<node id="n7::n15">
 					<data key="d0">15</data>
 					<data key="d4">
 						<x:List>
@@ -966,13 +928,45 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</x:List>
 					</data>
 					<data key="d5">
-						<y:RectD X="783.4624000000001" Y="498.5906217902342" Width="128.55999999999995" Height="30"/>
+						<y:RectD X="834.4624000000001" Y="488.69722524258" Width="128.55999999999995" Height="30"/>
 					</data>
 					<data key="d7">
 						<yjs:ShapeNodeStyle stroke="{x:Null}" fill="{x:Null}" shape="ROUND_RECTANGLE"/>
 					</data>
 				</node>
-				<edge id="n8::e0" source="n8::n2" target="n8::n3" sourceport="p0" targetport="p0">
+				<node id="n7::n16">
+					<data key="d0">16</data>
+					<data key="d4">
+						<x:List>
+							<y:Label>
+								<y:Label.Text>morph:Paradigm</y:Label.Text>
+								<y:Label.LayoutParameter>
+									<y:RatioAnchoredLabelModelParameter LayoutOffset="0.9808529338334324,7.93359375"/>
+								</y:Label.LayoutParameter>
+								<y:Label.Style>
+									<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" autoFlip="false" textFill="#FF0000FF">
+										<yjs:DefaultLabelStyle.font>
+											<yjs:Font fontSize="12" fontFamily="'Arial'"/>
+										</yjs:DefaultLabelStyle.font>
+									</yjs:DefaultLabelStyle>
+								</y:Label.Style>
+							</y:Label>
+						</x:List>
+					</data>
+					<data key="d5">
+						<y:RectD X="462.6200935586799" Y="102.25095741067912" Width="98.74686211766686" Height="30"/>
+					</data>
+					<data key="d7">
+						<yjs:ShapeNodeStyle>
+							<yjs:ShapeNodeStyle.stroke>
+								<yjs:Stroke fill="#FF000000" miterLimit="1.45"/>
+							</yjs:ShapeNodeStyle.stroke>
+						</yjs:ShapeNodeStyle>
+					</data>
+					<port name="p0"/>
+					<port name="p1"/>
+				</node>
+				<edge id="n7::e0" source="n7::n2" target="n7::n3" sourceport="p0" targetport="p0">
 					<data key="d11">
 						<x:List>
 							<y:Label>
@@ -987,10 +981,10 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</x:List>
 					</data>
 					<data key="d13">
-						<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 16}" targetArrow="{y:GraphMLReference 17}" sourceArrow="{y:GraphMLReference 4}"/>
+						<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 14}" targetArrow="{y:GraphMLReference 15}" sourceArrow="{y:GraphMLReference 4}"/>
 					</data>
 				</edge>
-				<edge id="n8::e1" source="n8::n2" target="n8::n3" sourceport="p1" targetport="p1">
+				<edge id="n7::e1" source="n7::n2" target="n7::n3" sourceport="p1" targetport="p1">
 					<data key="d11">
 						<x:List>
 							<y:Label>
@@ -1015,7 +1009,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e2" source="n8::n3" target="n8::n4" sourceport="p2" targetport="p3">
+				<edge id="n7::e2" source="n7::n3" target="n7::n4" sourceport="p5" targetport="p3">
 					<data key="d11">
 						<x:List>
 							<y:Label>
@@ -1023,7 +1017,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 --> morph:baseForm
 ]]></y:Label.Text>
 								<y:Label.LayoutParameter>
-									<y:FreeEdgeLabelModelParameter Ratio="0.2403355005221923" Distance="21.50100000000014"/>
+									<y:FreeEdgeLabelModelParameter Ratio="0.45190377378778906" Distance="21.5010000000005"/>
 								</y:Label.LayoutParameter>
 								<y:Label.Style>
 									<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="#FF0000FF" textSize="10"/>
@@ -1042,7 +1036,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e3" source="n8::n4" target="n8::n6" sourceport="p1" targetport="p0">
+				<edge id="n7::e3" source="n7::n4" target="n7::n6" sourceport="p1" targetport="p0">
 					<data key="d11">
 						<x:List>
 							<y:Label>
@@ -1067,20 +1061,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e4" source="n8::n6" target="n8::n12" sourceport="p8" targetport="p0">
-					<data key="d11">
-						<x:List>
-							<y:Label>
-								<y:Label.Text>morph:baseConstraint</y:Label.Text>
-								<y:Label.LayoutParameter>
-									<y:FreeEdgeLabelModelParameter Ratio="0.6819807801981038" Distance="-9.664151645436545" Angle="0.892952968537361"/>
-								</y:Label.LayoutParameter>
-								<y:Label.Style>
-									<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="#FF0000FF" textSize="10"/>
-								</y:Label.Style>
-							</y:Label>
-						</x:List>
-					</data>
+				<edge id="n7::e4" source="n7::n6" target="n7::n12" sourceport="p8" targetport="p0">
 					<data key="d13">
 						<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 							<yjs:PolylineEdgeStyle.stroke>
@@ -1092,7 +1073,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e5" source="n8::n1" target="n8::n0" sourceport="p0" targetport="p0">
+				<edge id="n7::e5" source="n7::n1" target="n7::n0" sourceport="p0" targetport="p0">
 					<data key="d13">
 						<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 							<yjs:PolylineEdgeStyle.stroke>
@@ -1104,7 +1085,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e6" source="n8::n0" target="n8::n2" sourceport="p2" targetport="p2">
+				<edge id="n7::e6" source="n7::n0" target="n7::n2" sourceport="p2" targetport="p2">
 					<data key="d13">
 						<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 							<yjs:PolylineEdgeStyle.stroke>
@@ -1116,7 +1097,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e7" source="n8::n6" target="n8::n13" sourceport="p9" targetport="p0">
+				<edge id="n7::e7" source="n7::n6" target="n7::n13" sourceport="p9" targetport="p0">
 					<data key="d11">
 						<x:List>
 							<y:Label>
@@ -1141,41 +1122,19 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e8" source="n8::n6" target="n8::n12" sourceport="p7" targetport="p1">
-					<data key="d11">
-						<x:List>
-							<y:Label>
-								<y:Label.Text>morph:grammaticalMeaning</y:Label.Text>
-								<y:Label.LayoutParameter>
-									<y:FreeEdgeLabelModelParameter Ratio="0.6833350559350928" Distance="-21.48164937118726" Angle="0.527854578617782"/>
-								</y:Label.LayoutParameter>
-								<y:Label.Style>
-									<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="{y:GraphMLReference 9}" textFill="{y:GraphMLReference 10}" textSize="10"/>
-								</y:Label.Style>
-							</y:Label>
-							<y:Label>
-								<y:Label.Text>morph:grammaticalMeaning</y:Label.Text>
-								<y:Label.LayoutParameter>
-									<y:FreeEdgeLabelModelParameter Ratio="0.8911997773453308" Distance="-84.87215782467595" Angle="0.527854578617782"/>
-								</y:Label.LayoutParameter>
-								<y:Label.Style>
-									<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="{y:GraphMLReference 9}" textFill="{y:GraphMLReference 10}" textSize="10"/>
-								</y:Label.Style>
-							</y:Label>
-						</x:List>
-					</data>
+				<edge id="n7::e8" source="n7::n6" target="n7::n12" sourceport="p7" targetport="p1">
 					<data key="d13">
 						<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 							<yjs:PolylineEdgeStyle.stroke>
-								<yjs:Stroke fill="{y:GraphMLReference 11}" miterLimit="1.45"/>
+								<yjs:Stroke fill="{y:GraphMLReference 9}" miterLimit="1.45"/>
 							</yjs:PolylineEdgeStyle.stroke>
 							<yjs:PolylineEdgeStyle.targetArrow>
-								<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 11}"/>
+								<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 9}"/>
 							</yjs:PolylineEdgeStyle.targetArrow>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e9" source="n8::n5" target="n8::n1" sourceport="p0" targetport="p1">
+				<edge id="n7::e9" source="n7::n5" target="n7::n1" sourceport="p0" targetport="p1">
 					<data key="d13">
 						<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 							<yjs:PolylineEdgeStyle.stroke>
@@ -1187,14 +1146,14 @@ instances with "rdfs:label")]]></y:Label.Text>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e10" source="n8::n4" target="n8::n4" sourceport="p0" targetport="p4">
+				<edge id="n7::e10" source="n7::n4" target="n7::n4" sourceport="p0" targetport="p4">
 					<data key="d10"><![CDATA[]]></data>
 					<data key="d11">
 						<x:List>
 							<y:Label>
 								<y:Label.Text>morph:consistsOf</y:Label.Text>
 								<y:Label.LayoutParameter>
-									<y:FreeEdgeLabelModelParameter Ratio="1.5621742345758751" Distance="21.977765114790827"/>
+									<y:FreeEdgeLabelModelParameter Ratio="2.3608824956384544" Distance="-47.02223488520781"/>
 								</y:Label.LayoutParameter>
 								<y:Label.Style>
 									<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="#FF0000FF" textSize="10"/>
@@ -1204,22 +1163,22 @@ instances with "rdfs:label")]]></y:Label.Text>
 					</data>
 					<data key="d12">
 						<x:List>
-							<y:Bend Location="852.25,221.68327298465618"/>
-							<y:Bend Location="901.25,293.04925000000014"/>
+							<y:Bend Location="802.25,221.68327298465618"/>
+							<y:Bend Location="841.7424000000001,254"/>
 						</x:List>
 					</data>
 					<data key="d13">
 						<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 							<yjs:PolylineEdgeStyle.stroke>
-								<yjs:Stroke fill="{y:GraphMLReference 12}" miterLimit="1.45"/>
+								<yjs:Stroke fill="{y:GraphMLReference 10}" miterLimit="1.45"/>
 							</yjs:PolylineEdgeStyle.stroke>
 							<yjs:PolylineEdgeStyle.targetArrow>
-								<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 12}"/>
+								<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 10}"/>
 							</yjs:PolylineEdgeStyle.targetArrow>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e11" source="n8::n6" target="n8::n6" sourceport="p1" targetport="p2">
+				<edge id="n7::e11" source="n7::n6" target="n7::n6" sourceport="p1" targetport="p2">
 					<data key="d10"><![CDATA[]]></data>
 					<data key="d11">
 						<x:List>
@@ -1244,57 +1203,82 @@ instances with "rdfs:label")]]></y:Label.Text>
 					<data key="d13">
 						<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 							<yjs:PolylineEdgeStyle.stroke>
-								<yjs:Stroke fill="{y:GraphMLReference 13}" miterLimit="1.45"/>
+								<yjs:Stroke fill="{y:GraphMLReference 11}" miterLimit="1.45"/>
 							</yjs:PolylineEdgeStyle.stroke>
 							<yjs:PolylineEdgeStyle.targetArrow>
-								<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 13}"/>
+								<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 11}"/>
 							</yjs:PolylineEdgeStyle.targetArrow>
 						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
-				<edge id="n8::e12" source="n8::n6" target="n8::n11" sourceport="p3" targetport="p0">
+				<edge id="n7::e12" source="n7::n6" target="n7::n11" sourceport="p3" targetport="p0">
 					<data key="d13">
-						<y:GraphMLReference ResourceKey="15"/>
+						<y:GraphMLReference ResourceKey="13"/>
 					</data>
 				</edge>
-				<edge id="n8::e13" source="n8::n6" target="n8::n9" sourceport="p4" targetport="p0">
+				<edge id="n7::e13" source="n7::n6" target="n7::n9" sourceport="p4" targetport="p0">
 					<data key="d13">
-						<y:GraphMLReference ResourceKey="15"/>
+						<y:GraphMLReference ResourceKey="13"/>
 					</data>
 				</edge>
-				<edge id="n8::e14" source="n8::n6" target="n8::n14" sourceport="p5" targetport="p0">
+				<edge id="n7::e14" source="n7::n6" target="n7::n14" sourceport="p5" targetport="p0">
 					<data key="d13">
-						<y:GraphMLReference ResourceKey="15"/>
+						<y:GraphMLReference ResourceKey="13"/>
 					</data>
 				</edge>
-				<edge id="n8::e15" source="n8::n14" target="n8::n7" sourceport="p1" targetport="p0">
+				<edge id="n7::e15" source="n7::n14" target="n7::n7" sourceport="p1" targetport="p0">
 					<data key="d13">
-						<y:GraphMLReference ResourceKey="15"/>
+						<y:GraphMLReference ResourceKey="13"/>
 					</data>
 				</edge>
-				<edge id="n8::e16" source="n8::n14" target="n8::n8" sourceport="p2" targetport="p0">
+				<edge id="n7::e16" source="n7::n14" target="n7::n8" sourceport="p2" targetport="p0">
 					<data key="d13">
-						<y:GraphMLReference ResourceKey="15"/>
+						<y:GraphMLReference ResourceKey="13"/>
 					</data>
 				</edge>
-				<edge id="n8::e17" source="n8::n14" target="n8::n10" sourceport="p3" targetport="p0">
+				<edge id="n7::e17" source="n7::n14" target="n7::n10" sourceport="p3" targetport="p0">
 					<data key="d13">
-						<y:GraphMLReference ResourceKey="15"/>
+						<y:GraphMLReference ResourceKey="13"/>
 					</data>
 				</edge>
-				<edge id="n8::e18" source="n8::n3" target="n8::n6" sourceport="p5" targetport="p6">
+				<edge id="n7::e18" source="n7::n3" target="n7::n6" sourceport="p4" targetport="p6">
 					<data key="d13">
-						<y:GraphMLReference ResourceKey="15"/>
+						<y:GraphMLReference ResourceKey="13"/>
 					</data>
 				</edge>
-				<edge id="n8::e19" source="n8::n4" target="n8::n12" sourceport="p2" targetport="p2">
+				<edge id="n7::e19" source="n7::n4" target="n7::n12" sourceport="p2" targetport="p2">
 					<data key="d13">
-						<y:GraphMLReference ResourceKey="31"/>
+						<y:GraphMLReference ResourceKey="30"/>
+					</data>
+				</edge>
+				<edge id="n7::e20" source="n7::n3" target="n7::n16" sourceport="p2" targetport="p0">
+					<data key="d11">
+						<x:List>
+							<y:Label>
+								<y:Label.Text>morph:paradigm</y:Label.Text>
+								<y:Label.LayoutParameter>
+									<y:FreeEdgeLabelModelParameter Ratio="0.9136529282391821" Distance="125.22666019540472"/>
+								</y:Label.LayoutParameter>
+								<y:Label.Style>
+									<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="#FF0000FF" textSize="10"/>
+								</y:Label.Style>
+							</y:Label>
+						</x:List>
+					</data>
+					<data key="d13">
+						<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
+							<yjs:PolylineEdgeStyle.stroke>
+								<yjs:Stroke fill="{y:GraphMLReference 16}" miterLimit="1.45"/>
+							</yjs:PolylineEdgeStyle.stroke>
+							<yjs:PolylineEdgeStyle.targetArrow>
+								<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 16}"/>
+							</yjs:PolylineEdgeStyle.targetArrow>
+						</yjs:PolylineEdgeStyle>
 					</data>
 				</edge>
 			</graph>
 		</node>
-		<edge id="e0" source="n5" target="n8::n0" sourceport="p0" targetport="p1">
+		<edge id="e0" source="n4" target="n7::n0" sourceport="p0" targetport="p1">
 			<data key="d11">
 				<x:List>
 					<y:Label>
@@ -1317,15 +1301,15 @@ instances with "rdfs:label")]]></y:Label.Text>
 			<data key="d13">
 				<yjs:PolylineEdgeStyle targetArrow="{y:GraphMLReference 4}">
 					<yjs:PolylineEdgeStyle.stroke>
-						<yjs:Stroke fill="{y:GraphMLReference 18}" miterLimit="1.45"/>
+						<yjs:Stroke fill="{y:GraphMLReference 17}" miterLimit="1.45"/>
 					</yjs:PolylineEdgeStyle.stroke>
 					<yjs:PolylineEdgeStyle.sourceArrow>
-						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 18}"/>
+						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 17}"/>
 					</yjs:PolylineEdgeStyle.sourceArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e1" source="n0" target="n4" sourceport="p0" targetport="p3">
+		<edge id="e1" source="n0" target="n3" sourceport="p0" targetport="p3">
 			<data key="d11">
 				<x:List>
 					<y:Label>
@@ -1334,7 +1318,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 							<y:FreeEdgeLabelModelParameter Ratio="0.48226981221713766" Distance="-20.716536014320223"/>
 						</y:Label.LayoutParameter>
 						<y:Label.Style>
-							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 19}" textSize="10"/>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 18}" textSize="10"/>
 						</y:Label.Style>
 					</y:Label>
 					<y:Label>
@@ -1343,7 +1327,34 @@ instances with "rdfs:label")]]></y:Label.Text>
 							<y:FreeEdgeLabelModelParameter Ratio="0.7812043939081854" Distance="-309.2514803114439"/>
 						</y:Label.LayoutParameter>
 						<y:Label.Style>
-							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 19}" textSize="10"/>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="{y:GraphMLReference 19}" textFill="{y:GraphMLReference 18}" textSize="10"/>
+						</y:Label.Style>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text>morph:grammaticalMeaning</y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:FreeEdgeLabelModelParameter Ratio="1.1149812638301069" Distance="-300.98777960682304"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="{y:GraphMLReference 19}" textFill="{y:GraphMLReference 18}" textSize="10"/>
+						</y:Label.Style>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text>morph:grammaticalMeaning</y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:FreeEdgeLabelModelParameter Ratio="1.4721317329487478" Distance="-236.53714218827835"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="{y:GraphMLReference 19}" textFill="{y:GraphMLReference 18}" textSize="10"/>
+						</y:Label.Style>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text>morph:baseConstraint</y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:FreeEdgeLabelModelParameter Ratio="1.4327630934802877" Distance="-277.8446836390256"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="{y:GraphMLReference 19}" textFill="{y:GraphMLReference 18}" textSize="10"/>
 						</y:Label.Style>
 					</y:Label>
 				</x:List>
@@ -1359,32 +1370,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e2" source="n8::n3" target="n3" sourceport="p3" targetport="p0">
-			<data key="d11">
-				<x:List>
-					<y:Label>
-						<y:Label.Text>morph:paradigm</y:Label.Text>
-						<y:Label.LayoutParameter>
-							<y:FreeEdgeLabelModelParameter Ratio="0.9136529282391821" Distance="125.22666019540472"/>
-						</y:Label.LayoutParameter>
-						<y:Label.Style>
-							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="#FF0000FF" textSize="10"/>
-						</y:Label.Style>
-					</y:Label>
-				</x:List>
-			</data>
-			<data key="d13">
-				<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
-					<yjs:PolylineEdgeStyle.stroke>
-						<yjs:Stroke fill="{y:GraphMLReference 21}" miterLimit="1.45"/>
-					</yjs:PolylineEdgeStyle.stroke>
-					<yjs:PolylineEdgeStyle.targetArrow>
-						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 21}"/>
-					</yjs:PolylineEdgeStyle.targetArrow>
-				</yjs:PolylineEdgeStyle>
-			</data>
-		</edge>
-		<edge id="e3" source="n4" target="n3" sourceport="p2" targetport="p1">
+		<edge id="e2" source="n3" target="n7::n16" sourceport="p2" targetport="p1">
 			<data key="d11">
 				<x:List>
 					<y:Label>
@@ -1406,15 +1392,15 @@ instances with "rdfs:label")]]></y:Label.Text>
 			<data key="d13">
 				<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 					<yjs:PolylineEdgeStyle.stroke>
-						<yjs:Stroke fill="{y:GraphMLReference 22}" miterLimit="1.45"/>
+						<yjs:Stroke fill="{y:GraphMLReference 21}" miterLimit="1.45"/>
 					</yjs:PolylineEdgeStyle.stroke>
 					<yjs:PolylineEdgeStyle.targetArrow>
-						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 22}"/>
+						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 21}"/>
 					</yjs:PolylineEdgeStyle.targetArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e4" source="n2" target="n5" sourceport="p0" targetport="p3">
+		<edge id="e3" source="n2" target="n4" sourceport="p0" targetport="p3">
 			<data key="d13">
 				<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 					<yjs:PolylineEdgeStyle.stroke>
@@ -1426,7 +1412,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e5" source="n1" target="n5" sourceport="p0" targetport="p4">
+		<edge id="e4" source="n1" target="n4" sourceport="p0" targetport="p4">
 			<data key="d13">
 				<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 					<yjs:PolylineEdgeStyle.stroke>
@@ -1438,7 +1424,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e6" source="n0" target="n8::n6" sourceport="p2" targetport="p10">
+		<edge id="e5" source="n0" target="n7::n6" sourceport="p2" targetport="p10">
 			<data key="d12">
 				<x:List>
 					<y:Bend Location="1017.4998677630797,382.0665459693124"/>
@@ -1450,15 +1436,15 @@ instances with "rdfs:label")]]></y:Label.Text>
 			<data key="d13">
 				<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 					<yjs:PolylineEdgeStyle.stroke>
-						<yjs:Stroke fill="{y:GraphMLReference 23}" miterLimit="1.45"/>
+						<yjs:Stroke fill="{y:GraphMLReference 22}" miterLimit="1.45"/>
 					</yjs:PolylineEdgeStyle.stroke>
 					<yjs:PolylineEdgeStyle.targetArrow>
-						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 23}"/>
+						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 22}"/>
 					</yjs:PolylineEdgeStyle.targetArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e7" source="n5" target="n8::n3" sourceport="p1" targetport="p4">
+		<edge id="e6" source="n4" target="n7::n3" sourceport="p1" targetport="p3">
 			<data key="d11">
 				<x:List>
 					<y:Label>
@@ -1467,16 +1453,16 @@ instances with "rdfs:label")]]></y:Label.Text>
 							<y:FreeEdgeLabelModelParameter Ratio="0.22630781183434207" Distance="-74.42554667036633"/>
 						</y:Label.LayoutParameter>
 						<y:Label.Style>
-							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 24}" textSize="10"/>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 23}" textSize="10"/>
 						</y:Label.Style>
 					</y:Label>
 					<y:Label>
 						<y:Label.Text>morph:involves</y:Label.Text>
 						<y:Label.LayoutParameter>
-							<y:FreeEdgeLabelModelParameter Ratio="0.5924728005430755" Distance="408.09254391427925"/>
+							<y:FreeEdgeLabelModelParameter Ratio="0.5173562038258649" Distance="401.6005878622491"/>
 						</y:Label.LayoutParameter>
 						<y:Label.Style>
-							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 24}" textSize="10"/>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 23}" textSize="10"/>
 						</y:Label.Style>
 					</y:Label>
 				</x:List>
@@ -1489,32 +1475,32 @@ instances with "rdfs:label")]]></y:Label.Text>
 			<data key="d13">
 				<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 					<yjs:PolylineEdgeStyle.stroke>
-						<yjs:Stroke fill="{y:GraphMLReference 25}" miterLimit="1.45"/>
+						<yjs:Stroke fill="{y:GraphMLReference 24}" miterLimit="1.45"/>
 					</yjs:PolylineEdgeStyle.stroke>
 					<yjs:PolylineEdgeStyle.targetArrow>
-						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 25}"/>
+						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 24}"/>
 					</yjs:PolylineEdgeStyle.targetArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e8" source="n6" target="n6" sourceport="p0" targetport="p1">
+		<edge id="e7" source="n5" target="n5" sourceport="p0" targetport="p1">
 			<data key="d10"><![CDATA[]]></data>
 			<data key="d13">
 				<yjs:ArcEdgeStyle height="0.25" sourceArrow="{y:GraphMLReference 4}">
 					<yjs:ArcEdgeStyle.stroke>
-						<yjs:Stroke fill="{y:GraphMLReference 26}" miterLimit="1.45"/>
+						<yjs:Stroke fill="{y:GraphMLReference 25}" miterLimit="1.45"/>
 					</yjs:ArcEdgeStyle.stroke>
 					<yjs:ArcEdgeStyle.targetArrow>
-						<yjs:Arrow fill="{y:GraphMLReference 26}">
+						<yjs:Arrow fill="{y:GraphMLReference 25}">
 							<yjs:Arrow.stroke>
-								<yjs:Stroke fill="{y:GraphMLReference 26}" miterLimit="1.45"/>
+								<yjs:Stroke fill="{y:GraphMLReference 25}" miterLimit="1.45"/>
 							</yjs:Arrow.stroke>
 						</yjs:Arrow>
 					</yjs:ArcEdgeStyle.targetArrow>
 				</yjs:ArcEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e9" source="n0" target="n6" sourceport="p1" targetport="p3">
+		<edge id="e8" source="n0" target="n5" sourceport="p1" targetport="p3">
 			<data key="d10"><![CDATA[]]></data>
 			<data key="d11">
 				<x:List>
@@ -1536,7 +1522,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 							<y:FreeEdgeLabelModelParameter Ratio="0.551952870494974" Distance="24.502908030501246"/>
 						</y:Label.LayoutParameter>
 						<y:Label.Style>
-							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 27}" textSize="10"/>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 26}" textSize="10"/>
 						</y:Label.Style>
 					</y:Label>
 					<y:Label>
@@ -1545,7 +1531,7 @@ instances with "rdfs:label")]]></y:Label.Text>
 							<y:FreeEdgeLabelModelParameter Ratio="1.3463367847341614" Distance="24.954659113930404"/>
 						</y:Label.LayoutParameter>
 						<y:Label.Style>
-							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 27}" textSize="10"/>
+							<yjs:DefaultLabelStyle horizontalTextAlignment="CENTER" font="'Arial'" textFill="{y:GraphMLReference 26}" textSize="10"/>
 						</y:Label.Style>
 					</y:Label>
 				</x:List>
@@ -1553,15 +1539,15 @@ instances with "rdfs:label")]]></y:Label.Text>
 			<data key="d13">
 				<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 					<yjs:PolylineEdgeStyle.stroke>
-						<yjs:Stroke fill="{y:GraphMLReference 28}" miterLimit="1.45"/>
+						<yjs:Stroke fill="{y:GraphMLReference 27}" miterLimit="1.45"/>
 					</yjs:PolylineEdgeStyle.stroke>
 					<yjs:PolylineEdgeStyle.targetArrow>
-						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 28}"/>
+						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 27}"/>
 					</yjs:PolylineEdgeStyle.targetArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e10" source="n4" target="n4" sourceport="p0" targetport="p1">
+		<edge id="e9" source="n3" target="n3" sourceport="p0" targetport="p1">
 			<data key="d10"><![CDATA[]]></data>
 			<data key="d11">
 				<x:List>
@@ -1595,37 +1581,37 @@ instances with "rdfs:label")]]></y:Label.Text>
 			<data key="d13">
 				<yjs:PolylineEdgeStyle sourceArrow="{y:GraphMLReference 4}">
 					<yjs:PolylineEdgeStyle.stroke>
-						<yjs:Stroke fill="{y:GraphMLReference 29}" miterLimit="1.45"/>
+						<yjs:Stroke fill="{y:GraphMLReference 28}" miterLimit="1.45"/>
 					</yjs:PolylineEdgeStyle.stroke>
 					<yjs:PolylineEdgeStyle.targetArrow>
-						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 29}"/>
+						<yjs:Arrow stroke="#FF000000" fill="{y:GraphMLReference 28}"/>
 					</yjs:PolylineEdgeStyle.targetArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e11" source="n5" target="n6" sourceport="p2" targetport="p2">
+		<edge id="e10" source="n4" target="n5" sourceport="p2" targetport="p2">
 			<data key="d13">
-				<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 30}">
+				<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 29}">
 					<yjs:PolylineEdgeStyle.targetArrow>
-						<yjs:Arrow stroke="{y:GraphMLReference 30}" fill="#FF000000"/>
+						<yjs:Arrow stroke="{y:GraphMLReference 29}" fill="#FF000000"/>
 					</yjs:PolylineEdgeStyle.targetArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
-		<edge id="e12" source="n5" target="n8::n6" sourceport="p5" targetport="p11">
+		<edge id="e11" source="n4" target="n7::n6" sourceport="p5" targetport="p11">
 			<data key="d12">
 				<x:List>
-					<y:Bend Location="-37.75,-27.565345969312318"/>
-					<y:Bend Location="-37.75,382.06654596931236"/>
+					<y:Bend Location="-23.75,-27.565345969312318"/>
+					<y:Bend Location="-28.75,382.06654596931236"/>
 				</x:List>
 			</data>
 			<data key="d13">
-				<y:GraphMLReference ResourceKey="31"/>
+				<y:GraphMLReference ResourceKey="30"/>
 			</data>
 		</edge>
-		<edge id="e13" source="n8::n4" target="n4" sourceport="p5" targetport="p4">
+		<edge id="e12" source="n7::n4" target="n3" sourceport="p5" targetport="p4">
 			<data key="d13">
-				<y:GraphMLReference ResourceKey="31"/>
+				<y:GraphMLReference ResourceKey="30"/>
 			</data>
 		</edge>
 	</graph>
