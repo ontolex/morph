@@ -1,10 +1,30 @@
+
 # OntoLex-Morph definitions
 
 (use this for drafting text fragments, the HTML template is under [index.html](index.html) -- but this is empty)
 When
-When given and unless marked otherwise, definitions follow the wording of [2019-12-19](https://docs.google.com/document/d/1wybx2_U0EcqmefRRiAABha-cFII6H2rZBtlgTcjLYjg/edit?usp=sharing)
+When given and unless marked otherwise, definitions follow the wording of [2019-12-19](https://docs.google.com/document/d/1wybx2_U0EcqmefRRiAABha-cFII6H2rZBtlgTcjLYjg/edit?usp=sharing), resp., the [eLex -2019 paper](https://elex.link/elex2019/wp-content/uploads/2019/09/eLex_2019_33.pdf)
+
+## Acknowledgements
+
+editors (= past and present telco moderators, alph.; please double-check):
+- Christian Chiarcos (since 2022)
+- Maxim Ionov (since 2018)
+- Bettina Klimek (2018-2022)
+
+contributors (alph, **incomplete/please add yourself/people you know**):
+- Julia Bosque-Gil (2018-2022)
+- Christian Chiarcos (since 2018)
+-  Jesse De Does (2019-2020)
+- Katrien Depuydt (2019-2020)
+- Maxim Ionov (since 2018)
+- Bettina Klimek (2018-2022)
+- John P. McCrae (since 2018)
+- James K. Tauber
+
 
 ## Contents
+- [Purpose and Scope](#purpose-and-scope)
 - [Morphological Segments](#morphological-segments)
   * [morph:Morph](#morph-morph)
   * [morph:GrammaticalMeaning](#morph-grammaticalmeaning)
@@ -22,15 +42,40 @@ When given and unless marked otherwise, definitions follow the wording of [2019-
   * [morph:WordFormationRule](#morph-wordformationrule)
   * [morph:WordFormationRelation](#morph-wordformationrelation)
 
+## Purpose and Scope
 
+Morphology is a vital and, in many languages, very sophisticated part of language, and  
+as such it has been an important part of the work of lexicographers. In the traditional  
+print form, morphological information is provided in brief abbreviated terms that can  
+only be deciphered with significant knowledge of the language, however with the  
+transformation  of  the  dictionary  to  an  electronic  resource  a  re-imagining  of  the  
+morphology information in a dictionary is certainly due.
 
+The morphology module aims at fulfilling two modelling purposes:
+
+1. Stating elements that are involved in the decomposition of lexical entries and forms.
+	- Morphological decomposition on the lexical entry level.
+	> scope: The kind of elements of which a lexical entry can consist should be as non-restrictive as possible. I.e. The decomposition of lexical entries encompass lexical entries, components, derivational affixes, inflectional affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be composed of a form!
+	
+	- Morphological decomposition on the form level.
+
+	> scope: Elements of which a form can consist include roots, stems, inflectional affixes and zero morphs. A form can NEVER be decomposed into lexical entries (including ontolex:Affix), components and forms.
+
+2. Enabling the representation of building patterns that are involved in the formation of lexical entries and forms.
+	- Representation of decompositional building patterns for lexical entries.
+	- Representation of decompositional building patterns for forms.
+
+A fine-grained description of phonological and morphophonological processes that are  involved in any kind of stem or word formation on the phoneme level is excluded and not representable with this Morphology Module. Only the elements  between the lexical entry and the morph levels will be covered. It is possible, however, that such information may be addressed in future OntoLex modules.
+
+The OntoLex-Morph module aims to be adequate for both traditional dictionary content (which contains only abbreviated about morphological rules and paradigms, often organized in appendices) and structured computational data (morphological dictionaries) as used in Language Technology, with the goal of making resources from one community more accessible to the other.
 
 ## Morphological Segments
 
 ### morph:Morph
 
 > ------
-> Class **morph:Morph** is a subclass of ontolex:LexicalEntry that *is to be defined*
+> Class **morph:Morph** is a subclass of ontolex:LexicalEntry that represents a concrete primitive element of  
+morphological analysis.
 >
 > -------
 
@@ -42,12 +87,46 @@ Notes:
 - baseConstraint: (for affixes) contraints on the elements that this morph can be applied to
 - subclasses `ontolex:Affix`, RootMorph, StemMorph, TransfixMorph, SimulfixMorph, ZeroMorph
 
+> ----
+> Class **morph:RootMorph** identifies morph:Morphs that constitute the  semantic nucleus  of a stem. A root morph cannot be further segmented and  is often not specified for a part of speech.
+> subClassOf: morph:Morph
+> 
+> ---
+
+> ---
+> Class **morph:StemMorph** identifies  morph:Morphs to which inflectional  marking applies.
+> subClassOf: morph:Morph
+> 
+> ---
+
+> Note: we do not define affix (a bound segmental morph), but instead, `ontolex:Affix` is defined as a subclass of `morph:Morph`.
+
+>---
+> Class **morph:TransfixMorph** is a discontinous `ontolex:Affix`
+> subClassOf: ontolex:Affix, morph:Morph
+>  
+>  ---
+> ---
+> Class **morph:SimulfixMorph**: A simulfix is a bound morph that entails a   change or replacement of vowels or consonants  (usually vowels) which changes the meaning of   a word, e.g.  eat  in past tense becomes  ate.
+> subClassOf: ontolex:Affix, morph:Morph
+>  
+>  ---
+
+> ---
+> Class **morph:ZeroMorph**: A morph that that corresponds to no overt   form,  i.e.  orthographic  or  phonetic  representation
+> subClassOf: ontolex:Affix, morph:Morph
+>  
+>  ---
+
+
 > ------
-> Property **morph:consistsOf** is *to be defined*
+> Property **morph:consistsOf** states  into  which  Morph resources a Form resource can  be segmented.
 > Domain: ontolex:Form, morph:Morph
 > Range: ontolex:Form, morph:Morph
 >
 >-----
+
+Note: this is the eLex-2019 definition, but now we have consists of between morphs and between forms, too
 
 Note: we still have no way to encode the order of morphemes.  We can model forms and morphs as an aggregate (here: `rdf:List` ?).
 
@@ -62,14 +141,16 @@ Note: we still have no way to encode the order of morphemes.  We can model forms
 Notes: should use lexinfo resources por instances with `rdfs:label`
 
 > ------
-> property **morph:grammaticalMeaning** *is to be defined*
+> property **morph:grammaticalMeaning** assigns a grammatical  meaning to a morph resource
 >
 > -------
+
+Note: the eLex-2019 draft also had `morph:meaning`, but with Morph being subclass of LexicalEntry, this role is taken over by `ontolex:sense`.
 
 > ------
 > property **morph:baseConstraint** *is to be defined*
 >
-> -------
+> ------
 
 ### morph:morphophonologicalRelation
 
@@ -97,6 +178,8 @@ This property is necessary in cases in which inflection or derivation relations 
 > -------
 
 Note: This class was in the Dec 2019 draft, but before Feb 2022, this class had been abandoned from diagram for visual reasons, it is a superclass of `morph:WordFormationRule` and `morph:InflectionRule` and defined as the domain of the properties `morph:replacement` and `morph:example`. Its deletion is to be reassessed, as this was for visual reasons only. Anyway, any information about both kinds of rules should go into this section. 
+
+Note: This class was originally introduced as `morph:MorphologicalPattern`: The  morphological  pattern states  the  inflectional,  derivational  or  compositional   building pattern that applies to a lexical entry. (eLex-2019)
 
 ### morph:example
 
@@ -154,8 +237,12 @@ processing analogy: replacement operations with regular expressions as in Perl o
 > -----------
 Book analogy: a full paradigm table with possible allomorphy/alternative variants
 
+Note: eLex-2019: `morph:InflectionalParadigm`: A structured set of inflected forms according  
+to specific grammatical parameters. This is now not a set of inflected forms but a set of inflection types that are linked with the respective forms.
+
 >--------
-> property **morph:paradigm**: A link to the paradigm for the inflection type
+> property **morph:paradigm**: A link to the paradigm for the inflection type (eLex-2019: assigns a form to an  
+inflectional paradigm)
 > Domain: morph:InflectionType
 > Range: morph:Paradigm
 > 
@@ -173,7 +260,7 @@ Book analogy: a column from a paradigm table without allomorphy/alternative vari
 
 
 > -----
-> property **morph:inflectionType** *is to be defined*
+> property **morph:inflectionType** assigns an inflectional  pattern of  a form as belonging to a  morphological pattern  of  a  lexical  entry [eLex-2019 definition for `belongsToMorphPattern`, to be updated]
 > Domain: morph:Rule
 > Range: morph:InflectionType
 >
@@ -254,6 +341,12 @@ Note: updated according to draft from Feb 2022.
 
 subclasses CompoundRule and DerivationRule. Normally, a derivation rule will involve one specific morpheme or one allomorphic variant. A compound rule can involve an interfix or another morphophonological process.
 
+> ----
+> Class **morph:DerivationRule**: Derivation is a lexical process that generates one lexical entry from another by means of a  derivational affix.
+>  
+>  ---
+
+
 ### morph:WordFormationRelation
 
 > ---
@@ -267,7 +360,7 @@ Note that word formation relations do not (= no longer) replicate the full typol
 Instead, this is modelled via `morph:WordFormationRule`:
 
 >----
-> property **morph:wordFormationRule** is *to be defined*
+> property **morph:wordFormationRule** relates  two  lexical  entries  that  stand  in  some  word formation relation.
 > Domain: morph:WordFormationRelation
 > Range: morph: WordFormationRule
 >
