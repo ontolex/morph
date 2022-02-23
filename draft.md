@@ -14,16 +14,19 @@ editors (= past and present telco moderators, alph.; please double-check):
 - Maxim Ionov (since 2018)
 - Bettina Klimek (2018-2022)
 
-contributors (alph, **incomplete/please add yourself/people you know**):
+contributors (alph, **incomplete/please add yourself/people you remember to have contributed**):
 - Julia Bosque-Gil (2018-2022)
 - Christian Chiarcos (since 2018)
--  Jesse De Does (2019-2020)
+- Jesse De Does (2019-2020)
 - Katrien Depuydt (2019-2020)
+- Katerina Gkirtzou
 - Maxim Ionov (since 2018)
+- Fahad Khan
 - Bettina Klimek (2018-2022)
+- Penny Labropoulou
 - John P. McCrae (since 2018)
+- Matteo Pellegrini
 - James K. Tauber
-
 
 ## Contents
 - [Purpose and Scope](#purpose-and-scope)
