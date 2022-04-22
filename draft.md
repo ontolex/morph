@@ -364,11 +364,11 @@ subclasses CompoundRule and DerivationRule. Normally, a derivation rule will inv
 ### morph:WordFormationRelation
 
 > ---
-> class **morph:WordFormationRelation** is an `vartrans:LexicoSemanticRelation` that describes the way that a specific lexical entry is formed, with the `vartrans:target` representing the resulting lexical entry, and the `vartrans:source` representing the morphological base (in derivation) or head (in compounding).
+> class **morph:WordFormationRelation** is an `vartrans:LexicalRelation` that describes the way that a specific lexical entry is formed, with the `vartrans:target` representing the resulting lexical entry, and the `vartrans:source` representing the morphological base (in derivation) or head (in compounding).
 >
 > ----
 
-CC: new; note that this definition covers derivation and `morph:CompoundHead` but not `morph:CompoundRelation`.
+CC: new; note that this definition covers derivation and `morph:CompoundHead` but *not* `morph:CompoundRelation`.
 
 Note that word formation relations do not (= no longer) replicate the full typology of word formation processes. Also, a word formation does not provide a link with derivational affixes or interfixes in compounding involved in the compound.
 Instead, this is modelled via `morph:WordFormationRule`:
