@@ -1,4 +1,3 @@
-
 # OntoLex-Morph definitions
 
 (use this for drafting text fragments, the HTML template is under [index.html](index.html) -- but this is empty)
@@ -17,6 +16,7 @@ editors (= past and present telco moderators, alph.; please double-check):
 contributors (alph, **incomplete/please add yourself/people you remember to have contributed**):
 - Julia Bosque-Gil (2018-2022)
 - Christian Chiarcos (since 2018)
+- Thierry Declerck
 - Jesse De Does (2019-2020)
 - Katrien Depuydt (2019-2020)
 - Katerina Gkirtzou
@@ -26,8 +26,9 @@ contributors (alph, **incomplete/please add yourself/people you remember to have
 - Penny Labropoulou
 - John P. McCrae (since 2018)
 - Matteo Pellegrini
+- Stefania Racioppa
 - James K. Tauber
-/tree/master/doc/diagrams
+
 ## Contents
 - [Purpose and Scope](#purpose-and-scope)
 - [Morphological Segments](#morphological-segments)
@@ -93,13 +94,13 @@ Notes:
 - subclasses `ontolex:Affix`, RootMorph, StemMorph, TransfixMorph, SimulfixMorph, ZeroMorph
 
 > ----
-> Class **morph:RootMorph** identifies morph:Morphs that constitute the  semantic nucleus  of a stem. A root morph cannot be further segmented and  is often not specified for a part of speech.
+> DEPRECATED Class **morph:RootMorph** identifies morph:Morphs that constitute the  semantic nucleus  of a stem. A root morph cannot be further segmented and  is often not specified for a part of speech.
 > subClassOf: morph:Morph
 >
 > ---
 
 > ---
-> Class **morph:StemMorph** identifies  morph:Morphs to which inflectional  marking applies.
+> DEPRECATED Class **morph:StemMorph** identifies  morph:Morphs to which inflectional  marking applies.
 > subClassOf: morph:Morph
 >
 > ---
@@ -107,22 +108,23 @@ Notes:
 > Note: we do not define affix (a bound segmental morph), but instead, `ontolex:Affix` is defined as a subclass of `morph:Morph`.
 
 >---
-> Class **morph:TransfixMorph** is a discontinous `ontolex:Affix`
+> DEPRECATED Class **morph:TransfixMorph** is a discontinous `ontolex:Affix`
 > subClassOf: ontolex:Affix, morph:Morph
 >  
 >  ---
 > ---
-> Class **morph:SimulfixMorph**: A simulfix is a bound morph that entails a   change or replacement of vowels or consonants  (usually vowels) which changes the meaning of   a word, e.g.  eat  in past tense becomes  ate.
+> DEPRECATED Class **morph:SimulfixMorph**: A simulfix is a bound morph that entails a   change or replacement of vowels or consonants  (usually vowels) which changes the meaning of   a word, e.g.  eat  in past tense becomes  ate.
 > subClassOf: ontolex:Affix, morph:Morph
 >  
 >  ---
 
 > ---
-> Class **morph:ZeroMorph**: A morph that that corresponds to no overt   form,  i.e.  orthographic  or  phonetic  representation
+> DEPRECATED Class **morph:ZeroMorph**: A morph that that corresponds to no overt   form,  i.e.  orthographic  or  phonetic  representation
 > subClassOf: ontolex:Affix, morph:Morph
 >  
 >  ---
 
+April 2022: morph subclasses deprecated and moved to [LexInfo](https://github.com/ontolex/lexinfo/pull/29). Note that lexinfo does not yet reference `morph:Morph`, but only `ontolex:Affix` and `ontolex:LexicalEntry`, but that should be changed when publishing OntoLex-Morph. Also note that the LexInfo definitions should be consolidated with those in this document.
 
 > ------
 > Property **morph:consistsOf** states  into  which  Morph resources a Form resource can  be segmented.
