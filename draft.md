@@ -254,6 +254,7 @@ inflectional paradigm)
 >
 > ---
 
+Note: the link between paradigm and lexical entries is not defined in OntoLex-Morph, but modelled using `ontolex:morphologicalPattern`.
 
 ### morph:InflectionType
 
@@ -290,11 +291,14 @@ Book analogy: a column from a paradigm table without allomorphy/alternative vari
 Note: originally, we had the class Rule which contains necessary information to add one morpheme to a single word form. It must contain either morph:example or morph:replacement (or both). “Tabular” value of a morpheme must be stored in rdfs:label (e.g. “-s”@en for usual PL in English)
 
 > ---
-> property **morph:inflects**: A link to the first “slot” (inflection type), e.g. an inflection type for number for English nouns
-> Domain: morph:InflectionType
-> Range: ontolex:Word
+> DEPRECATED property **morph:inflects**: Property to link an inflection rule with the (abstract representation of the) morph(s) involved in the application of this particular rule.
+
+> Domain: morph:InflectionRule
+> Range: ontolex:Morph
 >
 > ---
+
+Note: this is deprecated in favor of merging it with the analoguous `morph:involves` for derivation morphemes as decided telco 2022-04-20.
 
 
 ### morph:stemType
@@ -326,14 +330,14 @@ Note: originally, we had the class Rule which contains necessary information to 
 
 > ---
 > Property **morph:involves** *is to be defined*
-> Domain: morph:WordFormationRule
+> Domain: morph:WordFormationRule or morph:InflectionRule
 > Range: morph:Morph
 >
 > ----
 
-links a word formation rule with one or multiple morphemes involved in the process. Note that this does not encode order. One possibility to approximate order for most cases would be to restore `morph:Suffix` and `morph:Prefix`.
+links a word formation rule or an inflection rule (see below) with one or multiple morphemes involved in the process. Note that this does not encode order. One possibility to approximate order for most cases would be to restore `morph:Suffix` and `morph:Prefix`.
 
-question: this corresponds to `morph:inflects` for inflection rules. Can we generalize over both? (If so, we probably need to re-instatiate `morph:Rule`.
+Note: updated according to telco April 21, 2022.
 
 > ---
 > Property **morph:generates** *is to be defined*
