@@ -87,13 +87,13 @@ morphological analysis.
 >
 > -------
 
-MP: morph:Morph can actually be not concrete - if used for an abstract morpheme, see below - and not primitive - if we use it for complex stems. Perhaps we can define it as "any element of morphological analysis smaller below the word level"?
+MP: morph:Morph can actually be not concrete - if used for an abstract morpheme, see below - and not primitive - if we use it for complex stems. Perhaps we can define it as "any element of morphological analysis below the word level"?
 
 Notes:
 - can carry `lexinfo:termElement` (for what?)
 - can consist of other morphs
 - the model is agnostic as to whether this represents a morpheme or one of its allomorphs, but as a lexical entry
-MP: it might be confusing to have a class called "Morph" that can be used also for morphemes
+(MP: it might be confusing to have a class called "Morph" that can be used also for morphemes?)
 - grammaticalMeaning: glossing information associated with the morph
 - baseConstraint: (for affixes) contraints on the elements that this morph can be applied to
 - subclasses `ontolex:Affix`, RootMorph, StemMorph, TransfixMorph, SimulfixMorph, ZeroMorph
@@ -147,11 +147,9 @@ MP: If morph is a primitive, why it can consist of other morphs? see note above 
 ### morph:GrammaticalMeaning
 
 > ------
-> Class **morph:GrammaticalMeaning** *is to be defined*
+> MP: Class **morph:GrammaticalMeaning** can be used to represent (bundles of) values of different morpho-syntactic properties expressed by a form or morph
 >
 > -------
-
-MP: Class **morph:GrammaticalMeaning** can be used to represent (bundles of) values of different morpho-syntactic properties expressed by a form or morph
 
 Notes:
 - should use lexinfo resources or instances with `rdfs:label`
@@ -182,7 +180,11 @@ For example, an element for nominal inflection can only be applied to nouns, and
 >  
 >  ---
 
-MP: Property **baseForm** is an `ontolex:lexicalForm` property that indicates the form (or morph? see below) that is taken as base by inflection or derivation rules to generate other forms.
+> ----
+> MP: Property **baseForm** is an `ontolex:lexicalForm` property that indicates the form (or morph? see below) that is taken as base by inflection or derivation rules to generate other forms.
+>  
+>  ---
+
 
 This property is necessary in cases in which inflection or derivation relations do not take the canonical form as their basis, but a different one. One example is German verbal inflection (e.g., for `gehen` "to go"), where the canonical form (`gehen`, infinitive) is derived from the base form (`geh-`, stem) by means of a suffix (`-en`, infinitive marker), like other inflected forms (`geh`, `gehst`, `geht` "I/you go; he/she/it goes").
 
@@ -353,7 +355,8 @@ Note: This was introduced for modelling stem alternations. In this definition, w
 >
 > -------
 
-MP: move rhe ramrk on the fact that they can be used to refer to general patterns here?
+MP: move rhe remark on the fact that they can be used to refer to general patterns here?
+
 For the analysis of a *specific* compound or derivation, use `morph:WordFormationRelation`.
 
 Note: originally, we had the class Rule which contains necessary information to add one morpheme to a single word form. It must contain either morph:example or morph:replacement (or both). “Tabular” value of a morpheme must be stored in rdfs:label (e.g. “-s”@en for usual PL in English)
@@ -391,6 +394,8 @@ subclasses CompoundRule and DerivationRule. Normally, a derivation rule will inv
 > MP: Class **morph:DerivationRule** refers to rules that take one LexicalEntry as input.
 >  
 >  ---
+
+MP: I would rather not mention the presence of an affix so as to make the definition sufficiently general to cover conversion too (as happens in WFL data)
 
 > ----
 > MP: Class **morph:CompoundingRule** refers to rules that take more than one LexicalEntry as input.
