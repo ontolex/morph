@@ -134,7 +134,7 @@
 			<data key="d4">
 				<x:List>
 					<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
-						<y:Label.Text><![CDATA[Observed what: Observation subclasses]]></y:Label.Text>
+						<y:Label.Text><![CDATA[Intensional Morphology (generation)]]></y:Label.Text>
 						<y:Label.Style>
 							<yjs:DefaultLabelStyle font="{y:GraphMLReference 5}" textFill="BLACK"/>
 						</y:Label.Style>
@@ -357,7 +357,7 @@ string: target]]></y:Label.Text>
 			<data key="d4">
 				<x:List>
 					<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
-						<y:Label.Text>Observed</y:Label.Text>
+						<y:Label.Text><![CDATA[Extensional Morphology (description)]]></y:Label.Text>
 						<y:Label.Style>
 							<yjs:DefaultLabelStyle font="{y:GraphMLReference 5}" textFill="BLACK"/>
 						</y:Label.Style>
