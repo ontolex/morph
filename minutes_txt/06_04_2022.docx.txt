@@ -1,0 +1,277 @@
+Link: https://meet.google.com/nsj-tbcy-yop
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC) christian.chiarcos@gmail.com
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK)
+
+Matteo Pellegrini (MP)
+
+Agenda (please add, but do not edit table of contents directly, but add
+sections below and then update here):
+
+0. Module draft 1
+
+1 LDL submission 2
+
+2 Consolidation for LDL submission 3
+
+    2.1 crafting/collecting definitions 3
+
+    2.2 OntoLex TermElement vs. Morph subclasses 3
+
+2 vartrans:orthVariant (Greek/Penny; Old English/Fahad) 3
+
+3 Discussion order for other data 5
+
+0. Module draft
+
+    draft 4.12 (not updated for today)
+
+[image1]
+
+Model draft 4.13 updates:
+
+  • 
+        Rename morph:stemType property in the morph:Form (not in the
+        InflectionRule) => morph:baseType ? (for analogy with morph:baseForm)
+
+      □ 
+            can be marked on both the baseForm and derived forms,
+            morph:baseForm (or, if absent, morph:canonicalForm) can be used to
+            mark non-derived forms
+
+1 LDL submission
+
+could document modelling progress, current status
+
+Deadline: April 8th => 14th
+
+overleaf: https://www.overleaf.com/4868363189kczjzdndgxwc
+
+LDL or otherwise?
+
+  • 
+        SIGUL https://sigul-2022.ilc.cnr.it/
+
+  • 
+        LAW?
+
+Willing to contribute:
+
+  • 
+        Christian
+
+  • 
+        Matteo
+
+  • 
+        Penny
+
+  • 
+        Max
+
+  • 
+        Katerina
+
+  • 
+        ?Fahad (if needed for an example)
+
+      □ 
+            Potential examples: wiht - Wiktionary, cuman - Wiktionary
+
+Doodle poll to discuss the plan and responsibilities: https://doodle.com/
+meeting/participate/id/bo2RrRYa
+
+  • 
+        idea: diff to 2019 and examples
+
+TBC: which examples?
+
+NB: https://link.springer.com/chapter/10.1007/978-3-030-98876-0_34: MMoOn
+modelling for Greek morphology. Worth a comparison?
+
+2 Consolidation for LDL submission
+
+2.1 crafting/collecting definitions
+
+  • 
+        https://github.com/ontolex/morph/blob/master/draft.md
+
+  • 
+        you can contribute suggestions by creating issues (https://github.com/
+        ontolex/morph/issues), via pull requests, or by direct editing (share
+        your GitHub username)
+
+2.2 OntoLex TermElement vs. Morph subclasses
+
+  • 
+        https://www.w3.org/community/ontolex/wiki/Morphology#
+        Fixed_set_of_morph:Morph_classes:_Telco_12.05.2021
+
+  • 
+        https://github.com/ontolex/lexinfo/issues/21
+
+  • 
+        question: extend lexinfo (and abandon morph subclasses) or morph
+        subclasses (and replicate lexinfo) ?
+
+      □ 
+            the current modelling with some subtypes of morph(eme)s modelled as
+            subclasses and others as TermElements is inconsistent
+
+  • 
+        update: lexinfo also has Infix etc. class, use that instead of
+        lexinfo:termElement
+
+      □ 
+            tentative consensus
+
+2 vartrans:orthVariant (Old English/Fahad)
+
+OE sample data: coman/quoman example, cf. https://en.wiktionary.org/wiki/cuman#
+Old_English
+
+issues with dialects (reference dialect vs. other dialects) and diachrony
+(phonological processes); treatment of syncopation, suppletion, fusion of
+different roots [=> variants?] ?
+
+question how to model
+
+Penny/Greek: (old notes)
+
+New examples with vartrans:orthVariant as a vartrans:category (found it more
+interesting to instead of adding it just as a subproperty). What is still not
+clear though is how to define that the two (or more) orthographic variants
+share the same senses and syntactic behaviour.
+
+lexis_data:augo_26232 a ontolex:LexicalEntry ;
+
+rdfs:label "αυγό"@el ;
+
+ontolex:canonicalForm lexis_data:augo_form
+
+lexinfo:partOfSpeech lexinfo:commonNoun ;
+
+morph:paradigm lexis_data:vouno ;
+
+ontolex:sense lexis_data:augo_sense_USem1074 ;
+
+synsem:synBehavior lexis_data:augo_SUNo25013 .
+
+lexis_data:avgo_34067 a ontolex:LexicalEntry ;
+
+rdfs:label "αβγό"@el ;
+
+ontolex:canonicalForm lexis_data:avgo_form
+
+lexinfo:partOfSpeech lexinfo:commonNoun ;
+
+morph:paradigm lexis_data:vouno ;
+
+[DEL:ontolex:sense lexis_data:augo_sense_USem1074 ;:DEL]
+
+[DEL:synsem:synBehavior lexis_data:augo_SUNo25013:DEL] .
+
+lexis_data:avgo_form ontolex:writtenRep "αβγό"@el .
+
+lexis_data:augo_form ontolex:writtenRep "αυγό"@el .
+
+lexis_data:avgo_orthVariants a vartrans:LexicalRelation ;
+
+vartrans:source lexis_data:avgo ;
+
+vartrans:target lexis_data:augo ;
+
+vartrans:category lexis:orthVariant .
+
+Questions:
+
+  • 
+        morph namespace instead of lexis for orthVariant?
+
+  • 
+        any relation with `morph:baseForm` ?
+
+Option with lexicog module works but multiplies the lexical entry data, e.g.
+senses have to be created for all lexicographic components.
+
+  • 
+        consensus
+
+    → to be developed as part of the vartrans module but applied in order to
+    connect two ontolex:LexicalEntry resources that only differ in their
+    orthographic representation but share the same senses: a
+    vartrans:orthVariant subproperty of vartrans:lexicalRel that entails that
+    the same senses apply to both variants (restriction has to be formulated)
+
+  • 
+        possibilities (last time):
+
+ 1.
+        create separate entries and link them with a subproperty of
+        vartrans:lexicalRel (your_namespace:orthVariant sub
+        vartrans:lexicalRel) between two ontolex:LexicalEntries that are
+        orthographic variants - the shared data of both would have to be
+        repeated for both entries then or it has to be stated only on one
+        lexical entry resource (duplicate all senses)
+
+ 2.
+        alternatively, leave senses of the variant empty, define in the
+        semantics of orthVariant that this entails that the same senses apply
+        to both variants)
+
+ 3.
+        use owl:sameAs and share senses (a bit messy, because semantically this
+        means they are the same thing)
+
+3 Discussion order for other data
+
+define discussion order for
+
+  • 
+        FST grammars (German, Christian, https://github.com/acoli-repo/
+        acoli-morph/tree/main/morphisto)
+
+  • 
+        sample data on GDrive
+
+      □ 
+            where is the link?
+
+  • 
+        semitic roots
+
+      □ 
+            last time:
+
+          ☆ 
+                FK: need a Semitic example, from the same consonant cluster, we
+                can generate different POSes, https://en.wikipedia.org/wiki/
+                K-T-B, https://en.wiktionary.org/wiki/%D9%83_%D8%AA_%D8%A8
+
+          ☆ 
+                OntoLex limitations: one POS per lexical entry
+
+          ☆ 
+                Max: example from Arabic dictionary (https://en.wikipedia.org/
+                wiki/Dictionary_of_Modern_Written_Arabic): organized by roots,
+                but root is not made explicit
+
+          ☆ 
+                postponed until we have a Semitic speaker
+
+          ☆ 
+                Ilan?
+
+              ○ 
+                    but first, check Bettina’s conversion of KDictionaries’
+                    Hebrew dict
+                   
