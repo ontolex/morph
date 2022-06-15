@@ -1,0 +1,397 @@
+Link: https://meet.google.com/nsj-tbcy-yop [check here for link updates if it
+doesn’t work]
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Latest Paper (LDL-2022): https://www.overleaf.com/4868363189kczjzdndgxwc
+(folder submission/)
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC) christian.chiarcos@gmail.com
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena B.
+
+Agenda (please add, but do not edit table of contents directly, but add
+sections below and then update here):
+
+0. Module draft 2
+
+1. Publications 3
+
+2. definition consolidation 4
+
+3. AOB 5
+
+
+
+0. Module draft
+
+    draft 4.15
+
+[image1]
+
+updates from 4.14
+
+  • 
+        consistsOf changed according to tentative consensus last time:
+
+      □ 
+            drop consistsOf
+
+          ☆ 
+                between morph and morph
+
+          ☆ 
+                between form and form
+
+          ☆ 
+                keep between form and morph
+
+              ○ 
+                    we need consistsOf to mark morphological segments in case
+                    somebody else defiunes a form as an aggegrate of sth else
+
+          ☆ 
+                TODO@all: think about whether you ever used one of the dropped
+                consistsOf properties
+
+      □ 
+            define ontolex:Form as container (seq, aggregation) of morphs to
+            reflect absolute order
+
+          ☆ 
+                => rdfs:_1 etc. to encode position
+
+          ☆ 
+                Note: distinguish prefix, suffix and infix if relative order is
+                needed or no absolute order can be given
+
+      □ 
+            Matteo: why changes to consistsOf?
+
+          ☆ 
+                CC:
+
+              ○ 
+                    formal reasons: defining domain and range of consistsOf
+                    with a single class
+
+              ○ 
+                    didactic reasons: more readable diagram
+
+              ○ 
+                    theoretical reasons: if morph(eme)s are minimal elements,
+                    how can they have parts? what is the value of a
+                    morphological conisistsOf relation between forms if they
+                    are not mediated by a morphological unit?
+
+              ○ 
+                    practical reasons: such data doesn’t seem to exist (and if
+                    it does, it can still be modelled)
+
+      □ 
+            Matteo: can we still model that a form consists of multiple forms
+
+          ☆ 
+                Christian: yes, but indirectly, only:
+
+              ○ 
+                    1 form -> n morphs (= LexicalEntry) -> n forms
+
+              ○ 
+                    or using decomp: morph = morph1 + morph2
+
+          ☆ 
+                does such data exist?
+
+              ○ 
+                    Max: diachronically, two morphemes combined into one,
+                    synchronically no longer transparent
+
+              ○ 
+                    Christian: alternative views on circumfixes: circumfix or
+                    prefix+suffix
+
+              ○ 
+                    it seems that no such dataset exists
+
+Model draft 4.16 updates (to be discussed) & open issues:
+
+  • 
+        inflection type to be discussed
+
+1. Publications
+
+  • 
+        LDL
+
+      □ 
+            status: accepted and final submitted
+
+      □ 
+            presentation: 11:50-12:10, 15+5
+
+          ☆ 
+                LiLa+Lexis 1 presenter
+
+              ○ 
+                    Matteo not attending (Marco?)
+
+              ○ 
+                    Penny and Katerina attending
+
+          ☆ 
+                gen+overview
+
+              ○ 
+                    CC or Fahad?
+
+          ☆ 
+                presentation slides: https://docs.google.com/presentation/d/
+                1st1snmgOYM4lwPj4Pai-w7KuQ0BfcqIZNvDC5R1MEpU/edit?usp=sharing
+                (template can be changed at any time; for now added the fonts,
+                colours and logo of Nexus)
+
+  • 
+        general OntoLex overview
+
+      □ 
+            ?ESWC: Deadline?
+
+          ☆ 
+                ESWC: 2 Dec 2021 for ESWC2022 -> there are no dates for the
+                ESWC2023 CFP as the ESWC2022 is between 29th May and 2nd June
+
+      □ 
+            update of OntoLex, incl. FrAC, Morph, MModality
+
+  • 
+        paper on word formation?
+
+      □ 
+            idea for novel paper: word formation in OntoLex-Lemon
+
+          ☆ 
+                not original content, but more like a survey and documentation
+                of best practices?
+
+          ☆ 
+                can be helpful to consolidate/revise word formation part of the
+                module
+
+          ☆ 
+                possible input from LiLa
+
+          ☆ 
+                TODO@all: think about possible venues
+
+  • 
+        LLODREAM? https://easychair.org/cfp/llodream2022
+
+      □ 
+            OntoLex-Morph status update
+
+      □ 
+            last time: we’d like to do that
+
+      □ 
+            deadline june 23rd
+
+          ☆ 
+                350 -400 words
+
+      □ 
+            contributors (order tbd)
+
+          ☆ 
+                Christian
+
+          ☆ 
+                Max
+
+          ☆ 
+                Fahad
+
+          ☆ 
+                Matteo
+
+          ☆ 
+                Marco
+
+          ☆ 
+                Penny
+
+          ☆ 
+                Ciprian
+
+          ☆ 
+                Katerina
+
+          ☆ 
+                Elena A.
+
+      □ 
+            topic: motivation / general overview
+
+          ☆ 
+                sth more specific?
+
+      □ 
+            todo@Penny: GDoc link
+
+          ☆ 
+                todo@all: co-write
+
+          ☆ 
+                https://docs.google.com/document/d/
+                1a7OWCgcD6qDYPta0shiIh6CzWTw7E1ptnwQKXVA4xDo/edit (only
+                template as in the conference site)
+
+  • 
+        later journal paper
+
+      □ 
+            After the final publication
+
+      □ 
+            Or: an overview of the current state. Frac + Morph or Frac
+            separately, Morph separately?
+
+      □ 
+            (at some point) a book?
+
+2. definition consolidation
+
+  • 
+        standing TODO@all: provide/refine/review definitions
+
+      □ 
+            under https://github.com/ontolex/morph/blob/master/draft.md
+
+      □ 
+            technical definitions, but linguistic explanation (“definition”) in
+            text
+
+      □ 
+            @all: you can contribute suggestions by creating issues (https://
+            github.com/ontolex/morph/issues), via pull requests, or by direct
+            editing (share your GitHub username)
+
+      □ 
+            procedure: for definition refinement:
+
+          ☆ 
+                open an issue
+
+          ☆ 
+                pull request + close the issue
+
+  • 
+        status:
+
+      □ 
+            pull requests by Matteo and Penny merged
+
+      □ 
+            draft contains now a number of notes
+
+      □ 
+            more consolidation needed
+
+  • 
+        model overview for Elena B. and Sina
+
+  • 
+        Sina: Allomorphs?
+
+      □ 
+            depending on data source, morph:Morph can be used to represent
+            morphemes (incl. all different forms), but also independent
+            allomorphic variants on their own. they are not marked as
+            allomorphs, though
+
+  • 
+        Sina: The necessity of adding more specifications to ontolex:Affix was
+        raised by Sina asking whether it’d make sense to have bound morphemes
+        and free morphemes specified along with affixes and clitics.
+
+      □ 
+            Christian suggested to add that to lexinfo. (we had that in morph,
+            but moved it to lexinfo because other morph subclassed [suffix,
+            prefix, infix] were defined there already and users should work
+            with a single namespace for these)
+
+  • 
+        Sina: Should reduplications be added to the formation part?
+
+      □ 
+            not clear whether this would be word formation or inflection, can
+            be modelled, but we cannot mark a reduplication rule as a
+            reduplication rule (do we have to? is there any such data?)
+
+  • 
+        Sina: how to model type of morphemes, e.g., clitics?
+
+      □ 
+            not in morph, but using lexinfo (e.g., lexinfo:cliticness)
+
+      □ 
+            but this doesn’t allow to model types of clitics => could be added
+            to lexinfo
+
+  • 
+        Sina: how to model cliticization?
+
+      □ 
+            could be modelled (depending on theoretical background/language
+            features) as inflection rule, as word formation rule or by decomp
+
+      □ 
+            Max: we can model cliticization, but we better leave the details of
+            modelling open to accomodate different theoretical views
+
+          ☆ 
+                there was an example from Stefania (Italian), modelling is a
+                bit dated, though
+
+          ☆ 
+                Fahad: e.g., in Italian: https://en.wiktionary.org/wiki/
+                andiamoci
+
+              ○ 
+                    Matteo: representing this as compound isn’t quite right …
+
+              ○ 
+                    Fahad: https://en.wiktionary.org/wiki/andarsene
+
+      □ 
+            TODO@Sina: provide sample data, maybe we can come up with a
+            recommendation
+
+  • 
+        TODO@next time: brief overview over inflection part of the diagram for
+        Sina and Elena (@Max?)
+
+3. AOB
+
+next call in two weeks
+
+CC, after call: 4 weeks?
+
