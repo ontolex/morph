@@ -147,6 +147,7 @@ MP: If morph is a primitive, why it can consist of other morphs? see note above 
 ### morph:GrammaticalMeaning
 
 > ------
+> Class **morph:GrammaticalMeaning**: a grammatical feature that is assigned to a form or morph and corresponds to the value this has with respect to a grammatical category (e.g., value 'nominative' for 'case', 'singular' for 'number', etc.); it can also be a set of features in the case of forms or morphs characterised by a combination of features (for fusional languages)
 > MP: Class **morph:GrammaticalMeaning** can be used to represent (bundles of) values of different morpho-syntactic properties expressed by a form or morph
 >
 > -------
@@ -175,7 +176,8 @@ For example, an element for nominal inflection can only be applied to nouns, and
 ### morph:baseForm
 > ----
 > Property **baseForm** is an `ontolex:lexicalForm` property that indicates the morphological base form of a lexical entry
-> Domain: `ontolex:Word` (not lexical entry!) (MP: why not lexical entry?)
+> Domain: `ontolex:Word` (not lexical entry!)
+>  (MP: why not lexical entry?)
 > Range: `ontolex:Form`
 >  
 >  ---
@@ -213,6 +215,7 @@ Note: This class was originally introduced as `morph:MorphologicalPattern`: The 
 ### morph:Replacement
 
 > ----
+> property **morph:replacement** states the replacement pattern that is involved in a morphological rule for the generation of a word
 > MP: property **morph:replacement** links an InflectionRule or WordFormationRule to the Replacement it consists of.
 > Domain: morph:WordFormationRule or morph:InflectionRule
 > Range: morph:Replacement
@@ -223,6 +226,7 @@ note:
 - Until 2022-02-22, this was incorrectly shown in diagram as datatpe property
 
 > ---
+> class **morph:Replacement**: An operation involving a source string and the target string that replaces it in order to generate a word according to a word formation rule
 > MP: class **morph:Replacement** represents the modification that is performed by an InflectionRule or WordFormationRule on the form it takes as base.
 >
 > ---
@@ -250,11 +254,11 @@ As an example, a simple replacement operation would be concatenation, i.e., retr
 ### morph:Paradigm
 
 > --------------------
-> Class **morph:Paradigm** represents a theoretically motivated type of declination, e.g.
+> Class **morph:Paradigm** represents a theoretically motivated type of declension, e.g.
 > -   “a” stem declension in Latin
 > -   First declension in Russian
 >
-> May contain metadata information about this type of declination.
+> May contain metadata information about this type of declension.
 >
 > -----------
 
@@ -267,8 +271,7 @@ Note: eLex-2019: `morph:InflectionalParadigm`: A structured set of inflected for
 to specific grammatical parameters. This is now not a set of inflected forms but a set of inflection types that are linked with the respective forms.
 
 >--------
-> property **morph:paradigm**: A link to the paradigm for the inflection type (eLex-2019: assigns a form to an  
-inflectional paradigm)
+> property **morph:paradigm**: A link to the paradigm to which an inflection type belongs (or is part of)(eLex-2019: assigns a form to an inflectional paradigm) (eLex-2019: assigns a form to an inflectional paradigm)
 > Domain: morph:InflectionType
 > Range: morph:Paradigm
 >
@@ -279,12 +282,13 @@ Note: the link between paradigm and lexical entries is not defined in OntoLex-Mo
 ### morph:InflectionType
 
 > ----------
-> Class **morph:InflectionType**  represents a single slot for a single grammatical category for all its possible values (e.g. all the cases)
+> Class **morph:InflectionType**  represents a single slot for all values of a grammatical category or, in the case of bundles of grammatical categories, for all combinations of values thereof
 >
 > --------
 >
 Book analogy: a column from a paradigm table without allomorphy/alternative variants for just a single morpheme
 
+Note: for fusional languages, the inflection type may be associated, for instance, with a combination of gender, number and case, as in the example of Greek nouns, while for agglutinative languages, each inflection type is associated with a single grammatical category (e.g. all values of case)
 
 > -----
 > property **morph:inflectionType** assigns an inflectional  pattern of  a form as belonging to a  morphological pattern  of  a  lexical  entry [eLex-2019 definition for `belongsToMorphPattern`, to be updated]
