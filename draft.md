@@ -67,6 +67,8 @@ The morphology module aims at fulfilling two modelling purposes:
 
 	> scope: Elements of which a form can consist include roots, stems, inflectional affixes and zero morphs. A form can NEVER be decomposed into lexical entries (including ontolex:Affix), components and forms.
 
+MP: should this be rephrased? Now Morph is a subclass of ontolex:LexicalEntry, and Forms can actually be decomposed into Morphs, and also into Forms
+
 2. Enabling the representation of building patterns that are involved in the formation of lexical entries and forms.
 	- Representation of decompositional building patterns for lexical entries.
 	- Representation of decompositional building patterns for forms.
@@ -85,10 +87,13 @@ morphological analysis.
 >
 > -------
 
+MP: morph:Morph can actually be not concrete - if used for an abstract morpheme, see below - and not primitive - if we use it for complex stems. Perhaps we can define it as "any element of morphological analysis below the word level"?
+
 Notes:
 - can carry `lexinfo:termElement` (for what?)
 - can consist of other morphs
 - the model is agnostic as to whether this represents a morpheme or one of its allomorphs, but as a lexical entry
+(MP: it might be confusing to have a class called "Morph" that can be used also for morphemes?)
 - grammaticalMeaning: glossing information associated with the morph
 - baseConstraint: (for affixes) contraints on the elements that this morph can be applied to
 - subclasses `ontolex:Affix`, RootMorph, StemMorph, TransfixMorph, SimulfixMorph, ZeroMorph
@@ -137,11 +142,13 @@ Note: this is the eLex-2019 definition, but now we have consists of between morp
 
 Note: we still have no way to encode the order of morphemes.  We can model forms and morphs as an aggregate (here: `rdf:List` ?).
 
+MP: If morph is a primitive, why it can consist of other morphs? see note above on the definition of morph
 
 ### morph:GrammaticalMeaning
 
 > ------
 > Class **morph:GrammaticalMeaning**: a grammatical feature that is assigned to a form or morph and corresponds to the value this has with respect to a grammatical category (e.g., value 'nominative' for 'case', 'singular' for 'number', etc.); it can also be a set of features in the case of forms or morphs characterised by a combination of features (for fusional languages)
+> MP: Class **morph:GrammaticalMeaning** can be used to represent (bundles of) values of different morpho-syntactic properties expressed by a form or morph
 >
 > -------
 
@@ -168,13 +175,22 @@ For example, an element for nominal inflection can only be applied to nouns, and
 
 ### morph:baseForm
 > ----
-> Property **baseForm** is an `ontolex:lexicalForm` property that indicates a base form, other than the canonical form, from which a word is derived
+> Property **baseForm** is an `ontolex:lexicalForm` property that indicates the morphological base form of a lexical entry
 > Domain: `ontolex:Word` (not lexical entry!)
+>  (MP: why not lexical entry?)
 > Range: `ontolex:Form`
 >  
 >  ---
 
+> ----
+> MP: Property **baseForm** is an `ontolex:lexicalForm` property that indicates the form (or morph? see below) that is taken as base by inflection or derivation rules to generate other forms.
+>  
+>  ---
+
+
 This property is necessary in cases in which inflection or derivation relations do not take the canonical form as their basis, but a different one. One example is German verbal inflection (e.g., for `gehen` "to go"), where the canonical form (`gehen`, infinitive) is derived from the base form (`geh-`, stem) by means of a suffix (`-en`, infinitive marker), like other inflected forms (`geh`, `gehst`, `geht` "I/you go; he/she/it goes").
+
+MP: given this usage example, shouldn't baseForm also have morph:Morph in its range? The German base geh- is a stem rather than a form
 
 ## Morphological Rules
 
@@ -200,6 +216,7 @@ Note: This class was originally introduced as `morph:MorphologicalPattern`: The 
 
 > ----
 > property **morph:replacement** states the replacement pattern that is involved in a morphological rule for the generation of a word
+> MP: property **morph:replacement** links an InflectionRule or WordFormationRule to the Replacement it consists of.
 > Domain: morph:WordFormationRule or morph:InflectionRule
 > Range: morph:Replacement
 >
@@ -210,20 +227,21 @@ note:
 
 > ---
 > class **morph:Replacement**: An operation involving a source string and the target string that replaces it in order to generate a word according to a word formation rule
+> MP: class **morph:Replacement** represents the modification that is performed by an InflectionRule or WordFormationRule on the form it takes as base.
 >
 > ---
 
 processing analogy: replacement operations with regular expressions as in Perl or Sed.
 
 > ---
-> datatype property **morph:source** *is to be defined*
+> MP: datatype property **morph:source** is used to express the string that is replaced by the target string in a morph:Replacement.
 > domain: morph:Replacement
 > range: string literal
 >
 > ----
 
 > ---
-> datatype property **morph:target** *is to be defined*
+> MP: datatype property **morph:target** is used to express the string that replaces the source string in a morph:Replacement.
 > domain: morph:Replacement
 > range: string literal
 >
@@ -243,6 +261,10 @@ As an example, a simple replacement operation would be concatenation, i.e., retr
 > May contain metadata information about this type of declension.
 >
 > -----------
+
+MP: not only declension, also conjugation. My proposal for a definition would be "the inflection class to which a LexicalEntry belongs/is assigned". 
+This raises the question of why this is not called morph:InflectionClass, if that's what it is. A "paradigm" is rather a set of inflected wordforms: but as stated in the note below, morph:Paradigm is NOT that anymore
+
 Book analogy: a full paradigm table with possible allomorphy/alternative variants
 
 Note: eLex-2019: `morph:InflectionalParadigm`: A structured set of inflected forms according  
@@ -286,7 +308,7 @@ Note: for fusional languages, the inflection type may be associated, for instanc
 ### morph:InflectionRule
 
 > ------
-> Class **morph:InflectionRule** *is to be defined*
+> MP: Class **morph:InflectionRule** represents the generation of a form of a LexicalEntry from another form of that LexicalEntry.
 >
 > -------
 
@@ -312,6 +334,7 @@ Note: this is deprecated in favor of merging it with the analoguous `morph:invol
 >
 >---
 
+MP: as it has been shown that also derivation can be based a form different than the canonical one (e.g. Latin deverbal conversions from the Third Stem, like capio (Third Stem capt-) > capt-o), I think this should hold also for DerivationRules
 
 Note: For an inflection rule with `morph:baseType` defined: If the lexical entry to which it is applied features a(n object of) `morph:baseForm` or (if these are not defined) a `ontolex:canonicalForm` with identital `morph:baseType`, apply the rule to this form, only. For a (generated) form, `morph:baseType` can be used to indicate from which form or with which rule it was generated. `morph:baseType` can also be used to mark stem classes in reseources for which no explicit inflection rules are given.
 
@@ -331,12 +354,19 @@ Note: This was introduced for modelling stem alternations. In this definition, w
 >
 > -------
 
+> ------
+> MP: Class **morph:WordFormationRule** represents the generation of a target LexicalEntry from one (or more) source LexicalEntry.
+>
+> -------
+
+MP: move rhe remark on the fact that they can be used to refer to general patterns here?
+
 For the analysis of a *specific* compound or derivation, use `morph:WordFormationRelation`.
 
 Note: originally, we had the class Rule which contains necessary information to add one morpheme to a single word form. It must contain either morph:example or morph:replacement (or both). “Tabular” value of a morpheme must be stored in rdfs:label (e.g. “-s”@en for usual PL in English)
 
 > ---
-> Property **morph:involves** *is to be defined*
+> MP: Property **morph:involves** links an InflectionRule or a DerivationRule with the Morphs that are involved in the process.
 > Domain: morph:WordFormationRule or morph:InflectionRule
 > Range: morph:Morph
 >
@@ -353,6 +383,8 @@ Note: updated according to telco April 21, 2022.
 >
 >> ----
 
+MP: given the parallelism between the inflection and derivation subcomponents of the generation component, I would expect InflectionRule to generate something too -- namely, ontolex:Forms. Should we change the domain and range accordingly?
+
 Note: updated according to draft from Feb 2022.
 
 subclasses CompoundRule and DerivationRule. Normally, a derivation rule will involve one specific morpheme or one allomorphic variant. A compound rule can involve an interfix or another morphophonological process.
@@ -362,7 +394,17 @@ subclasses CompoundRule and DerivationRule. Normally, a derivation rule will inv
 >  
 >  ---
 
+> ----
+> MP: Class **morph:DerivationRule** refers to rules that take one LexicalEntry as input.
+>  
+>  ---
 
+MP: I would rather not mention the presence of an affix so as to make the definition sufficiently general to cover conversion too (as happens in WFL data)
+
+> ----
+> MP: Class **morph:CompoundingRule** refers to rules that take more than one LexicalEntry as input.
+>  
+>  ---
 ### morph:WordFormationRelation
 
 > ---
@@ -371,12 +413,20 @@ subclasses CompoundRule and DerivationRule. Normally, a derivation rule will inv
 > ----
 
 CC: new; note that this definition covers derivation and `morph:CompoundHead` but *not* `morph:CompoundRelation`.
+MP: can this be solved simply by specifying "head or other constituents"?
 
 Note that word formation relations do not (= no longer) replicate the full typology of word formation processes. Also, a word formation does not provide a link with derivational affixes or interfixes in compounding involved in the compound.
 Instead, this is modelled via `morph:WordFormationRule`:
 
 >----
 > property **morph:wordFormationRule** relates  two  lexical  entries  that  stand  in  some  word formation relation.
+> Domain: morph:WordFormationRelation 
+> Range: morph: WordFormationRule
+>
+>---
+
+>----
+> MP: property **morph:wordFormationRule** relates a word formation relation to the rule that is applied to the source lexical entry in order to obtain the target lexical entry.
 > Domain: morph:WordFormationRelation
 > Range: morph: WordFormationRule
 >
