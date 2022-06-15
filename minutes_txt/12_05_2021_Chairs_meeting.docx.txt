@@ -160,7 +160,7 @@ per definition (as a category,        wfl_compounding:VerbPlusNounToAdjective
                                 wfl:WFLRule rdfs:subClassOf morph:WordFormationRule
                                                          .
 
-[image3]
+[image4]
 
  2.
         Solution proposal
@@ -183,9 +183,9 @@ Include the representation of composition in the morph module:
 
 lexeme-based (= decomp and morph) and morpheme-based (=morph only) approach
 
-[image1][image2]
+[image3][image2]
 
-[image4]
+[image1]
 
  3.
         Implications

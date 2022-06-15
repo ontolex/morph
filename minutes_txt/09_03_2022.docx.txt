@@ -2,6 +2,8 @@ Link: https://meet.google.com/nsj-tbcy-yop
 
 Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
 
+https://meet.google.com/nsj-tbcy-yop
+
 Participants [please add yourself]:
 
 Christian Chiarcos (CC) christian.chiarcos@gmail.com
@@ -62,11 +64,30 @@ Model draft 4.12 updates
 Model draft 4.13 updates:
 
   • 
-        …
+        Rename morph:stemType property in the morph:Form (not in the
+        InflectionRule). The
 
 2 LDL submission ?
 
 suggested last week, could document modelling progress
+
+Deadline: April 8th
+
+Willing to contribute:
+
+  • 
+        Christian
+
+  • 
+        Matteo
+
+  • 
+        Penny
+
+  • 
+        Max
+
+TOOD@Max: send a Doodle poll to discuss the plan and responsibilities
 
 3 Evaluation of inflectional data modeling
 
@@ -152,7 +173,7 @@ vartrans:category lexis:orthVariant .
 Questions:
 
   • 
-        termbase instead of lexis for orthVariant?
+        morph namespace instead of lexis for orthVariant?
 
   • 
         any relation with `morph:baseForm` ?
