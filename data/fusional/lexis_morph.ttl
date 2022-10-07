@@ -1,5 +1,5 @@
 # Example from modern Greek lexicon LEXIS
-# following Ontolex-morph version 4.15
+# following Ontolex-morph version 4.16
 #
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
@@ -42,7 +42,7 @@
 <anthrop1_form>
 	a ontolex:Form ;
 	ontolex:writtenRep "άνθρωπ"@el ;
-	morph:stemType "1" ;
+	morph:baseType "1" ;
 .
 
 <anthrop_2>
@@ -54,7 +54,7 @@
 <anthrop2_form>
 	a ontolex:Form ;
 	ontolex:writtenRep "ανθρώπ"@el ;
-	morph:stemType "2" ;
+	morph:baseType "2" ;
 .
 
 
@@ -93,70 +93,78 @@
 .
 
 # Book analogy: a column from a paradigm table without allomorphy/alternative variants for just a single morpheme
-<efyvos_inflection_type_masgno>
-	a morph:InflectionType ;
+<efyvos_inflection_rule_masgno>
+	a morph:InflectionRule ;
 	morph:paradigm <efyvos_paradigm> ;
-	morph:inflectionRule [
-		a morph:InflectionRule ;
-		morph:baseType "1" ;
+	morph:inflectionRule?? [
+		a morph:Rule ;		
 		morph:replacement [
 			a morph:Replacement ;
 			morph:source "$" ;
 			morph:target "ος"@el ;
 		];
+		morph:involves <suffix_os> ;
+	];
+	morph:grammaticalMeaning [
+		a morph:GrammaticalMeaning ;
 		# Morphosyntanctic features of the inflection should go to the rule given minutes 2021/12/01
 		# https://docs.google.com/document/d/1gz4W5UqpE7KzKlcbQuq7tyLxqpGMH4vHkiM8TSd5BKU/edit
 		lexinfo:gender lexinfo:masculine ;
 		lexinfo:number lexinfo:singular ;
-		lexinfo:case lexinfo:nominative ;
-		# The morph involved within this rule
-		morph:involves <suffix_os> ;
+		lexinfo:case lexinfo:nominative ;		
 	];	
+
+
 .
 
 
-<efyvos_inflection_type_masgge1>
-	a morph:InflectionType ;
-	morph:paradigm <efyvos_paradigm> ;
-	morph:inflectionRule [
-		a morph:InflectionRule ;
-		morph:baseType "1" ;
+<efyvos_inflection_rule_masgge1>
+	a morph:InflectionRule ;
+	morph:paradigm <efyvos_paradigm> ;	
+	morph:baseType "1" ;
+	morph:inflectionRule??	[
+	a morph:Rule ;
 		morph:replacement [
 			a morph:Replacement ;
 			morph:source "$" ;
 			morph:target "ου"@el ;
 
 		];
+		morph:involves <suffix_ou> ;
+	];
+	morph:grammaticalMeaning [
+		a morph:GrammaticalMeaning ;
 		# Morphosyntanctic features of the inflection should go to the rule given minutes 2021/12/01
 		# https://docs.google.com/document/d/1gz4W5UqpE7KzKlcbQuq7tyLxqpGMH4vHkiM8TSd5BKU/edit
 		lexinfo:gender lexinfo:masculine ;
 		lexinfo:number lexinfo:singular ;
-		lexinfo:case lexinfo:genitive ;
-		morph:involves <suffix_ou> ;
+		lexinfo:case lexinfo:genitive ;		
 	];
 
 .
 
 
-<efyvos_inflection_type_masgge2>
-	a morph:InflectionType ;
+<efyvos_inflection_rule_masgge2>
+	a morph:InflectionRule ;
 	morph:paradigm <efyvos_paradigm> ;
-	morph:inflectionRule [
-		a morph:InflectionRule ;
-		morph:baseType "2" ;
+	morph:inflectionRule?? [
+		a morph:Rule ;		
 		morph:replacement [
 			a morph:Replacement ;
 			morph:source "$" ;
 			morph:target "ου"@el ;
 		];
+		morph:involves <suffix_ou> ;
+	];
+	morph:grammaticalMeaning [
+		a morph:GrammaticalMeaning ;
 		# Morphosyntanctic features of the inflection should go to the rule given minutes 2021/12/01
 		# https://docs.google.com/document/d/1gz4W5UqpE7KzKlcbQuq7tyLxqpGMH4vHkiM8TSd5BKU/edit
 		lexinfo:gender lexinfo:masculine ;
 		lexinfo:number lexinfo:singular ;
 		lexinfo:case lexinfo:genitive ;
 		:style :katharevoussa ;
-		:dating :older ;
-		morph:involves <suffix_ou> ;
+		:dating :older ;		
 	];	
 .
 
@@ -172,7 +180,7 @@
 		lexinfo:number lexinfo:singular ;
 		lexinfo:case lexinfo:nominative ;
 	];
-	morph:inflectionType <efyvos_inflection_type_masgno> ;
+	morph:inflectionRule <efyvos_inflection_rule_masgno> ;
 	# Good to have if appropriate information exists
 	morph:consistsOf <anthrop_1>;
 	morph:consistsOf <suffix_os>;
@@ -189,7 +197,7 @@
 		lexinfo:number lexinfo:singular ;
 		lexinfo:case lexinfo:genitive ;
 	];
-	morph:inflectionType <efyvos_inflection_type_masgge1> ;
+	morph:inflectionRule <efyvos_inflection_rule_masgge1> ;
 	# Good to have if appropriate information exists
 	morph:consistsOf <anthrop_1>;
 	morph:consistsOf <suffix_ou>;	
@@ -208,8 +216,8 @@
 		:style :katharevoussa ;
 		:dating :older ;
 	];
-	morph:inflectionType <efyvos_inflection_type_masgge2> ;
+	morph:inflectionRule <efyvos_inflection_rule_masgge2> ;
 	# Good to have if appropriate information exists
-	morph:consistsOf <anthrop_2>;
+	morph:consistsOf <anthrop_2>; 
 	morph:consistsOf <suffix_ou>;	
 .
