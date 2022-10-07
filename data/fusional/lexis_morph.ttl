@@ -96,15 +96,12 @@
 <efyvos_inflection_rule_masgno>
 	a morph:InflectionRule ;
 	morph:paradigm <efyvos_paradigm> ;
-	morph:inflectionRule?? [
-		a morph:Rule ;		
-		morph:replacement [
-			a morph:Replacement ;
-			morph:source "$" ;
-			morph:target "ος"@el ;
-		];
-		morph:involves <suffix_os> ;
+	morph:replacement [
+		a morph:Replacement ;
+		morph:source "$" ;
+		morph:target "ος"@el ;
 	];
+	morph:involves <suffix_os> ;
 	morph:grammaticalMeaning [
 		a morph:GrammaticalMeaning ;
 		# Morphosyntanctic features of the inflection should go to the rule given minutes 2021/12/01
@@ -113,8 +110,6 @@
 		lexinfo:number lexinfo:singular ;
 		lexinfo:case lexinfo:nominative ;		
 	];	
-
-
 .
 
 
@@ -122,16 +117,12 @@
 	a morph:InflectionRule ;
 	morph:paradigm <efyvos_paradigm> ;	
 	morph:baseType "1" ;
-	morph:inflectionRule??	[
-	a morph:Rule ;
-		morph:replacement [
-			a morph:Replacement ;
-			morph:source "$" ;
-			morph:target "ου"@el ;
-
-		];
-		morph:involves <suffix_ou> ;
+	morph:replacement [
+		a morph:Replacement ;
+		morph:source "$" ;
+		morph:target "ου"@el ;
 	];
+	morph:involves <suffix_ou> ;
 	morph:grammaticalMeaning [
 		a morph:GrammaticalMeaning ;
 		# Morphosyntanctic features of the inflection should go to the rule given minutes 2021/12/01
@@ -140,22 +131,18 @@
 		lexinfo:number lexinfo:singular ;
 		lexinfo:case lexinfo:genitive ;		
 	];
-
 .
 
 
 <efyvos_inflection_rule_masgge2>
 	a morph:InflectionRule ;
 	morph:paradigm <efyvos_paradigm> ;
-	morph:inflectionRule?? [
-		a morph:Rule ;		
-		morph:replacement [
-			a morph:Replacement ;
-			morph:source "$" ;
-			morph:target "ου"@el ;
-		];
-		morph:involves <suffix_ou> ;
+	morph:replacement [
+		a morph:Replacement ;
+		morph:source "$" ;
+		morph:target "ου"@el ;
 	];
+	morph:involves <suffix_ou> ;	
 	morph:grammaticalMeaning [
 		a morph:GrammaticalMeaning ;
 		# Morphosyntanctic features of the inflection should go to the rule given minutes 2021/12/01
