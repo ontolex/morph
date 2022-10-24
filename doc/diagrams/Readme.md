@@ -6,7 +6,11 @@ Edit online with https://www.yworks.com/yed-live/ or locally with https://www.yw
 
 Most recent diagrams 
 
-## 4.16 (proposal, not confirmed yet)
+## 4.17
+
+![](module_draft_4_16.png)
+
+## 4.16
 
 ![](module_draft_4_16.png)
 

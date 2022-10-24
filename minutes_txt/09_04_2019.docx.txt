@@ -28,13 +28,13 @@ E2a: German compound Lungenentzündung ('pneumonia' literally 'lung
 inflammation'): full segmentation including 4 subterms and 7 Component
 constituents:
 
-[image2]
+[image4]
 
 E2b: German compound Lungenentzündung ('pneumonia' literally 'lung
 inflammation'): binary segmentation involving 8 Component constituents (subterm
 relations could be added)
 
-[image4]
+[image2]
 
 Components apply to the character string in the Lexical Entry
 

@@ -158,20 +158,27 @@ Notes:
 
 > ------
 > property **morph:grammaticalMeaning** assigns a grammatical  meaning to a morph resource or a form
->
+> domain: ontolex:Form or morph:Morph or morph:Rule
+> range: morph:GrammaticalMeaning
 > -------
 
-Note: the extension to forms was introduced 2022-02-23 per request from Penny and Matteo for more conveniently providing re-usable and directly indexable "feature bundles".
+Discussion/History:
 
-Note: the eLex-2019 draft also had `morph:meaning`, but with Morph being subclass of LexicalEntry, this role is taken over by `ontolex:sense`.
+- the extension to forms was introduced 2022-02-23 per request from Penny and Matteo for more conveniently providing re-usable and directly indexable "feature bundles".
+- the eLex-2019 draft had `morph:meaning` in a comparable function, but with Morph being subclass of LexicalEntry, this role is taken over by `ontolex:sense`.
+- in spring 2022, it was requested by Penny and Katerina to make this a property of `morph:InflectionRule` as a short-hand for `morph:involves/morph:grammaticalMeaning`.
+- as of 2022-10-19, it was agreed to attach this property also to `morph:Rule`. For circumstances in which no explicit morph can be provided (but only a rule), e.g., because a resource comes without an explicit notion of morph(eme)s, there would not be a way to express the meaning or function of that morpheme, otherwise.
+- question (CC, 2022-10-24): do we need this for `morph:InflectionType` ? This would be useful to express that a certain "slot" contains information of a particular kind, e.g., morphological gender or morphological number. Right now, this information is implicit (in the inflection rules assigned to a particular inflection type).
 
 > ------
 > property **morph:baseConstraint** defines the grammatical characteristics of the stem or base that a derivational or inflectional morpheme can be combined with
->
+> domain: ontolex:Morph or ontolex:Rule
 > -------
 
-For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints.
+For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to an `ontolex:Form` because this describes only the result of the application of a rule or the addition of a particular form.
 
+Discussion/History:
+- CC 2022-10-24: by analogy with morph:grammaticalMeaning, this property should also be applicable to rules to specify necessary preconditions.
 
 ### morph:baseForm
 > ----
@@ -248,6 +255,8 @@ processing analogy: replacement operations with regular expressions as in Perl o
 > ----
 
 As an example, a simple replacement operation would be concatenation, i.e., retrieve the baseForm (or canonicalForm, if no baseForm provided), check that it has the same stem type as the rule (if applicable), then append an affix to the written representation of the baseForm.
+
+> Note: Unless specified otherwise (in the documentation of a resource), implementations SHOULD provide NFD-normalized Unicode strings for `morph:source` and `morph:target`, so that diacritics are separated from the base character as combining characters. This is a best practice that simplifies the writing of rules in many cases, as diacritic and base character can be manipulated independently from each other.
 
 ## Inflection
 

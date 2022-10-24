@@ -66,7 +66,7 @@ morph:paradigm <#finnish_noun_type_9> ;
 
 morph:example "kissojen"@fi .
 
-[image3]
+[image1]
 
   • 
         SPARQL for forms generation:
@@ -151,7 +151,7 @@ BIND(REPLACE(?w_midJ, ?s_end, ?t_end) as ?w_end)
 
 order by ?start ?end
 
-[image1]
+[image2]
 
 <#finnish_noun_type_kala_nom> a morph:Rule ;
 
@@ -192,7 +192,7 @@ Morphology Module Draft 3.0
 
 InflectionType denotes a step that adds a certain grammatical meaning for the
 group of words which add the same affixes. It is a declension type without
-allomorphy.[image2]
+allomorphy.[image3]
 
 Bettina: create new diagram which illustrates the generation process as a whole
 (input - transformation - output)
