@@ -8,7 +8,7 @@ Most recent diagrams
 
 ## 4.17
 
-![](module_draft_4_16.png)
+![](module_draft_4_17.png)
 
 ## 4.16
 
