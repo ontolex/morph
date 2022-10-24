@@ -74,7 +74,7 @@ relation with integers (position in rule is 1, 2)
 
 3. Current morph module draft images
 
-[image1]
-
 [image2]
+
+[image1]
 

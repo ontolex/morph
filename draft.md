@@ -80,6 +80,7 @@ The OntoLex-Morph module aims to be adequate for both traditional dictionary con
 ## Overall structure
 
 OntoLex-Morph is designed to account for
+
 - morphological inflection, derivation and compounding,
 - languages with fusional or agglutinating morphology,
 - the morphological structure of any given form or lexeme (extensional morphology, morphological segments),
@@ -88,6 +89,7 @@ OntoLex-Morph is designed to account for
 - various data sources, including, but not limited to lexical resources, inflection tables and computational morphologies
 
 OntoLex-Morph was intended for (but is not limited to) the following primary use cases:
+
 - formalize morphological rules to generate context-adequate labels for and human-language descriptions from ontologies and knowledge graphs
 - provide a machine-readable view on morphological data (examples, rules) as found in grammars, text books and dictionaries
 - formalize computational morphologies in an interoperable and standard way so that they can be more easily ported between different implementations
@@ -95,12 +97,10 @@ OntoLex-Morph was intended for (but is not limited to) the following primary use
 - complement static dictionaries with dynamic rules to generate possible surface forms
 - more easily combine any of these resources with each other and other lexical datasets (as provided in OntoLex)
 
-Limitations: OntoLex-Morph is designed with a focus on deep morphology. Morphophonological rules *can* be modelled with OntoLex-Morph to a certain extent, but we expect phenomena such as assimilation, dissimilation and morphological "Level-2" rules to be more adequately handled by a separate vocabulary specialized in surface generation (transcription, text-to-speech, morphophonology).
-
 At its core, OntoLex-Morph operates with three main classes:
 
-- *morph* formalizes morphological segmentation of lexical entries and forms.
-- *rule* formalizes morphological rules that constitute lexical entries and forms from underlying base forms.
+- *morph* formalizes the morphological segmentation of lexical entries and forms.
+- *rule* formalizes the morphological rules that constitute lexical entries and forms from underlying base forms.
 - *grammatical meaning* formalizes semantic and morphosyntactic features of and constraints on morphs and rules.
 
 They are related with each other and with OntoLex in the following way:
@@ -111,7 +111,9 @@ They are related with each other and with OntoLex in the following way:
 - The grammatical meaning is understood as a feature bundle that describes morphosyntactic, morphological or semantic features of the resulting form. It can be elucidated by Lexinfo properties (for morphosyntactic features) or OntoLex lexical concepts (for semantic constraints), but this is not obligatory.
 - A morph or a rule can specificy necessary conditions for their application to a particular base form as a *base constraint*. The base constraint is formalized as a grammatical meaning object. By comparing a base constraint with the grammatical meaning of a base, an implementing system should be able to validate the applicability of a rule or morph to that base.
 
-Individual morphological processes (derivation, compounding, inflection) and their relation to lexical entries and forms are represented by designated subclasses of `ontolex:Rule`.
+Individual morphological processes (derivation, compounding, inflection) and their relation to lexical entries and forms are represented by designated subclasses of `ontolex:Rule` as described below.
+
+> Limitations: OntoLex-Morph is designed with a focus on deep morphology. Morphophonological rules *can* be modelled with OntoLex-Morph to a certain extent, but we expect phenomena such as assimilation, dissimilation and morphological "Level-2" rules to be more adequately handled by a separate vocabulary specialized in surface generation (transcription, text-to-speech, morphophonology).
 
 ## Morphological Segments
 

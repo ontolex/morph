@@ -1,0 +1,223 @@
+Link: https://meet.google.com/nsj-tbcy-yop [check here for link updates if it
+doesn’t work]
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Thierry Declerck (DFKI) excused
+
+Ranka Stanković
+
+0. Module draft (4.17)
+
+[image1]
+
+Updates:
+
+  • 
+        Domain of baseConstraint and grammaticalMeaning now includes morph:Rule
+
+  • 
+        New section: https://github.com/ontolex/morph/blob/master/draft.md#
+        overall-structure
+
+1. Publications
+
+LLODream postproceedings
+
+deadline 01.12, post-presentation publication
+
+Consensus: wait with an overview until model is stable
+
+MWE Chapter
+
+  • 
+        Initiated in FrAC
+
+  • 
+        Doodle poll: https://doodle.com/meeting/participate/id/dyrZg8ze
+
+  • 
+        Draft for chapter: https://www.overleaf.com/8285444258rpfnbwgwbrdp
+
+  • 
+        Template: https://www.overleaf.com/latex/templates/
+        langsci-skeleton-for-edited-volumes-2022-06/vvjbpxnrbnkk, chapters/
+        01.tex
+
+  • 
+        Initial abstract: https://docs.google.com/document/d/
+        1HLTsYScMiZE4Nb6b7mozN-SoKAIWtisdiKLa0OoXPuU/edit?usp=sharing
+
+  • 
+        Slack channel: #frac-mwe-chapter
+
+  • 
+        authors: CC KG MI BK FK CT EA
+
+      □ 
+            We also asked Matteo to join
+
+      □ 
+            Anyone else?
+
+eLex 2023
+
+https://elex.link/elex2023/
+
+Submission deadline: 31.01.2023
+
+Dates: 27.06-29.06
+
+MI (last call)
+
+  • 
+        Overview of the model
+
+      □ 
+            (Maybe just the dynamic part and changes since the last
+            presentation)
+
+  • 
+        Use case: Semitic? [if we have a consensus on that]
+
+2. Handling of Semitic languages
+
+TO-BE-DONE: figure out how to include missing categories to LexInfo
+
+Khadija: data prepared for Arabic (cf. last time):
+
+  • 
+        Morph Module semitic.odt
+
+Necessary features:
+
+  • 
+        lexinfo:POS extensions (solved? See last call minutes for procedure)
+
+  • 
+        Modelling diacritics in Arabic (cf. call minutes last time)
+
+      □ 
+            Also cf. Umlaut in German and vowel harmony in Turkish for similar
+            challenges
+
+          ☆ 
+                Recommendation (< GS): NFD normalization in morph:Replacement
+
+          ☆ 
+                TBC: are we ok with modelling roots as Morphs (i.e.,
+                LexicalEntries)?
+
+      □ 
+            If not modelled as morphs, then they could be modelled as rules
+            (replacements)
+
+          ☆ 
+                DONE@CC: model updated
+
+              ○ 
+                    morph:grammaticalMeaning and morph:baseConstraint as
+                    properties of morph:Rule, the grammatical meaning is the
+                    change in meaning or morphology of the word (root)
+
+          ☆ 
+                TO-BE-DONE@FK: model a Hindi/Urdu example, e.g., https://
+                en.wiktionary.org/wiki/
+                %E0%A4%96%E0%A5%81%E0%A4%B2%E0%A4%A8%E0%A4%BE#Hindi
+
+          ☆ 
+                TO-BE-DONE@Khadija: Modelling examples for Arabic entries
+
+  • 
+        Not discussed yet: Circumfix
+
+      □ 
+            Morph:CircumfixParadigm
+
+      □ 
+            Prefix+suffix combination
+
+3. Results of the STSM
+
+  • 
+        Thierry: blog post in prep
+
+4. Definitions (old)
+
+See https://github.com/ontolex/morph/blob/master/draft.md and https://
+github.com/ontolex/morph/issues .
+
+Old minutes:
+
+  • 
+        PS: how to represent order of morphemes (more than one affix)
+
+      □ 
+            MI: inflectionType next (only for inflection)
+
+      □ 
+            CC: for derivation, we can decompose it into a tree structure by
+            nesting lexical entries in derivation then order is indirectly
+            encoded
+
+      □ 
+            CC: we also have an aggregate relation between form and morph, that
+            can be an rdf:Seq [TODO: check that this is explicitly mentioned in
+            draft]
+
+          ☆ 
+                Proposal@CC (after telco): that should be the preferred answer
+
+  • 
+        PS: how to represent derivation trees? ((A B) C)
+
+      □ 
+            CC: has been one of the original requirements (https://www.w3.org/
+            community/ontolex/wiki/Morphology#Representation_needs, "N7:
+            Multiple segmentation strategies")
+
+      □ 
+            Current solution: use decomp (note we have decomp:subterm already
+            in diagram); if all intermediate steps are valid lexemes, this can
+            also be done via multiple WordFormationRelations (Rules)
+
+  • 
+        Otherwise postponed, leaving more time for 3.
+
+  • 
+        CC (after telco): started to check and update requirements in wiki:
+        https://www.w3.org/community/ontolex/wiki/Morphology#
+        Representation_needs
+
+5. AoB ?
+

@@ -66,7 +66,7 @@ morph:paradigm <#finnish_noun_type_9> ;
 
 morph:example "kissojen"@fi .
 
-[image1]
+[image2]
 
   • 
         SPARQL for forms generation:
@@ -151,7 +151,7 @@ BIND(REPLACE(?w_midJ, ?s_end, ?t_end) as ?w_end)
 
 order by ?start ?end
 
-[image2]
+[image1]
 
 <#finnish_noun_type_kala_nom> a morph:Rule ;
 

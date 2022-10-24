@@ -17,7 +17,7 @@ John
 E1a: English adjective driverless: full segmentation including 2 subterms and 3
 Component constituents:
 
-[image3]
+[image2]
 
 E1b: English adjective driverless: binary segmentation involving 4 Component
 constituents (subterm relations could be added)
@@ -34,7 +34,7 @@ E2b: German compound Lungenentzündung ('pneumonia' literally 'lung
 inflammation'): binary segmentation involving 8 Component constituents (subterm
 relations could be added)
 
-[image2]
+[image3]
 
 Components apply to the character string in the Lexical Entry
 

@@ -183,9 +183,9 @@ Include the representation of composition in the morph module:
 
 lexeme-based (= decomp and morph) and morpheme-based (=morph only) approach
 
-[image3][image2]
+[image3][image1]
 
-[image1]
+[image2]
 
  3.
         Implications
