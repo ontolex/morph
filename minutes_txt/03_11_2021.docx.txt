@@ -29,7 +29,7 @@ Penny Labropoulou (PL)
             computer). Type represents the linguistic process (add -(e)r). Rule
             is a computational implementation (add "r" to end of string).
 
-[image1]
+[image2]
 
 CC tried to convert data with 4.5.1, evaluation:
 
@@ -67,7 +67,7 @@ acoli-repo/acoli-morph/blob/main/uder:
 
   • 
 
-[image2]
+[image1]
 
 CC tried to convert data with 4.5.2, evaluation:
 

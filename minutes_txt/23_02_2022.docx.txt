@@ -71,9 +71,9 @@ TODO (@all): Add definitions that are not there or outdated
 
     draft 4.11 (old layout & reformatted)
 
-[image1]
-
 [image2]
+
+[image1]
 
 Model draft 4.11 updates & questions
 

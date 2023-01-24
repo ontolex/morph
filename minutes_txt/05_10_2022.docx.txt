@@ -1,0 +1,124 @@
+Link: https://meet.google.com/nsj-tbcy-yop [check here for link updates if it
+doesn’t work]
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT) - excused
+
+Penny Labropoulou (PL) - excused
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Thierry Declerck (DFKI)
+
+0. Module draft
+
+Draft 4.16
+
+[image1]
+
+1. Publications
+
+LLODream: Presented, an overview of the model. Not much feedback, but there was
+moderate interest
+
+Publication: deadline 01.12, post-presentation publication
+
+For Rasprave journal:
+
+  • 
+        Croatia’s linguistic journal
+
+  • 
+        All papers, including abstracts, summaries, notes and references should
+        be not shorter than 24 000 and not longer than 30 000 characters with
+        spaces.
+
+  • 
+        Manuscripts should be sent by e-mail to rasprave@ihjj.hr
+
+  • 
+        Info from : https://llodapproaches2022.mruni.eu/wp-content/uploads/2022
+        /02/Rasprave_guidelines-for-authors_vilnius.pdf
+
+TODO@MI: ask CC if he wants to take charge on this
+
+2. Handling of Semitic languages
+
+TODO: figure out how to include missing categories to LexInfo (who?)
+
+3. Definitions
+
+See https://github.com/ontolex/morph/blob/master/draft.md and https://
+github.com/ontolex/morph/issues .
+
+  • 
+        PS: how to represent order of morphemes (more than one affix)
+
+      □ 
+            MI: inflectionType next (only for inflection)
+
+      □ 
+            CC: for derivation, we can decompose it into a tree structure by
+            nesting lexical entries in derivation then order is indirectly
+            encoded
+
+      □ 
+            CC: we also have an aggregate relation between form and morph, that
+            can be an rdf:Seq [TODO: check that this is explicitly mentioned in
+            draft]
+
+          ☆ 
+                Proposal@CC (after telco): that should be the preferred answer
+
+  • 
+        PS: how to represent derivation trees? ((A B) C)
+
+      □ 
+            CC: has been one of the original requirements (https://www.w3.org/
+            community/ontolex/wiki/Morphology#Representation_needs, "N7:
+            Multiple segmentation strategies")
+
+      □ 
+            Current solution: use decomp (note we have decomp:subterm already
+            in diagram); if all intermediate steps are valid lexemes, this can
+            also be done via multiple WordFormationRelations (Rules)
+
+  • 
+        Otherwise postponed, leaving more time for 3.
+
+  • 
+        CC (after telco): started to check and update requirements in wiki:
+        https://www.w3.org/community/ontolex/wiki/Morphology#
+        Representation_needs
+
+4. Results of the STSM
+
+5. AoB
+
+Next call in 2 weeks
+

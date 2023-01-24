@@ -79,11 +79,11 @@ BK proposal:
  2.
         LIAM Model
 
+[image2]
+
 [image4]
 
 [image1]
-
-[image2]
 
 :MorphPattern → morph:InflectionType, morph:WordformationRelation
 

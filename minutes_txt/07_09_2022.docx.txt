@@ -1,0 +1,173 @@
+Link: https://meet.google.com/nsj-tbcy-yop [check here for link updates if it
+doesn’t work]
+
+https://meet.google.com/kiw-gfvk-ffk
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT) - excused
+
+Penny Labropoulou (PL) - excused
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+0. Module draft
+
+Draft 4.16 (proposal, to be confirmed)
+
+[image1]
+
+Draft 4.15 (current)
+
+[image2]
+
+Differences:
+
+ 1.
+        InflectionType handling: now it is detached and is not necessary to
+        describe, e.g. fusional languages (“alternative 1” — see minutes 27/07/
+        2022)
+
+ 2.
+        grammaticalMeaning: linked with inflection rule and inflection type
+        (with question marks, link with inflection type requested by Penny&
+        Katerina)
+
+ 3.
+        Rule resurrected (only to simplify diagram: holds properties
+        replacement, involves and examples, inherited by inflection rule and
+        word formation rule)
+
+     a.
+            Form -inflectionRule-> InflectionRule
+
+     b.
+            Paradigm <-paradigm- InflectionRule
+
+     c.
+            InflectionRule -inflectionType-> InflectionType
+
+     d.
+            InflectionType -next-> InflectionType
+
+Can diagram 4.16 be confirmed?
+
+  • 
+        Yes, no objections
+
+  • 
+        So this is the current version
+
+1. Publications
+
+LLODream: discuss offline, coordinate via Slack
+
+  • 
+        KG: In slack we decided to have Christian and Max as moderators and the
+        rest as contributors for the LLODREAM morph abstract, but I think the
+        submission was done by Matteo
+
+  • 
+        We also need to decide about presenter, etc.
+
+Otherwise postponed
+
+2. Definitions
+
+See https://github.com/ontolex/morph/blob/master/draft.md and https://
+github.com/ontolex/morph/issues .
+
+  • 
+        PS: how to represent order of morphemes (more than one affix)
+
+      □ 
+            MI: inflectionType next (only for inflection)
+
+      □ 
+            CC: for derivation, we can decompose it into a tree structure by
+            nesting lexical entries in derivation then order is indirectly
+            encoded
+
+      □ 
+            CC: we also have an aggregate relation between form and morph, that
+            can be an rdf:Seq [TODO: check that this is explicitly mentioned in
+            draft]
+
+          ☆ 
+                Proposal@CC (after telco): that should be the preferred answer
+
+  • 
+        PS: how to represent derivation trees? ((A B) C)
+
+      □ 
+            CC: has been one of the original requirements (https://www.w3.org/
+            community/ontolex/wiki/Morphology#Representation_needs, "N7:
+            Multiple segmentation strategies")
+
+      □ 
+            Current solution: use decomp (note we have decomp:subterm already
+            in diagram); if all intermediate steps are valid lexemes, this can
+            also be done via multiple WordFormationRelations (Rules)
+
+  • 
+        Otherwise postponed, leaving more time for 3.
+
+  • 
+        CC (after telco): started to check and update requirements in wiki:
+        https://www.w3.org/community/ontolex/wiki/Morphology#
+        Representation_needs
+
+3. Handling of Semitic languages
+
+Special thanks to Khadija for helping us with some input on Semitic languages.
+That has been a long-standing desideratum.
+
+  • 
+        Initial look onto some (which?) arabic data
+
+  • 
+        Issues with text editor used in telco (direction of Arabic writing) –
+        not a problem in data
+
+      □ 
+            TODO: any recommended editor for mixed direction writing
+
+  • 
+        Khadija: can we have multiple writtenReps for different language tags?
+
+      □ 
+            Yes, e.g., “...”@ar-Latn, “...”@ar
+
+  • 
+        Deeper look next time
+
+Second telco link:
+
+https://meet.google.com/kiw-gfvk-ffk
+
+4. AoB
+
+Next call in 4 weeks (in 2 weeks is Nexus MC meeting)
+

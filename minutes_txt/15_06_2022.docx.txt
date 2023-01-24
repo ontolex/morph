@@ -130,7 +130,10 @@ updates from 4.14
                     prefix+suffix
 
               ○ 
-                    it seems that no such dataset exists
+                    it seems that no such dataset exists, because they normally
+                    take a synchronic perspective or make a general decision as
+                    to whether two affixes form a circumfix or are considered
+                    independent prefix and suffix elements.
 
 Model draft 4.16 updates (to be discussed) & open issues:
 
@@ -148,26 +151,31 @@ Model draft 4.16 updates (to be discussed) & open issues:
       □ 
             presentation: 11:50-12:10, 15+5
 
-          ☆ 
-                LiLa+Lexis 1 presenter
+    plan: split in two (not three parts):
 
-              ○ 
-                    Matteo not attending (Marco?)
+  • 
+        2 presenters, decide internally for one for
 
-              ○ 
-                    Penny and Katerina attending
-
-          ☆ 
-                gen+overview
-
-              ○ 
-                    CC or Fahad?
+      □ 
+            LiLa+Lexis
 
           ☆ 
-                presentation slides: https://docs.google.com/presentation/d/
-                1st1snmgOYM4lwPj4Pai-w7KuQ0BfcqIZNvDC5R1MEpU/edit?usp=sharing
-                (template can be changed at any time; for now added the fonts,
-                colours and logo of Nexus)
+                Matteo not attending (Marco?)
+
+          ☆ 
+                Penny and Katerina attending
+
+      □ 
+            gen+overview
+
+          ☆ 
+                Christian or Fahad?
+
+  • 
+        presentation slides: https://docs.google.com/presentation/d/
+        1st1snmgOYM4lwPj4Pai-w7KuQ0BfcqIZNvDC5R1MEpU/edit?usp=sharing (template
+        can be changed at any time; for now added the fonts, colours and logo
+        of Nexus)
 
   • 
         general OntoLex overview
@@ -388,6 +396,9 @@ Model draft 4.16 updates (to be discussed) & open issues:
   • 
         TODO@next time: brief overview over inflection part of the diagram for
         Sina and Elena (@Max?)
+
+  • 
+        other parts of the agenda moved to next call
 
 3. AOB
 

@@ -135,11 +135,11 @@ probably have to send it separately to each WG]
  4.
         Latest Morphology Module Draft (for purpose 2.1 and 2.2)
 
-[image1]
+[image2]
 
 More detailed fragment:
 
-[image2]
+[image1]
 
 InflectionType corresponds to a allomorphy-free paradigm for one inflection
 slot (e.g. number). For non-agglutinative languages there will mostly be only
