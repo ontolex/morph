@@ -1,0 +1,135 @@
+TODAY: chapter on multi-word expressions
+
+Link: https://meet.google.com/vvf-qdnd-xrq [one-time-link; check here for link
+updates if it doesn’t work]next : tba. https://meet.google.com/npd-ptui-bfv
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Thierry Declerck (DFKI)
+
+Ranka Stanković
+
+Gilles Sérasset (GS)
+
+Mike Rosner (MR)
+
+0. Module draft (4.17)
+
+[image1]
+
+No changes
+
+MWE Chapter
+
+  • 
+        Draft under: https://www.overleaf.com/8285444258rpfnbwgwbrdp
+
+  • 
+        Deadline March 1
+
+  • 
+        Slack channel: #frac-mwe-chapter
+
+  • 
+        CC+MI: page limits
+
+      □ 
+            Added to the overleaf in the title
+
+  • 
+        KG: confirm page limits for models, reduce/cut cscores
+
+  • 
+        KG: moving diagrams to appendix? – makes it harder to read
+
+  • 
+        Sect. 2: drop all examples, refer to sect. 3
+
+  • 
+        Merge 3.1 + 5.2 (TEI/LMF discussion)
+
+      □ 
+            Tentatively: as 5.2 => TODO@FK
+
+TODOS for today
+
+  • 
+        all : proof-read, correct; if cutting: make a note with a suggestion
+        (unless it’s your section)
+
+  • 
+        All: cut (at your sections)
+
+  • 
+        FK: merging TEI/LMF sections, check OZDIC section
+
+  • 
+        BK: MWE typology, rephrase literal quotations
+
+  • 
+        MI page lengths, read/comment/improve overall, incl. Cutting
+        *suggestions*
+
+  • 
+        CC: page lengths, maybe proof-reading
+
+      □ 
+            TODO: We need to mention Lexicog in the beginning, because we use
+            it for some modeling. TODO: add this to the structure
+
+  • 
+        KG: move cscores into appendix (possibly: cuts in that section),
+        balancing/cutting in modelling section
+
+  • 
+        Katerina: balance level of detail of modelling section (\section{The
+        OntoLex Vocabulary})
+
+  • 
+        Overall todos
+
+      □ 
+            Christian: Cutting (at the very end)
+
+Last FrAC call:
+
+  • 
+        Use Case: Designing an API for Collocation Analysis on the Web
+
+      □ 
+            Christian: moved into discussion, currently more as an outlook
+            without details
+
+      □ 
+            Last time: Ranka: did scripts, could elaborate that
+

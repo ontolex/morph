@@ -1,0 +1,275 @@
+Link: https://meet.google.com/pvq-hxqi-arr [check here for link updates if it
+doesn’t work]
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+[CC: apparently, Max needs to let us in
+
+I created a new gmeet NOW]
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK) (excused: 20 min late)
+
+Khadija Ait ElFqih (KAE) – excused
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Thierry Declerck (DFKI)
+
+Ranka Stanković
+
+Gilles Sérasset (GS)
+
+0. Module draft (4.17)
+
+[image1]
+
+Updates:
+
+  • 
+        Domain of baseConstraint and grammaticalMeaning now includes morph:Rule
+
+  • 
+        New section: https://github.com/ontolex/morph/blob/master/draft.md#
+        overall-structure
+
+1. Publications
+
+LLODream postproceedings
+
+deadline 01.12, post-presentation publication
+
+Consensus: wait with an overview until model is stable
+
+MWE Chapter
+
+  • 
+        Initiated in FrAC
+
+  • 
+        Doodle poll: https://doodle.com/meeting/participate/id/dyrZg8ze
+
+  • 
+        Draft for chapter: https://www.overleaf.com/8285444258rpfnbwgwbrdp
+
+  • 
+        Template: https://www.overleaf.com/latex/templates/
+        langsci-skeleton-for-edited-volumes-2022-06/vvjbpxnrbnkk, chapters/
+        01.tex
+
+  • 
+        Initial abstract: https://docs.google.com/document/d/
+        1HLTsYScMiZE4Nb6b7mozN-SoKAIWtisdiKLa0OoXPuU/edit?usp=sharing
+
+  • 
+        Slack channel: #frac-mwe-chapter
+
+  • 
+        authors: CC KG MI BK FK CT EA (TD can also contribute, we have been
+        doing some work on MWE in Elexis)
+
+  • 
+        TODO@CC: Doodle poll for next call
+
+eLex 2023
+
+https://elex.link/elex2023/
+
+Submission deadline: 31.01.2023
+
+Dates: 27.06-29.06
+
+Topic tbd:
+
+  • 
+        Overview of the model
+
+      □ 
+            LREC was just dynamic part
+
+      □ 
+            Focus on changes since the last presentation
+
+          ☆ 
+                Inflection type, grammatical meaning changed
+
+          ☆ 
+                Descriptive part: morph
+
+  • 
+        Use case: Semitic? [if we have a consensus on that]
+
+      □ 
+            Probably too late
+
+  • 
+        Abstract only, paper later
+
+  • 
+        Topic to be decided at next call
+
+2. Handling of Semitic languages [postponed]
+
+Postponed, need Khadija to join (excused today)
+
+3. Interlinking Latin Language Data in the Linguistic Linked Open Data
+
+  • 
+        Thierry STSM@CIRCSE/LiLa Sep-Oct 2022
+
+  • 
+        Focus on morphology, esp. with Marco Passarotti and Matteo
+
+  • 
+        Issue: linking with the corpus is problematic if corpus words are not
+        disambiguated (semantically and grammatically)
+
+      □ 
+            Introduced underspecified forms (multiple lexinfo values for the
+            same lexinfo property, e.g. lexinfo:case)
+
+      □ 
+            Suggestion: class morph:UnderspecifiedMorph as a subclass of
+            ontolex:Form (?)
+
+          ☆ 
+                Matteo: yes, maybe better morph:UnderspecifiedForm?
+
+  • 
+        Issue: frequency counts for fully and partially disambiguated morphs
+
+      □ 
+            Suggestion: use morph:UnderspecifiedMorph, as well
+
+      □ 
+            Should be a FrAC Observable (“underspecified observable”)
+
+  • 
+        Tbc: do we need fully specified lexical entries in the model?
+
+      □ 
+            If not, this class would be nice to have
+
+  • 
+        Blog post
+
+      □ 
+            Draft restricted, so far, TODO@TD: provide a public link
+
+  • 
+        Gilles: rather classical problem, any examples with multiple
+        underspecified dimensions
+
+      □ 
+            Same problem for Greek, Serbian, German (also Latin), e.g.,
+            number+case combinations
+
+          ☆ 
+                Post-call: Russian кушанье “food”, gen.sg.=nom.pl=acc.pl
+                кушанья (gen.pl кушаний, nom.sg.=akk.sg. кушанье)
+
+              ○ 
+                    Serbian:
+                    1) predikcija “prediction”; predikcija (gen.pl.=nom.sg.),
+                    predikcije (nom.pl.=acc.pl.=voc.pl.=gen.sg.)
+                    2) doteran “polished”, adjective; form doterana
+                    (nom.sg.fem.=voc.sg.fem.= gen.pauk.masc.=acc.pauk.masc.=
+                    nom.pl.neut.=voc.pl.neut.) ;
+
+      □ 
+            Matteo: link forms to bundles of features (=> GrammaticalMeaning
+            [s], optionally with lexinfo feats)
+
+  • 
+        Christian:
+
+      □ 
+            possibly forms can be underspecified in OntoLex (cf. one form for
+            multiple lexical entries [not forbidden], forms in lexical
+            resources that don’t disambiguate morphological features]); then,
+            no new class needed
+
+      □ 
+            Possibly to be modelled with frac:Observable, cf. corpus queries
+            (not fully discussed yet)
+
+          ☆ 
+                Gilles: not limited to FrAC use cases, but general feature of
+                lexical resources; also not limited to morphology
+
+          ☆ 
+                Matteo: problem in the definition of ontolex:Form? [just string
+                or string+features? Both definitions occur]
+
+      □ 
+            Question: do we need a specific class?
+
+          ☆ 
+                Thierry: was introduced for readability
+
+          ☆ 
+                Christian: We can infer underspecification from having multiple
+                grammatical meanings
+
+          ☆ 
+                Matteo: in Lila helpful, but can be user class, useful feature
+                is to state that something is unambiguous
+
+          ☆ 
+                Christian: model by property morph:soleGrammaticalMeaning (must
+                be unique per form)
+
+          ☆ 
+                Matteo: or, specify at observable? Doesn’t necessarily require
+                an extension of morph
+
+      □ 
+            Telco link: https://meet.google.com/whn-efaq-cha
+
+      □ 
+            TODO@MP: small data example
+
+4. Definitions
+
+See https://github.com/ontolex/morph/blob/master/draft.md and https://
+github.com/ontolex/morph/issues .
+
+Postponed
+
+5. AoB ?
+
+Thierry: Cost Action UniDive on MWEs, Universal Dependencies etc.: https://
+www.cost.eu/actions/CA21167/
+
+  • 
+        Overlap: Thierry, Ranka, Christian
+
+  • 
+        Meetings yet to happen
+
+  • 
+        Thierry: reached out to establish ties between Nexus and UnIDive
+

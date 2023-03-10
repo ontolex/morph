@@ -1,0 +1,247 @@
+Link: https://meet.google.com/yzu-bzkd-xbp [one-time-link; check here for link
+updates if it doesn’t work]next : https://meet.google.com/irb-dovk-qpy
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Thierry Declerck (DFKI)
+
+Ranka Stanković
+
+Gilles Sérasset (GS)
+
+Mike Rosner (MR)
+
+0. Module draft (4.17)
+
+[image1]
+
+No changes
+
+Organisational
+
+  • 
+        MP: What prefix is for morph?
+
+  • 
+        MI: morph? http://www.w3.org/ns/lemon/morph ?
+
+Publications
+
+eLex 2023
+
+Didn’t happen, MI apologises
+
+MWE Chapter
+
+  • 
+        Deadline March 1st
+
+  • 
+        Draft for chapter: https://www.overleaf.com/8285444258rpfnbwgwbrdp
+
+  • 
+        Slack channel: #frac-mwe-chapter
+
+  • 
+        Some gaps
+
+  • 
+        FK:
+
+      □ 
+            FK: For what cases do we recommend to use Morph module and not
+            decomp?
+
+      □ 
+            MP: For Latin we used morph because we needed a reification of the
+            relation between elements (but that was for compounds, not
+            specifically for MWE)
+
+      □ 
+            CC: When we have an analysis using morphology, we shouldn’t be
+            using decomp, should use morph
+
+      □ 
+            KG: More generally, if we have something that needs morph classes,
+            we should use morph, if it’s sufficient to just have core ontolex
+            to encode all the information, we can use decomp
+
+      □ 
+            CC: decomp is not only about structure but also about semantics,
+            which is not modelable in morph
+
+      □ 
+            FK: if it’s not a semantically transparent MWE (e.g. idiomatic), we
+            can’t use morph? So the suggestion will be to use decomp and not
+            use morph?
+
+      □ 
+            KG: RDF has the open world assumption, so it’s possible to describe
+            using both morph and decomp
+
+      □ 
+            CC: What only decomp covers are semantic relationships (roles),
+            what decomp doesn’t cover are morphemes
+
+  • 
+        FK, CC: The idea is to introduce morph, frac and decomp, in section 2
+        and use section 3 to applying them to MWEs
+
+Open questions
+
+  • 
+        morph:baseConstraint — found only in one example with Inuktitut
+        generation.
+
+    In a nutshell, morph:baseConstraint can be used to provide prerequisites
+    for a morph to be compatible. For example
+
+    :m1 morph:baseConstraint [ :pos "v" ] .
+
+    sets the requirement for the word that this morph can be added to. And
+    morph:grammaticalMeaning holds grammatical categories for the morph itself,
+    as before. But shouldn’t it be only for a Rule, not for a Morph?
+
+It is 2023, we need to finish the module
+
+  • 
+        MI: I think we achieved a level where we freeze everything and write it
+        up
+
+  • 
+        Is there anything we are missing?
+
+      □ 
+            KG: LREC paper discusses the limitations of the module, we need to
+            look at this, discuss the asap. TODO@KG: look into it and add this
+            to the agenda or report it
+
+      □ 
+            MI: I think that we can still have limitations unsolved for the
+            final module, we just need to explicitly decide
+
+  • 
+        Should we vote in Slack+mailing list since not everyone is in the call
+        (prediction)
+
+      □ 
+            CC and MI should decide, then send to OntoLex chairs to approve
+
+      □ 
+            TODO@MI,CC: discuss
+
+  • 
+        Thoughts?
+
+      □ 
+            FK: maybe we still need more discussions, especially w.r.t. Semitic
+            languages
+
+      □ 
+            FK: maybe we can take a couple of Wiktionary examples, model them
+            (naively) and then show to experts (Mike, Khadija, Ilan)
+
+      □ 
+            FK: it is very important that we deal with non-European languages
+            (non-Indo-European), so we need to make sure that we can model at
+            least a good sample of languages of the world
+
+      □ 
+            MR are we going to try to handle Maltese data of this kind? If so I
+            would be glad to help.
+
+Handling of Semitic languages [maybe today]
+
+TO-BE-DONE: figure out how to include missing categories to LexInfo
+
+Khadija: data prepared for Arabic (cf. last time):
+
+  • 
+        Morph Module semitic.odt
+
+Necessary features:
+
+  • 
+        lexinfo:POS extensions (solved? See last call minutes for procedure)
+
+  • 
+        Modelling diacritics in Arabic (cf. call minutes last time)
+
+      □ 
+            Also cf. Umlaut in German and vowel harmony in Turkish for similar
+            challenges
+
+          ☆ 
+                Recommendation (< GS): NFD normalization in morph:Replacement
+
+          ☆ 
+                TBC: are we ok with modelling roots as Morphs (i.e.,
+                LexicalEntries)?
+
+      □ 
+            If not modelled as morphs, then they could be modelled as rules
+            (replacements)
+
+          ☆ 
+                DONE@CC: model updated
+
+              ○ 
+                    morph:grammaticalMeaning and morph:baseConstraint as
+                    properties of morph:Rule, the grammatical meaning is the
+                    change in meaning or morphology of the word (root)
+
+          ☆ 
+                TO-BE-DONE@FK: model a Hindi/Urdu example, e.g., https://
+                en.wiktionary.org/wiki/
+                %E0%A4%96%E0%A5%81%E0%A4%B2%E0%A4%A8%E0%A4%BE#Hindi
+
+          ☆ 
+                TO-BE-DONE@Khadija: Modelling examples for Arabic entries
+
+  • 
+        Not discussed yet: Circumfix
+
+      □ 
+            Morph:CircumfixParadigm
+
+      □ 
+            Prefix+suffix combination
+
+AoB ?
+
+  • 
+        We moved weeks, is that okay for everyone?
+
+  • 
+        Next call: 25.01.23
+

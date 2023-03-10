@@ -1,0 +1,319 @@
+Link: https://meet.google.com/nsj-tbcy-yop [check here for link updates if it
+doesn’t work]
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC, excused)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Thierry Declerck (DFKI)
+
+Ranka Stanković
+
+Gilles Sérasset (GS)
+
+Mike Rosner (MR)
+
+https://meet.google.com/nsj-tbcy-yop
+
+0. Module draft (4.17)
+
+[image1]
+
+No changes
+
+Organizational
+
+  • 
+        Happy New Year. It’s 2023 already
+
+  • 
+        Morphology is great and vast, but we really need to finish. See below
+
+Publications
+
+eLex 2023
+
+https://elex.link/elex2023/
+
+Submission deadline: 31.01.2023
+
+  • 
+        Abstract only
+
+Dates: 27.06-29.06
+
+Topic:
+
+  • 
+        PL, KG: featured example for trad. Dict + computational resource, any
+        updates?
+
+      □ 
+            Unable to get access to the digital dictionary with inflection that
+            Penny suggested last time
+
+  • 
+        MR, ?: Semitic use-case?
+
+  • 
+        TF: Old Irish is possible, but not enough time
+
+MI’s take:
+
+  • 
+        We need to go with a simple use-case to demonstrate the full model.
+        This should become a reference publication (as it was with the previous
+        eLex publication)
+
+  • 
+        Presenting at eLex gives us audience outside of LLOD but very relevant
+
+  • 
+        Focusing on complicated examples in a short presentation confuses
+        people and makes them focus on said example, whereas we want to present
+        our model
+
+  • 
+        Maybe show small examples of different types of morphology to show how
+        we can handle it?
+
+  • 
+        Thoughts?
+
+      □ 
+            MP: Have a partial dataset with inflection, not full dataset
+
+      □ 
+            MI: I think it’s perfect
+
+      □ 
+            MP: Too many reference publications? There will also be the
+            reference publication — the model description
+
+      □ 
+            FK: Maybe something directed at (e-)lexicographers. Something like
+            a reverse to what was made for DH. Maybe morph+frac.
+
+          ☆ 
+                Take a more traditional electronic dictionary, maybe TEI,
+                mention RDFa, show how it can be modeled in OntoLex. TEI
+                conversion is secondary focus
+
+          ☆ 
+                Maybe take dictionaries from different types of languages
+
+          ☆ 
+                MR: is it a prerequisite that these entries are in
+                machine-readable format?
+
+          ☆ 
+                FK: no, we can take entries from paper dictionaries
+
+          ☆ 
+                MR: then there is data
+
+    See example
+
+  • 
+        Select entries to showcase specific phenomena in the corresponding
+        languages
+
+  • 
+        Topic: a showcase of representation of entries from different
+        dictionaries with possibly different morphologies
+
+  • 
+        Lead: MI + FK + MR
+
+  • 
+        Authors: TF, CT, ESA, GS (depending on the content details)
+
+MWE Chapter
+
+  • 
+        Initiated in FrAC
+
+  • 
+        Initial abstract: https://docs.google.com/document/d/
+        1HLTsYScMiZE4Nb6b7mozN-SoKAIWtisdiKLa0OoXPuU/edit?usp=sharing
+
+  • 
+        Draft for chapter: https://www.overleaf.com/8285444258rpfnbwgwbrdp
+
+      □ 
+            Template applied (https://www.overleaf.com/latex/templates/
+            langsci-skeleton-for-edited-volumes-2022-06/vvjbpxnrbnkk)
+
+      □ 
+            Most content is there, very rough draft
+
+  • 
+        Slack channel: #frac-mwe-chapter
+
+  • 
+        authors: CC KG MI BK FK CT EA (TD can also contribute, we have been
+        doing some work on MWE in Elexis)
+
+      □ 
+            Matteo: Latin not a great fit, possibly Elena Benzoni, tbc. yet
+            (not sure)
+
+          ☆ 
+                Not by Jan 15
+
+      □ 
+            FK: maybe 1,5 weeks in January
+
+  • 
+        Deadline will be extended, but only for 2 weeks
+
+      □ 
+            (Sh|C)ould we ask for more?
+
+          ☆ 
+                FK: yes, definitely
+
+          ☆ 
+                TODO@MI: Ask CC to TODO@CC for another extension
+
+It is 2023, we need to finish the module
+
+  • 
+        MI: I think we achieved a level where we freeze everything and write it
+        up
+
+  • 
+        Is there anything we are missing?
+
+      □ 
+            KG: LREC paper discusses the limitations of the module, we need to
+            look at this, discuss the asap. TODO@KG: look into it and add this
+            to the agenda or report it
+
+      □ 
+            MI: I think that we can still have limitations unsolved for the
+            final module, we just need to explicitly decide
+
+  • 
+        Should we vote in Slack+mailing list since not everyone is in the call
+        (prediction)
+
+      □ 
+            CC and MI should decide, then send to OntoLex chairs to approve
+
+      □ 
+            TODO@MI,CC: discuss
+
+  • 
+        Thoughts?
+
+      □ 
+            FK: maybe we still need more discussions, especially w.r.t. Semitic
+            languages
+
+      □ 
+            FK: maybe we can take a couple of Wiktionary examples, model them
+            (naively) and then show to experts (Mike, Khadija, Ilan)
+
+      □ 
+            FK: it is very important that we deal with non-European languages
+            (non-Indo-European), so we need to make sure that we can model at
+            least a good sample of languages of the world
+
+      □ 
+            MR are we going to try to handle Maltese data of this kind? If so I
+            would be glad to help.
+
+Handling of Semitic languages [maybe today]
+
+TO-BE-DONE: figure out how to include missing categories to LexInfo
+
+Khadija: data prepared for Arabic (cf. last time):
+
+  • 
+        Morph Module semitic.odt
+
+Necessary features:
+
+  • 
+        lexinfo:POS extensions (solved? See last call minutes for procedure)
+
+  • 
+        Modelling diacritics in Arabic (cf. call minutes last time)
+
+      □ 
+            Also cf. Umlaut in German and vowel harmony in Turkish for similar
+            challenges
+
+          ☆ 
+                Recommendation (< GS): NFD normalization in morph:Replacement
+
+          ☆ 
+                TBC: are we ok with modelling roots as Morphs (i.e.,
+                LexicalEntries)?
+
+      □ 
+            If not modelled as morphs, then they could be modelled as rules
+            (replacements)
+
+          ☆ 
+                DONE@CC: model updated
+
+              ○ 
+                    morph:grammaticalMeaning and morph:baseConstraint as
+                    properties of morph:Rule, the grammatical meaning is the
+                    change in meaning or morphology of the word (root)
+
+          ☆ 
+                TO-BE-DONE@FK: model a Hindi/Urdu example, e.g., https://
+                en.wiktionary.org/wiki/
+                %E0%A4%96%E0%A5%81%E0%A4%B2%E0%A4%A8%E0%A4%BE#Hindi
+
+          ☆ 
+                TO-BE-DONE@Khadija: Modelling examples for Arabic entries
+
+  • 
+        Not discussed yet: Circumfix
+
+      □ 
+            Morph:CircumfixParadigm
+
+      □ 
+            Prefix+suffix combination
+
+AoB ?
+
+  • 
+        We moved weeks, is that okay for everyone?
+
+  • 
+        Next call: 25.01.23
+

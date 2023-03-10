@@ -16,17 +16,17 @@ Initial idea:
 
 Reversed:
 
-[image1]
-
-[image3]
-
-Ontolex connection:
+[image2]
 
 [image5]
 
+Ontolex connection:
+
+[image3]
+
 Connection to Morph
 
-[image2]
+[image1]
 
 Problems (?):
 

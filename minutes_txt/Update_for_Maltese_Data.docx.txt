@@ -1,0 +1,39 @@
+Update for Maltese
+
+Following from our telco 11/1/23 here is a small sample of Maltese data for the
+strong regular verb kiteb (to write) and some derived forms.
+
+[image1]
+
+This output is generated from an online system and there is plenty more for
+many other verbs.
+
+The output can be generated in textual form
+
+There are rules for getting the surface forms from the root in this case k-t-b
+plus the vocalism - in this case i-e.
+
+e.g. to get 1st and 2nd person sing in so-called imperfective (simple past) as
+shown with blue background
+
+k-t-b + i-e
+
+(interdigitation)
+
+=> kiteb
+
+suffix t
+
+=> kitebt
+
+delete V1
+
+=> ktibt
+
+Kiteb is a very regular “strong” verb. Its is not always as straightforward as
+this (e.g. vowels sometimes change) and there are many exceptions. These are
+based on e.g. syllabic structure and can get pretty complex.
+
+I’d be happy to work with someone trying to create an instance of this - and
+other examples. Please let me know how to proceed.
+

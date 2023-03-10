@@ -17,7 +17,7 @@ Stefania Racioppa (DFKI)
  1.
         Module draft 4.7
 
-[image2]
+[image3]
 
 Adaptations included into module draft 4.7:
 
@@ -158,7 +158,7 @@ Representation in LiLa by Matteo
         head) and the resulting compound word with each one vartrans:source and
         vartrans:target and one CompoundRule
 
-[image3]
+[image2]
 
 CC:
 
