@@ -80,7 +80,7 @@ What are open topics?
 Suggestion:
 
   • 
-        Can we do a feature freeze in two weeks?
+        Can we do a requirement freeze in two weeks?
 
       □ 
             Sending email announcement, asking people to raise objections or to
@@ -103,7 +103,7 @@ Suggestion:
             Abstain: 1
 
   • 
-        TODO@CC: send email about that freeze
+        TODO@CC: send email about that freeze (DONE 2023-03-13)
 
 Publications
 

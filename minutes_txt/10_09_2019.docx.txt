@@ -12,21 +12,21 @@ Form Generation
 
 Initial idea:
 
-[image4]
+[image2]
 
 Reversed:
 
-[image2]
-
 [image5]
+
+[image4]
 
 Ontolex connection:
 
-[image3]
+[image1]
 
 Connection to Morph
 
-[image1]
+[image3]
 
 Problems (?):
 
