@@ -25,40 +25,19 @@ agreement, head marking
 - **sample**
 	- [the word *atausiulugu*](atausiulugu.tsv): Verb feat. incorporation and polypersonal agreement, produced by Uqailaut analyzer
 	- Necessary morphemes and allomorphs from parser: [atausiulugu.morphs.tsv](atausiulugu.morphs.tsv)
+		- direct OntoLex rendering (no particular problems, but illustrates `morph:baseConstraint` and treatment of lexinfo gaps): [atausiulugu.ttl](atausiulugu.ttl).
 	- Root and derivational morphology from Spalding (1998): [atausiulugu.spalding.md](atausiulugu.spalding.md)
-
--   Many morphemes are ambiguous
-
--   It would be good to have a compact representation where all possible
-    > segmentations are represented in a directed acyclic graph (DAG)
-    > rather than as a sequence.
-
--   If not, we run into a combinatoric explosion, here;
-
-    -   Given *abcedefg*
-
-    -   If the sequence *bc* can always be analysed as either *b-c* or
-        > *bc*
-
-        -   
-
-        -   *8,7,7,7,6,6,6,5*
-
-    -   And the sequence *def* can always be analysed as either *d-e-f*
-        > or *de-f* or *d-ef* or *def*
-
-    -   And everything else is unambiguous
-
-    -   Then a there are 2 \* 4 possible morphological analyses, with 52
-        > (!) different morphological segments
-
-    -   But as a DAG, this can be represented as one path (here using \|
-        > to separate possible alternative sub-paths):
-
-        -   *a-(b-c\|bc)-e-(d-e\|de-f\|de-f\|d-ef\|def)-g*
-
-        -   This requires only 15 morphological segments (and clever
-            > compression can reduce that a bit mit)
+- **problem**
+	-   Many morphemes are ambiguous
+	-   It would be good to have a compact representation where all possible  segmentations are represented in a directed acyclic graph (DAG) rather than as a sequence. If not, we run into a combinatoric explosion, here:
+	    -   Given *abcedefg*
+	    -   If the sequence *bc* can always be analysed as either *b-c* or *bc*
+	    -   And the sequence *def* can always be analysed as either *d-e-f* or *de-f* or *d-ef* or *def*
+	    -   And everything else is unambiguous
+	    -   Then a there are 2 \* 4 possible morphological analyses, with 52 (!) different morphological segments
+	    -   But as a DAG, this can be represented as one path (here using \| to separate possible alternative sub-paths):
+	        -   *a-(b-c\|bc)-e-(d-e\|de-f\|de-f\|d-ef\|def)-g*
+        -   This requires only 15 morphological segments (and clever compression can reduce that a bit mit)
 
 
 # not properly integrated yet
