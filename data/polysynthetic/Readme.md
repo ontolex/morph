@@ -23,10 +23,11 @@ agreement, head marking
 ### 1. Encode ambiguity in derivation
 
 - **sample**
-	- [the word *atausiulugu*](atausiulugu.tsv): Verb feat. incorporation and polypersonal agreement, produced by Uqailaut analyzer
+	- [the word *atausiulugu*](atausiulugu.tsv): Verb feat. incorporation and polypersonal agreement, produced by Uqailaut analyzer. Analyzer doesn't disambiguate, so we need to represent all analyses in a compact way
 	- Necessary morphemes and allomorphs from parser: [atausiulugu.morphs.tsv](atausiulugu.morphs.tsv)
-		- direct OntoLex rendering (no particular problems, but illustrates `morph:baseConstraint` and treatment of lexinfo gaps): [atausiulugu.ttl](atausiulugu.ttl).
-	- Root and derivational morphology from Spalding (1998): [atausiulugu.spalding.md](atausiulugu.spalding.md)
+		- direct OntoLex rendering of morph(eme) inventory (no particular problems, but illustrates `morph:baseConstraint` and treatment of lexinfo gaps): [atausiulugu.morph.ttl](atausiulugu.morphs.ttl).
+	- Root and derivational morphology from Spalding (1998): [atausiulugu.spalding.md](atausiulugu.spalding.md), this is to check whether there is additional information in conventional dictionaries that we might need to add
+		- direct OntoLex rendering of selected Spalding information: [atausiulugu.spalding.ttl](atausiulugu.spalding.ttl). A potential problem is that the assimilation rules are not implemented at morph(eme) level
 - **problem**
 	-   Many morphemes are ambiguous
 	-   It would be good to have a compact representation where all possible  segmentations are represented in a directed acyclic graph (DAG) rather than as a sequence. If not, we run into a combinatoric explosion, here:
