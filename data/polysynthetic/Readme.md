@@ -1,6 +1,8 @@
 # Polysynthetic languages
 
-Example: Inuktitut, an Eskimo-Aleutic language from the Eastern Canadian Arctic, official language in Nunavut (Canada). Our analysis is based on the Uqialaut analyzer. Uqailaut is an ad-hoc implementation in Java, but roughly equivalent to an FST implementation (as available for the closely related Kalaallisut language from Western Greenland). Inuktitut poses a number of unique challenges because of its extremely rich morphology. 
+Example: Inuktitut, an Eskimo-Aleut* language from the Eastern Canadian Arctic, official language in Nunavut (Canada). Our analysis is based on the Uqialaut analyzer. Uqailaut is an ad-hoc implementation in Java, but roughly equivalent to an FST implementation (as available for the closely related Kalaallisut language from Western Greenland). Inuktitut poses a number of unique challenges because of its extremely rich morphology. 
+
+* We are aware that the exonym "Eskimo" is considered derogative in Canada, and that "Inuit" is preferred. However, "Inuit" excludes the Yupik languages of Alaska, so that in absence of a better designation, we stay with the traditional term when referring to (features of) the group of languages that includes both Inuit and Yupik.
 
 The Uqailaut Inuktitut data was originally included in the OntoLex-Morph GDrive and migrated to OntoLex-Morph GitHub on 2021-10-06.
 
@@ -16,20 +18,67 @@ agreement, head marking
     > [[http://www.inuktitutcomputing.ca/Technocrats/ILFT.php#morphology]{.underline}](http://www.inuktitutcomputing.ca/Technocrats/ILFT.php#morphology),
     > [[https://uqausiit.ca/morpheme-list/infix]{.underline}](https://uqausiit.ca/morpheme-list/infix)
 
--   We consider a single full form
-
-## Modelling challenges
-
-### 1. Encode ambiguity in derivation
+-   We consider a single full form, *atausiulugu*.
 
 - **sample**
 	- [the word *atausiulugu*](atausiulugu.tsv): Verb feat. incorporation and polypersonal agreement, produced by Uqailaut analyzer. Analyzer doesn't disambiguate, so we need to represent all analyses in a compact way
-	- Necessary morphemes and allomorphs from parser: [atausiulugu.morphs.tsv](atausiulugu.morphs.tsv)
-		- direct OntoLex rendering of morph(eme) inventory (no particular problems, but illustrates `morph:baseConstraint` and treatment of lexinfo gaps): [atausiulugu.morph.ttl](atausiulugu.morphs.ttl).
-	- Root and derivational morphology from Spalding (1998): [atausiulugu.spalding.md](atausiulugu.spalding.md), this is to check whether there is additional information in conventional dictionaries that we might need to add
-		- direct OntoLex rendering of selected Spalding information: [atausiulugu.spalding.ttl](atausiulugu.spalding.ttl). A potential problem is that the assimilation rules are not implemented at morph(eme) level
-- **problem**
-	-   Many morphemes are ambiguous
+		- Necessary morphemes and allomorphs from parser: [atausiulugu.morphs.tsv](atausiulugu.morphs.tsv)
+		- Root and derivational morphology from Spalding (1998): [atausiulugu.spalding.md](atausiulugu.spalding.md), this is to check whether there is additional information in conventional dictionaries that we might need to add
+
+- **modelling**
+	- Uqailaut morph(eme) inventory (for atausiulugu.morphs.tsv)
+		- direct OntoLex rendering: [atausiulugu.morph.ttl](atausiulugu.morphs.ttl).
+	
+			> NOTE: no particular problems, but illustrates `morph:baseConstraint` and treatment of lexinfo gaps)
+	
+	- selected Spalding information (atausiulugu.spalding.md)
+		- direct OntoLex rendering: [atausiulugu.spalding.ttl](atausiulugu.spalding.ttl). Also shows the application of an assimilation (allomorphy) rule. A challenge is to mark whether a word form is complete or not. The current workaround is to append a special symbol in replacements, final `-` for Inuktitut. This works nicely, but it would be more natural to encode this directly as a property of morphs.
+
+	- approaches to model full segmentations using the morpheme inventory under [atausiulugu.ttl](atausiulugu.ttl)
+
+## Modelling challenges
+
+### 1. Allomorphy rules
+
+[atausiulugu.spalding.ttl](atausiulugu.spalding.ttl) shows an assimilation (allomorphy) rule implemented as `morph:Replacement` with capturing groups. No particular difficulties, but the translation of human-readable assimilation rules to regular expressions with capturing groups cannot be automatized.
+
+### 2. Cardinality and type restrictions 
+
+- a `vn` morpheme requires a verb and produces a noun
+	- implemented using `morph:baseConstraint` and `morph:grammaticalMeaning`. Here, grammatical meaning represents the result state.
+
+### 3. Distinguish complete and incomplete forms
+
+- verbal derviation morphemes cannot be final
+	- **CANNOT** be directly modelled at `morph:Morph`, in atausiulugu.spalding.ttl implemented in `morph:Replacement`, using a special placeholder symbol
+	- for derived forms, it can be encoded by identifying them as `lexinfo:StemMorph` (i.e., not an `ontolex:Word`, this would be a complete form, then)
+		- **TODO**: put this aspect into the definition of `lexinfo:StemMorph`: "lexinfo:StemMorph is to be used only for morphs that do not represent complete words and that require additional markers (e.g., inflection) in order to occur in natural language."
+
+> NOTE: we may need a representation of incomplete or otherwise special forms in lexinfo, e.g., `lexinfo:constructed` (for constructed, reconstructed or hypothetical forms, similar to `*`), `lexinfo:attested` (default, should only be used in resources that provide attested along with (re)constructed or otherwise non-attested forms), `lexinfo:incorrect` (sometimes, resources provide counterexamples, conventionally marked by `**`). With that information, we may flag all automatically predicted forms as `lexinfo:constructed` and if a resource provides an `lexinfo:attested` form, this overrides the constructed forms (and users can provide a SPARQL filter to do that)
+
+
+### 4. Incorporation 
+
+Incorporation is usually seen as a process separate from other word formation rules such as compounding or derivation. Incorporation is typical for Inuit and Yupik. The Inuktitut data, however, does not require to differentiate between incorporation and the derivation of nouns from verbs.
+
+Uqailaut examples:
+
+- {si:liq/2nv}
+- {u:u/1nv}
+
+read: if applied to a noun, return a verb; number is number of lexical entry for a particular lemma
+
+- implemented using `morph:baseConstraint` and `morph:grammaticalMeaning`. Here, grammatical meaning represents the result state. No particular difficulties.
+
+This is fully equivalent to other cases of derivation:
+- verb-to-verb: {si:si/2vv}, {si:siq/1vv}, {u:uq/3vv}
+- verb-to-noun: {si:siq/2vn}
+- noun-to-noun: {u:ut/2nn}
+
+
+### 5. Encode ambiguity in derivation
+
+-   Many morphemes are ambiguous
 	-   It would be good to have a compact representation where all possible  segmentations are represented in a directed acyclic graph (DAG) rather than as a sequence. If not, we run into a combinatoric explosion, here:
 	    -   Given *abcedefg*
 	    -   If the sequence *bc* can always be analysed as either *b-c* or *bc*
@@ -38,50 +87,25 @@ agreement, head marking
 	    -   Then a there are 2 \* 4 possible morphological analyses, with 52 (!) different morphological segments
 	    -   But as a DAG, this can be represented as one path (here using \| to separate possible alternative sub-paths):
 	        -   *a-(b-c\|bc)-e-(d-e\|de-f\|de-f\|d-ef\|def)-g*
-        -   This requires only 15 morphological segments (and clever compression can reduce that a bit mit)
+        -   This requires only 15 morphological segments (and clever compression can reduce that a bit)
 
+- two segmentation modelling options under [atausiulugu.ttl](atausiulugu.ttl)
+	- current Seq modelling:
+		- FAILS to provide more than one segmentation
+			=> this is solved with current WordFormationRelation
+		- FAILS to identify individual allomorphs (forms)
+			=> **suggested REVISION**: make ontolex:Forms a sequence of ontolex:Forms, then, allomorphs are/can be different forms of the same morph(eme)
+					(it is still possible -- and, for other resources, requires --, to model each allomorphic variant as separate morph)
+	- current WordFormationRelation:
+		- works seamlessly for multiple segmentation, encoding as DAG
+		- FALS to identify individual allomorphs (forms)
+			=> **OPEN ISSUE**: ignore this problem, in most existing resources, there will be a unique segmentation. if a resource (e.g., a software tool) requires that explicitly, the recommended workaround is to create one morph per allomorph and to use these here.
+			=> **suggested REVISION**: add a property `morph:allomorph` as a subproperty of `vartrans:lexicalRel` that connects a morph with its allomorphic variants (if these are represented as individual morphs)
+			=> **TODO** longer descriptions of allomorphy in guidelines
 
-# not properly integrated yet
+# Corpus data (FYI)
 
-
-**Modelling challenges**:
-
--   allomorphy rules
-
--   Cardinality and type restrictions (vn morpheme requires verb and
-    > produces n, \[most\] verbal morphemes cannot be final, etc.)
-
-#### Incorporation (basically a verbal derivation from a noun):
-
-{si:liq/2nv}
-
-{u:u/1nv}
-
-\[read: if applied to a noun, return a verb; number is number of lexical
-entry for a particular lemma\]
-
-#### Verb-to-verb derivations:
-
-{si:si/2vv}
-
-{si:siq/1vv}
-
-{u:uq/3vv}
-
-#### Verb-to-noun derivations:
-
-{si:siq/2vn}
-
-#### Noun-to-noun derivations:
-
-{u:ut/2nn}
-
-# FYI: Other data
-
-Not for modelling but FYI
-
--   FYI: Corpus data (CoNLL data, not to be modelled, but the individual
-    > morphemes and their combinatorics need to be modelled
+Corpus data (CoNLL data, not to be modelled in OntoLex, but the individual morphemes and their combinatorics need to be modelled
 
 \# Hansard
 

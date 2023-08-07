@@ -1,0 +1,178 @@
+# combinatorics of atausiulugu
+
+# 1. modelling as a rdf:Seq
+# - one seq per analysis => 23 different forms!? 
+# 	=> this modelling can only be applied if the analysis is unambiguous
+# - we need to point to allomorphs (i.e., forms of morphs), not morphs, this is not possible with the current modelling
+#	can we change 
+
+{atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-1s-3s-fut}	{one}{existence; is}{part. future: while I \...him/her/it}  
+
+# CURRENT Seq with morphs 
+# FAIL 1: we loose information about the actual forms
+# FAIL 2: we cannot encode more than one possible analysis
+:atausiulugu_le a ontolex:Word;
+	ontolex:canonicalForm :atausiulugu_atausiulugu_f.
+:atausiulugu_atausiulugu_f a ontolex:Form;
+	ontolex:writtenRep "atausiulugu"@iu-Latn.
+:atausiulugu_atausiulugu_f	a rdfs:Seq;
+	rdf:_1 :atausiq_1_le;
+	rdf:_2 :u_1_le;
+	rdf:_3 :lugu_tv_part_le.
+
+# REVISION Seq with forms
+# FAIL 1: SOLVED
+# FAIL 2: we cannot encode more than one possible analysis
+:atausiulugu_le a ontolex:Word;
+	ontolex:canonicalForm :atausiulugu_atausiulugu_f.
+:atausiulugu_atausiulugu_f a ontolex:Form;
+	ontolex:writtenRep "atausiulugu"@iu-Latn.
+:atausiulugu_atausiulugu_f	a rdfs:Seq;
+	rdf:_1 :atausiq_atausi_le;
+	rdf:_2 :u_u_f;
+	rdf:_3 :lugu_lugu_f.
+	# note that *in the data*, forms are not guaranteed to be unique for lexical entries
+
+# 2. modelling with WordFormationRelations
+
+# we skip inflections here
+
+# CURRENT
+# FAIL 1: we loose information about the actual forms
+	# with the revision to define a ontolex:Form a Seq of other forms, this can be solved. 
+	# we just need to give all forms their full segmentation. 
+	# problem is that we can represent a single form only
+# FAIL 2 SOLVED: we encode more than one possible analysis 
+
+# analysis 1: the following are equivalent except for inflection
+# 			  note that the alternative analyses (their grammatical meanings) are encoded as grammatical meaning of :lugu_tv_part.
+#  			  if we *want* to disambiguate and have one form per analysis, we can carry over selected morphosyntactic properties into the form at hand
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-1s-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-1s-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-2s-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-4s-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-1d-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-2d-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-4d-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-1p-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-2p-3s-fut}
+# {atausi:atausiq/1n}{u:u/1nv}{lugu:lugu/tv-part-4p-3s-fut}
+
+:rel_atausiq_1_u_1 a morph:WordFormationRelation;
+	vartrans:source :atausiq_1_le;
+	vartrans:target :atausiu_verb;
+	morph:wordFormationRule [ morph:involves :u_1_le ] .
+
+:atausiu_verb a lexinfo:StemMorph; # this is incomplete
+	lexinfo:partOfSpeech lexinfo:verb;
+	ontolex:lexicalForm :atausiu_atausiulugu_f.
+
+:atausiu_atausiulugu_f a ontolex:Form;
+	ontolex:writtenRep "atausiulugu"@iu-Latn;
+	morph:inflectionRule [ morph:involves :lugu_tv_part ].
+
+# analysis 2: ...lugu analyzed as -luk=guk, the second morpheme is inflection 
+# {atausi:atausiq/1n}{u:u/1nv}{lu:luk/3vv}{gu:guk/tv-imp-2s-3s}	
+
+:rel_atausiu_v_luk_3 a morph:WordFormationRelation;
+	vartrans:source :atausiu_verb;
+	vartrans:target :atausiuluk_verb;
+	morph:wordFormationRule [ morph:involves :luk_3_le ] .	
+
+:atausiuluk_verb a lexinfo:StemMorph;
+	lexinfo:partOfSpeech lexinfo:verb;
+	ontolex:lexicalForm :atausiuluk_atausiulugu_f.
+
+:atausiuluk_atausiulugu_f a ontolex:Form;
+	ontolex:writtenRep "atausiulugu"@iu-Latn;
+	morph:inflectionRule [ morph:involves :guk_tv_imp ].
+
+# analysis 3: ata=u=siq=u- => :atausiu_verb (everything from there is the same)
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-1s-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-2s-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-4s-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-1d-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-2d-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-4d-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-1p-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-2p-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lugu:lugu/tv-part-4p-3s-fut}
+# {ata:ata/1n}{u:u/1nv}{si:siq/2vn}{u:u/1nv}{lu:luk/3vv}{gu:guk/tv-imp-2s-3s}
+
+:rel_ata_1_u_1 a morph:WordFormationRelation;
+	vartrans:source :ata_1_le;
+	vartrans:target :atau_verb;
+	morph:wordFormationRule [ morph:involves :u_1_le ] .
+
+:atau_verb a lexinfo:StemMorph;
+	lexinfo:partOfSpeech lexinfo:verb.
+
+:rel_atau_v_siq_2 a morph:WordFormationRelation;
+	vartrans:source :atau_verb;
+	vartrans:target :atausiq_noun;
+	morph:wordFormationRule [ morph:involves :siq_2_le ].
+
+:atausiq_noun a lexinfo:StemMorph;
+	lexinfo:partOfSpeech lexinfo:noun.
+
+:rel_atausiq_n_u_1 a morph:WordFormationRelation;
+	# note that this is a different relation from the atausiq_u_1, which starts from the root atausiuq, instead
+	vartrans:source :atausiq_noun;
+	vartrans:target :atausiu_verb; 							# but it returns the same base
+	morph:wordFormationRule [ morph:involves :u_1_le ] .
+
+# analysis 4: ata=u=si=uq=luk- => atau_verb -> atausiuluk_verb 
+# {ata:ata/1n}{u:u/1nv}{si:si/2vv}{u:uq/3vv}{lu:luk/3vv}{gu:guk/tv-imp-2s-3s}
+
+:rel_atau_v_si_2 a morph:WordFormationRelation;
+	vartrans:source :atau_verb;
+	vartrans:target :atausi_verb;
+	morph:wordFormationRelation [ morph:involves :si_2_le ].
+
+:atausi_verb a lexinfo:StemMorph;
+	lexinfo:partOfSpeech lexinfo:verb.
+
+:rel_atausi_v_uq_3 a morph:WordFormationRelation;
+	vartrans:source :atausi_verb;
+	vartrans:target :atausiuq_verb;
+	morph:wordFormationRelation [ morph:involves :uq_3_le ] .
+
+:atausiuq_verb a lexinfo:StemMorph;
+	lexinfo:partOfSpeech lexinfo:verb.
+
+:rel_atausiuq_v_luk_3 a morph:WordFormationRelation;
+	vartrans:source :atausiuq_verb;
+	vartrans:target :atausiuluk_verb;
+	morph:wordFormationRelation [ morph:involves :luk_3_le ].
+
+# analysis 5: ata=ut=liq=uq=luk- => atausiuq_verb
+# {ata:ata/1n}{u:ut/2nn}{si:liq/2nv}{u:uq/3vv}{lu:luk/3vv}{gu:guk/tv-imp-2s-3s}
+
+:rel_ata_1_ut_2 a morph:WordFormationRelation;
+	vartrans:source :ata_1_le;
+	vartrans:target :ataut_noun;
+	morph:wordFormationRelation [ morph:involves :ut_2_le ].
+
+:ataut_noun a lexinfo:StemMorph;
+	lexinfo:partOfSpeech lexinfo:noun.
+
+:rel_ataut_n_liq_2 a morph:WordFormationRelation;
+	vartrans:source :ataut_noun;
+	vartrans:target :atausiq_verb;
+	morph:wordFormationRelation [ morph:involves :liq_2_le ].
+
+:atausiq_verb a lexinfo:StemMorph;
+	lexinfo:partOfSpeech lexinfo:verb.
+
+:rel_atausiq_v_uq_3 a morph:WordFormationRelation;
+	vartrans:source :atausiq_verb;
+	vartrans:target :atausiuq_verb;
+	morph:wordFormationRelation [ morph:involves :uq_3_le ].
+
+# analysis 6: ata=u=siq=uq=luk- => :atau_verb -> :atausiq_verb
+# {ata:ata/1n}{u:u/1nv}{si:siq/1vv}{u:uq/3vv}{lu:luk/3vv}{gu:guk/tv-imp-2s-3s}
+
+:rel_atau_v_siq_1 a morph:WordFormationRelation;
+	vartrans:source :atau_verb;
+	vartrans:target :atausiq_verb;
+	morph:wordFormationRelation [ morph:involves :siq_1_le ].

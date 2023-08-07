@@ -43,16 +43,28 @@
 	# this is default, so no need to encode it, I guess
 	rdfs:comment "Position this suffix must be followed by another suffix, i.e. it cannot occur in word-final position"@en;
 	# Note: this may be a gap in OntoLex-Morph: we cannot encode whether an affix produces a complete word or not, fallback: encode as part of grammatical meaning
-	# forms and behaviours are partially replicated in OntoLex-Morph, by providing different "otherForms", but not with the exact assimilation rules
+	# forms and behaviours are partially replicated in OntoLex-Morph, by providing different "otherForms", but not with the exact assimilation rules. 
+	# Fallback is to enclose delimiters in replacement rules
+
+:luk_3vv a ontolex:LexicalSense;
+	skos:definition "to perform an action in a poor or bad manner"@en. # SAME
 
 :luk_luk_f a ontolex:Form;
 	ontolex:writtenRep "luk"@iu-Latn, "ᓗᒃ"@iu-Cans;
-	rdfs:comment # NEW
+	rdfs:comment # NEW, also encoded as DerivationRule and Replacement
 		"After \'a\', \'i\', \'u\' When the stem ends with \'a\', \'i\' or \'u\', this affix takes the form luk ; it has no effect on the stem"@en,
 		"After \'t\' When the stem ends with \'t\', this affix takes the form luk; it deletes the end character of the stem \[\_t + luk → \_luk\]."@en,
 		"After \'k\' When the stem ends with \'k\', this affix takes the form luk; it deletes the end character of the stem \[\_k + luk → \_luk\]."@en,
 		"After \'q\' When the stem ends with \'q\', this affix takes the form luk; it deletes the end character of the stem \[\_q + luk → \_luk\]."@en .
 
-:luk_3vv a ontolex:LexicalSense;
-	skos:definition "to perform an action in a poor or bad manner"@en. # SAME
+# implementation of the assimilation rule for :luk_luk_f
 
+:luk_3_rule a morph:DerivationRule;
+	morph:involves :luk_3_le;
+	morph:replacement :luk_3_luk_replacement.
+:luk_3_luk_replacement a morph:Replacement;
+	morph:source "(([aiu])|[tqk]?)-$";
+	morph:target "\2luk-".
+# Note: In that replacement, the final - is used to mark incomplete forms
+#       We use a capturing group to keep [aiu] (= second group), we delete [qtk] if present. If neither is found the source condition is not applicable 
+#       and, thus, the rule is not.
