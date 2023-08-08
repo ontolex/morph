@@ -1,12 +1,23 @@
 # Polysynthetic languages
 
+## TL/DR
+
+- **FAIL**: *this data* requires modelling of allomorphs as form variants of a single morph. so, we cannot connect forms with their morphological segments, but only with the morphemes 
+	- **SUGGESTED REVISION**: make ontolex:Form an rdfs:Seq of ontolex:Forms rather than morph:Morphs (preserve current `morph:contains`)
+- **MINOR**: lexinfo property for attested/correct, constructed/hypothetical (`*`), and incorrect (`**`) forms
+- **MINOR**: illustrates usage and need for `morph:baseConstraint` (=> example for documentation, also to show grammatical meaning of morphs used for features of derived forms)
+- **MINOR**: illustrates need for `lexinfo:StemMorph`. TODO: add to definition that this should be used for cases in which the canonical form cannot be used as a standalone word (but requires additional markers, e.g., inflectional morphology)
+- **MINOR** longer descriptions of allomorphy in guidelines
+
+## Inuktitut
+
 Example: Inuktitut, an Eskimo-Aleut* language from the Eastern Canadian Arctic, official language in Nunavut (Canada). Our analysis is based on the Uqialaut analyzer. Uqailaut is an ad-hoc implementation in Java, but roughly equivalent to an FST implementation (as available for the closely related Kalaallisut language from Western Greenland). Inuktitut poses a number of unique challenges because of its extremely rich morphology. 
 
 * We are aware that the exonym "Eskimo" is considered derogative in Canada, and that "Inuit" is preferred. However, "Inuit" excludes the Yupik languages of Alaska, so that in absence of a better designation, we stay with the traditional term when referring to (features of) the group of languages that includes both Inuit and Yupik.
 
 The Uqailaut Inuktitut data was originally included in the OntoLex-Morph GDrive and migrated to OntoLex-Morph GitHub on 2021-10-06.
 
-## Inuktitut
+## Grammar and Data
 
 Features; agglutination, assimilation, incorporation, polypersonal
 agreement, head marking
