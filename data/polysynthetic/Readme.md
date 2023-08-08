@@ -6,6 +6,8 @@
 	- **SUGGESTED REVISION**: make ontolex:Form an rdfs:Seq of ontolex:Forms rather than morph:Morphs (preserve current `morph:contains`)
 - **ADDITION**: if data sets or tools require the encoding of allomorphs as individual morphs (which is allowed, but not in line with the resource we looked into here), these variants should be linked by `morph:allomorph` (sub-property of `vartrans:lexicalRel`)
 - **MINOR**: lexinfo property for attested/correct, constructed/hypothetical (`*`), and incorrect (`**`) forms
+- **MINOR**: add 4th person (obviative) to lexinfo
+- **MINOR**: add properties for sbuject and object agreement to lexinfo
 - **MINOR**: illustrates usage and need for `morph:baseConstraint` (=> example for documentation, also to show grammatical meaning of morphs used for features of derived forms)
 - **MINOR**: illustrates need for `lexinfo:StemMorph`. TODO: add to definition that this should be used for cases in which the canonical form cannot be used as a standalone word (but requires additional markers, e.g., inflectional morphology)
 - **MINOR** longer descriptions of allomorphy in guidelines
