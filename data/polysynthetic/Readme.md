@@ -1,5 +1,16 @@
 # Polysynthetic languages
 
+note:
+
+- this is christian's original proposal, which makes use of ontolex:otherForm to encode contextual variants of the same morph(eme). note that this modelling makes no claim as to whether morph:Morph and its forms are allomorphs or just notational variants, because there is no formal notion of allomorphy here.
+- as the proposal to use forms (of morphs) in the rdfs:Seq of ontolex:Forms caused some controversy, we now provide both ways of modelling to better compare.
+	- this directory: discussion and original modelling (including both these variants, sources and more details)
+	- `one-morph-with-multiple-forms/`: proposal by christian, ttl only
+		- 260 triples
+	- `every-form-variant-one-morph/`: proposal by max, ttl only
+		- 312 triples (+20%)
+		- no linking across form variants of the same morph, yet
+
 ## TL/DR
 
 - **FAIL**: *this data* requires modelling of allomorphs as form variants of a single morph. so, we cannot connect forms with their morphological segments, but only with the morphemes 

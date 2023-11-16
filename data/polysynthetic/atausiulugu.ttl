@@ -28,7 +28,7 @@
 :atausiulugu_atausiulugu_f a ontolex:Form;
 	ontolex:writtenRep "atausiulugu"@iu-Latn.
 :atausiulugu_atausiulugu_f	a rdfs:Seq;
-	rdf:_1 :atausiq_atausi_le;
+	rdf:_1 :atausiq_atausi_f;
 	rdf:_2 :u_u_f;
 	rdf:_3 :lugu_lugu_f.
 	# note that *in the data*, forms are not guaranteed to be unique for lexical entries
