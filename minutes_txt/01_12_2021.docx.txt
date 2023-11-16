@@ -17,7 +17,7 @@ Stefania Racioppa (DFKI)
  1.
         Module draft 4.7
 
-[image2]
+[image1]
 
 Adaptations included into module draft 4.7:
 
@@ -252,7 +252,7 @@ What was aimed to be represented:
       □ 
             triples: ontolex:Form morph:consistsOf morph:Morph
 
-[image1]
+[image2]
 
   • 
         BK: can we modify this diagram to include ontolex:LexicalEntry

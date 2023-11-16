@@ -13,7 +13,7 @@ Christian Chiarcos CC
  1.
         Module draft 4.5
 
-[image2]
+[image3]
 
 Included adaptations:
 
@@ -81,9 +81,9 @@ BK proposal:
 
 [image4]
 
-[image1]
+[image2]
 
-[image3]
+[image1]
 
 :MorphPattern → morph:InflectionType, morph:WordformationRelation
 

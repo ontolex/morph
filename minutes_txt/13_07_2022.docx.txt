@@ -458,23 +458,23 @@ equivalent to
   • 
         Comparing alternatives:
 
-      □ current model
+current model
 
-         1.
-                Form -inflectionType-> InflectionType
+ 1.
+        Form -inflectionType-> InflectionType
 
-         2.
-                Paradigm <-paradigm- InflectionType
+ 2.
+        Paradigm <-paradigm- InflectionType
 
-         3.
-                InflectionType -inflectionRule-> InflectionRule
+ 3.
+        InflectionType -inflectionRule-> InflectionRule
 
-         4.
-                InflectionType -next-> InflectionType
+ 4.
+        InflectionType -next-> InflectionType
 
-      □ 
-            alternative 0: keep current model, one inflection type per paradigm
-            and rule
+  • 
+        alternative 0: keep current model, one inflection type per paradigm and
+        rule
 
     pro: backward-compatible
 
@@ -483,19 +483,19 @@ equivalent to
 
     con: still contradicts current definition
 
-  • alternative 1: detach InflectionType
+alternative 1: detach InflectionType
 
-     1.
-            Form -inflectionRule-> InflectionRule
+ 1.
+        Form -inflectionRule-> InflectionRule
 
-     2.
-            Paradigm <-paradigm- InflectionRule
+ 2.
+        Paradigm <-paradigm- InflectionRule
 
-     3.
-            InflectionRule -inflectionType-> InflectionType
+ 3.
+        InflectionRule -inflectionType-> InflectionType
 
-     4.
-            InflectionType -next-> InflectionType
+ 4.
+        InflectionType -next-> InflectionType
 
     pro: we basically keep all the information we have, incl. finite state
     modelling and agglutination
@@ -510,19 +510,19 @@ equivalent to
     traditional usage of “paradigm”. in inflection tables, it normally includes
     allomorphic variants.
 
-  • alternative 2: replace InflectionType by GrammaticalMeaning
+alternative 2: replace InflectionType by GrammaticalMeaning
 
-     a.
-            Form -inflectionRule-> InflectionRule
+ a.
+        Form -inflectionRule-> InflectionRule
 
-     b.
-            Paradigm <-paradigm- InflectionRule
+ b.
+        Paradigm <-paradigm- InflectionRule
 
-     c.
-            InflectionRule -grammaticalMeaning-> GrammaticalMeaning
+ c.
+        InflectionRule -grammaticalMeaning-> GrammaticalMeaning
 
-     d.
-            GrammaticalMeaning -next-> GrammaticalMeaning
+ d.
+        GrammaticalMeaning -next-> GrammaticalMeaning
 
     pro: we basically keep all the information we have, incl. finite state
     modelling and agglutination
@@ -538,19 +538,19 @@ equivalent to
     con: for FST, this is very opaque, a better name? => we could introduce a
     designated subclass “FiniteState” of GrammaticalMeaning !?
 
-  • alternative 3: merge InflectionType with InflectionRule
+alternative 3: merge InflectionType with InflectionRule
 
-     a.
-            Form -inflectionRule-> InflectionRule
+ a.
+        Form -inflectionRule-> InflectionRule
 
-     b.
-            Paradigm <-paradigm- InflectionRule
+ b.
+        Paradigm <-paradigm- InflectionRule
 
-     c.
-            InflectionRule -grammaticalMeaning-> GrammaticalMeaning
+ c.
+        InflectionRule -grammaticalMeaning-> GrammaticalMeaning
 
-     d.
-            InflectionRule -next-> InflectionRule
+ d.
+        InflectionRule -next-> InflectionRule
 
     pro: we keep all the information we have, incl. finite state modelling and
     agglutination

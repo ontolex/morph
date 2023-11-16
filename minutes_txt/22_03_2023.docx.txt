@@ -99,7 +99,8 @@ MWE Chapter
 UniDive
 
   • 
-        (no publication, indirectly related to MWE Chapter)
+        (no publication, indirectly related to MWE Chapter: the MWE editors are
+        working group leads for corpus-lexicon interface)
 
   • 
         Christian has been asked to co-lead a task on modelling MWE
@@ -257,7 +258,9 @@ in joint papers
         TODO, partially on Besim)
 
       □ 
-            E.g., Old Irish (TF)
+            E.g., Old Irish (TF). See here. The contents in the document and
+            accompanying spreadsheet are possibly equally (or more) pertinent
+            to “Current open topics” above.
 
       □ 
             Greek (Penny)
@@ -276,6 +279,7 @@ in joint papers
 
   • 
         Serbian (Ranka): paper for LDK - football use case, work in progress
+        ttl (work in progress)
 
   • 
         German (Petra Steiner)?

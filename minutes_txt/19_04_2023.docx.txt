@@ -1,0 +1,428 @@
+Link: https://meet.google.com/nsj-tbcy-yop
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC) (20 min late)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Besim Kabashi (BK)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Thierry Declerck (DFKI)
+
+Ranka Stanković (RS)
+
+Gilles Sérasset (GS)
+
+Mike Rosner (MR)
+
+Table of Contents
+
+0. Module draft (4.17)
+
+1. Semitic Roots
+
+2. morph:baseConstraint
+
+0. Module draft (4.17)
+
+[image1]
+
+1. Semitic Roots
+
+MI:
+
+  • 
+        Suggestion: Roots are morphs (lexinfo:RootMorph), canonical forms
+        specified for a lexical entry consist of them.
+
+  • 
+        Approved by participants
+
+Note by CC: lexinfo:RootMorph is suggested for addition to Lexinfo (https://
+github.com/ontolex/lexinfo/issues/21), then, it entails ontolex:LexicalEntry
+[that was also in one of our papers and the reason to abandon the morph
+taxonomy more than one year ago]
+
+:k-t-b a lexinfo:RootMorph, ontolex:LexicalEntry ;
+
+ontolex:evokes :k-t-b_meaning;
+
+rdfs:label "k-t-b" .
+
+# CC: clarification question: is the suggestion to not provide a lexical form?
+
+# MI: for this particular lexical entry?
+
+# CC: yes
+
+:k-t-b_meaning a ontolex:LexicalConcept.
+
+# not: LexicalSense
+
+:kiteb a ontolex:Word ;
+
+lexinfo:partOfSpeech lexinfo:verb ;
+
+morph:morphologicalPattern <kiteb_paradigm> ;
+
+ontolex:canonicalForm <kiteb_form> ;
+
+morph:baseForm <kiteb_form> .
+
+<kiteb_form> a ontolex:Form ;
+
+morph:consistsOf roots:k-t-b ;
+
+ontolex:writtenRep "kiteb"@mlt ;
+
+ontolex:phoneticRep "/kɪtɛp/" .
+
+NB: lexinfo:etymologicalRoot: lexical entry -> lexical entry; “Morpheme that
+has a particular status with regards to the word's etymology.”
+
+2. Morph ordering
+
+One of the requirements.
+
+morph:consistsOf <morph1>, <morph2>
+
+(this is RDF, unordered)
+
+Diagram: diamond-symbol operator (that’s standing for rdfs:Seq)
+
+:x morph:consistsOf :m1, :m2.
+
+:x a rdfs:Seq; rdf:_1 :m1; rdf:_2 :m2.
+
+We could debate whether to use Seq (= previously preferred) or List (= also
+discussed)
+
+(for circumflexes, we either need to decompose or just to provide
+morph:consistsOf)
+
+3. AoB
+
+We move the call by 15 minutes! Next call: 03.05.2023, 13:15 CEST.
+
+4. Chat (restructured, and filtered but not changed)
+
+4.1 Arabic (RootMorph)
+
+Fahad Khan
+
+13:13
+
+https://en.wiktionary.org/wiki/%D9%83_%D8%AA_%D8%A8#Arabic
+
+Fahad Khan
+
+13:30
+
+I also don't think consonantal root should be a lexicalconcept, since it also
+plays a role in derivational morphology
+
+Christian Chiarcos
+
+13:31
+
+what is the practice in dictionaries? organization by root or individual words?
+I guess in Malti, the latter. What about Arabic?
+
+(@Gilles: yes, lexical entries in a dictionary can be used for a family of
+related words also in english)
+
+Gilles Sérasset
+
+13:32
+
+@Christian, but ontolex:LexicalEntry has a more narrow sense. lexicog has the
+mean to represent this.
+
+But sorry, I do have to leave now. Sorry sorry sorry, this discussion is very
+interesting.
+
+Fahad Khan
+
+13:33
+
+arabic dictionaries are organised on the basis of roots: https://lingualism.com
+/modern-standard-arabic/using-an-arabic-dictionary-tips-for-learners/
+
+Gilles Sérasset
+
+13:34
+
+@Fahad: yes they are ! and chinese ones on the basis of ideographic keys...
+
+4.2 other vowel alterrnations (under the same entry or two allomorphs?)
+
+Christian Chiarcos
+
+13:26
+
+as for vowelalternations without 1:1 correspondence to meaning/function, we
+actually have something similar in IE, too, ablaut. it also doesn't have a
+transparent function. English fly, flew, flown
+
+= German fliegen - flog -geflogen
+
+but it has other functions, e.g., abstractiuve: Berg (mount) - Gebirge
+(mountain)
+
+Fahad Khan
+
+13:27
+
+but it isn't systematic enough that dictionaries that aren't etymological
+dictionaries are organised in terms as roots
+
+in IE languages
+
+Fahad Khan
+
+13:28
+
+*in terms of roots
+
+Christian Chiarcos
+
+13:28
+
+@Fahad: ablaut: no, not in English, of course.
+
+Christian Chiarcos
+
+13:36
+
+cf. gabaurths in http://www.wulfila.be/lib/streitberg/1910/html/B041.html,
+contains a MWE als sub-entry
+
+Besim Kabashi
+
+13:35
+
+@Christian: German "fliegen - flog -geflogen" are forms from different
+"stem-allomorphs" …
+
+Christian Chiarcos
+
+13:36
+
+@Besim: this is one way of describing them
+
+Christian Chiarcos
+
+13:49
+
+allomorphs are variation (=> vartrans)
+
+Christian Chiarcos
+
+13:50
+
+(differtent modelling strategies, because source documents are too
+heterogeneous wrt. allomorphs, som we must supoport both morph-level and
+morpheme-level organization; hence Morph instead of morpheme)
+
+NB: RootMorph entails that :ktb is a lexical entry
+
+Fahad Khan
+
+13:50
+
+yes we discussed this earlier
+
+because Morph is a subclass of LexicalEntry
+
+so every morph is a lexical entry by default
+
+4.3 MI’s suggested RootMorph modelling
+
+Fahad Khan
+
+13:36
+
+is rootmorph already in lexinfo?
+
+Matteo Pellegrini
+
+13:37
+
+I don't think so
+
+Christian Chiarcos
+
+13:37
+
+but it's suggested for addition
+
+You
+
+13:37
+
+This is a lexical entry, so we can connect it to the lexical concept
+
+Christian Chiarcos
+
+13:38
+
+modelling: +1
+
+Fahad Khan
+
+13:39
+
+maybe LexicalConcept can be related to the root
+
+Christian Chiarcos
+
+13:39
+
+lexical concept: +1
+
+4.4 lexinfo;etymologicalRoot (suggested by Fahad)
+
+Christian Chiarcos
+
+13:42
+
+etymological root is not morphological, I think. can be multi-morpheme
+
+moment
+
+Fahad Khan
+
+13:43
+
+i assume etymological root is a kind of root so it should be a morpheme
+
+etymon is more general
+
+Christian Chiarcos
+
+13:45
+
+lexinfo:etymology (=> skos:definition)
+
+etymnologivcalroot: in lexinfo 3.0, it is indeed a morpheme!
+
+Christian Chiarcos
+
+13:46
+
+with lexinfo:etymologicalRoot, we can connect root and derived words as lexical
+entries
+
+Fahad Khan
+
+13:49
+
+mmoon seems to be down
+
+https://github.com/MMoOn-Project/MMoOn
+
+4.4 lexinfo:RootMorph => ontolex:LexicalEntry
+
+Christian Chiarcos
+
+13:51
+
+let's add that exoplicitly to the exam,ple
+
+Besim Kabashi
+
+13:51
+
++1
+
+Fahad Khan
+
+13:52
+
+we need to change the wording of Lexical Entry in the report
+
+Fahad Khan
+
+13:52
+
+"A lexical entry represents a unit of analysis of the lexicon that consists of
+a set of forms that are grammatically related and a set of base meanings that
+are associated with all of these forms. Thus, a lexical entry is a word,
+multiword expression or affix with a single part-of-speech, morphological
+pattern, etymology and set of senses."
+
+4.5 order of morphemes
+
+Christian Chiarcos
+
+13:52
+
+actually, we did
+
+Christian Chiarcos
+
+13:52
+
+aggregation
+
+hence the diamond in the diagram
+
+what isa not decided is whether to use rdfs:seQ or rdf:List
+
+Christian Chiarcos
+
+13:54
+
+ordering
+
+consists of and the second edge
+
+rdfs:Seq
+
+order can also be indiredctly expressed in the wordformation rules
+
+Christian Chiarcos
+
+13:59
+
+in generation, in the replacement we can match beginning or end of an
+expression
+
+(i would thus decouple tjhe generation discussion from morph ordering)
+
+4.6 more data on Arabic?
+
+Christian Chiarcos
+
+14:00
+
+(I thiunk we can include examples if they help to address requirements we
+identified before and if the data we have is not sufficient)
+

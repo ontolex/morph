@@ -384,23 +384,23 @@ Model draft 4.15 updates (to be discussed) & open issues:
       □ 
             TODO@Katerina+Penny: example fusional
 
-          ☆ current model
+current model
 
-             1.
-                    Form -inflectionType-> InflectionType
+ 1.
+        Form -inflectionType-> InflectionType
 
-             2.
-                    Paradigm <-paradigm- InflectionType
+ 2.
+        Paradigm <-paradigm- InflectionType
 
-             3.
-                    InflectionType -inflectionRule-> InflectionRule
+ 3.
+        InflectionType -inflectionRule-> InflectionRule
 
-             4.
-                    InflectionType -next-> InflectionType
+ 4.
+        InflectionType -next-> InflectionType
 
-          ☆ 
-                alternative 0: keep current model, one inflection type per
-                paradigm and rule
+  • 
+        alternative 0: keep current model, one inflection type per paradigm and
+        rule
 
     pro: backward-compatible
 
@@ -579,19 +579,19 @@ lexinfo:number lexinfo:singular ;
 
 lexinfo:case lexinfo:genitive .
 
-  • alternative 1: detach InflectionType
+alternative 1: detach InflectionType
 
-     1.
-            Form -inflectionRule-> InflectionRule
+ 1.
+        Form -inflectionRule-> InflectionRule
 
-     2.
-            Paradigm <-paradigm- InflectionRule
+ 2.
+        Paradigm <-paradigm- InflectionRule
 
-     3.
-            InflectionRule -inflectionType-> InflectionType
+ 3.
+        InflectionRule -inflectionType-> InflectionType
 
-     4.
-            InflectionType -next-> InflectionType
+ 4.
+        InflectionType -next-> InflectionType
 
     pro: we basically keep all the information we have, incl. finite state
     modelling and agglutination
@@ -754,7 +754,7 @@ lexinfo:number lexinfo:singular ;
 
 lexinfo:case lexinfo:genitive .
 
-  • alternative 2:
+alternative 2:
 
     replace InflectionType by GrammaticalMeaning
 
@@ -789,19 +789,19 @@ Example for fusional language
 Notes: for fusional languages, this is the same as for alternative 1, since the
 inflection type is not used.
 
-  • alternative 3: merge InflectionType with InflectionRule
+alternative 3: merge InflectionType with InflectionRule
 
-     a.
-            Form -inflectionRule-> InflectionRule
+ a.
+        Form -inflectionRule-> InflectionRule
 
-     b.
-            Paradigm <-paradigm- InflectionRule
+ b.
+        Paradigm <-paradigm- InflectionRule
 
-     c.
-            InflectionRule -grammaticalMeaning-> GrammaticalMeaning
+ c.
+        InflectionRule -grammaticalMeaning-> GrammaticalMeaning
 
-     d.
-            InflectionRule -next-> InflectionRule
+ d.
+        InflectionRule -next-> InflectionRule
 
     pro: we keep all the information we have, incl. finite state modelling and
     agglutination

@@ -1,0 +1,88 @@
+Link: https://meet.google.com/nsj-tbcy-yop [CHECK HERE FOR UPDATED LINK(S)]
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Besim Kabashi (BK)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Ranka Stanković (RS)
+
+Gilles Sérasset (GS)
+
+Mike Rosner (MR)
+
+Table of Contents
+
+0. Module draft (4.17)
+
+1. Requirements
+
+2. Datasets
+
+3. AoB
+
+0. Module draft (4.17)
+
+[image1]
+
+1. Replacement → RegexReplacement
+
+FK: morph:source and morph:target being string literals can be too strictly
+defined given that the model will not be able to change after publication. What
+if we relax this restriction, move specifics about regular expressions into
+addenda.
+
+… some discussion …
+
+MI: Suggestion — having morph:Replacement underdefined, a new subclass
+morph:RegexReplacement which has the properties morph:Replacement has now.
+
+2. Plans
+
+Next time (04.10):
+
+  • 
+        Everyone whose issues are on GH are either present or we know the
+        status
+
+  • 
+        Going through unmet requirements
+
+  • 
+        Going through problematic datasets
+
+Time after next (18.10):
+
+  • 
+        MP presents the new standard for morphology, its compatibility with
+        Morph.
+

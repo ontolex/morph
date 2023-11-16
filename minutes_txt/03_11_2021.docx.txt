@@ -29,7 +29,7 @@ Penny Labropoulou (PL)
             computer). Type represents the linguistic process (add -(e)r). Rule
             is a computational implementation (add "r" to end of string).
 
-[image2]
+[image3]
 
 CC tried to convert data with 4.5.1, evaluation:
 
@@ -67,7 +67,7 @@ acoli-repo/acoli-morph/blob/main/uder:
 
   • 
 
-[image1]
+[image2]
 
 CC tried to convert data with 4.5.2, evaluation:
 
@@ -101,7 +101,7 @@ lexico-semantic relation as a 'source'.
         added object property morph:contains (for example) between
         morph:WordFormationRelation and morph:Morph
 
-[image3]
+[image1]
 
 Adaptations of module draft 4.5 to be included for next telco:
 

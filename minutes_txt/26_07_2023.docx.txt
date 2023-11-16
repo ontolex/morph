@@ -1,0 +1,252 @@
+Link: https://meet.google.com/nsj-tbcy-yop [CHECK HERE FOR UPDATED LINK(S)]
+
+Latest Definitions: https://github.com/ontolex/morph/blob/master/draft.md
+
+Nexus: https://nexuslinguarum.eu/the-action/join-us
+
+Participants [please add yourself]:
+
+Christian Chiarcos (CC) (excused for being 10 min late)
+
+Max Ionov (MI)
+
+Katerina Gkirtzou (KG)
+
+Besim Kabashi (BK)
+
+Fahad Khan (FK)
+
+Khadija Ait ElFqih (KAE)
+
+Matteo Pellegrini (MP)
+
+Ciprian-Octavian Truică (CT)
+
+Penny Labropoulou (PL)
+
+Elena Simona Apostol (ESA)
+
+Sina Ahmadi (SA)
+
+Elena Benzoni (EB)
+
+Petra Steiner (PS)
+
+Theodorus Fransen (TF)
+
+Ranka Stanković (RS)
+
+Gilles Sérasset (GS)
+
+Mike Rosner (MR)
+
+Table of Contents
+
+0. Module draft (4.17)
+
+1. Paradigm class
+
+2. Finite State terminology
+
+3. Open questions from the LDL paper
+
+4. W3C day presentation
+
+Next time
+
+0. Module draft (4.17)
+
+[image1]
+
+0. MWE paper
+
+TODO@MI, CC: Finish the changes, submit the chapter until the 31.07
+
+1. Paradigm class
+
+MP: Naming “paradigm” may evoke incorrect associations, definition of paradigm
+in linguistics as a set of word forms
+
+    Note: we also need to rephrase the “paradigm” property, then
+
+  • 
+        morphological pattern
+
+  • 
+        Inflection type?
+
+  • 
+        Inflection class?
+
+      □ 
+            MP: +1
+
+      □ 
+            GS: sounds like owl class
+
+  • 
+        Inflection?
+
+    => hard to get to a consensus, vote?
+
+MP: paradigm → rules instead of the other way around
+
+option 1:
+
+morph:Paradigm > morph:InflectionClass, morph:paradigm > morph:inflectionClass
+
+option 2:
+
+morph:Paradigm > morph:MorphologicalPattern, morph:paradigm >
+morph:isInflectionRuleOf (or morph:InflectionRule, changing the direction of
+the arrow (i.e., going from morph:MorphologicalPattern to morph:InflectionRule
+rather than the opposite)
+
+MI: This was exactly the idea behind the current class. Maybe just rephrase the
+definition? (also, see MP remarks)
+
+Cf. requirement N4: Lexical data contains pointers to and/or tables of
+inflectional paradigms or classes including the respective stem affixes or the
+full word-forms. Both, the pointers to paradigms and the interconnection of
+word-forms that belong to a paradigm, should be representable.
+
+MI: No problem with option 2, we need to find a way to see if everyone else is
+on board.
+
+MP: Slight preference with option 1, but option 2 is also okay.
+
+MI: Maybe rethink InflectionType name (InflectionSlot may be more intuitive)
+and then go for option 1
+
+TODO@MI: discuss this CC, how to best come to a decision within the community
+
+2. Finite State terminology
+
+  • 
+        Some of the aspects of the module allow it to model FST, albeit it
+        might feel like a misuse (e.g. InflectionType as a state)
+
+  • 
+        Finite state terminology
+
+      □ 
+            Options: either within morph or within the scope of a new module?
+
+          ☆ 
+                If the latter:
+
+              ○ 
+                    Together with diachrony?
+
+              ○ 
+                    Together with sound classes?
+
+  • 
+        MI: Probably best keep it the way it is and FSTs can be implemented in
+        a different module or another vocabulary outside of OntoLex, since it’s
+        out of scope kinda
+
+      □ 
+            KG: +1
+
+  • 
+        CC: Treat it like the sound classes/character sounds — a (small)
+        vocabulary out of morph, out of scope but motivated by morph
+
+3. Open questions from the LDL paper
+
+  • 
+        - Variation in inflexion/Flexemes :: use to dialectal, diachronic or
+        simply orthographic variation. Examples
+
+      □ 
+            In Latin, lavo `wash can be inflected according to either the 1st
+            (lavare)
+
+    or the 3rd (lavere) conjugation.
+
+  • 
+        Suppletion, eg in Old English, the verb wesan `to be' whose infinitive
+
+    represents one underlying root, whereas its indicative present singular
+    forms
+
+    are based on two other roots (eom 1.sg. `(I) am'; bist 2.sg. `(you) are').
+
+  • 
+        Modern Greek, `τραίνο' and `τρένο' have the same meaning and syntactic
+        behaviour, so they can be modeled as the same ontolex:LexicalEntry,
+        where the inflected forms of each are grouped together instead of all
+        of them being represented as simply ontolex:otherForm. The current
+        proposal is to introduce a new relation for orthographic variation (\
+        onto{lexis:OrthVariant}) as a subclass of \onto
+        {vartrans:LexicalRelation} and relate the orthographic variants through
+        this relation.
+
+  • 
+        MP: we can treat it as resolved. MP used Flexemes in his modeling but
+        that was dataset-specific, and not necessary for the Morph module
+
+    See the slides here: https://zenodo.org/record/8036909
+
+    - Markers of morphological variation :: labels of style, dating, dialect,
+    etc.
+
+  • 
+        Resolved by transfering the issue to LexInfo Vocabulary
+
+  • 
+        Note :: it would be desirable if the OntoLex-Morph vocabulary would
+        eventually be accompanied by best practice recommendations for the
+        assignment of markers and provenance.
+
+    - Challenges in word formation ::
+
+  • 
+        not fully predictable phonological processes like assimilation or
+        apophony, which prevent the simple juxtaposition of formative elements
+        from generating the actual surface form of derivatives;
+
+  • 
+        formal and semantic constraints that make a word formation rule not
+        applicable to all the words in the lexicon with a specific part of
+        speech.
+
+    (morph:GrammanticalMeaning??)
+
+  • 
+        CC: morph:baseConstraint should have resolved this
+
+4. W3C day presentation
+
+  • 
+        https://www.w3.org/community/ontolex/wiki/W3c_community_day_@_LDK2023
+
+CC: We can’t come up with a list of requirements right now because we still
+have open questions
+
+  • 
+        TODO@MI: go through all the requirements and give an overview of what
+        is left
+
+  • 
+        TODO@CC, MI: discuss what is left
+
+  • 
+        Still TODO
+
+Next time
+
+  • 
+        Summer break
+
+  • 
+        Close open TODOs, especially, the ones from the last section: CC&MI to
+        discuss what’s left and compile a list
+
+  • 
+        Restarting before LDK? 6.09? 20.09?
+
+      □ 
+            FK: We have Nexus plenary, so not 6.09
+
