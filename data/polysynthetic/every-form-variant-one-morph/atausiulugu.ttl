@@ -1,0 +1,10 @@
+# combinatorics of atausiulugu, modelling as a rdf:Seq, only
+
+:atausiulugu_le a ontolex:Word;
+	ontolex:canonicalForm :atausiulugu_atausiulugu_f.
+:atausiulugu_atausiulugu_f a ontolex:Form;
+	ontolex:writtenRep "atausiulugu"@iu-Latn.
+:atausiulugu_atausiulugu_f	a rdfs:Seq;
+	rdf:_1 :atausi_for_atausiq_1_le; # this is a contextual variant of :atausiq_1_le
+	rdf:_2 :u_1_le;					 # happens to be same as the canonical form
+	rdf:_3 :lugu_tv_part_le.		 # happens to be same as the canonical form

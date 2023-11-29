@@ -1,0 +1,65 @@
+# Addenda from Spalding
+
+:spalding1998 a lime:Lexicon;
+	rdfs:comment """Source Spalding, Alex, \"Inuktitut - A Multi-Dialectal OutlineDictionary\". Nunavut Arctic College, Iqaluit, Nunavut, Canada, 1998."""@en; # NEW
+	lime:entry :ata_1_le, :atausiq_1_le, :luk_3_le.
+
+# we keep original URIs, but limit ourselves to information provided by Spalding
+# Uqailaut is very closely based on Spalding, to these could be put into the same graph/lime:Lexicon, but here, we assume that we have distinct graphs to reflect the provenance differences.
+
+:ata_1_le a lexinfo:RootMorph, ontolex:LexicalEntry; 
+	ontolex:canonicalForm :ata_ata_f;				
+	ontolex:sense :ata_1n;
+	lexinfo:partOfSpeech lexinfo:noun.	# SAME: "type: nominal root"
+:ata_ata_f a ontolex:Form;							
+	ontolex:writtenRep 
+		"ata"@iu-Latn,				# SAME: latin transliteration
+		"ᐊᑕ"@iu-Cans.				# NEW: Unified Canadian Aboriginal Syllabics
+:ata_1n a ontolex:LexicalSense;		# SAME: "meaning: bottom"
+	skos:definition "bottom"@en.	
+
+:atausiq_1_le a lexinfo:RootMorph, ontolex:LexicalEntry;
+	ontolex:canonicalForm :atausiq_atausiq_f;
+	ontolex:sense :atausiq_1n;
+	lexinfo:partOfSpeech lexinfo:noun.	# SAME: "type: nominal root"
+:atausiq_atausiq_f a ontolex:Form;
+	ontolex:writtenRep "atausiq"@iu-Latn, "ᐊᑕᐅᓯᖅ"@iu-Cans.
+:atausiq_1n a ontolex:LexicalSense;
+	skos:definition "one"@en; 			# SAME
+	ontolex:concept :number_quantity. 	# NEW
+
+:number_quantity a ontolex:LexicalConcept; # NEW
+	rdfs:comment "Semantic category number; quantity"@en. # NEW
+	# Note: this is more like a domain, rather than a concept, may be controversial ...
+
+# URI from Uqailaut ...
+:luk_3_le a ontolex:Affix;
+	ontolex:canonicalForm :luk_luk_f;
+	ontolex:sense :luk_3vv;
+	morph:grammaticalMeaning :verb; # SAME 
+	morph:baseConstraint :verb;		# SAME
+	rdfs:comment "Mobility this suffix is mobile: it can be used at will with all roots and stems of the proper type"@en; 
+	rdfs:comment "Position this suffix must be followed by another suffix, i.e. it cannot occur in word-final position"@en.
+
+:luk_3vv a ontolex:LexicalSense;
+	skos:definition "to perform an action in a poor or bad manner"@en. # SAME
+
+:luk_luk_f a ontolex:Form;
+	ontolex:writtenRep "luk"@iu-Latn, "ᓗᒃ"@iu-Cans;
+	rdfs:comment # NEW, also encoded as DerivationRule and Replacement
+		"After 'a', 'i', 'u' When the stem ends with 'a', 'i' or 'u', this affix takes the form luk ; it has no effect on the stem"@en,
+		"After 't' When the stem ends with 't', this affix takes the form luk; it deletes the end character of the stem [_t + luk → _luk]."@en,
+		"After 'k' When the stem ends with 'k', this affix takes the form luk; it deletes the end character of the stem [_k + luk → _luk]."@en,
+		"After 'q' When the stem ends with 'q', this affix takes the form luk; it deletes the end character of the stem [_q + luk → _luk]."@en .
+
+# implementation of the assimilation rule for :luk_luk_f
+
+:luk_3_rule a morph:DerivationRule;
+	morph:involves :luk_3_le;
+	morph:replacement :luk_3_luk_replacement.
+:luk_3_luk_replacement a morph:Replacement;
+	morph:source "(([aiu])|[tqk]?)-$";
+	morph:target "\\2luk-".
+# Note: In that replacement, the final - is used to mark incomplete forms
+#       We use a capturing group to keep [aiu] (= second group), we delete [qtk] if present. If neither is found the source condition is not applicable 
+#       and, thus, the rule is not.''

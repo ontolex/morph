@@ -496,13 +496,13 @@ Accordingly, the morphological derivation of German *Schönheit* "beauty" can be
 	            ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
 
 > ---
-> class **morph:CompoundRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound. This is a reification of `decomp:subTerm`: A compound relation entails that the constituent is a subterm of the compound.
+> class **morph:CompoundRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound. This is a reification of `decomp:subterm`: A compound relation entails that the constituent is a subterm of the compound.
 >
 > ----
 
 CC 2022-02-23 (offline): is that really necessary? why can't we just use `decomp` ? I guess this is for cases in which we don't know the head, but then, we can also just omit the source.
 
-telco 2022-04-20: is to be redefined as a reification of `decomp:subTerm`.
+telco 2022-04-20: is to be redefined as a reification of `decomp:subterm`.
 
 > ---
 > class **morph:CompoundHead** is a `morph:WordFormationRelation` that connects the (lexical entry representing the) morphological head of a compound with the (lexical entry representing the) compound.
