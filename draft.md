@@ -195,7 +195,7 @@ Notes:
 - can represent *either* an individual feature or a feature bundle
 
 > ------
-> property **morph:grammaticalMeaning** assigns a grammatical  meaning to a morph resource or a form
+> property **morph:grammaticalMeaning** assigns a grammatical  meaning to a morph resource or a form or a rule
 > domain: ontolex:Form or morph:Morph or morph:Rule
 > range: morph:GrammaticalMeaning
 > -------
@@ -209,7 +209,7 @@ Discussion/History:
 - question (CC, 2022-10-24): do we need this for `morph:InflectionType` ? This would be useful to express that a certain "slot" contains information of a particular kind, e.g., morphological gender or morphological number. Right now, this information is implicit (in the inflection rules assigned to a particular inflection type).
 
 > ------
-> property **morph:baseConstraint** defines the grammatical characteristics of the stem or base that a derivational or inflectional morpheme can be combined with
+> property **morph:baseConstraint** defines the grammatical characteristics of the stem or base that a derivational or inflectional morpheme needs to comply in order to be used in ontolex:Rule
 > domain: ontolex:Morph or ontolex:Rule
 > -------
 
