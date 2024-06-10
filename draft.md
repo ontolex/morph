@@ -159,6 +159,36 @@ Notes:
 
 > -------
 
+
+For instance, the segmentation into morphs of the english plural form *cats*, and the assignment of grammatical meaning to the form and the corresponding plural morph,  can be expressed in this way.
+
+    :cats a ontolex:Form ;
+        ontolex:writtenRep "cats"@en ;
+        morph:grammaticalMeaning lexinfo:plural ;
+        morph:consistsOf :cat , :-s .
+
+    :cat a morph:Morph .
+
+    :-s a ontolex:Affix ;
+        morph:grammaticalMeaning lexinfo:plural .
+
+Since plural number is the only morphosyntactic feature value conveyed by this form and morph, in this case the grammatical meaning simply corresponds to the individual for that feature value in Lexinfo.
+
+On the other hand, in the Latin form *lupus*, nominative case and singular number are expressed cumulatively by the affix *-us*. Therefore, an instance of morph:GrammaticalMeaning is introduced for that feature bundle, and the individual feature values included therein can be expressed using the property :composedOf in the Paralex ontology.
+
+    :lupus a ontolex:Form
+        ontolex:writtenRep "lupus"@la ;
+        morph:grammaticalMeaning :nom.sg ;
+        morph:consistsOf :lup , :-us .
+
+    :lup a morph:Morph .
+
+    :-us a ontolex:Affix ;
+        morph:grammaticalMeaning :nom.sg .
+
+    :nom.sg a morph:GrammaticalMeaning ;
+        paralex:composedOf lexinfo:nominativeCase , lexinfo:singular .
+
 Discussion/History:
 
 - the extension to forms was introduced 2022-02-23 per request from Penny and Matteo for more conveniently providing re-usable and directly indexable "feature bundles".
