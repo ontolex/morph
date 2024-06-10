@@ -470,7 +470,7 @@ Note: It describes the *general* pattern how words are being formed.For the anal
 Note: updated according to telco April 21, 2022.
 
 > ---
-> Property **morph:generates** *is to be defined*
+> Property **morph:generates** connects a word formation rule to the  lexical entries that are generated from it
 > Domain: morph:WordFormationRule
 > Range: ontolex:LexicalEntry
 >
@@ -489,11 +489,6 @@ subclasses CompoundRule and DerivationRule. Normally, a derivation rule will inv
 
 >  ---
 ### morph:WordFormationRelation
-
-> ---
-> class **morph:WordFormationRelation** is a subclass of `vartrans:LexicalRelation` that describes the way in which a specific lexical entry is formed, with the `vartrans:target` representing the resulting lexical entry, and the `vartrans:source` representing the morphological base (in derivation) or head (in compounding).
->
-> ----
 
 > ---
 > class **morph:WordFormationRelation** is a subclass of `vartrans:LexicalRelation` that relates two lexical entries that are derivationally related, with the `vartrans:target` representing the resulting lexical entry, and the `vartrans:source` representing the morphological base (in derivation) or head and other constituents (in compounding).
