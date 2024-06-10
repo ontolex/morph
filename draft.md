@@ -311,6 +311,65 @@ Note: for fusional languages, the inflection slot may be associated, for instanc
 >
 > -------
 
+The example below illustrates the modelling of inflection classes and rules for the generation of the genitive singular of *lupus* in Latin.
+
+    lupus a ontolex:LexicalEntry ;
+        ontolex:canonicalForm :lupus_form ;
+        ontolex:morphologicalPattern :firstDeclension .
+
+    gen_sg_rule a morph_InflectionRule ;
+        morph:example "lupi" ;
+        morph:replacement ? ;
+        morph:inflectionClass :firstDeclension ;
+        morph:grammaticalMeaning :gen.sg ;
+        morph:involves :-i .
+
+    :-i a ontolex:Affix ;
+        morph:grammaticalMeaning :gen.sg .
+
+In a fusional language like Latin, there is no need to have different inflection slots: a single inflection rule (specific for the inflection class to which the lexical entry is assigned) allows for the generation of the genitive singular form as follows:
+
+    :lupi a ontolex:Form ;
+        ontolex writtenRep "lupi"@la ;
+        morph:grammaticalMeaning :gen.sg ;
+        morph:consistsOf :lup , :-i .
+
+On the other hand, in an agglutinative language like Turkish, it is useful to define separate inflection slots for each morphosyntactic feature, and separate inflection rules for each inflection slot, as illustrated in the example below. 
+
+    adam a ontolex:LexicalEntry ;
+        ontolex:canonicalForm adam_form ;
+        ontolex:morphologicalPattern :noun_infl_vowelHarmony1 .
+
+    pl_rule a morph:InflectionRule ;
+        morph:example "adamlar" ;
+        morph:replacement ? ;
+        morph:inflectionClass :noun_infl_vowelHarmony1 ;
+        morph:grammaticalMeaning lexinfo:plural ;
+        morph:involves :-lar ;
+        morph:inflectionSlot number_slot . 
+
+    acc_rule a morph:InflectionRule ;
+        morph:example "adami" ;
+        morph:replacement ? ;
+        morph:inflectionClass :noun_infl_vowelHarmony1 ;
+        morph:grammaticalMeaning lexinfo:accusativeCase ;
+        morph:involves :-i ;
+        morph:inflectionSlot case_slot .
+
+    number_slot a morph:InflectionSlot ;
+        rdfs:comment "slot for number in Turkish nominal inflection" ;
+        morph:next case_slot .
+
+    case_slot a morph:InflectionSlot ;
+        rdfs:comment "slot for case in Turkish nominal inflection" .
+
+The successive application of the two appropriate rules for accusative and plural formation -- in the order established by the use of the morph:next property -- allows for the generation of the accusative plural form as follows:
+
+    :adamlari a ontolex:Form ;
+      ontolex writtenRep "adamlari"@tur ;
+      morph:grammaticalMeaning [lexinfo:accusative , lexinfo:plural ] ;
+      morph:consistsOf :adam , :-lar , :-i .
+
 ### morph:baseType
 
 > ----
