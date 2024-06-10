@@ -379,11 +379,82 @@ The successive application of the two appropriate rules for accusative and plura
 
 >---
 
+For instance, for Latin verbs, in addition to the citation form, dictionaries also record "principal parts" -- i.e., a set of forms from which the full paradigm of a lexeme can be inferred. E.g., the entry for *rumpo* in the Lewis and Short dictionary lists the forms:
+- *rumpo*, displaying the present stem *rump-*, and from which other forms displaying the present stem can be inferred;
+- *rupi*, displaying the perfect stem *rup-*, and from which other forms displaying the perfect stem can be inferred;
+- *ruptum*, displaying the so-called third stem *rupt-*, and from which other forms displaying the third stem can be inferred;
+
+This can be modelled with ontolex-Morph as follows:
+
+    :rumpo a ontolex:LexicalEntry ;
+        ontolex:canonicalForm :rumpo_form ;
+        ontolex:baseForm :rupi_form , :ruptum_form .
+        ontolex:morphologicalPattern :ThirdConjugation .
+
+    :rumpo_form a ontolex:Form ;
+        ontolex:writtenRep "rumpo"@la ;
+        morph:grammaticalMeaning :prs.act.ind.1.sg ;
+        morph:baseType "PresentStem" .
+
+    :rupi_form a ontolex:Form ;
+        ontolex:writtenRep "rupi"@la ;
+        morph:grammaticalMeaning :prf.act.ind.1.sg ;
+        morph:baseType "PerfectStem" .
+
+    :ruptum_form a ontolex:Form ;
+        ontolex:writtenRep "ruptum"@la ;
+        morph:grammaticalMeaning :sup.acc ;
+        morph:baseType "ThirdStem" .
+
+    prs_act_ind_2_sg_rule a morph:InflectionRule ;
+        morph:example "rumpere" ;
+        morph:replacement ? ;
+        morph:inflectionClass :thirdConjugation
+        morph:grammaticalMeaning :prs.act.ind.2.sg ;
+        morph:involves :-it ;
+        morph:baseType "PresentStem" .
+
+    prf_act_ind_2_sg_rule a morph:InflectionRule ;
+        morph:example "rumpisti" ;
+        morph:replacement ? ;
+        morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
+        morph:grammaticalMeaning :prs.act.ind.2.sg ;
+        morph:involves :-isti ;
+      morph:baseType "PerfectStem" .
+
+    prf_pass_ptcp_rule a morph:InflectionRule ;
+        morph:example "ruptus" ;
+        morph:replacement ? ;
+        morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
+        morph:grammaticalMeaning :prs.act.ind.2.sg ;
+        morph:involves :-isti ;
+        morph:baseType "ThirdStem" .
+
+Note that the inflection rules operating on the perfect and third stem are not only connected to the inflection class of *rumpo*, but also other ones, as they are valid across conjugations.
+By applying these rules, the following forms are generated:
+
+    :rumpis_form a ontolex:Form ;
+        ontolex:writtenRep "rumpis"@la ;
+        morph:grammaticalMeaning :prs.act.ind.2.sg ;
+        morph:baseType "PresentStem" .
+
+    :rupisti_form a ontolex:Form ;
+        ontolex:writtenRep "rupisti"@la ;
+        morph:grammaticalMeaning :prf.act.ind.2.sg ;
+        morph:baseType "PerfectStem" .
+
+    :ruptus_form a ontolex:Form ;
+        ontolex:writtenRep "ruptus"@la ;
+        morph:grammaticalMeaning :prf.pass.ptcp ;
+        morph:baseType "ThirdStem" .
+
 MP: as it has been shown that also derivation can be based a form different than the canonical one (e.g. Latin deverbal conversions from the Third Stem, like capio (Third Stem capt-) > capt-o), shouldn't this hold also for WordFormationRule?
 
 Note: For an inflection rule with `morph:baseType` defined: If the lexical entry to which it is applied features a(n object of) `morph:baseForm` or (if these are not defined) a `ontolex:canonicalForm` with identital `morph:baseType`, apply the rule to this form, only. For a (generated) form, `morph:baseType` can be used to indicate from which form or with which rule it was generated. `morph:baseType` can also be used to mark stem classes in reseources for which no explicit inflection rules are given.
 
 Note: This was introduced for modelling stem alternations. In this definition, we assume that we have one lexical entry for each stem variant, so that an inflection rule whose baseType doesn't match of its lexical entry doesn't fire.
+
+
 
 ## Word Formation
 
