@@ -271,6 +271,13 @@ It may contain metadata information about this type of declension.
 
 Note: the link between inflection classes and lexical entries is not defined in OntoLex-Morph, but modelled using `ontolex:morphologicalPattern`.
 
+> --------------------
+> Property **morph:inflectionClass** links an inflection rule to the inflection class it pertains to.
+> Domain: morph:InflectionRule
+> Range: morph:InflectionClass
+
+> --------------------
+
 ### morph:InflectionSlot
 
 > ----------
