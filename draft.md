@@ -263,20 +263,11 @@ Note that this does not encode order.
 ### morph:InflectionClass
 
 > --------------------
-> Class **morph:InflectionClass** represents the inflection class to which a LexicalEntry belongs/is assigned -- e.g., the declension of a noun, or the conjugation of a verb
-> -   “a” stem declension in Latin
-> -   First declension in Russian
->
-> May contain metadata information about this type of declension.
->
+> Class **morph:InflectionClass** represents the inflection class to which a LexicalEntry belongs/is assigned -- e.g., the declension of a noun, or the conjugation of a verb.
+
 > -----------
 
->--------
-> property **morph:inflectionSlot**: A link to the inflection class to which an inflection slot pertains
-> Domain: morph:InflectionSlot
-> Range: morph:InflectionClass
-
-> ---
+It may contain metadata information about this type of declension.
 
 Note: the link between inflection classes and lexical entries is not defined in OntoLex-Morph, but modelled using `ontolex:morphologicalPattern`.
 
