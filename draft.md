@@ -126,27 +126,20 @@ Notes:
 - can carry `lexinfo:termElement` (for what?)
 - can consist of other morphs [MP: not in the last version of the diagram; is that intended?]
 - the model is agnostic as to whether this represents a morpheme or one of its allomorphs, but as a lexical entry
-(MP: it might be confusing to have a class called "Morph" that can be used also for morphemes?)
 - grammaticalMeaning: glossing information associated with the morph
 - baseConstraint: (for affixes) contraints on the elements that this morph can be applied to
 - `ontolex:Affix` is defined as a subclass of `morph:Morph`.
-- other types of morph (roots, stems, transfix, etc.) are not defined in the module, but should be defined in Lexinfosubclasses `ontolex:Affix`
-
-> --
-April 2022: morph subclasses deprecated and moved to [LexInfo](https://github.com/ontolex/lexinfo/pull/29). Note that lexinfo does not yet reference `morph:Morph`, but only `ontolex:Affix` and `ontolex:LexicalEntry`, but that should be changed when publishing OntoLex-Morph. Also note that the LexInfo definitions should be consolidated with those in this document.
+- other types of morph (roots, stems, transfix, etc.) are not defined in the module, but should be defined in Lexinfo
 
 > ------
 > Property **morph:consistsOf** states  into  which  Morph resources a Form resource can  be segmented.
-> Domain: ontolex:Form, morph:Morph
-> Range: ontolex:Form, morph:Morph
+> Domain: ontolex:Form
+> Range: morph:Morph
 >
 >-----
 
-Note: this is the eLex-2019 definition, but now we have consists of between morphs and between forms, too
-
 Note: we still have no way to encode the order of morphemes.  We can model forms and morphs as an aggregate (here: `rdf:List` ?).
 
-MP: If morph is a primitive, why it can consist of other morphs? see note above on the definition of morph
 
 ### morph:GrammaticalMeaning
 
