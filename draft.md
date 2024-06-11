@@ -2,7 +2,8 @@
 
 (use this for drafting text fragments, the HTML template is under [index.html](index.html) -- but this is empty)
 
-When given and unless marked otherwise, definitions follow the wording of [2019-12-19](https://docs.google.com/document/d/1wybx2_U0EcqmefRRiAABha-cFII6H2rZBtlgTcjLYjg/edit?usp=sharing), resp., the [eLex -2019 paper](https://elex.link/elex2019/wp-content/uploads/2019/09/eLex_2019_33.pdf)
+June 2024 - Revised the definitions so as to make them up do date with the diagram, removed unnecessary comments and notes, added .ttl examples (MP)
+When given and unless marked otherwise, definitions follow the wording of 
 
 Current diagram under [doc/diagrams](doc/diagrams).
 
@@ -144,7 +145,7 @@ Note: we still have no way to encode the order of morphemes.  We can model forms
 ### morph:GrammaticalMeaning
 
 > ------
-> Class **morph:GrammaticalMeaning** can be used to represent (bundles of) values of different morpho-syntactic features expressed by a form, morph or rule (e.g., value 'nominative' for feature 'case', value 'singular' for feature 'number', etc.; or the feature bundle composed by the latter two values, in a fusional language where they are expressed cumulatively, e.g. Latin)
+> Class **morph:GrammaticalMeaning** can be used to represent (bundles of) values of different morpho-syntactic or morpho-semantic features expressed by a form, morph or rule (e.g., value 'nominative' for feature 'case', value 'singular' for feature 'number', etc.; or the feature bundle composed by the latter two values, in a fusional language where they are expressed cumulatively, e.g. Latin)
 
 > -------
 
@@ -160,7 +161,7 @@ Notes:
 > -------
 
 
-For instance, the segmentation into morphs of the english plural form *cats*, and the assignment of grammatical meaning to the form and the corresponding plural morph,  can be expressed in this way.
+For instance, the segmentation into morphs of the english plural form *cats*, and the assignment of grammatical meaning to the form and to the corresponding plural morph,  can be expressed in this way.
 
     :cats a ontolex:Form ;
         ontolex:writtenRep "cats"@en ;
@@ -174,7 +175,7 @@ For instance, the segmentation into morphs of the english plural form *cats*, an
 
 Since plural number is the only morphosyntactic feature value conveyed by this form and morph, in this case the grammatical meaning simply corresponds to the individual for that feature value in Lexinfo.
 
-On the other hand, in the Latin form *lupus*, nominative case and singular number are expressed cumulatively by the affix *-us*. Therefore, an instance of morph:GrammaticalMeaning is introduced for that feature bundle, and the individual feature values included therein can be expressed using the property :composedOf in the Paralex ontology.
+On the other hand, in the Latin form *lupus*, nominative case and singular number are expressed cumulatively by the affix *-us*. Therefore, an instance of morph:GrammaticalMeaning is introduced for that feature bundle. The individual feature values included therein can be expressed using the property :composedOf in the Paralex ontology.
 
     :lupus a ontolex:Form
         ontolex:writtenRep "lupus"@la ;
@@ -252,7 +253,7 @@ As an example, a simple replacement operation would be concatenation, i.e., retr
 
 ### morph:involves
 
-> Property **morph:involves** links a Rule with the Morphs that are involved in the process.
+> Property **morph:involves** links a Rule to the Morphs that are involved in the process.
 > Domain: morph:Rule
 > Range: morph:Morph
 
@@ -317,7 +318,7 @@ The example below illustrates the modelling of inflection classes and rules for 
         ontolex:canonicalForm :lupus_form ;
         ontolex:morphologicalPattern :firstDeclension .
 
-    gen_sg_rule a morph_InflectionRule ;
+    gen_sg_rule a morph:InflectionRule ;
         morph:example "lupi" ;
         morph:replacement ? ;
         morph:inflectionClass :firstDeclension ;
@@ -367,7 +368,7 @@ The successive application of the two appropriate rules for accusative and plura
 
     :adamlari a ontolex:Form ;
       ontolex writtenRep "adamlari"@tur ;
-      morph:grammaticalMeaning [lexinfo:accusative , lexinfo:plural ] ;
+      morph:grammaticalMeaning [ lexinfo:accusative , lexinfo:plural ] ;
       morph:consistsOf :adam , :-lar , :-i .
 
 ### morph:baseType
@@ -380,9 +381,9 @@ The successive application of the two appropriate rules for accusative and plura
 >---
 
 For instance, for Latin verbs, in addition to the citation form, dictionaries also record "principal parts" -- i.e., a set of forms from which the full paradigm of a lexeme can be inferred. E.g., the entry for *rumpo* in the Lewis and Short dictionary lists the forms:
-- *rumpo*, displaying the present stem *rump-*, and from which other forms displaying the present stem can be inferred;
-- *rupi*, displaying the perfect stem *rup-*, and from which other forms displaying the perfect stem can be inferred;
-- *ruptum*, displaying the so-called third stem *rupt-*, and from which other forms displaying the third stem can be inferred;
+- *rumpo*, displaying the present stem *rump-*, from which other forms displaying the present stem can be inferred;
+- *rupi*, displaying the perfect stem *rup-*, from which other forms displaying the perfect stem can be inferred;
+- *ruptum*, displaying the so-called third stem *rupt-*, from which other forms displaying the third stem can be inferred;
 
 This can be modelled with ontolex-Morph as follows:
 
@@ -418,20 +419,20 @@ This can be modelled with ontolex-Morph as follows:
         morph:example "rumpisti" ;
         morph:replacement ? ;
         morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-        morph:grammaticalMeaning :prs.act.ind.2.sg ;
+        morph:grammaticalMeaning :prf.act.ind.2.sg ;
         morph:involves :-isti ;
-      morph:baseType "PerfectStem" .
+        morph:baseType "PerfectStem" .
 
     prf_pass_ptcp_rule a morph:InflectionRule ;
         morph:example "ruptus" ;
         morph:replacement ? ;
         morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-        morph:grammaticalMeaning :prs.act.ind.2.sg ;
+        morph:grammaticalMeaning :prf.pass.ptcp ;
         morph:involves :-isti ;
         morph:baseType "ThirdStem" .
 
 Note that the inflection rules operating on the perfect and third stem are not only connected to the inflection class of *rumpo*, but also other ones, as they are valid across conjugations.
-By applying these rules, the following forms are generated:
+By applying these rules, the following forms can be generated:
 
     :rumpis_form a ontolex:Form ;
         ontolex:writtenRep "rumpis"@la ;
@@ -461,7 +462,7 @@ Note: This was introduced for modelling stem alternations. In this definition, w
 
 ### morph:WordFormationRule
 
-> Class **morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain another, target LexicalEntry form (inflectionally or derivationally related to it).
+> Class **morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain another, target LexicalEntry .
 
 Note: It describes the *general* pattern how words are being formed.For the analysis of a *specific* compound or derivation, use `morph:WordFormationRelation`.
 
@@ -485,7 +486,7 @@ subclasses CompoundRule and DerivationRule. Normally, a derivation rule will inv
 
 >  ---
 
-> Class **morph:CompoundingRule** refers to rules that take more than one LexicalEntry as input to generate the output Lexical.
+> Class **morph:CompoundingRule** refers to rules that take more than one LexicalEntry as input to generate the output LexicalEntry.
 
 >  ---
 ### morph:WordFormationRelation
@@ -504,19 +505,19 @@ subclasses CompoundRule and DerivationRule. Normally, a derivation rule will inv
 
 Accordingly, the morphological derivation of German *Schönheit* "beauty" can be encoded as:
 
-  :schoenheit-entry a ontolex:LexicalEntry;
-               ontolex:canonicalForm [ ontolex:writtenRep "Schönheit"@de ].
-  :schoen-entry a ontolex:LexicalEntry.
-               ontolex:canonicalForm [ ontolex:writtenRep "schön"@de ].
-  :schoen_heit a morph:WordFormationRelation;
-               vartrans:source :schoen-entry;
-               vartrans:target :schoenheit-entry;
-               morph:wordFormationRule :_heit-rule.
-  :_heit-rule a morph:WordFormationRule, morph:DerivationRule;
-              morph:involves :_heit-morph;
-              morph:generates :schoenheit-entry.
-  :_heit-morph a morph:Morph, morph:Suffix;
-              ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
+      :schoenheit-entry a ontolex:LexicalEntry;
+                   ontolex:canonicalForm [ ontolex:writtenRep "Schönheit"@de ].
+      :schoen-entry a ontolex:LexicalEntry.
+                   ontolex:canonicalForm [ ontolex:writtenRep "schön"@de ].
+      :schoen_heit a morph:WordFormationRelation;
+                   vartrans:source :schoen-entry;
+                   vartrans:target :schoenheit-entry;
+                   morph:wordFormationRule :_heit-rule.
+      :_heit-rule a morph:WordFormationRule, morph:DerivationRule;
+                  morph:involves :_heit-morph;
+                  morph:generates :schoenheit-entry.
+      :_heit-morph a morph:Morph, morph:Suffix;
+                  ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
 
 > ---
 > class **morph:CompoundRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound. This is a reification of `decomp:subTerm`: A compound relation entails that the constituent is a subterm of the compound.
