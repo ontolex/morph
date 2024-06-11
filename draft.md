@@ -206,6 +206,16 @@ Discussion/History:
 
 For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to an `ontolex:Form` because this describes only the result of the application of a rule or the addition of a particular form.
 
+As a concrete example, the fact that the english affix -s expresses plural number if attached to nouns, and 3rd person singular agreement if attached to verbs, can be coded as follows using morph:baseConstraint.
+
+    :-s_pl a ontolex:Affix ;
+        morph:grammaticalMeaning lexinfo:plural ;
+        morph:baseConstraint lexinfo:noun .
+
+    :-s_3sg a ontolex:Affix ;
+        morph:grammaticalMeaning :3.sg ;
+        morph:baseConstraint lexinfo:verb .
+
 Discussion/History:
 - CC 2022-10-24: by analogy with morph:grammaticalMeaning, this property should also be applicable to rules to specify necessary preconditions.
 
