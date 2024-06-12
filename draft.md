@@ -322,6 +322,11 @@ Note: for fusional languages, the inflection slot may be associated, for instanc
 >
 > -------
 
+> property **morph:inflectionRule** links an InflectionRule to a Form [MP: generated using that rule, or to which that rule can be applied, or both?]
+> Domain: ontolex:Form
+> Range: morph:InflectionRule
+
+
 The example below illustrates the modelling of inflection classes and rules for the generation of the genitive singular of *lupus* in Latin.
 
     :lupus a ontolex:LexicalEntry ;
