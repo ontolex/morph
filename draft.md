@@ -3,7 +3,6 @@
 (use this for drafting text fragments, the HTML template is under [index.html](index.html) -- but this is empty)
 
 June 2024 - Revised the definitions so as to make them up do date with the diagram, removed unnecessary comments and notes, added .ttl examples (MP)
-When given and unless marked otherwise, definitions follow the wording of 
 
 Current diagram under [doc/diagrams](doc/diagrams).
 
@@ -200,7 +199,8 @@ Discussion/History:
 
 > ------
 > property **morph:baseConstraint** defines the grammatical characteristics of the stem or base that a derivational or inflectional morpheme can be combined with
-> domain: ontolex:Morph or ontolex:Rule
+> domain: ontolex:Morph or morph:Rule
+> range: morph:GrammaticalMeaning
 
 > -------
 
@@ -222,7 +222,7 @@ Discussion/History:
 ### morph:baseForm
 
 > ----
-> MP: Property **baseForm** is a subproperty of `ontolex:lexicalForm` that indicates the form that is taken as base for the application of inflection or derivation rules to generate other forms.
+> Property **baseForm** is a subproperty of `ontolex:lexicalForm` that indicates the form that is taken as base for the application of inflection or derivation rules to generate other forms.
 > Domain: `ontolex:Word` (not lexical entry!)
 > Range: `ontolex:Form`
 
@@ -324,11 +324,11 @@ Note: for fusional languages, the inflection slot may be associated, for instanc
 
 The example below illustrates the modelling of inflection classes and rules for the generation of the genitive singular of *lupus* in Latin.
 
-    lupus a ontolex:LexicalEntry ;
+    :lupus a ontolex:LexicalEntry ;
         ontolex:canonicalForm :lupus_form ;
         ontolex:morphologicalPattern :firstDeclension .
 
-    gen_sg_rule a morph:InflectionRule ;
+    :gen_sg_rule a morph:InflectionRule ;
         morph:example "lupi" ;
         morph:replacement ? ;
         morph:inflectionClass :firstDeclension ;
@@ -347,31 +347,31 @@ In a fusional language like Latin, there is no need to have different inflection
 
 On the other hand, in an agglutinative language like Turkish, it is useful to define separate inflection slots for each morphosyntactic feature, and separate inflection rules for each inflection slot, as illustrated in the example below. 
 
-    adam a ontolex:LexicalEntry ;
-        ontolex:canonicalForm adam_form ;
+    :adam a ontolex:LexicalEntry ;
+        ontolex:canonicalForm :adam_form ;
         ontolex:morphologicalPattern :noun_infl_vowelHarmony1 .
 
-    pl_rule a morph:InflectionRule ;
+    :pl_rule a morph:InflectionRule ;
         morph:example "adamlar" ;
         morph:replacement ? ;
         morph:inflectionClass :noun_infl_vowelHarmony1 ;
         morph:grammaticalMeaning lexinfo:plural ;
         morph:involves :-lar ;
-        morph:inflectionSlot number_slot . 
+        morph:inflectionSlot :number_slot . 
 
-    acc_rule a morph:InflectionRule ;
+    :acc_rule a morph:InflectionRule ;
         morph:example "adami" ;
         morph:replacement ? ;
         morph:inflectionClass :noun_infl_vowelHarmony1 ;
         morph:grammaticalMeaning lexinfo:accusativeCase ;
         morph:involves :-i ;
-        morph:inflectionSlot case_slot .
+        morph:inflectionSlot :case_slot .
 
-    number_slot a morph:InflectionSlot ;
+    :number_slot a morph:InflectionSlot ;
         rdfs:comment "slot for number in Turkish nominal inflection" ;
-        morph:next case_slot .
+        morph:next :case_slot .
 
-    case_slot a morph:InflectionSlot ;
+    :case_slot a morph:InflectionSlot ;
         rdfs:comment "slot for case in Turkish nominal inflection" .
 
 The successive application of the two appropriate rules for accusative and plural formation -- in the order established by the use of the morph:next property -- allows for the generation of the accusative plural form as follows:
@@ -418,7 +418,7 @@ This can be modelled with ontolex-Morph as follows:
         morph:baseType "ThirdStem" .
 
     prs_act_ind_2_sg_rule a morph:InflectionRule ;
-        morph:example "rumpere" ;
+        morph:example "rumpis" ;
         morph:replacement ? ;
         morph:inflectionClass :thirdConjugation
         morph:grammaticalMeaning :prs.act.ind.2.sg ;
@@ -433,12 +433,12 @@ This can be modelled with ontolex-Morph as follows:
         morph:involves :-isti ;
         morph:baseType "PerfectStem" .
 
-    prf_pass_ptcp_rule a morph:InflectionRule ;
-        morph:example "ruptus" ;
+    fut_act_ptcp_rule a morph:InflectionRule ;
+        morph:example "rupturus" ;
         morph:replacement ? ;
         morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-        morph:grammaticalMeaning :prf.pass.ptcp ;
-        morph:involves :-isti ;
+        morph:grammaticalMeaning :fut.act.ptcp ;
+        morph:involves :-urus ;
         morph:baseType "ThirdStem" .
 
 Note that the inflection rules operating on the perfect and third stem are not only connected to the inflection class of *rumpo*, but also other ones, as they are valid across conjugations.
@@ -455,8 +455,8 @@ By applying these rules, the following forms can be generated:
         morph:baseType "PerfectStem" .
 
     :ruptus_form a ontolex:Form ;
-        ontolex:writtenRep "ruptus"@la ;
-        morph:grammaticalMeaning :prf.pass.ptcp ;
+        ontolex:writtenRep "rupturus"@la ;
+        morph:grammaticalMeaning :fut.act.ptcp ;
         morph:baseType "ThirdStem" .
 
 MP: as it has been shown that also derivation can be based a form different than the canonical one (e.g. Latin deverbal conversions from the Third Stem, like capio (Third Stem capt-) > capt-o), shouldn't this hold also for WordFormationRule?
@@ -489,10 +489,10 @@ Note: updated according to telco April 21, 2022.
 
 MP: given the parallelism between the inflection and derivation subcomponents of the generation component, I would expect InflectionRule to generate something too -- namely, ontolex:Forms. Should we change the domain and range accordingly?
 
-subclasses CompoundRule and DerivationRule. Normally, a derivation rule will involve one specific morpheme or one allomorphic variant. A compound rule can involve an interfix or another morphophonological process.
+subclasses CompoundRule and DerivationRule. Normally, a derivation rule will involve one specific morpheme or one allomorphic variant [MP: but what about parasynthesis?]. A compound rule can involve an interfix or another morphophonological process.
 
 > ----
-> Class **morph:DerivationRule** refers to rules that take one LexicalEntry as input and generate another LexicalEntry as output through the addition of a derivational affix.
+> Class **morph:DerivationRule** refers to rules that take one LexicalEntry as input and generate another LexicalEntry as output through the addition of one [or possibly more than one] derivational affix.
 
 >  ---
 
