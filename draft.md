@@ -10,7 +10,7 @@ Current diagram under [doc/diagrams](doc/diagrams).
 
 editors (= past and present telco moderators, alph.; please double-check):
 - Christian Chiarcos (since 2022)
-- Maxim Ionov (2018-2023)
+- Maxim Ionov (since 2018)
 - Bettina Klimek (2018-2022)
 
 contributors (alph, **incomplete/please add yourself/people you remember to have contributed**):
