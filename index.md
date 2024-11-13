@@ -41,12 +41,7 @@ If you wish to make comments regarding this document, please send them to public
 
 ## Introduction
 
-Morphology is a vital and, in many languages, very sophisticated part of language, and  
-as such it has been an important part of the work of lexicographers. In the traditional  
-print form, morphological information is provided in brief abbreviated terms that can  
-only be deciphered with significant knowledge of the language, however with the  
-transformation  of  the  dictionary  to  an  electronic  resource  a  re-imagining  of  the  
-morphology information in a dictionary is certainly due.
+Morphology is a vital and, in many languages, very sophisticated part of language, and as such it has been an important part of the work of lexicographers. In the traditional print form, morphological information is provided in brief abbreviated terms that can only be deciphered with significant knowledge of the language, however with the transformation  of  the  dictionary  to  an  electronic  resource  a  re-imagining  of  the morphology information in a dictionary is certainly due.
 
 The morphology module aims at fulfilling two modelling purposes:
 
