@@ -1,5 +1,7 @@
 # OntoLex-Morph definitions
 
+**Old draft, please use `index.md` for the current version.**
+
 (use this for drafting text fragments, the HTML template is under [index.html](index.html) -- but this is empty)
 
 June 2024 - Revised the definitions so as to make them up do date with the diagram, removed unnecessary comments and notes, added .ttl examples (MP)
