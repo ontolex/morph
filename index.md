@@ -27,8 +27,17 @@ date: 2024-12-03
 
 <section id="abstract">
 
-TODO
+ This document describes the morphology module of the Lexicon Model for Ontologies as a result of the work of the Ontology Lexicon community group (OntoLex-Morph). The module is targeted at the representation of linguistic morphology in dictionaries and and other linguistic resources, as well as the formalization of rules for word formation and inflection as employed in computational morphology and grammatical appendices as frequently provided as part of bilingual dictionaries.
 
+ This module operates in combination with the lemon core module and extends it with support for two distinct views on linguistic morphology:
+
+(1) OntoLex-Morph allows to enrich lexical entries and individual forms with information about the morphological units that they consist of (descriptive morphology). This improves the capability of OntoLex-Lemon to encode, preserve and document the structure of morphologically complex forms or lexical entries. 
+
+(2) OntoLex-Morph allows to formalize morphological rules that can be used to produce complex lexical entries and inflected forms from their component morphs, resp., their base forms (generative morphology). This allows to extend OntoLex-Lemon resources with a framework that describes how to produce and analyze complex lexical entries or inflected forms.
+
+ OntoLex-Morph has been designed with the premise to make OntoLex-lemon applicable to morphologically rich languages of any type, supporting both fusional and agglutinating morphology, and thereby contributing to a truly multilingual web.
+
+The RDF file with the OntoLex lemon lexicography module can be found at http://www.w3.org/ns/lemon/morph
 </section>
 
 <section id="sotd">
