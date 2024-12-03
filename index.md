@@ -4,7 +4,9 @@ editor:
 - name: Christian Chiarcos
   companyURL: https://www.uni-augsburg.de/de/fakultaet/philhist/professuren/angewandte-computerlinguistik/
   company: Applied Computational Linguistics, University of Augsburg, Germany
-- name: Max Ionov
+- name: Maxim Ionov
+  company: University of Zaragoza
+  companyURL: https://www.unizar.es/
 - name: Bettina Klimek
 - name: John P. McCrae
   companyURL: https://www.universityofgalway.ie/
@@ -20,7 +22,7 @@ author:
 - name: Matteo Pellegrini
 - name: Stefania Racioppa
 - name: James K. Tauber
-date: 2024-11-13
+date: 2024-12-03
 ---
 
 <section id="abstract">
@@ -58,7 +60,7 @@ The morphology module aims at fulfilling two modelling purposes:
 
 A fine-grained description of phonological and morphophonological processes that are  involved in any kind of stem or word formation on the phoneme level is excluded and not representable with this Morphology Module. Only the elements  between the lexical entry and the morph levels will be covered. It is possible, however, that such information may be addressed in future OntoLex modules.
 
-The OntoLex-Morph module aims to be adequate for both traditional dictionary content (which contains only abbreviated about morphological rules and paradigms, often organized in appendices) and structured computational data (morphological dictionaries) as used in Language Technology, with the goal of making resources from one community more accessible to the other.
+The OntoLex-Morph module aims to be adequate for both traditional dictionary content (which contains only abbreviated information about morphological rules and paradigms, often organized in appendices) and structured computational data (morphological dictionaries) as used in Language Technology, with the goal of making resources from one community more accessible to the other.
 
 <section id="overall-structure">
 
@@ -123,7 +125,7 @@ Class **morph:Morph** is a subclass of ontolex:LexicalEntry that represents any 
 
 <div class="note">
 - can carry `lexinfo:termElement` (for what?)
-- can consist of other morphs [MP: not in the last version of the diagram; is that intended?]
+- can consist of other morphs [MP: not in the last version of the diagram; is that intended?] [MI: true, this is no longer the case, but LexicalForms can be, using decomp, so I think we cannot restrict it]
 - the model is agnostic as to whether this represents a morpheme or one of its allomorphs, but as a lexical entry
 - grammaticalMeaning: glossing information associated with the morph
 - baseConstraint: (for affixes) contraints on the elements that this morph can be applied to
@@ -196,21 +198,24 @@ For instance, the segmentation into morphs of the english plural form *cats*, an
 ```turtle
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
-    morph:grammaticalMeaning lexinfo:plural ;
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:consistsOf :cat , :-s .
 
 :cat a morph:Morph .
 
 :-s a ontolex:Affix ;
-    morph:grammaticalMeaning lexinfo:plural .
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ] .
 ```
 </aside>
 
-Since plural number is the only morphosyntactic feature value conveyed by this form and morph, in this case the grammatical meaning simply corresponds to the individual for that feature value in Lexinfo.
+<div class="note">MI: This was `morph:grammaticalMeaning lexinfo:plural`, but I don't think this should be valid</div>
 
-On the other hand, in the Latin form *lupus*, nominative case and singular number are expressed cumulatively by the affix *-us*. Therefore, an instance of morph:GrammaticalMeaning is introduced for that feature bundle. The individual feature values included therein can be expressed using the property :composedOf in the Paralex ontology.
+In this case we create a blank node for the grammatical meaning that corresponds to a single feature in Lexinfo. In practice, it might be better to define instances for common morphological meanings and reuse these objects.
+
+For example, in the Latin form *lupus*, nominative case and singular number are expressed cumulatively by the affix *-us*. This is a common combination, therefore, an instance of morph:GrammaticalMeaning is introduced for that feature bundle. This time we use Lexinfo vocabulary alongside with Paralex vocabulary — even though Lexinfo is the preferred way to represent grammatical features in OntoLex, there is no restriction on this.
 
 <aside class="example" title="Example: Segmentation of the Latin nominative singular form *lupus*">
+
 ```turtle
 :lupus a ontolex:Form
     ontolex:writtenRep "lupus"@la ;
@@ -223,9 +228,12 @@ On the other hand, in the Latin form *lupus*, nominative case and singular numbe
     morph:grammaticalMeaning :nom.sg .
 
 :nom.sg a morph:GrammaticalMeaning ;
-    paralex:composedOf lexinfo:nominativeCase , lexinfo:singular .
+    lexinfo:case lexinfo:nominativeCase ;
+    lexinfo:number lexinfo:singular ;
+    paralex:composedOf lexinfo:nominativeCase , lexinfo:singular . 
 ```
 </aside>
+<div class="note">MI: I changed this part a bit to use lexinfo first and only then paralex</div>
 
 Discussion/History:
 
@@ -310,7 +318,7 @@ Rule (Class)
 
 
 **morph:Rule** represents the formal operation applied to a base form to obtain another form (inflectionally or derivationally related to it).
-It must contain either morph:example or morph:replacement (or both). “Tabular” value of a morpheme must be stored in rdfs:label (e.g. “-s”@en for usual PL in English)
+It must contain either `morph:example` or `morph:replacement` (or both). “Tabular” value of a morpheme must be stored in `rdfs:label` (e.g. “-s”@en for usual PL in English). One rule applies exactly one morphological transformation, i.e. adds one Morph.
 
 </div>
 
@@ -324,7 +332,7 @@ example (DatatypeProperty)
 
 **URI:** [http://www.w3.org/ns/lemon/morph#example](http://www.w3.org/ns/lemon/morph#example)
 
-**morph:example**: A single generated form that was generated using this rule
+**morph:example**: A single form that was demonstrates a class of forms that can be generated by a single rule with no allomorphy.
 
 <div class="description">
 
@@ -333,6 +341,8 @@ Domain: morph:Rule
 Range: string literal
 </div>
 </div>
+
+This property allows to provide an example of a class of forms that share a morpological process. It is necessary in cases where the way the form is generated is not specified but we still want to represent a morphological transformation. This is common case for retrodigitised dictionaries.
 
 </section>
 
@@ -357,9 +367,30 @@ Range: any URI, cf. in doc/wrapup/minutes-2025-06-64
 
 </div>
 
-processing analogy: replacement operations with regular expressions as in Perl or Sed.
+<!-- processing analogy: replacement operations with regular expressions as in Perl or Sed.
 
-As an example, a simple replacement operation would be concatenation, i.e., retrieve the baseForm (or canonicalForm, if no baseForm provided), check that it has the same stem type as the rule (if applicable), then append an affix to the written representation of the baseForm.
+As an example, a simple replacement operation would be concatenation, i.e., retrieve the baseForm (or canonicalForm, if no baseForm provided), check that it has the same stem type as the rule (if applicable), then append an affix to the written representation of the baseForm. -->
+
+This property points to an object that describe the morphological transformation required to produce a valid form according to the rule.
+Morph module does not limit the exact way to represent these transformations since there are many common ways to do this, therefore, there are no properties in the module to represent that. However, we provide a non-normative option — replacement with regular expressions, which will be used in the examples in the subsequent sections.
+
+<aside class="example" title="Non-normative example: Defining a regular expression replacement rule">
+
+```turtle
+:RegexReplacement a rdfs:Class .
+:source a rdf:Property ;
+        rdfs:domain :RegexReplacement ;
+        rdfs:range rdfs:Literal .
+
+:target a rdf:Property ;
+        rdfs:domain :RegexReplacement ;
+        rdfs:range rdfs:Literal .
+
+:plural_rule a :RegexReplacement ;
+             :source "$"
+             :target "s" .
+```
+</aside>
 
 <div class="note">
 Unless specified otherwise (in the documentation of a resource), implementations SHOULD provide NFD-normalized Unicode strings for `morph:source` and `morph:target`, so that diacritics are separated from the base character as combining characters. This is a best practice that simplifies the writing of rules in many cases, as diacritic and base character can be manipulated independently from each other.
@@ -377,7 +408,7 @@ involves (ObjectProperty)
 
 **URI:** [http://www.w3.org/ns/lemon/morph#involves](http://www.w3.org/ns/lemon/morph#involves)
 
-**morph:involves** links a Rule to the Morphs that are involved in the process.
+**morph:involves** links a Rule to the Morph that is involved in the process.
 
 <div class="description">
 
@@ -388,7 +419,7 @@ Range: morph:Morph
 </div>
  
 <div class="note">
-Note that this does not encode order. 
+Note that this does not encode order. <br/> MI: Each rule correspond to exactly one Morph, so there is no need for ordering
 </div>
 
 </section>
@@ -429,7 +460,7 @@ Range: morph:InflectionClass
 </div>
 </div>
 
-TODO: Some text introducing inflection slots.
+In the case of fusional morphology — languages like Greek, Latin or English — there is usually only one morph attached to a form that carries information about inflection. The situation is different for languages with agglutination, where each inflectional value is represented by its own morph. In order to represent this, the model has another class.
 
 <div class="entity">
 
@@ -438,13 +469,11 @@ InflectionSlot (Class)
 **URI:** [http://www.w3.org/ns/lemon/morph#InflectionSlot](http://www.w3.org/ns/lemon/morph#InflectionSlot)
 
 
-**morph:InflectionSlot**  represents a single slot for all values of a grammatical category or, in the case of bundles of grammatical categories, for all combinations of values thereof
+**morph:InflectionSlot**  represents a single slot that can be filled with a morph of corresponding to a grammatical category. Since one rule can introduce only one morph, inflection slots are necessary when we need to represent forms that are generated by several independent morphological processes.
 </div>
 
-Book analogy: a column from a paradigm table without allomorphy/alternative variants for just a single morpheme
-
 <div class="note">
-For fusional languages, the inflection slot may be associated, for instance, with a combination of gender, number and case, as in the example of Greek nouns, while for agglutinative languages, each inflection type is associated with a single grammatical category (e.g. all values of case).
+For agglutinative languages like Finno-Ugric, Turkic and many more, each grammatical value that is encoded with a morph: e.g. number and case for Finnish nouns — is associated with a single slot. This way, there should be two separate rules for adding number and case to form an inflected Finnish noun form.
 </div>
 
 <div class="entity">
@@ -464,7 +493,7 @@ Range: morph:InflectionSlot
 </div>
 </div>
 
-TODO: Text describing the use of morph:next
+In order to set the order of morphs and also simplify the process of form generation, the property `morph:next` points from one InflectionSlot to the next.
 
 <div class="entity">
 
@@ -496,7 +525,7 @@ InflectionRule (Class)
 
 **morph:InflectionRule** represents the formal operation applied to a base form of a LexicalEntry to obtain another inflected form of that LexicalEntry.
 
-**morph:inflectionRule** links an InflectionRule to a Form [MP: generated using that rule, or to which that rule can be applied, or both?]
+**morph:inflectionRule** provides information on how to generate inflected forms and, in case of a dataset with pre-generated forms, links these forms to InflectionRules that were used to generate them. If inflection slots were used, forms might have several rules attached to them.
 
 <div class="description">
 
@@ -517,7 +546,10 @@ The example below illustrates the modelling of inflection classes and rules for 
 
 :gen_sg_rule a morph:InflectionRule ;
     morph:example "lupi" ;
-    morph:replacement ? ;
+    morph:replacement [
+        morph:source "us$" ;
+        morph:target "i" ;
+    ] ;
     morph:inflectionClass :firstDeclension ;
     morph:grammaticalMeaning :gen.sg ;
     morph:involves :-i .
@@ -541,25 +573,43 @@ In a fusional language like Latin, there is no need to have different inflection
 
 On the other hand, in an agglutinative language like Turkish, it is useful to define separate inflection slots for each morphosyntactic feature, and separate inflection rules for each inflection slot, as illustrated in the example below. 
 
-<aside class="example" title="Example: Inflection rules for the accusative plural of *adam* in Turkish">
+<aside class="example" title="Example: Inflection rules for the accusative plural of words that inflect like *adam* in Turkish">
 
 ```turtle
 :adam a ontolex:LexicalEntry ;
     ontolex:canonicalForm :adam_form ;
-    ontolex:morphologicalPattern :noun_infl_vowelHarmony1 .
+    ontolex:morphologicalPattern :noun1_infl_vowelHarmony1 .
+
+:adam_form a ontolex:Form ;
+    ontolex:writtenRep "adam"@tur .
+
+:sg_rule a morph:InflectionRule ;
+    morph:example "adam" ;
+    morph:replacement [
+        morph:source "$" ;
+        morph:target ""@tur ;
+    ] ;
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
+    morph:inflectionSlot :number_slot .
 
 :pl_rule a morph:InflectionRule ;
-    morph:example "adamlar" ;
-    morph:replacement ? ;
-    morph:inflectionClass :noun_infl_vowelHarmony1 ;
-    morph:grammaticalMeaning lexinfo:plural ;
+    morph:example "adamlar"@tur ;
+    morph:replacement [
+        morph:source "$" ;
+        morph:target "lar"@tur ;
+    ] ;
+    morph:inflectionClass :noun1_infl_vowelHarmony1 ;
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:involves :-lar ;
     morph:inflectionSlot :number_slot . 
 
 :acc_rule a morph:InflectionRule ;
     morph:example "adami" ;
-    morph:replacement ? ;
-    morph:inflectionClass :noun_infl_vowelHarmony1 ;
+    morph:replacement [
+        morph:source "$" ;
+        morph:target "i"@tur ;
+    ] ;
+    morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning lexinfo:accusativeCase ;
     morph:involves :-i ;
     morph:inflectionSlot :case_slot .
@@ -573,7 +623,18 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
 ```
 </aside>
 
-The successive application of the two appropriate rules for accusative and plural formation -- in the order established by the use of the morph:next property -- allows for the generation of the accusative plural form as follows:
+When a software compatible with the specifications runs on this data to generate forms of the entry `:adam`, it first extracts all the rules associated with the corresponding morphological pattern, namely `sg_rule`, `pl_rule`, and `acc_rule`. Next, it establishes the order of inflection slots mentioned in the rules (by looking for the slot that is not used as an object in a `morph:next` property).
+
+Then, for the first inflection slot the correct form is chosen. If there is a `morph:baseType` specified in the rule, the corresponding form is chosen. Otherwise the canonical form is used.
+Finally, for each inflection slot, the transformation is applied. For the first slot the initial form is used, after that, the output of one transformation is used as an input for the next.
+
+With each transformation, all the properties in the grammatical meaning associated with the rule are copied to a newly created grammatical meaning. After all the transformations have been applied, the form is created with the constructed grammatical meaning. The initial form and the morphs are added as objects for the `morph:consistsOf` statements.
+
+It is also possible to create Morph elements during generation in case they are not present in the data.
+
+<div class="note">In case if there are no inflecton slots in the rules, the generation proceeds without using them.</div>
+
+In the case of the example above, the successive application of the two appropriate rules for accusative and plural formation -- in the order established by the use of the morph:next property -- allows for the generation of the accusative plural form as follows:
 
 <aside class="example" title="Example: Generation of the accusative plural form *adamlar*">
 
@@ -601,7 +662,7 @@ baseType (DatatypeProperty)
 
 <div class="description">
 
-Domain: ontolex:Form or ontolex:InflectionRule (or ontolex:Rule? MP)
+Domain: ontolex:Form or morph:InflectionRule (or morph:Rule? MP)
 
 Range: literal
 </div>
