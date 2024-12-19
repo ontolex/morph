@@ -552,7 +552,7 @@ The example below illustrates the modelling of inflection classes and rules for 
 ```turtle
 :lupus a ontolex:LexicalEntry ;
     ontolex:canonicalForm :lupus_form ;
-    ontolex:morphologicalPattern :firstDeclension .
+    ontolex:morphologicalPattern :secondDeclension .
 
 :gen_sg_rule a morph:InflectionRule ;
     morph:example "lupi" ;
@@ -560,7 +560,7 @@ The example below illustrates the modelling of inflection classes and rules for 
         morph:source "us$" ;
         morph:target "i" ;
     ] ;
-    morph:inflectionClass :firstDeclension ;
+    morph:inflectionClass :secondDeclension ;
     morph:grammaticalMeaning :gen.sg ;
     morph:involves :-i .
 
@@ -756,8 +756,6 @@ By applying these rules, the following forms can be generated:
     morph:baseType "ThirdStem" .
 ```
 </aside>
-
-MP: as it has been shown that also derivation can be based a form different than the canonical one (e.g. Latin deverbal conversions from the Third Stem, like capio (Third Stem capt-) > capt-o), shouldn't this hold also for WordFormationRule?
 
 <div class="note">
 For an inflection rule with `morph:baseType` defined: If the lexical entry to which it is applied features a(n object of) `morph:baseForm` or (if these are not defined) a `ontolex:canonicalForm` with identital `morph:baseType`, apply the rule to this form, only. For a (generated) form, `morph:baseType` can be used to indicate from which form or with which rule it was generated. `morph:baseType` can also be used to mark stem classes in reseources for which no explicit inflection rules are given.
