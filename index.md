@@ -1,3 +1,4 @@
+
 ---
 title: The OntoLex Module for Morphology
 editor:
@@ -775,65 +776,21 @@ This was introduced for modelling stem alternations. In this definition, we assu
 
 <section id="word-formation-rules">
 
-## Word Formation Rules
+Another important component of morphological structure is word formation. While inflection is concerned with morphologically related forms of the same lexeme(s), word formation is concerned with morphologically related lexemes, focusing on the specific relationships holding between them on the one hand, and on the processes by which derivatives can be obtained from their bases (or from each other) on the other hand.
+Accordingly, at its core, the modelling of word formation in  OntoLex-Morph operates with two main components:
+- word formation **relations** are established between lexical entries that are morphologically related
+- word formation **rules** are used to describe the formal instructions involved in the processes of formation of derivatives.
 
-
-<div class="entity">
-
-WordFormationRule (Class)
-
-**URI:** [http://www.w3.org/ns/lemon/morph#WordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
-
-**morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain another, target LexicalEntry .
-</div>
-
-<div class="note">
-It describes the *general* pattern how words are being formed.For the analysis of a *specific* compound or derivation, use `morph:WordFormationRelation`.
-</div>
-
-
-<div class="note">
-Note: updated according to telco April 21, 2022.
-</div>
-
-
-<div class="entity">
-
-generates (ObjectProperty)
-
-**URI:** [http://www.w3.org/ns/lemon/morph#generates](http://www.w3.org/ns/lemon/morph#generates)
-
-
-**morph:generates** connects a word formation rule to the  lexical entries that are generated from it
-
-<div class="description">
-
-Domain: morph:WordFormationRule
-
-Range: ontolex:LexicalEntry
-</div>
-</div>
-
-MP: given the parallelism between the inflection and derivation subcomponents of the generation component, I would expect InflectionRule to generate something too -- namely, ontolex:Forms. Should we change the domain and range accordingly?
-
-subclasses CompoundRule and DerivationRule. Normally, a derivation rule will involve one specific morpheme or one allomorphic variant [MP: but what about parasynthesis?]. A compound rule can involve an interfix or another morphophonological process.
-
-<div class="entity">
-
-DerivationRule (Class)
-
-**URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
-
-**morph:DerivationRule** refers to rules that take one LexicalEntry as input and generate another LexicalEntry as output through the addition of one [or possibly more than one] derivational affix.
-
-**morph:CompoundingRule** refers to rules that take more than one LexicalEntry as input to generate the output LexicalEntry.
-</div>
-
-</section>
-
-<section id="word-formation-relations">
+In the following (sub)sections, these two components are described in detail and exemplified.
 
 ## Word Formation Relations
+
+A piece of information regarding word formation that is often provided for both traditional dictionaries and digital morphological resources is which lexical entries are morphologically related: for instance, dictionaries often record the base of morphologically complex lexical entries, as illustrated below in the entry for the Italian noun *trattamento* 'treatment', derived from the verb *trattare* 'to treat' in the online Treccani dictionary.
+
+**trattaménto** s. m. [der. di *trattare*]
+
+To be able to not only encode this descriptive information, but also possibly further specifying it by expressing additional details, in OntoLex-Morph word formation relations are reified in a dedicated class, `morph:WordFormationRelation`. 
+Since word formation relations are relations between different lexical entries, this class is defined as a subclass of the class introduced in the vartrans module of OntoLex for such relations -- namely, `vartrans:LexicalRelation`. As a consequence, vartrans properties are also used to link lexical entries to the relations holding between them: specifically, each word formation relation is linked through `vartrans:source` to its base(s) and through `vartrans:target` to the derivative.
 
 <div class="entity">
 
@@ -841,19 +798,9 @@ WordFormationRelation (Class)
 
 **URI:** [http://www.w3.org/ns/lemon/morph#WordFormationRelation](http://www.w3.org/ns/lemon/morph#WordFormationRelation)
 
-**morph:WordFormationRelation** is a subclass of `vartrans:LexicalRelation` that relates two lexical entries that are derivationally related, with the `vartrans:target` representing the resulting lexical entry, and the `vartrans:source` representing the morphological base (in derivation) or head and other constituents (in compounding).
+**morph:WordFormationRelation** is a subclass of `vartrans:LexicalRelation` that relates two lexical entries that are morphologically related, with the property vartrans:target` linking the relation the resulting lexical entry, and the property `vartrans:source` linking it to the morphological base (in derivation) or head and other constituents (in compounding).
 
-**morph:wordFormationRule** relates a word formation relation to the word formation rule that is applied to the source lexical entry in order to obtain the target lexical entry.
-
-<div class="description">
-
-Domain: morph:WordFormationRelation
-
-Range: morph: WordFormationRule
-</div>
-</div>
-
-Accordingly, the morphological derivation of German *Schönheit* "beauty" can be encoded as:
+Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be encoded as follows:
 
 <aside class="example" title="Example: Derivation of the German noun *Schönheit*">
 
@@ -864,15 +811,18 @@ Accordingly, the morphological derivation of German *Schönheit* "beauty" can be
              ontolex:canonicalForm [ ontolex:writtenRep "schön"@de ].
 :schoen_heit a morph:WordFormationRelation;
              vartrans:source :schoen-entry;
-             vartrans:target :schoenheit-entry;
-             morph:wordFormationRule :_heit-rule.
-:_heit-rule a morph:WordFormationRule, morph:DerivationRule;
-            morph:involves :_heit-morph;
-            morph:generates :schoenheit-entry.
-:_heit-morph a morph:Morph, morph:Suffix;
-            ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
+             vartrans:target :schoenheit-entry.
 ```
 </aside>
+
+<\div>
+
+The same kind of modelling can be applied to compounds -- i.e., lexemes that are morphologically related to two or more bases; e.g. English  *wallpaper*.
+
+It should be noted that there is another OntoLex module that was envisaged to be usable also for compounding, namely decomp, devised for the decomposition of complex lexical entries (like Multi-Word Expressions) in their parts. However, in OntoLex-decomp the relationship between complex lexical entries and their parts is not reified, as there is no dedicated class, differently than what happens in OntoLex-morph for word formation relations.
+
+As a consequence, to allow for a parallel treatment of different word formation processes (derivation and compounding), a subclass of `morph:WordFormationRelation` is introduced for compounding -- namely, `morph:CompoundRelation`. This can be considered as a reification of the property `decomp:subTerm`, that can be used to decompose lexical entries into other lexical entries: hence, the existence of a compound relation entails that the source lexical entry is a subterm of the compound.
+Since, by definition, compounds have more than one base, there will also be more than one compound relation: one relation with the target compound should be introduced for each of the constituents of the compound.
 
 <div class="entity">
 
@@ -880,12 +830,11 @@ CompoundRelation (Class)
 
 **URI:** [http://www.w3.org/ns/lemon/morph#CompoundRelation](http://www.w3.org/ns/lemon/morph#CompoundRelation)
 
-
-**morph:CompoundRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound. This is a reification of `decomp:subTerm`: A compound relation entails that the constituent is a subterm of the compound.
+**morph:CompoundRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound. 
 
 </div>
 
-TODO: text describing compound head
+Furthermore, compounds can have a head -- i.e., a constituent that imposes its morphosyntactic and semantic properties to the whole word. For instance, It. *capo-stazione* 'station master' inherits the fact of being a masculine noun denoting a person from its head *capo* 'chief', rather than from the other constituent *stazione* 'station'. In morph, a subclass of compound relations is introduced to express this information -- namely, `morph:CompoundHead`.
 
 <div class="entity">
 
@@ -894,9 +843,170 @@ CompoundHead (Class)
 **URI:** [http://www.w3.org/ns/lemon/morph#CompoundHead](http://www.w3.org/ns/lemon/morph#CompoundHead)
 
 **morph:CompoundHead** is a `morph:WordFormationRelation` that connects the (lexical entry representing the) morphological head of a compound with the (lexical entry representing the) compound.
+
 </div>
 
 </section>
+</section>
+
+Accordingly, the morphological derivation of Italian *capostazione* 'station mastes' (from *capo* 'head'  + *stazione* 'station') can be encoded as follows:
+
+<aside class="example" title="Example: Derivation of the Italian noun *capostazione*">
+
+```turtle
+:capostazione-entry a ontolex:LexicalEntry;
+             ontolex:canonicalForm [ ontolex:writtenRep "capostazione"@it ].
+:capo-entry a ontolex:LexicalEntry.
+             ontolex:canonicalForm [ ontolex:writtenRep "capo"@it ].
+:stazione-entry a ontolex:LexicalEntry.
+             ontolex:canonicalForm [ ontolex:writtenRep "stazione"@it ].
+:capo-capostazione a morph:CompoundHead;
+             vartrans:source :capo-entry;
+             vartrans:target :capostazione-entry.
+:stazione-capostazione a morph:CompoundRelation;
+             vartrans:source :stazione-entry;
+             vartrans:target :capostazione-entry.
+```
+</aside>
+
+## Word Formation Rules
+
+In addition to relations between morphologically related lexemes, one can be interested in expressing the formal instructions needed to generate derived lexemes from their bases. To do that, another sub-class of `morph:Rule` is introduced, alongside `morph:InflectionRule`, namely `morph:WordFormationRule`.
+Like inflection rules, word formation rules can take as input either the canonical form of the input lexical entry, or another form that is used as base form, and they can involve specific morph(eme)s. 
+Unlike inflection rules, word formation rules generate lexical entries rather than forms -- this can be expressed thorugh the property `morph:generates`.
+Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the property `morph:wordFormationRule`.
+
+<div class="entity">
+
+WordFormationRule (Class)
+
+**URI:** [http://www.w3.org/ns/lemon/morph#WordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
+
+**morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain another, target LexicalEntry .
+
+</div>
+
+<div class="entity">
+
+wordFormationRule (ObjectProperty)
+
+**URI:** [http://www.w3.org/ns/lemon/morph#wordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
+
+**morph:wordFormationRule** relates a word formation relation to the word formation rule that is applied to the source lexical entry in order to obtain the target lexical entry.
+
+</div>
+
+<div class="entity">
+
+generates (ObjectProperty)
+
+**URI:** [http://www.w3.org/ns/lemon/morph#generates](http://www.w3.org/ns/lemon/morph#generates)
+
+**morph:generates** connects a word formation rule to the  lexical entries that are generated from it
+
+<div class="description">
+
+Domain: morph:WordFormationRule
+
+Range: ontolex:LexicalEntry
+
+</div>
+</div>
+
+Accordingly, if one wanted to express the formal operation involved in the morphological derivation of German *Schönheit* 'beauty', this can be done as follows:
+
+<aside class="example" title="Example: Formal operation involverd in the derivation of the German noun *Schönheit*">
+
+```turtle
+
+:schoen_heit a morph:WordFormationRelation;
+             vartrans:source :schoen-entry;
+             vartrans:target :schoenheit-entry;
+             morph:wordFormationRule :_heit-rule.
+:_heit-rule a morph:WordFormationRule;
+            morph:replacement [
+		        morph:source "$" ;
+		        morph:target "heit" ;
+			    ] ;
+            morph:involves :_heit-morph;
+            morph:generates :schoenheit-entry.
+:_heit-morph a morph:Morph;
+            ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
+
+```
+</aside>
+
+Two sub-classes of `morph:wordFormationRule` are introduced corresponding to the traditional division of the realm of word formation into derivation and compounding: in derivation rules, lexemes are obtained from a single base through the addition of one (or possibly more than one, as in the case of parasynthesis) derivational affixes; in compounding rules, two different bases are combined to obtained a new lexeme, possibly also involving an interfix or linking element.
+
+<div class="entity">
+
+DerivationRule (Class)
+
+**URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
+
+**morph:DerivationRule** refers to rules that take one LexicalEntry as input and generate another LexicalEntry as output through the addition of one or more derivational affix(es).
+
+</div>
+
+<div class="entity">
+
+CompoundingRule (Class)
+
+**URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
+
+**morph:CompoundingRule** refers to rules that take more than one LexicalEntry as input to generate the output LexicalEntry.
+
+</div>
+
+To illustrate the usage of `morph:DerivationRule`, the reader is referred to the example given above for word formation rules: indeed, the rule used there can be assigned to the more specific class for derivation rules, with every other assertion remaining unchanged as this class is a sub-class of `morph:WordFormationRule`.
+
+<aside class="example" title="Example: Rule for German *Schönheit*" as an instance of morph:DerivationRule>
+
+```turtle
+
+:_heit-rule a morph:DerivationRule;
+            morph:replacement [
+		        morph:source "$" ;
+		        morph:target "heit" ;
+			    ] ;
+            morph:involves :_heit-morph;
+            morph:generates :schoenheit-entry.
+
+```
+</aside>
+
+As for compounding, the example below illustrate the modelling of a rule involving a linking element for Nederlandese *schaapskop* 'sheep head'.
+
+<aside class="example" title="Example: Rules for Nederlandese *schaapskop*">
+
+```turtle
+
+:schaapskop-entry a ontolex:LexicalEntry;
+             ontolex:canonicalForm [ ontolex:writtenRep "schaapskop"@nl ].
+:schaap-entry a ontolex:LexicalEntry.
+             ontolex:canonicalForm [ ontolex:writtenRep "schaap"@nl ].
+:kop-entry a ontolex:LexicalEntry.
+             ontolex:canonicalForm [ ontolex:writtenRep "kop"@nl ].
+:schaap-schaapskop a morph:WordFormationRelation;
+             vartrans:source :schaap-entry;
+             vartrans:target :schaapskop-entry;
+             morph:wordFormationRule :NN-rule.
+:kop-schaapskop a morph:WordFormationRelation;
+             vartrans:source :kop-entry;
+             vartrans:target :schaapskop-entry;
+             morph:wordFormationRule :NN-rule.
+:NN-rule a morph:WordFormationRule;
+            morph:replacement [
+		        ??? (MP: here it is not clear to me how to implement the replacement with concatenation of both bases, I leave it to be discussed in the next meeting)
+			    ] ;
+            morph:involves :_s-morph;
+            morph:generates :schaapskop-entry.
+:s-morph a morph:Morph;
+            ontolex:lexicalForm [ ontolex:writtenRep "-s"@nl ].
+
+```
+</aside>
+
 </section>
 
 ## Open questions
