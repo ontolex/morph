@@ -1,4 +1,5 @@
 
+
 ---
 title: The OntoLex Module for Morphology
 editor:
@@ -798,6 +799,12 @@ WordFormationRelation (Class)
 
 **morph:WordFormationRelation** is a subclass of `vartrans:LexicalRelation` that relates two lexical entries that are morphologically related, with the property vartrans:target` linking the relation the resulting lexical entry, and the property `vartrans:source` linking it to the morphological base (in derivation) or head and other constituents (in compounding).
 
+<div class="description">
+
+subClassOf: vartrans:LexicalRelation
+
+</div>
+
 Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be encoded as follows:
 
 <aside class="example" title="Example: Derivation of the German noun *Schönheit*">
@@ -819,7 +826,7 @@ The same kind of modelling can be applied to compounds -- i.e., lexemes that are
 
 It should be noted that there is another OntoLex module that was envisaged to be usable also for compounding, namely decomp, devised for the decomposition of complex lexical entries (like Multi-Word Expressions) in their parts. However, in OntoLex-decomp the relationship between complex lexical entries and their parts is not reified, as there is no dedicated class, differently than what happens in OntoLex-morph for word formation relations.
 
-As a consequence, to allow for a parallel treatment of different word formation processes (derivation and compounding), a subclass of `morph:WordFormationRelation` is introduced for compounding -- namely, `morph:CompoundRelation`. This can be considered as a reification of the property `decomp:subTerm`, that can be used to decompose lexical entries into other lexical entries: hence, the existence of a compound relation entails that the source lexical entry is a subterm of the compound.
+As a consequence, to allow for a parallel treatment of different word formation processes (derivation and compounding), a subclass of `morph:WordFormationRelation` is introduced for compounding -- namely, `morph:CompoundingRelation`. This can be considered as a reification of the property `decomp:subTerm`, that can be used to decompose lexical entries into other lexical entries: hence, the existence of a compound relation entails that the source lexical entry is a subterm of the compound.
 Since, by definition, compounds have more than one base, there will also be more than one compound relation: one relation with the target compound should be introduced for each of the constituents of the compound.
 
 <div class="entity">
@@ -828,7 +835,13 @@ CompoundRelation (Class)
 
 **URI:** [http://www.w3.org/ns/lemon/morph#CompoundRelation](http://www.w3.org/ns/lemon/morph#CompoundRelation)
 
-**morph:CompoundRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound. 
+**morph:CompoundingRelation** is a `morph:WordFormationRelation` that connects a (lexical entry representing a) morphological consituent of a compound with the (lexical entry representing the) compound. 
+
+<div class="description">
+
+subClassOf: morph:WordFormationRelation
+
+</div>
 
 </div>
 
@@ -841,6 +854,12 @@ CompoundHead (Class)
 **URI:** [http://www.w3.org/ns/lemon/morph#CompoundHead](http://www.w3.org/ns/lemon/morph#CompoundHead)
 
 **morph:CompoundHead** is a `morph:WordFormationRelation` that connects the (lexical entry representing the) morphological head of a compound with the (lexical entry representing the) compound.
+
+<div class="description">
+
+subClassOf: morph:CompoundingRelation
+
+</div>
 
 </div>
 
@@ -892,6 +911,13 @@ wordFormationRule (ObjectProperty)
 
 **morph:wordFormationRule** relates a word formation relation to the word formation rule that is applied to the source lexical entry in order to obtain the target lexical entry.
 
+<div class="description">
+
+Domain: morph:WordFormationRelation
+
+Range: morph:WordFormationRule
+
+</div>
 </div>
 
 <div class="entity">
@@ -944,6 +970,12 @@ DerivationRule (Class)
 
 **morph:DerivationRule** refers to rules that take one LexicalEntry as input and generate another LexicalEntry as output through the addition of one or more derivational affix(es).
 
+<div class="description">
+
+subClassOf: morph:WordFormationRule
+
+</div>
+
 </div>
 
 <div class="entity">
@@ -953,6 +985,12 @@ CompoundingRule (Class)
 **URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
 
 **morph:CompoundingRule** refers to rules that take more than one LexicalEntry as input to generate the output LexicalEntry.
+
+<div class="description">
+
+subClassOf: morph:WordFormationRule
+
+</div>
 
 </div>
 
