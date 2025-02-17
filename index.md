@@ -960,7 +960,7 @@ Accordingly, if one wanted to express the formal operation involved in the morph
 ```
 </aside>
 
-Two sub-classes of `morph:wordFormationRule` are introduced corresponding to the traditional division of the realm of word formation into derivation and compounding.
+Two sub-classes of `morph:WordFormationRule` are introduced corresponding to the traditional division of the realm of word formation into derivation and compounding.
 In derivation rules, lexemes are obtained from a single base through the addition of one (or possibly more than one, as in the case of parasynthesis) derivational affixes.
 
 <div class="entity">
