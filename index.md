@@ -803,6 +803,7 @@ WordFormationRelation (Class)
 subClassOf: vartrans:LexicalRelation
 
 </div>
+</div>
 
 Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be encoded as follows:
 
@@ -818,8 +819,6 @@ Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be
              vartrans:target :schoenheit-entry.
 ```
 </aside>
-
-<\div>
 
 The same kind of modelling can be applied to compounds -- i.e., lexemes that are morphologically related to two or more bases; e.g. English  *wallpaper*.
 
@@ -1010,9 +1009,9 @@ To illustrate the usage of `morph:DerivationRule`, the reader is referred to the
 ```
 </aside>
 
-As for compounding, the example below illustrate the modelling of a rule involving a linking element for Nederlandese *schaapskop* 'sheep head'.
+As for compounding, the example below illustrate the modelling of a rule involving a linking element for Dutch *schaapskop* 'sheep head'.
 
-<aside class="example" title="Example: Rules for Nederlandese *schaapskop*">
+<aside class="example" title="Example: Rules for Dutch *schaapskop*">
 
 ```turtle
 
