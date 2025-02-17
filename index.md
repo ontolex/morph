@@ -888,8 +888,6 @@ Accordingly, the morphological derivation of Italian *capostazione* 'station mas
 
 In addition to relations between morphologically related lexemes, one can be interested in expressing the formal instructions needed to generate derived lexemes from their bases. To do that, another sub-class of `morph:Rule` is introduced, alongside `morph:InflectionRule`, namely `morph:WordFormationRule`.
 Like inflection rules, word formation rules can take as input either the canonical form of the input lexical entry, or another form that is used as base form, and they can involve specific morph(eme)s. 
-Unlike inflection rules, word formation rules generate lexical entries rather than forms -- this can be expressed thorugh the property `morph:generates`.
-Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the property `morph:wordFormationRule`.
 
 <div class="entity">
 
@@ -900,6 +898,8 @@ WordFormationRule (Class)
 **morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain another, target LexicalEntry .
 
 </div>
+
+Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the property `morph:wordFormationRule`.
 
 <div class="entity">
 
@@ -917,6 +917,8 @@ Range: morph:WordFormationRule
 
 </div>
 </div>
+
+Unlike inflection rules, word formation rules generate lexical entries rather than forms -- this can be expressed thorugh the property `morph:generates`.
 
 <div class="entity">
 
@@ -958,7 +960,8 @@ Accordingly, if one wanted to express the formal operation involved in the morph
 ```
 </aside>
 
-Two sub-classes of `morph:wordFormationRule` are introduced corresponding to the traditional division of the realm of word formation into derivation and compounding: in derivation rules, lexemes are obtained from a single base through the addition of one (or possibly more than one, as in the case of parasynthesis) derivational affixes; in compounding rules, two different bases are combined to obtained a new lexeme, possibly also involving an interfix or linking element.
+Two sub-classes of `morph:wordFormationRule` are introduced corresponding to the traditional division of the realm of word formation into derivation and compounding.
+In derivation rules, lexemes are obtained from a single base through the addition of one (or possibly more than one, as in the case of parasynthesis) derivational affixes.
 
 <div class="entity">
 
@@ -975,6 +978,8 @@ subClassOf: morph:WordFormationRule
 </div>
 
 </div>
+
+In compounding rules, two different bases are combined to obtained a new lexeme, possibly also involving an interfix or linking element.
 
 <div class="entity">
 
