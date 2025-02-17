@@ -522,8 +522,6 @@ Range: morph:InflectionType
 </div>
 </div>
 
-</section>
-
 <section id="inflection rules">
 
 ## Inflection Rules
@@ -766,6 +764,7 @@ For an inflection rule with `morph:baseType` defined: If the lexical entry to wh
 This was introduced for modelling stem alternations. In this definition, we assume that we have one lexical entry for each stem variant, so that an inflection rule whose baseType doesn't match of its lexical entry doesn't fire.
 </div>
 
+</section>
 </section>
 </section>
 
