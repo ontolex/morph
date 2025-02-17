@@ -861,7 +861,7 @@ subClassOf: morph:CompoundingRelation
 
 </div>
 
-</section>
+
 </section>
 
 Accordingly, the morphological derivation of Italian *capostazione* 'station mastes' (from *capo* 'head'  + *stazione* 'station') can be encoded as follows:
@@ -884,7 +884,7 @@ Accordingly, the morphological derivation of Italian *capostazione* 'station mas
 ```
 </aside>
 
-## Word Formation Rules
+### Word Formation Rules
 
 In addition to relations between morphologically related lexemes, one can be interested in expressing the formal instructions needed to generate derived lexemes from their bases. To do that, another sub-class of `morph:Rule` is introduced, alongside `morph:InflectionRule`, namely `morph:WordFormationRule`.
 Like inflection rules, word formation rules can take as input either the canonical form of the input lexical entry, or another form that is used as base form, and they can involve specific morph(eme)s. 
