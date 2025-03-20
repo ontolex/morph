@@ -129,6 +129,8 @@ Given this, the central class of the module is **morph:Morph**.
 
 ## Morphs
 
+The class **morph:Morph** provides a way to represent sub-word elements and attach grammatical information to them.
+
 <div class="entity">
 
 Morph (class)
@@ -148,6 +150,8 @@ Class **morph:Morph** is a subclass of `ontolex:LexicalEntry` that represents an
 - `ontolex:Affix` is defined as a subclass of `morph:Morph`.
 - other types of morph (roots, stems, transfix, etc.) are not defined in the module, but should be defined in Lexinfo
 </div> -->
+
+The property **morph:consistsOf** relates a form with the morphs from which it is contructed.
 
 <div class="entity">
 
@@ -180,7 +184,6 @@ Here is a simple example of a segmentation of the English plural form *cats*:
 ```
 </aside>
 
-<div class="note">
 Even though it is possible to keep the morphs of a form unordered, usually it is necessary to know the order. For this, we recommend using `rdf:List`:
 
 <aside class="example" title="Example: Ordered segmentation of the English plural form *cats*">
@@ -195,7 +198,6 @@ Even though it is possible to keep the morphs of a form unordered, usually it is
 :-s a ontolex:Affix .
 ```
 </aside>
-</div>
 
 </section>
 
@@ -361,6 +363,18 @@ One example is German verbal inflection (e.g., for `gehen` "to go"), where the c
 
 ## Morphological Rules
 
+An important and somewhat unconventional part of the morphology module is a group of classes and properties that allows to specify _rules_ that can be used to generate derived lexical entries or inflected forms based on existing lexical entries. Current specification does not limit how or at which step this process is done, but we provide some suggestions and pointers.
+
+First of all, it is important to note that this part of the model is completely optional and it is possible to use the module without using this at all.
+Second, the _application_ of the rules is completely separate from their _representation_, which this part is about. The module gives a way to write down the necessary transformations and how and when they will be applied depends on the person using the data.
+Here are the 4 most common situations regarding when and how the generation happens:
+1. The lexicon is completely static, no rules are provided: no generation is necessary.
+2. The lexicon has canonical forms and a set of rules that specify how to generate the rest of the forms: the generation can be started offline, adding the generated forms to the graph database.
+3. Like in the previous case the lexicon has canonical forms and a set of rules but the user does not want to pre-generate the forms: the forms are generated on the fly, during or immediately after the querying step.
+4. This can also be a mixure of the two approaches: for most of the entries there are rules and no pre-generated forms, but for highly irregular forms, ones which require complex morphophonological transformations — the forms are pre-generated: the generation can be started offline or on-the-fly for the entries which have rules.
+
+In order to keep the model from becoming too complex, **one rule** is associated with exactly **one morph** and is used to describe the production of exactly **one form** (in case of inflection) **or** exactly **one lexical entry** (in case of derivation).
+
 <div class="entity">
 
 Rule (Class)
@@ -376,6 +390,8 @@ It must contain either `morph:example` or `morph:replacement` (or both). “Tabu
 <section id="examples">
 
 ## Examples
+
+The property **morph:example** provides a way to link a rule to an example of a class of forms that share a morpological process. It is necessary in cases where the way the form is generated is not specified but we still want to represent a morphological transformation. This is common case for retrodigitised dictionaries.
 
 <div class="entity">
 
@@ -393,13 +409,15 @@ Range: string literal
 </div>
 </div>
 
-This property allows to provide an example of a class of forms that share a morpological process. It is necessary in cases where the way the form is generated is not specified but we still want to represent a morphological transformation. This is common case for retrodigitised dictionaries.
-
 </section>
 
 <section id="morphological-replacement">
 
 ## Replacement
+
+The property **morph:replacement** relates a rule with an object that describe the morphological transformation required to produce a valid form according to the rule.
+
+Morph module does not limit the exact way to represent these transformations since this can be represented in many ways that have been developed and used in the field of computational morphology and beyond: finite state automata and equivalent to them regular expressions, morphology-specific formalisms like KIMMO for two-level morphology, to name just a few. As part of the model, we provide one such way — replacement with regular expressions, which will be used in the examples in the subsequent sections.
 
 <div class="entity">
 
@@ -413,33 +431,72 @@ replacement (DatatypeProperty)
 
 Domain: morph:Rule
 
-Range: any URI, cf. in doc/wrapup/minutes-2025-06-64
+Range: any URI
 </div>
 
+</div>
+
+The class **morph:RegexReplacement** is used to describe a morphological transformation using a regular expression. The specific syntax can vary and chosen based on the stack used externally for the generation process, but we recommend using the [POSIX standard](https://pubs.opengroup.org/onlinepubs/9799919799/).
+
+
+<div class="entity">
+
+RegexReplacement (Class)
+
+**URI:** [http://www.w3.org/ns/lemon/morph#RegexReplacement](http://www.w3.org/ns/lemon/morph#RegexReplacement)
+
+**morph:RegexReplacement** can be used to represent the regular expression-based substitution that produces an inflected or derived surface form
+
+</div>
+
+The source and the target for the substitution are expressed with the properties **morph:source** and **morph:target** correspondignly.
+
+<div class="entity">
+
+source (DatatypeProperty)
+
+**URI:** [http://www.w3.org/ns/lemon/morph#source](http://www.w3.org/ns/lemon/morph#source)
+
+**morph:source**: A string which is used as a basis for the subsitution
+
+<div class="description">
+
+Domain: morph:RegexReplacement
+
+Range: string literal
+</div>
+</div>
+
+The target can use backreferences (`\1`) to refer to the captured groups in the source string.
+
+<div class="entity">
+
+target (DatatypeProperty)
+
+**URI:** [http://www.w3.org/ns/lemon/morph#target](http://www.w3.org/ns/lemon/morph#target)
+
+**morph:target**: A string template that denotes a target for the substitution
+
+<div class="description">
+
+Domain: morph:RegexReplacement
+
+Range: string literal
+</div>
 </div>
 
 <!-- processing analogy: replacement operations with regular expressions as in Perl or Sed.
 
 As an example, a simple replacement operation would be concatenation, i.e., retrieve the baseForm (or canonicalForm, if no baseForm provided), check that it has the same stem type as the rule (if applicable), then append an affix to the written representation of the baseForm. -->
 
-This property points to an object that describe the morphological transformation required to produce a valid form according to the rule.
-Morph module does not limit the exact way to represent these transformations since there are many common ways to do this, therefore, there are no properties in the module to represent that. However, we provide a non-normative option — replacement with regular expressions, which will be used in the examples in the subsequent sections.
-
-<aside class="example" title="Non-normative example: Defining a regular expression replacement rule">
+<aside class="example" title="A rule for forming a genitive singular form of Latin word lupus">
 
 ```turtle
-:RegexReplacement a rdfs:Class .
-:source a rdf:Property ;
-        rdfs:domain :RegexReplacement ;
-        rdfs:range rdfs:Literal .
-
-:target a rdf:Property ;
-        rdfs:domain :RegexReplacement ;
-        rdfs:range rdfs:Literal .
-
-:plural_rule a :RegexReplacement ;
-             :source "$"
-             :target "s" .
+:gen_sg_rule a morph:Rule ;
+    morph:replacement [
+        morph:source "us$" ;
+        morph:target "i" ;
+    ] .
 ```
 </aside>
 
@@ -452,6 +509,8 @@ Unless specified otherwise (in the documentation of a resource), implementations
 <section id="involves">
 
 ## Involves
+
+Often it is desirable to to preserve information about which rules were used for a form or an entry to be generated. The property **morph:involves** provides a way to do exactly that. We recommend to add this property to generated items in any implementation of the generation process.
 
 <div class="entity">
 
@@ -469,9 +528,9 @@ Range: morph:Morph
 </div>
 </div>
  
-<div class="note">
+<!-- <div class="note">
 Note that this does not encode order. <br/> MI: Each rule correspond to exactly one Morph, so there is no need for ordering
-</div>
+</div> -->
 
 </section>
 </section>
