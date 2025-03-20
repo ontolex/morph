@@ -159,7 +159,7 @@ consistsOf (ObjectProperty)
 
 **URI:** [http://www.w3.org/ns/lemon/morph#consistsOf](http://www.w3.org/ns/lemon/morph#consistsOf)
 
-Property **morph:consistsOf** states  into  which  Morph resources a Form resource can be segmented.
+Property **morph:consistsOf** states into which Morph resources a Form resource can be segmented.
 
 <div class="description">
 
@@ -171,31 +171,33 @@ Range: morph:Morph
 
 Here is a simple example of a segmentation of the English plural form *cats*:
 
-<aside class="example" title="Example: Ordered segmentation of the English plural form *cats*">
+<aside class="example" title="Example: Segmentation of the English plural form *cats*">
 
 ```turtle
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
-    morph:consistsOf :cat,  :-s .
+    morph:consistsOf :cat,  :s .
 
 :cat a morph:Morph .
 
-:-s a ontolex:Affix .
+:s a ontolex:Affix .
 ```
 </aside>
 
-Even though it is possible to keep the morphs of a form unordered, usually it is necessary to know the order. For this, we recommend using `rdf:List`:
+Even though it is possible to keep the morphs of a form unordered, usually it is necessary to know the order. For this, the implementations SHOULD use `rdf:Seq`:
 
 <aside class="example" title="Example: Ordered segmentation of the English plural form *cats*">
 
 ```turtle
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
-    morph:consistsOf (:cat  :-s) .
+    morph:consistsOf :cat,  :s ;
+    rdf:_1 :cat ;
+    rdf:_2 :s .
 
 :cat a morph:Morph .
 
-:-s a ontolex:Affix .
+:s a ontolex:Affix .
 ```
 </aside>
 
@@ -249,11 +251,11 @@ For instance, we can update the previous example of the english plural form *cat
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
-    morph:consistsOf :cat,  :-s .
+    morph:consistsOf :cat,  :s .
 
 :cat a morph:Morph .
 
-:-s a ontolex:Affix ;
+:s a ontolex:Affix ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ] .
 ```
 </aside>
@@ -268,11 +270,11 @@ For example, in the Latin form *lupus*, nominative case and singular number are 
 :lupus a ontolex:Form
     ontolex:writtenRep "lupus"@la ;
     morph:grammaticalMeaning :nom.sg ;
-    morph:consistsOf :lup , :-us .
+    morph:consistsOf :lup , :us .
 
 :lup a morph:Morph .
 
-:-us a ontolex:Affix ;
+:us a ontolex:Affix ;
     morph:grammaticalMeaning :nom.sg .
 
 :nom.sg a morph:GrammaticalMeaning ;
@@ -321,11 +323,11 @@ As a concrete example, the fact that the English affix -s expresses plural numbe
 <aside class="example" title="Example: Base constraints for the English affix -s">
 
 ```turtle
-:-s_pl a ontolex:Affix ;
+:s_pl a ontolex:Affix ;
     morph:grammaticalMeaning lexinfo:plural ;
     morph:baseConstraint lexinfo:noun .
 
-:-s_3sg a ontolex:Affix ;
+:s_3sg a ontolex:Affix ;
     morph:grammaticalMeaning :3.sg ;
     morph:baseConstraint lexinfo:verb .
 ```
@@ -368,6 +370,7 @@ An important and somewhat unconventional part of the morphology module is a grou
 First of all, it is important to note that this part of the model is completely optional and it is possible to use the module without using this at all.
 Second, the _application_ of the rules is completely separate from their _representation_, which this part is about. The module gives a way to write down the necessary transformations and how and when they will be applied depends on the person using the data.
 Here are the 4 most common situations regarding when and how the generation happens:
+
 1. The lexicon is completely static, no rules are provided: no generation is necessary.
 2. The lexicon has canonical forms and a set of rules that specify how to generate the rest of the forms: the generation can be started offline, adding the generated forms to the graph database.
 3. Like in the previous case the lexicon has canonical forms and a set of rules but the user does not want to pre-generate the forms: the forms are generated on the fly, during or immediately after the querying step.
@@ -436,7 +439,7 @@ Range: any URI
 
 </div>
 
-The class **morph:RegexReplacement** is used to describe a morphological transformation using a regular expression. The specific syntax can vary and chosen based on the stack used externally for the generation process, but we recommend using the [POSIX standard](https://pubs.opengroup.org/onlinepubs/9799919799/).
+The class **morph:RegexReplacement** is used to describe a morphological transformation using a regular expression. The specific syntax to use is the [XPath syntax](https://www.w3.org/TR/xpath-functions/#regex-syntax) for compatibility with SPARQL.
 
 
 <div class="entity">
@@ -510,7 +513,7 @@ Unless specified otherwise (in the documentation of a resource), implementations
 
 ## Involves
 
-Often it is desirable to to preserve information about which rules were used for a form or an entry to be generated. The property **morph:involves** provides a way to do exactly that. We recommend to add this property to generated items in any implementation of the generation process.
+It is often desirable to to preserve information about which rules were used for a form or an entry to be generated. The property **morph:involves** provides a way to do exactly that. We recommend to add this property to generated items in any implementation of the generation process.
 
 <div class="entity">
 
@@ -660,9 +663,9 @@ The example below illustrates the modelling of inflection classes and rules for 
     ] ;
     morph:inflectionClass :secondDeclension ;
     morph:grammaticalMeaning :gen.sg ;
-    morph:involves :-i .
+    morph:involves :i .
 
-:-i a ontolex:Affix ;
+:i a ontolex:Affix ;
     morph:grammaticalMeaning :gen.sg .
 ```
 </aside>
@@ -675,7 +678,7 @@ In a fusional language like Latin, there is no need to have different inflection
 :lupi a ontolex:Form ;
     ontolex writtenRep "lupi"@la ;
     morph:grammaticalMeaning :gen.sg ;
-    morph:consistsOf :lup , :-i .
+    morph:consistsOf :lup , :i .
 ```
 </aside>
 
@@ -708,7 +711,7 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
     ] ;
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
-    morph:involves :-lar ;
+    morph:involves :lar ;
     morph:inflectionSlot :number_slot . 
 
 :acc_rule a morph:InflectionRule ;
@@ -719,7 +722,7 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
     ] ;
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning lexinfo:accusativeCase ;
-    morph:involves :-i ;
+    morph:involves :i ;
     morph:inflectionSlot :case_slot .
 
 :number_slot a morph:InflectionSlot ;
@@ -750,7 +753,7 @@ In the case of the example above, the successive application of the two appropri
 :adamlari a ontolex:Form ;
   ontolex writtenRep "adamlari"@tur ;
   morph:grammaticalMeaning [ lexinfo:accusative , lexinfo:plural ] ;
-  morph:consistsOf :adam , :-lar , :-i .
+  morph:consistsOf :adam , :lar , :i .
 ```
 </aside>
 
@@ -811,7 +814,7 @@ prs_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:replacement ? ;
     morph:inflectionClass :thirdConjugation
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
-    morph:involves :-it ;
+    morph:involves :it ;
     morph:baseType "PresentStem" .
 
 prf_act_ind_2_sg_rule a morph:InflectionRule ;
@@ -819,7 +822,7 @@ prf_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:replacement ? ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
-    morph:involves :-isti ;
+    morph:involves :isti ;
     morph:baseType "PerfectStem" .
 
 fut_act_ptcp_rule a morph:InflectionRule ;
@@ -827,7 +830,7 @@ fut_act_ptcp_rule a morph:InflectionRule ;
     morph:replacement ? ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :fut.act.ptcp ;
-    morph:involves :-urus ;
+    morph:involves :urus ;
     morph:baseType "ThirdStem" .
 ```
 </aside>
@@ -1147,7 +1150,7 @@ As for compounding, the example below illustrate the modelling of a rule involvi
 
 </section>
 
-## Open questions
+<!-- ## Open questions
 
 These are questions we decided to postpone until finalization of the module. Don't use that for on-going discussions, that's what minutes are for.
 
@@ -1157,3 +1160,4 @@ These are questions we decided to postpone until finalization of the module. Don
   - CC: CON: makes a more complicated diagram
   - JM: tbc whether there are inflected multi-word expressions (if so => CON)
   - JM: CON: in general, users should be clever enough to figure that out without putting it explicitly into the diagram
+ -->
