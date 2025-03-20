@@ -111,7 +111,7 @@ They are related with each other and with OntoLex in the following way:
 
 Individual morphological processes (derivation, compounding, inflection) and their relation to lexical entries and forms are represented by designated subclasses of `ontolex:Rule` as described below.
 
-> Limitations: OntoLex-Morph is designed with a focus on deep morphology. Morphophonological rules *can* be modelled with OntoLex-Morph to a certain extent, but we expect phenomena such as assimilation, dissimilation and morphological "Level-2" rules to be more adequately handled by a separate vocabulary specialized in surface generation (transcription, text-to-speech, morphophonology).
+> Limitations: OntoLex-Morph is designed mainly with a focus on representing morph composition of forms and lexical entries and their grammatical meanings. Simpler morphophonological rules *can* be modelled with OntoLex-Morph, but we expect that some multi-level transformations might be too complex to be represented within the module. This could be more adequately handled by a separate vocabulary specialized in surface generation (transcription, text-to-speech, morphophonology). This does not prevent these forms to be modelled, but it might limit the transparency of description of the morphophonological transformation.
 
 </section>
 </section>
@@ -119,6 +119,11 @@ Individual morphological processes (derivation, compounding, inflection) and the
 <section id="morphological-segments">
 
 ## Morphological Segments
+
+We chose _morphs_ to be basic building blocks within the module in order to try and make the module more theory-neutral, since this is one of the main principles of OntoLex. This way, we do not provide a class to describe _morphemes_ — more abstract elements of language which are expressed as morphs on the surface. This way we leave most of the questions of grammatical semantics are out of scope of this module.
+In order to model morphemes, users can employ, for example, the MMoOn Core — [The Multilingual Morpheme Ontology](https://github.com/MMoOn-Project/MMoOn).
+
+Given this, the central class of the module is **morph:Morph**.
 
 <section id="morphs">
 
@@ -130,11 +135,11 @@ Morph (class)
 
 **URI:** [http://www.w3.org/ns/lemon/morph#Morph](http://www.w3.org/ns/lemon/morph#Morph)
 
-Class **morph:Morph** is a subclass of ontolex:LexicalEntry that represents any element of morphological analysis below the word level.
+Class **morph:Morph** is a subclass of `ontolex:LexicalEntry` that represents any element of morphological analysis below the word level.
 
 </div>
 
-<div class="note">
+<!-- <div class="note">
 - can carry `lexinfo:termElement` (for what?)
 - can consist of other morphs [MP: not in the last version of the diagram; is that intended?] [MI: true, this is no longer the case, but LexicalForms can be, using decomp, so I think we cannot restrict it]
 - the model is agnostic as to whether this represents a morpheme or one of its allomorphs, but as a lexical entry
@@ -142,7 +147,7 @@ Class **morph:Morph** is a subclass of ontolex:LexicalEntry that represents any 
 - baseConstraint: (for affixes) contraints on the elements that this morph can be applied to
 - `ontolex:Affix` is defined as a subclass of `morph:Morph`.
 - other types of morph (roots, stems, transfix, etc.) are not defined in the module, but should be defined in Lexinfo
-</div>
+</div> -->
 
 <div class="entity">
 
@@ -150,7 +155,7 @@ consistsOf (ObjectProperty)
 
 **URI:** [http://www.w3.org/ns/lemon/morph#consistsOf](http://www.w3.org/ns/lemon/morph#consistsOf)
 
-Property **morph:consistsOf** states  into  which  Morph resources a Form resource can  be segmented.
+Property **morph:consistsOf** states  into  which  Morph resources a Form resource can be segmented.
 
 <div class="description">
 
@@ -160,8 +165,36 @@ Range: morph:Morph
 </div>
 </div>
 
+Here is a simple example of a segmentation of the English plural form *cats*:
+
+<aside class="example" title="Example: Ordered segmentation of the English plural form *cats*">
+
+```turtle
+:cats a ontolex:Form ;
+    ontolex:writtenRep "cats"@en ;
+    morph:consistsOf :cat,  :-s .
+
+:cat a morph:Morph .
+
+:-s a ontolex:Affix .
+```
+</aside>
+
 <div class="note">
-We still have no way to encode the order of morphemes.  We can model forms and morphs as an aggregate (here: `rdf:List` ?).
+Even though it is possible to keep the morphs of a form unordered, usually it is necessary to know the order. For this, we recommend using `rdf:List`:
+
+<aside class="example" title="Example: Ordered segmentation of the English plural form *cats*">
+
+```turtle
+:cats a ontolex:Form ;
+    ontolex:writtenRep "cats"@en ;
+    morph:consistsOf (:cat  :-s) .
+
+:cat a morph:Morph .
+
+:-s a ontolex:Affix .
+```
+</aside>
 </div>
 
 </section>
@@ -169,6 +202,8 @@ We still have no way to encode the order of morphemes.  We can model forms and m
 <section id="grammatical-meanings">
 
 ## Grammatical Meanings
+
+The class **morph:GrammaticalMeaning** is used to gloss information associated with the morph. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. Typically, the bundles will be expressed as blank nodes. The recommended vocabulary to use for the meanings is lexinfo.
 
 <div class="entity">
 
@@ -181,10 +216,12 @@ GrammaticalMeaning (Class)
 
 </div>
 
-<div class="note">
+<!-- <div class="note">
 - should use lexinfo resources or instances with `rdfs:label`
 - can represent *either* an individual feature or a feature bundle
-</div>
+</div> -->
+
+The property **morph:grammaticalMeaning** relates an instance of the class `morph:Morph` to an instance of the class `morph:GrammaticalMeaning`. In addition to morphs, the subject of this property can be a `ontolex:Form` as an aggregate of morphs or `morph:Rule` — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](http://www.w3.org/ns/lemon/morph#Rule).
 
 <div class="entity">
 
@@ -202,7 +239,7 @@ Range: morph:GrammaticalMeaning
 </div>
 </div>
 
-For instance, the segmentation into morphs of the english plural form *cats*, and the assignment of grammatical meaning to the form and to the corresponding plural morph,  can be expressed in this way.
+For instance, we can update the previous example of the english plural form *cats*, and add the assignment of grammatical meaning to the form and to the corresponding plural morph, which can be expressed in this way.
 
 <aside class="example" title="Example: Segmentation of the English plural form *cats*">
 
@@ -210,7 +247,7 @@ For instance, the segmentation into morphs of the english plural form *cats*, an
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
-    morph:consistsOf :cat , :-s .
+    morph:consistsOf :cat,  :-s .
 
 :cat a morph:Morph .
 
@@ -218,8 +255,6 @@ For instance, the segmentation into morphs of the english plural form *cats*, an
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ] .
 ```
 </aside>
-
-<div class="note">MI: This was `morph:grammaticalMeaning lexinfo:plural`, but I don't think this should be valid</div>
 
 In this case we create a blank node for the grammatical meaning that corresponds to a single feature in Lexinfo. In practice, it might be better to define instances for common morphological meanings and reuse these objects.
 
@@ -244,15 +279,22 @@ For example, in the Latin form *lupus*, nominative case and singular number are 
     paralex:composedOf lexinfo:nominativeCase , lexinfo:singular . 
 ```
 </aside>
-<div class="note">MI: I changed this part a bit to use lexinfo first and only then paralex</div>
 
-Discussion/History:
+<!-- Discussion/History:
 
 - the extension to forms was introduced 2022-02-23 per request from Penny and Matteo for more conveniently providing re-usable and directly indexable "feature bundles".
 - the eLex-2019 draft had `morph:meaning` in a comparable function, but with Morph being subclass of LexicalEntry, this role is taken over by `ontolex:sense`.
 - in spring 2022, it was requested by Penny and Katerina to make this a property of `morph:InflectionRule` as a short-hand for `morph:involves/morph:grammaticalMeaning`.
 - as of 2022-10-19, it was agreed to attach this property also to `morph:Rule`. For circumstances in which no explicit morph can be provided (but only a rule), e.g., because a resource comes without an explicit notion of morph(eme)s, there would not be a way to express the meaning or function of that morpheme, otherwise.
-- question (CC, 2022-10-24): do we need this for `morph:InflectionType` ? This would be useful to express that a certain "slot" contains information of a particular kind, e.g., morphological gender or morphological number. Right now, this information is implicit (in the inflection rules assigned to a particular inflection type).
+- question (CC, 2022-10-24): do we need this for `morph:InflectionType` ? This would be useful to express that a certain "slot" contains information of a particular kind, e.g., morphological gender or morphological number. Right now, this information is implicit (in the inflection rules assigned to a particular inflection type). -->
+
+</section>
+
+<section id="base-forms">
+
+## Constraints and base Forms
+
+The property **morph:baseConstraint** is used to encode information about morphotactic constraints for a certain morph, i.e. which grammatical characteristics it requires.
 
 <div class="entity">
 
@@ -287,14 +329,12 @@ As a concrete example, the fact that the English affix -s expresses plural numbe
 ```
 </aside>
 
-Discussion/History:
+<!-- Discussion/History:
 - CC 2022-10-24: by analogy with morph:grammaticalMeaning, this property should also be applicable to rules to specify necessary preconditions.
+ -->
 
-</section>
-
-<section id="base-forms">
-
-## Base Forms
+The property **morph:baseForm** is used when some of the derived or inflected forms are formed from a non-canonical form of a lexical entry.
+This property is necessary both to represent this information for manual consumption and to be used together with generation rules to provide input data for generating inflected or derived forms.
 
 <div class="entity">
 
@@ -312,7 +352,7 @@ Range: `ontolex:Form`
 </div>
 </div>
 
-This property is necessary in cases in which inflection or derivation relations do not take the canonical form as their basis, but a different one. One example is German verbal inflection (e.g., for `gehen` "to go"), where the canonical form (`gehen`, infinitive) is derived from the base form (`geh-`, stem) by means of a suffix (`-en`, infinitive marker), like other inflected forms (`geh`, `gehst`, `geht` "I/you go; he/she/it goes").
+One example is German verbal inflection (e.g., for `gehen` "to go"), where the canonical form (`gehen`, infinitive) is derived from the base form (`geh-`, stem) by means of a suffix (`-en`, infinitive marker), like other inflected forms (`geh`, `gehst`, `geht` "I/you go; he/she/it goes").
 
 </section>
 </section>
