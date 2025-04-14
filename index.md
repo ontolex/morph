@@ -143,6 +143,8 @@ Here is a simple example of a segmentation of the English plural form *cats*:
 
 <aside class="example" title="Example: Segmentation of the English plural form cats">
 
+![Example 1](examples/example_1.png)
+
 ```turtle
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
@@ -159,6 +161,8 @@ may be useful for many applications. To give this information, the morphs can
 be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 <aside class="example" title="Example: Ordered segmentation of the English plural form cats">
+
+![Example 2](examples/example_2.png)
 
 ```turtle
 :cats a ontolex:Form ;
@@ -219,6 +223,8 @@ For instance, we can update the previous example of the English plural form *cat
 
 <aside class="example" title="Example: Segmentation of the English plural form 'cats'">
 
+![Example 3](examples/example_3.png)
+
 ```turtle
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
@@ -237,6 +243,8 @@ In this case, we create a blank node for the grammatical meaning that correspond
 For example, in the Latin form *lupus*, nominative case and singular number are expressed cumulatively by the affix *-us*. This is a common combination, therefore, an instance of morph:GrammaticalMeaning is introduced for that feature bundle. This time we use Lexinfo vocabulary alongside with the [Paralex vocabulary](https://www.paralex-standard.org/) — even though Lexinfo is the preferred way to represent grammatical features in OntoLex, there is no restriction on this.
 
 <aside class="example" title="Example: Segmentation of the Latin nominative singular form 'lupus'">
+
+![Example 4](examples/example_4.png)
 
 ```turtle
 :lupus a ontolex:Form ;
@@ -288,6 +296,8 @@ As a concrete example, the fact that the English affix -s expresses plural numbe
 
 <aside class="example" title="Example: Base constraints for the English affix -s">
 
+![Example 5](examples/example_5.png)
+
 ```turtle
 :s_pl a ontolex:Affix ;
     morph:grammaticalMeaning lexinfo:plural ;
@@ -331,7 +341,9 @@ One example is German verbal inflection (e.g., for `gehen` "to go"), where the c
 </section>
 </section>
 
-<aside class="Example" title="Example: Base form for the German verb 'gehen'">
+<aside class="example" title="Example: Base form for the German verb 'gehen'">
+
+![Example 6](examples/example_6.png)
 
 ```turtle
 :gehen a ontolex:LexicalEntry ;
@@ -399,6 +411,8 @@ The property **morph:example** provides a way to link a rule to an example of a 
 </div>
 
 <aside class="example" title="Example: A rule showing lenition in Irish">
+
+![Example 7](examples/example_7.png)
 
 ```turtle
 :lenition_rule a morph:Rule ;
@@ -494,6 +508,8 @@ The source and the target for the substitution are expressed with the properties
 
 <aside class="example" title="A rule for forming a genitive singular form of Latin word lupus">
 
+![Example 8](examples/example_8.png)
+
 ```turtle
 :gen_sg_rule a morph:Rule ;
     morph:replacement [
@@ -509,6 +525,8 @@ The target can use backreferences (`\1`) to refer to the captured groups in the 
 
 
 <aside class="example" title="Formation of German perfect forms">
+
+![Example 9](examples/example_9.png)
 
 ```turtle
 :perfect_rule a morph:Rule ;
@@ -554,6 +572,8 @@ It is often desirable to preserve information about which rules were used for a 
 </div>
  
 <aside class="example" title="Example: Inflection of the German verb 'aufstehen' in the perfect tense">
+
+![Example 10](examples/example_10.png)
 
 ```turtle
 :aufgestanden a ontolex:Form ;
@@ -640,6 +660,8 @@ In a fusional language like Latin, there is no need to have different inflection
 
 <aside class="example" title="Example: Generation of the genitive singular form 'lupi'">
 
+![Example 11](examples/example_11.png)
+
 ```turtle
 :lupi a ontolex:Form ;
     ontolex:writtenRep "lupi"@la ;
@@ -706,6 +728,8 @@ The example below illustrates the modelling of inflection classes and rules for 
 
 <aside class="example" title="Example: Inflection rules for the genitive singular of 'lupus' in Latin">
 
+![Example 12](examples/example_12.png)
+
 ```turtle
 :lupus a ontolex:LexicalEntry ;
     ontolex:canonicalForm :lupus_form ;
@@ -728,6 +752,8 @@ The example below illustrates the modelling of inflection classes and rules for 
 On the other hand, in an agglutinative language like Turkish, it is useful to define separate inflection slots for each morphosyntactic feature, and separate inflection rules for each inflection slot, as illustrated in the example below. 
 
 <aside class="example" title="Example: Inflection rules for the accusative plural of words that inflect like 'adam' in Turkish">
+
+![Example 13](examples/example_13.png)
 
 ```turtle
 :adam a ontolex:LexicalEntry ;
@@ -792,6 +818,8 @@ In the case of the example above, the successive application of the two appropri
 
 <aside class="example" title="Example: Generation of the accusative plural form 'adamlar'">
 
+![Example 14](examples/example_14.png)
+
 ```turtle
 :adamlari a ontolex:Form ;
   ontolex:writtenRep "adamlari"@tr ;
@@ -835,6 +863,8 @@ For instance, for Latin verbs, in addition to the citation form, dictionaries al
 This can be modelled with OntoLex-Morph as follows:
 
 <aside class="example" title="Example: Base types for the Latin verb 'rumpo'">
+
+![Example 15](examples/example_15.png)
 
 ```turtle
 :rumpo a ontolex:LexicalEntry ;
@@ -887,6 +917,8 @@ Note that the inflection rules operating on the perfect and third stem are not o
 By applying these rules, the following forms can be generated:
 
 <aside class="example" title="Example: Generation of the Latin verb forms *rumpis*, *rupisti*, *rupturus*">
+
+![Example 16](examples/example_16.png)
 
 ```turtle
 :rumpis_form a ontolex:Form ;
@@ -956,6 +988,8 @@ Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be
 
 <aside class="example" title="Example: Derivation of the German noun *Schönheit*">
 
+![Example 17](examples/example_17.png)
+
 ```turtle
 :schoenheit-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "Schönheit"@de ].
@@ -1014,6 +1048,8 @@ Furthermore, compounds can have a head -- i.e., a constituent that imposes its m
 Accordingly, the morphological derivation of Italian *capostazione* 'station mastes' (from *capo* 'head'  + *stazione* 'station') can be encoded as follows:
 
 <aside class="example" title="Example: Derivation of the Italian noun *capostazione*">
+
+![Example 18](examples/example_18.png)
 
 ```turtle
 :capostazione-entry a ontolex:LexicalEntry;
@@ -1092,6 +1128,8 @@ Accordingly, if one wanted to express the formal operation involved in the morph
 
 <aside class="example" title="Example: Formal operation involved in the derivation of the German noun *Schönheit*">
 
+![Example 19](examples/example_19.png)
+
 ```turtle
 
 :schoen_heit a morph:WordFormationRelation;
@@ -1152,6 +1190,8 @@ To illustrate the usage of `morph:DerivationRule`, the reader is referred to the
 
 <aside class="example" title="Example: Rule for German 'Schönheit' as an instance of morph:DerivationRule">
 
+![Example 20](examples/example_20.png)
+
 ```turtle
 
 :_heit-rule a morph:DerivationRule;
@@ -1168,6 +1208,8 @@ To illustrate the usage of `morph:DerivationRule`, the reader is referred to the
 As for compounding, the example below illustrates the modelling of a rule involving a linking element for Dutch *schaapskop* 'sheep head'.
 
 <aside class="example" title="Example: Rules for Dutch 'schaapskop'">
+
+![Example 21](examples/example_21.png)
 
 ```turtle
 

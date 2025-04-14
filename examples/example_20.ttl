@@ -8,26 +8,11 @@
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
 @prefix : <http://www.example.com/#> .
-:schaapskop-entry a ontolex:LexicalEntry;
-             ontolex:canonicalForm [ ontolex:writtenRep "schaapskop"@nl ].
-:schaap-entry a ontolex:LexicalEntry;
-             ontolex:canonicalForm [ ontolex:writtenRep "schaap"@nl ].
-:kop-entry a ontolex:LexicalEntry;
-             ontolex:canonicalForm [ ontolex:writtenRep "kop"@nl ].
-:schaap-schaapskop a morph:WordFormationRelation;
-             vartrans:source :schaap-entry;
-             vartrans:target :schaapskop-entry;
-             morph:wordFormationRule :NN-rule.
-:kop-schaapskop a morph:WordFormationRelation;
-             vartrans:source :kop-entry;
-             vartrans:target :schaapskop-entry;
-             morph:wordFormationRule :NN-rule.
-:NN-rule a morph:WordFormationRule;
+:_heit-rule a morph:DerivationRule;
             morph:replacement [
-		        # ??? (MP: here it is not clear to me how to implement the replacement with concatenation of both bases, I leave it to be discussed in the next meeting)
+		        morph:source "$" ;
+		        morph:target "heit" ;
 			    ] ;
-            morph:involves :_s-morph;
-            morph:generates :schaapskop-entry.
-:s-morph a morph:Morph;
-            ontolex:lexicalForm [ ontolex:writtenRep "-s"@nl ].
+            morph:involves :_heit-morph;
+            morph:generates :schoenheit-entry.
 

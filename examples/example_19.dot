@@ -13,11 +13,18 @@ digraph G {
       fontsize = 8
     ]
  
-Synset72600b5881ae46e3b48b3bdd24c62a83b1 [ label="{Synset 72600b5881ae46e3b48b3bdd24c62a83b1|source=$\ltarget=heit}" ]
-_heitrule -> Synset72600b5881ae46e3b48b3bdd24c62a83b1 [ label="replacement" ] 
-_heitmorph [ label="{_heit-morph}" ]
-_heitrule -> _heitmorph [ label="involves" ] 
+schoenentry [ label="{schoen-entry}" ]
+schoen_heit -> schoenentry [ label="source" ] 
 schoenheitentry [ label="{schoenheit-entry}" ]
+schoen_heit -> schoenheitentry [ label="target" ] 
+Synset4791f7f2534149ee84ad9d74d244eddeb1 [ label="{Synset 4791f7f2534149ee84ad9d74d244eddeb1|source=$\ltarget=heit}" ]
+_heitrule -> Synset4791f7f2534149ee84ad9d74d244eddeb1 [ label="replacement" ] 
+Synset4791f7f2534149ee84ad9d74d244eddeb2 [ label="{Synset 4791f7f2534149ee84ad9d74d244eddeb2|writtenRep=-heit@de}" ]
+_heitmorph -> Synset4791f7f2534149ee84ad9d74d244eddeb2 [ label="lexicalForm" ] 
+_heitmorph [ label="{_heit-morph : Morph}" ]
+_heitrule -> _heitmorph [ label="involves" ] 
 _heitrule -> schoenheitentry [ label="generates" ] 
-_heitrule [ label="{_heit-rule : DerivationRule}" ]
+_heitrule [ label="{_heit-rule : WordFormationRule}" ]
+schoen_heit -> _heitrule [ label="wordFormationRule" ] 
+schoen_heit [ label="{schoen_heit : WordFormationRelation}" ]
 }

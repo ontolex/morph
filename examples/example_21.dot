@@ -1,0 +1,42 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+bb7b947b66984b4f9913c20db91d0c77b5 [ label="{bb7b947b66984b4f9913c20db91d0c77b5|writtenRep=-s@nl}" ]
+smorph -> bb7b947b66984b4f9913c20db91d0c77b5 [ label="lexicalForm" ] 
+smorph [ label="{s-morph : Morph}" ]
+bb7b947b66984b4f9913c20db91d0c77b2 [ label="{bb7b947b66984b4f9913c20db91d0c77b2|writtenRep=schaap@nl}" ]
+schaapentry -> bb7b947b66984b4f9913c20db91d0c77b2 [ label="canonicalForm" ] 
+schaapentry [ label="{schaap-entry : LexicalEntry}" ]
+schaapschaapskop -> schaapentry [ label="source" ] 
+bb7b947b66984b4f9913c20db91d0c77b1 [ label="{bb7b947b66984b4f9913c20db91d0c77b1|writtenRep=schaapskop@nl}" ]
+schaapskopentry -> bb7b947b66984b4f9913c20db91d0c77b1 [ label="canonicalForm" ] 
+schaapskopentry [ label="{schaapskop-entry : LexicalEntry}" ]
+schaapschaapskop -> schaapskopentry [ label="target" ] 
+bb7b947b66984b4f9913c20db91d0c77b4 [ label="{bb7b947b66984b4f9913c20db91d0c77b4}" ]
+NNrule -> bb7b947b66984b4f9913c20db91d0c77b4 [ label="replacement" ] 
+_smorph [ label="{_s-morph}" ]
+NNrule -> _smorph [ label="involves" ] 
+NNrule -> schaapskopentry [ label="generates" ] 
+NNrule [ label="{NN-rule : WordFormationRule}" ]
+schaapschaapskop -> NNrule [ label="wordFormationRule" ] 
+schaapschaapskop [ label="{schaap-schaapskop : WordFormationRelation}" ]
+bb7b947b66984b4f9913c20db91d0c77b3 [ label="{bb7b947b66984b4f9913c20db91d0c77b3|writtenRep=kop@nl}" ]
+kopentry -> bb7b947b66984b4f9913c20db91d0c77b3 [ label="canonicalForm" ] 
+kopentry [ label="{kop-entry : LexicalEntry}" ]
+kopschaapskop -> kopentry [ label="source" ] 
+kopschaapskop -> schaapskopentry [ label="target" ] 
+kopschaapskop -> NNrule [ label="wordFormationRule" ] 
+kopschaapskop [ label="{kop-schaapskop : WordFormationRelation}" ]
+}

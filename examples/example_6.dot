@@ -13,5 +13,9 @@ digraph G {
       fontsize = 8
     ]
  
-lenition_rule [ label="{lenition_rule : Rule|example=bhean}" ]
+gehen_form [ label="{gehen_form}" ]
+gehen -> gehen_form [ label="canonicalForm" ] 
+geh_form [ label="{geh_form : Form|writtenRep=geh@de}" ]
+gehen -> geh_form [ label="baseForm" ] 
+gehen [ label="{gehen : LexicalEntry}" ]
 }

@@ -13,13 +13,13 @@ digraph G {
       fontsize = 8
     ]
  
-Synset6b5744e95a884fdb81893f179451b9fdb2 [ label="{Synset 6b5744e95a884fdb81893f179451b9fdb2|writtenRep=schön@de}" ]
-schoenentry -> Synset6b5744e95a884fdb81893f179451b9fdb2 [ label="canonicalForm" ] 
-schoenentry [ label="{schoen-entry : LexicalEntry}" ]
-schoen_heit -> schoenentry [ label="source" ] 
-Synset6b5744e95a884fdb81893f179451b9fdb1 [ label="{Synset 6b5744e95a884fdb81893f179451b9fdb1|writtenRep=Schönheit@de}" ]
-schoenheitentry -> Synset6b5744e95a884fdb81893f179451b9fdb1 [ label="canonicalForm" ] 
-schoenheitentry [ label="{schoenheit-entry : LexicalEntry}" ]
-schoen_heit -> schoenheitentry [ label="target" ] 
-schoen_heit [ label="{schoen_heit : WordFormationRelation}" ]
+prsactind2sg [ label="{prs.act.ind.2.sg}" ]
+rumpis_form -> prsactind2sg [ label="grammaticalMeaning" ] 
+rumpis_form [ label="{rumpis_form : Form|writtenRep=rumpis@la\lbaseType=PresentStem}" ]
+prfactind2sg [ label="{prf.act.ind.2.sg}" ]
+rupisti_form -> prfactind2sg [ label="grammaticalMeaning" ] 
+rupisti_form [ label="{rupisti_form : Form|writtenRep=rupisti@la\lbaseType=PerfectStem}" ]
+futactptcp [ label="{fut.act.ptcp}" ]
+ruptus_form -> futactptcp [ label="grammaticalMeaning" ] 
+ruptus_form [ label="{ruptus_form : Form|writtenRep=rupturus@la\lbaseType=ThirdStem}" ]
 }

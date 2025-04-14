@@ -13,7 +13,5 @@ digraph G {
       fontsize = 8
     ]
  
-Synset5848caafdc4a45029dff75bbdbb10c83b1 [ label="{Synset 5848caafdc4a45029dff75bbdbb10c83b1 : RegexReplacement|source=us$\ltarget=i}" ]
-gen_sg_rule -> Synset5848caafdc4a45029dff75bbdbb10c83b1 [ label="replacement" ] 
-gen_sg_rule [ label="{gen_sg_rule : Rule}" ]
+lenition_rule [ label="{lenition_rule : Rule|example=bhean}" ]
 }

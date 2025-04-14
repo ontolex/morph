@@ -13,18 +13,7 @@ digraph G {
       fontsize = 8
     ]
  
-auf [ label="{auf}" ]
-perfect_tense_rule -> auf [ label="involves" ] 
-ge [ label="{ge}" ]
-perfect_tense_rule -> ge [ label="involves" ] 
-stand [ label="{stand}" ]
-perfect_tense_rule -> stand [ label="involves" ] 
-en [ label="{en}" ]
-perfect_tense_rule -> en [ label="involves" ] 
-perfect_tense_rule [ label="{perfect_tense_rule : Rule}" ]
-aufgestanden -> auf [ label="consistsOf" ] 
-aufgestanden -> ge [ label="consistsOf" ] 
-aufgestanden -> stand [ label="consistsOf" ] 
-aufgestanden -> en [ label="consistsOf" ] 
-aufgestanden [ label="{aufgestanden : Form}" ]
+Synset84dd8ac01ee4414abe2d47feb2323998b1 [ label="{Synset 84dd8ac01ee4414abe2d47feb2323998b1 : RegexReplacement|source=^(.*)en$\ltarget=ge\1t}" ]
+perfect_rule -> Synset84dd8ac01ee4414abe2d47feb2323998b1 [ label="replacement" ] 
+perfect_rule [ label="{perfect_rule : Rule}" ]
 }

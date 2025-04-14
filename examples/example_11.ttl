@@ -7,19 +7,7 @@
 @prefix morph: <http://www.w3.org/ns/lemon/morph#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
-@prefix : <http://www.example.com/#> .:lupus a ontolex:LexicalEntry ;
-    ontolex:canonicalForm :lupus_form ;
-    ontolex:morphologicalPattern :secondDeclension .
-
-:gen_sg_rule a morph:InflectionRule ;
-    morph:example "lupi" ;
-    morph:replacement [
-        morph:source "us$" ;
-        morph:target "i" ;
-    ] ;
-    morph:inflectionClass :secondDeclension ;
+@prefix : <http://www.example.com/#> .:lupi a ontolex:Form ;
+    ontolex:writtenRep "lupi"@la ;
     morph:grammaticalMeaning :gen.sg ;
-    morph:involves :i .
-
-:i a ontolex:Affix ;
-    morph:grammaticalMeaning :gen.sg .
+    morph:consistsOf :lup , :i .
