@@ -13,8 +13,8 @@ digraph G {
       fontsize = 8
     ]
  
-Synset0554b3da668247f8abe35aed2ef33636b1 [ label="{Synset 0554b3da668247f8abe35aed2ef33636b1|source=$\ltarget=heit}" ]
-_heitrule -> Synset0554b3da668247f8abe35aed2ef33636b1 [ label="replacement" ] 
+Synset72600b5881ae46e3b48b3bdd24c62a83b1 [ label="{Synset 72600b5881ae46e3b48b3bdd24c62a83b1|source=$\ltarget=heit}" ]
+_heitrule -> Synset72600b5881ae46e3b48b3bdd24c62a83b1 [ label="replacement" ] 
 _heitmorph [ label="{_heit-morph}" ]
 _heitrule -> _heitmorph [ label="involves" ] 
 schoenheitentry [ label="{schoenheit-entry}" ]

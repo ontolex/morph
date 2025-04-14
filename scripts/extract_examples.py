@@ -23,7 +23,7 @@ with open("index.md") as f:
         elif in_example and "```" in line:
             in_example = False
             in_example_tag = False
-            with open(f"examples/examples{example_no}.ttl", "w") as ex:
+            with open(f"examples/example_{example_no}.ttl", "w") as ex:
                 ex.write(example)
             example = headers
         elif in_example:

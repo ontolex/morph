@@ -1,0 +1,52 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+f3ced5be96a64c13bfaec53eea0092a4b5 [ label="{f3ced5be96a64c13bfaec53eea0092a4b5|source=$\ltarget=i@tur}" ]
+acc_rule -> f3ced5be96a64c13bfaec53eea0092a4b5 [ label="replacement" ] 
+noun1_infl_vowelHarmony1 [ label="{noun1_infl_vowelHarmony1}" ]
+acc_rule -> noun1_infl_vowelHarmony1 [ label="inflectionClass" ] 
+accusativeCase [ label="{accusativeCase}" ]
+acc_rule -> accusativeCase [ label="grammaticalMeaning" ] 
+i [ label="{i}" ]
+acc_rule -> i [ label="involves" ] 
+case_slot [ label="{case_slot : InflectionSlot|comment=slot for case in Turkish nomin}" ]
+acc_rule -> case_slot [ label="inflectionSlot" ] 
+acc_rule [ label="{acc_rule : InflectionRule|example=adami}" ]
+adam_form [ label="{adam_form : Form|writtenRep=adam@tur}" ]
+adam -> adam_form [ label="canonicalForm" ] 
+adam -> noun1_infl_vowelHarmony1 [ label="morphologicalPattern" ] 
+adam [ label="{adam : LexicalEntry}" ]
+f3ced5be96a64c13bfaec53eea0092a4b1 [ label="{f3ced5be96a64c13bfaec53eea0092a4b1|source=$\ltarget=@tur}" ]
+sg_rule -> f3ced5be96a64c13bfaec53eea0092a4b1 [ label="replacement" ] 
+singular [ label="{singular}" ]
+f3ced5be96a64c13bfaec53eea0092a4b2 -> singular [ label="number" ] 
+f3ced5be96a64c13bfaec53eea0092a4b2 [ label="{f3ced5be96a64c13bfaec53eea0092a4b2}" ]
+sg_rule -> f3ced5be96a64c13bfaec53eea0092a4b2 [ label="grammaticalMeaning" ] 
+number_slot -> case_slot [ label="next" ] 
+number_slot [ label="{number_slot : InflectionSlot|comment=slot for number in Turkish nom}" ]
+sg_rule -> number_slot [ label="inflectionSlot" ] 
+sg_rule [ label="{sg_rule : InflectionRule|example=adam}" ]
+f3ced5be96a64c13bfaec53eea0092a4b3 [ label="{f3ced5be96a64c13bfaec53eea0092a4b3|source=$\ltarget=lar@tur}" ]
+pl_rule -> f3ced5be96a64c13bfaec53eea0092a4b3 [ label="replacement" ] 
+pl_rule -> noun1_infl_vowelHarmony1 [ label="inflectionClass" ] 
+plural [ label="{plural}" ]
+f3ced5be96a64c13bfaec53eea0092a4b4 -> plural [ label="number" ] 
+f3ced5be96a64c13bfaec53eea0092a4b4 [ label="{f3ced5be96a64c13bfaec53eea0092a4b4}" ]
+pl_rule -> f3ced5be96a64c13bfaec53eea0092a4b4 [ label="grammaticalMeaning" ] 
+lar [ label="{lar}" ]
+pl_rule -> lar [ label="involves" ] 
+pl_rule -> number_slot [ label="inflectionSlot" ] 
+pl_rule [ label="{pl_rule : InflectionRule|example=adamlar@tur}" ]
+}

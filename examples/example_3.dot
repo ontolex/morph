@@ -1,0 +1,28 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+plural [ label="{plural}" ]
+Synset1f941d3015174a1da65ff82336ce9825b1 -> plural [ label="number" ] 
+Synset1f941d3015174a1da65ff82336ce9825b1 [ label="{Synset 1f941d3015174a1da65ff82336ce9825b1}" ]
+cats -> Synset1f941d3015174a1da65ff82336ce9825b1 [ label="grammaticalMeaning" ] 
+cat [ label="{cat : Morph}" ]
+cats -> cat [ label="consistsOf" ] 
+Synset1f941d3015174a1da65ff82336ce9825b2 -> plural [ label="number" ] 
+Synset1f941d3015174a1da65ff82336ce9825b2 [ label="{Synset 1f941d3015174a1da65ff82336ce9825b2}" ]
+s -> Synset1f941d3015174a1da65ff82336ce9825b2 [ label="grammaticalMeaning" ] 
+s [ label="{s : Affix}" ]
+cats -> s [ label="consistsOf" ] 
+cats [ label="{cats : Form|writtenRep=cats@en}" ]
+}

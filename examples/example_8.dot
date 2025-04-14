@@ -13,7 +13,7 @@ digraph G {
       fontsize = 8
     ]
  
-Synset09a7db00a41646c8b80b9523c05bef3eb1 [ label="{Synset 09a7db00a41646c8b80b9523c05bef3eb1 : RegexReplacement|source=^(.*)en$\ltarget=ge\1t}" ]
-perfect_rule -> Synset09a7db00a41646c8b80b9523c05bef3eb1 [ label="replacement" ] 
+Synset68d0a78a2ca14161a29ee8d3ac2b240db1 [ label="{Synset 68d0a78a2ca14161a29ee8d3ac2b240db1 : RegexReplacement|source=^(.*)en$\ltarget=ge\1t}" ]
+perfect_rule -> Synset68d0a78a2ca14161a29ee8d3ac2b240db1 [ label="replacement" ] 
 perfect_rule [ label="{perfect_rule : Rule}" ]
 }
