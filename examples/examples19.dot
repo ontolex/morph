@@ -1,0 +1,23 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+Synset0554b3da668247f8abe35aed2ef33636b1 [ label="{Synset 0554b3da668247f8abe35aed2ef33636b1|source=$\ltarget=heit}" ]
+_heitrule -> Synset0554b3da668247f8abe35aed2ef33636b1 [ label="replacement" ] 
+_heitmorph [ label="{_heit-morph}" ]
+_heitrule -> _heitmorph [ label="involves" ] 
+schoenheitentry [ label="{schoenheit-entry}" ]
+_heitrule -> schoenheitentry [ label="generates" ] 
+_heitrule [ label="{_heit-rule : DerivationRule}" ]
+}

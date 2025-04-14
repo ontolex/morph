@@ -1,0 +1,30 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+auf [ label="{auf}" ]
+aufgestanden -> auf [ label="consistsOf" ] 
+ge [ label="{ge}" ]
+aufgestanden -> ge [ label="consistsOf" ] 
+stand [ label="{stand}" ]
+aufgestanden -> stand [ label="consistsOf" ] 
+en [ label="{en}" ]
+aufgestanden -> en [ label="consistsOf" ] 
+aufgestanden [ label="{aufgestanden : Form}" ]
+perfect_tense_rule -> auf [ label="involves" ] 
+perfect_tense_rule -> ge [ label="involves" ] 
+perfect_tense_rule -> stand [ label="involves" ] 
+perfect_tense_rule -> en [ label="involves" ] 
+perfect_tense_rule [ label="{perfect_tense_rule : Rule}" ]
+}

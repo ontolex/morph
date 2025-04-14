@@ -1,0 +1,52 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+adam_form [ label="{adam_form : Form|writtenRep=adam@tur}" ]
+adam -> adam_form [ label="canonicalForm" ] 
+noun1_infl_vowelHarmony1 [ label="{noun1_infl_vowelHarmony1}" ]
+adam -> noun1_infl_vowelHarmony1 [ label="morphologicalPattern" ] 
+adam [ label="{adam : LexicalEntry}" ]
+cfa771cfd4954eceb910f785e91d6d38b3 [ label="{cfa771cfd4954eceb910f785e91d6d38b3|source=$\ltarget=lar@tur}" ]
+pl_rule -> cfa771cfd4954eceb910f785e91d6d38b3 [ label="replacement" ] 
+pl_rule -> noun1_infl_vowelHarmony1 [ label="inflectionClass" ] 
+plural [ label="{plural}" ]
+cfa771cfd4954eceb910f785e91d6d38b4 -> plural [ label="number" ] 
+cfa771cfd4954eceb910f785e91d6d38b4 [ label="{cfa771cfd4954eceb910f785e91d6d38b4}" ]
+pl_rule -> cfa771cfd4954eceb910f785e91d6d38b4 [ label="grammaticalMeaning" ] 
+lar [ label="{lar}" ]
+pl_rule -> lar [ label="involves" ] 
+case_slot [ label="{case_slot : InflectionSlot|comment=slot for case in Turkish nomin}" ]
+number_slot -> case_slot [ label="next" ] 
+number_slot [ label="{number_slot : InflectionSlot|comment=slot for number in Turkish nom}" ]
+pl_rule -> number_slot [ label="inflectionSlot" ] 
+pl_rule [ label="{pl_rule : InflectionRule|example=adamlar@tur}" ]
+cfa771cfd4954eceb910f785e91d6d38b5 [ label="{cfa771cfd4954eceb910f785e91d6d38b5|source=$\ltarget=i@tur}" ]
+acc_rule -> cfa771cfd4954eceb910f785e91d6d38b5 [ label="replacement" ] 
+acc_rule -> noun1_infl_vowelHarmony1 [ label="inflectionClass" ] 
+accusativeCase [ label="{accusativeCase}" ]
+acc_rule -> accusativeCase [ label="grammaticalMeaning" ] 
+i [ label="{i}" ]
+acc_rule -> i [ label="involves" ] 
+acc_rule -> case_slot [ label="inflectionSlot" ] 
+acc_rule [ label="{acc_rule : InflectionRule|example=adami}" ]
+cfa771cfd4954eceb910f785e91d6d38b1 [ label="{cfa771cfd4954eceb910f785e91d6d38b1|source=$\ltarget=@tur}" ]
+sg_rule -> cfa771cfd4954eceb910f785e91d6d38b1 [ label="replacement" ] 
+singular [ label="{singular}" ]
+cfa771cfd4954eceb910f785e91d6d38b2 -> singular [ label="number" ] 
+cfa771cfd4954eceb910f785e91d6d38b2 [ label="{cfa771cfd4954eceb910f785e91d6d38b2}" ]
+sg_rule -> cfa771cfd4954eceb910f785e91d6d38b2 [ label="grammaticalMeaning" ] 
+sg_rule -> number_slot [ label="inflectionSlot" ] 
+sg_rule [ label="{sg_rule : InflectionRule|example=adam}" ]
+}

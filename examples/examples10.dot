@@ -1,0 +1,23 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+gensg [ label="{gen.sg}" ]
+lupi -> gensg [ label="grammaticalMeaning" ] 
+lup [ label="{lup}" ]
+lupi -> lup [ label="consistsOf" ] 
+i [ label="{i}" ]
+lupi -> i [ label="consistsOf" ] 
+lupi [ label="{lupi : Form|writtenRep=lupi@la}" ]
+}

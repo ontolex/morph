@@ -1,0 +1,19 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+Synset035e603959f5423fbd81e2a08b9c1b99b1 [ label="{Synset 035e603959f5423fbd81e2a08b9c1b99b1 : RegexReplacement|source=us$\ltarget=i}" ]
+gen_sg_rule -> Synset035e603959f5423fbd81e2a08b9c1b99b1 [ label="replacement" ] 
+gen_sg_rule [ label="{gen_sg_rule : Rule}" ]
+}

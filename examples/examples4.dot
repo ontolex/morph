@@ -1,0 +1,30 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+nominativeCase [ label="{nominativeCase}" ]
+nomsg -> nominativeCase [ label="case" ] 
+singular [ label="{singular}" ]
+nomsg -> singular [ label="number" ] 
+nomsg -> nominativeCase [ label="composedOf" ] 
+nomsg -> singular [ label="composedOf" ] 
+nomsg [ label="{nom.sg : GrammaticalMeaning}" ]
+lupus -> nomsg [ label="grammaticalMeaning" ] 
+lup [ label="{lup : Morph}" ]
+lupus -> lup [ label="consistsOf" ] 
+us -> nomsg [ label="grammaticalMeaning" ] 
+us [ label="{us : Affix}" ]
+lupus -> us [ label="consistsOf" ] 
+lupus [ label="{lupus : Form|writtenRep=lupus@la}" ]
+}

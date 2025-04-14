@@ -239,7 +239,7 @@ For example, in the Latin form *lupus*, nominative case and singular number are 
 <aside class="example" title="Example: Segmentation of the Latin nominative singular form 'lupus'">
 
 ```turtle
-:lupus a ontolex:Form
+:lupus a ontolex:Form ;
     ontolex:writtenRep "lupus"@la ;
     morph:grammaticalMeaning :nom.sg ;
     morph:consistsOf :lup , :us .
@@ -515,7 +515,7 @@ The target can use backreferences (`\1`) to refer to the captured groups in the 
     morph:replacement [
         a morph:RegexReplacement ;
         morph:source "^(.*)en$" ;
-        morph:target "ge\1t" ;
+        morph:target "ge\\1t" ;
     ] .
 ```
 
@@ -560,7 +560,7 @@ Range: morph:Morph
     morph:consistsOf :auf , :ge, :stand , :en .
 
 :perfect_tense_rule a morph:Rule ;
-    morph:involves :auf, :ge, :stand, :en ;
+    morph:involves :auf, :ge, :stand, :en .
 ```
 
 </aside>
@@ -642,7 +642,7 @@ In a fusional language like Latin, there is no need to have different inflection
 
 ```turtle
 :lupi a ontolex:Form ;
-    ontolex writtenRep "lupi"@la ;
+    ontolex:writtenRep "lupi"@la ;
     morph:grammaticalMeaning :gen.sg ;
     morph:consistsOf :lup , :i .
 ```
@@ -795,8 +795,10 @@ In the case of the example above, the successive application of the two appropri
 
 ```turtle
 :adamlari a ontolex:Form ;
-  ontolex writtenRep "adamlari"@tur ;
-  morph:grammaticalMeaning [ lexinfo:accusative , lexinfo:plural ] ;
+  ontolex:writtenRep "adamlari"@tr ;
+  morph:grammaticalMeaning [ 
+    lexinfo:case lexinfo:accusative ;
+    lexinfo:number lexinfo:plural ] ;
   morph:consistsOf :adam , :lar , :i .
 ```
 </aside>
@@ -838,7 +840,7 @@ This can be modelled with OntoLex-Morph as follows:
 ```turtle
 :rumpo a ontolex:LexicalEntry ;
     ontolex:canonicalForm :rumpo_form ;
-    ontolex:baseForm :rupi_form , :ruptum_form .
+    ontolex:baseForm :rupi_form , :ruptum_form ;
     ontolex:morphologicalPattern :ThirdConjugation .
 
 :rumpo_form a ontolex:Form ;
@@ -856,25 +858,25 @@ This can be modelled with OntoLex-Morph as follows:
     morph:grammaticalMeaning :sup.acc ;
     morph:baseType "ThirdStem" .
 
-prs_act_ind_2_sg_rule a morph:InflectionRule ;
+:prs_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpis" ;
-    morph:replacement ? ;
-    morph:inflectionClass :thirdConjugation
+    morph:replacement "?" ;
+    morph:inflectionClass :thirdConjugation ;
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
     morph:involves :it ;
     morph:baseType "PresentStem" .
 
-prf_act_ind_2_sg_rule a morph:InflectionRule ;
+:prf_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpisti" ;
-    morph:replacement ? ;
+    morph:replacement "?" ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
     morph:involves :isti ;
     morph:baseType "PerfectStem" .
 
-fut_act_ptcp_rule a morph:InflectionRule ;
+:fut_act_ptcp_rule a morph:InflectionRule ;
     morph:example "rupturus" ;
-    morph:replacement ? ;
+    morph:replacement "?" ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :fut.act.ptcp ;
     morph:involves :urus ;
@@ -958,7 +960,7 @@ Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be
 ```turtle
 :schoenheit-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "Schönheit"@de ].
-:schoen-entry a ontolex:LexicalEntry.
+:schoen-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "schön"@de ].
 :schoen_heit a morph:WordFormationRelation;
              vartrans:source :schoen-entry;
@@ -1017,9 +1019,9 @@ Accordingly, the morphological derivation of Italian *capostazione* 'station mas
 ```turtle
 :capostazione-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "capostazione"@it ].
-:capo-entry a ontolex:LexicalEntry.
+:capo-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "capo"@it ].
-:stazione-entry a ontolex:LexicalEntry.
+:stazione-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "stazione"@it ].
 :capo-capostazione a morph:CompoundHead;
              vartrans:source :capo-entry;
@@ -1172,9 +1174,9 @@ As for compounding, the example below illustrates the modelling of a rule involv
 
 :schaapskop-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "schaapskop"@nl ].
-:schaap-entry a ontolex:LexicalEntry.
+:schaap-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "schaap"@nl ].
-:kop-entry a ontolex:LexicalEntry.
+:kop-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "kop"@nl ].
 :schaap-schaapskop a morph:WordFormationRelation;
              vartrans:source :schaap-entry;
@@ -1186,7 +1188,7 @@ As for compounding, the example below illustrates the modelling of a rule involv
              morph:wordFormationRule :NN-rule.
 :NN-rule a morph:WordFormationRule;
             morph:replacement [
-		        ??? (MP: here it is not clear to me how to implement the replacement with concatenation of both bases, I leave it to be discussed in the next meeting)
+		        # ??? (MP: here it is not clear to me how to implement the replacement with concatenation of both bases, I leave it to be discussed in the next meeting)
 			    ] ;
             morph:involves :_s-morph;
             morph:generates :schaapskop-entry.

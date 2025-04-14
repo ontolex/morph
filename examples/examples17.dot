@@ -1,0 +1,31 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+Synset1082dea42cd74c26b2e62c489ee1552bb2 [ label="{Synset 1082dea42cd74c26b2e62c489ee1552bb2|writtenRep=capo@it}" ]
+capoentry -> Synset1082dea42cd74c26b2e62c489ee1552bb2 [ label="canonicalForm" ] 
+capoentry [ label="{capo-entry : LexicalEntry}" ]
+capocapostazione -> capoentry [ label="source" ] 
+Synset1082dea42cd74c26b2e62c489ee1552bb1 [ label="{Synset 1082dea42cd74c26b2e62c489ee1552bb1|writtenRep=capostazione@it}" ]
+capostazioneentry -> Synset1082dea42cd74c26b2e62c489ee1552bb1 [ label="canonicalForm" ] 
+capostazioneentry [ label="{capostazione-entry : LexicalEntry}" ]
+capocapostazione -> capostazioneentry [ label="target" ] 
+capocapostazione [ label="{capo-capostazione : CompoundHead}" ]
+Synset1082dea42cd74c26b2e62c489ee1552bb3 [ label="{Synset 1082dea42cd74c26b2e62c489ee1552bb3|writtenRep=stazione@it}" ]
+stazioneentry -> Synset1082dea42cd74c26b2e62c489ee1552bb3 [ label="canonicalForm" ] 
+stazioneentry [ label="{stazione-entry : LexicalEntry}" ]
+stazionecapostazione -> stazioneentry [ label="source" ] 
+stazionecapostazione -> capostazioneentry [ label="target" ] 
+stazionecapostazione [ label="{stazione-capostazione : CompoundRelation}" ]
+}

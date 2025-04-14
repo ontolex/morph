@@ -1,0 +1,30 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+schoenentry [ label="{schoen-entry}" ]
+schoen_heit -> schoenentry [ label="source" ] 
+schoenheitentry [ label="{schoenheit-entry}" ]
+schoen_heit -> schoenheitentry [ label="target" ] 
+Synset770a598550434284b247efaad12988eab1 [ label="{Synset 770a598550434284b247efaad12988eab1|source=$\ltarget=heit}" ]
+_heitrule -> Synset770a598550434284b247efaad12988eab1 [ label="replacement" ] 
+Synset770a598550434284b247efaad12988eab2 [ label="{Synset 770a598550434284b247efaad12988eab2|writtenRep=-heit@de}" ]
+_heitmorph -> Synset770a598550434284b247efaad12988eab2 [ label="lexicalForm" ] 
+_heitmorph [ label="{_heit-morph : Morph}" ]
+_heitrule -> _heitmorph [ label="involves" ] 
+_heitrule -> schoenheitentry [ label="generates" ] 
+_heitrule [ label="{_heit-rule : WordFormationRule}" ]
+schoen_heit -> _heitrule [ label="wordFormationRule" ] 
+schoen_heit [ label="{schoen_heit : WordFormationRelation}" ]
+}

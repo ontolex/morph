@@ -1,0 +1,59 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+firstConjugation [ label="{firstConjugation}" ]
+prf_act_ind_2_sg_rule -> firstConjugation [ label="inflectionClass" ] 
+secondConjugation [ label="{secondConjugation}" ]
+prf_act_ind_2_sg_rule -> secondConjugation [ label="inflectionClass" ] 
+thirdConjugation [ label="{thirdConjugation}" ]
+prf_act_ind_2_sg_rule -> thirdConjugation [ label="inflectionClass" ] 
+fourthConjugation [ label="{fourthConjugation}" ]
+prf_act_ind_2_sg_rule -> fourthConjugation [ label="inflectionClass" ] 
+prfactind2sg [ label="{prf.act.ind.2.sg}" ]
+prf_act_ind_2_sg_rule -> prfactind2sg [ label="grammaticalMeaning" ] 
+isti [ label="{isti}" ]
+prf_act_ind_2_sg_rule -> isti [ label="involves" ] 
+prf_act_ind_2_sg_rule [ label="{prf_act_ind_2_sg_rule : InflectionRule|example=rumpisti\lreplacement=?\lbaseType=PerfectStem}" ]
+prs_act_ind_2_sg_rule -> thirdConjugation [ label="inflectionClass" ] 
+prsactind2sg [ label="{prs.act.ind.2.sg}" ]
+prs_act_ind_2_sg_rule -> prsactind2sg [ label="grammaticalMeaning" ] 
+it [ label="{it}" ]
+prs_act_ind_2_sg_rule -> it [ label="involves" ] 
+prs_act_ind_2_sg_rule [ label="{prs_act_ind_2_sg_rule : InflectionRule|example=rumpis\lreplacement=?\lbaseType=PresentStem}" ]
+prsactind1sg [ label="{prs.act.ind.1.sg}" ]
+rumpo_form -> prsactind1sg [ label="grammaticalMeaning" ] 
+rumpo_form [ label="{rumpo_form : Form|writtenRep=rumpo@la\lbaseType=PresentStem}" ]
+rumpo -> rumpo_form [ label="canonicalForm" ] 
+prfactind1sg [ label="{prf.act.ind.1.sg}" ]
+rupi_form -> prfactind1sg [ label="grammaticalMeaning" ] 
+rupi_form [ label="{rupi_form : Form|writtenRep=rupi@la\lbaseType=PerfectStem}" ]
+rumpo -> rupi_form [ label="baseForm" ] 
+supacc [ label="{sup.acc}" ]
+ruptum_form -> supacc [ label="grammaticalMeaning" ] 
+ruptum_form [ label="{ruptum_form : Form|writtenRep=ruptum@la\lbaseType=ThirdStem}" ]
+rumpo -> ruptum_form [ label="baseForm" ] 
+ThirdConjugation [ label="{ThirdConjugation}" ]
+rumpo -> ThirdConjugation [ label="morphologicalPattern" ] 
+rumpo [ label="{rumpo : LexicalEntry}" ]
+fut_act_ptcp_rule -> firstConjugation [ label="inflectionClass" ] 
+fut_act_ptcp_rule -> secondConjugation [ label="inflectionClass" ] 
+fut_act_ptcp_rule -> thirdConjugation [ label="inflectionClass" ] 
+fut_act_ptcp_rule -> fourthConjugation [ label="inflectionClass" ] 
+futactptcp [ label="{fut.act.ptcp}" ]
+fut_act_ptcp_rule -> futactptcp [ label="grammaticalMeaning" ] 
+urus [ label="{urus}" ]
+fut_act_ptcp_rule -> urus [ label="involves" ] 
+fut_act_ptcp_rule [ label="{fut_act_ptcp_rule : InflectionRule|example=rupturus\lreplacement=?\lbaseType=ThirdStem}" ]
+}
