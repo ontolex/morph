@@ -99,14 +99,14 @@ The class **morph:Morph** provides a way to represent sub-word elements and atta
 
 <div class="entity">
 
-Morph (class)
+<class>Morph</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#Morph](http://www.w3.org/ns/lemon/morph#Morph)
 
 **morph:Morph** represents any element of morphological analysis below the word level.
 
 <div class="description">
-Subclass of `ontolex:LexicalEntry`
+<subclass>ontolex:LexicalEntry</subclass>
 </div>
 
 </div>
@@ -125,7 +125,7 @@ The property **morph:consistsOf** relates a form with the morphs from which it i
 
 <div class="entity">
 
-consistsOf (ObjectProperty)
+<objectProperty>consistsOf</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#consistsOf](http://www.w3.org/ns/lemon/morph#consistsOf)
 
@@ -133,9 +133,9 @@ Property **morph:consistsOf** states into which Morph resources a Form resource 
 
 <div class="description">
 
-Domain: ontolex:Form
+<domain>ontolex:Form</domain>
 
-Range: morph:Morph
+<range>morph:Morph</range>
 </div>
 </div>
 
@@ -183,7 +183,7 @@ The class **morph:GrammaticalMeaning** is used to gloss information associated w
 
 <div class="entity">
 
-GrammaticalMeaning (Class)
+<class>GrammaticalMeaning</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#GrammaticalMeaning](http://www.w3.org/ns/lemon/morph#GrammaticalMeaning)
 
@@ -201,7 +201,7 @@ The property **morph:grammaticalMeaning** relates an instance of the class `morp
 
 <div class="entity">
 
-grammaticalMeaning (ObjectProperty)
+<objectProperty>grammaticalMeaning</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#grammaticalMeaning](http://www.w3.org/ns/lemon/morph#grammaticalMeaning)
 
@@ -209,9 +209,9 @@ property **morph:grammaticalMeaning** assigns a grammatical meaning to a morph, 
 
 <div class="description">
 
-Domain: ontolex:Form or morph:Morph or morph:Rule
+<domain>ontolex:Form or morph:Morph or morph:Rule</domain>
 
-Range: morph:GrammaticalMeaning
+<range>morph:GrammaticalMeaning</range>
 </div>
 </div>
 
@@ -268,7 +268,7 @@ The property **morph:baseConstraint** is used to encode information about morpho
 
 <div class="entity">
 
-baseConstraint (ObjectProperty)
+<objectProperty>baseConstraint</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#baseConstraint](http://www.w3.org/ns/lemon/morph#baseConstraint)
 
@@ -276,9 +276,9 @@ baseConstraint (ObjectProperty)
 
 <div class="description">
 
-Domain: ontolex:Morph or morph:Rule
+<domain>ontolex:Morph or morph:Rule</domain>
 
-Range: morph:GrammaticalMeaning
+<range>morph:GrammaticalMeaning</range>
 </div>
 </div>
 
@@ -310,7 +310,7 @@ This property is necessary both to represent this information for manual consump
 
 <div class="entity">
 
-baseForm (ObjectProperty)
+<objectProperty>baseForm</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#baseForm](http://www.w3.org/ns/lemon/morph#baseForm)
 
@@ -318,9 +318,11 @@ baseForm (ObjectProperty)
 
 <div class="description">
 
-Domain: `ontolex:Word`
+<domain>ontolex:Word</domain>
 
-Range: `ontolex:Form`
+<range>ontolex:Form</range>
+
+<subproperty>ontolex:lexicalForm</subproperty>
 </div>
 </div>
 
@@ -363,7 +365,7 @@ In order to keep the model from becoming too complex, **one rule** is associated
 
 <div class="entity">
 
-Rule (Class)
+<class>Rule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#Rule](http://www.w3.org/ns/lemon/morph#Rule)
 
@@ -382,7 +384,7 @@ The property **morph:example** provides a way to link a rule to an example of a 
 
 <div class="entity">
 
-example (DatatypeProperty)
+<dataProperty>example</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#example](http://www.w3.org/ns/lemon/morph#example)
 
@@ -390,9 +392,9 @@ example (DatatypeProperty)
 
 <div class="description">
 
-Domain: morph:Rule
+<domain>morph:Rule</domain>
 
-Range: string literal
+<range>rdf:langString</range>
 </div>
 </div>
 
@@ -415,7 +417,7 @@ zero or more characters by other characters.
 
 <div class="entity">
 
-Replacement (Class)
+<class>Replacement</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#Replacement](http://www.w3.org/ns/lemon/morph#Replacement)
 
@@ -429,7 +431,7 @@ Morph module does not limit the exact way to represent these transformations sin
 
 <div class="entity">
 
-replacement (DatatypeProperty)
+<dataProperty>replacement</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#replacement](http://www.w3.org/ns/lemon/morph#replacement)
 
@@ -437,9 +439,7 @@ replacement (DatatypeProperty)
 
 <div class="description">
 
-Domain: morph:Rule
-
-Range: any URI
+<domain>morph:Rule</domain>
 </div>
 
 </div>
@@ -449,7 +449,7 @@ The class **morph:RegexReplacement** is used to describe a morphological transfo
 
 <div class="entity">
 
-RegexReplacement (Class)
+<class>RegexReplacement</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#RegexReplacement](http://www.w3.org/ns/lemon/morph#RegexReplacement)
 
@@ -461,24 +461,24 @@ The source and the target for the substitution are expressed with the properties
 
 <div class="entity">
 
-source (DatatypeProperty)
+<dataProperty>source</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#source](http://www.w3.org/ns/lemon/morph#source)
 
-**morph:source**: A string which is used as a basis for the subsitution
+**morph:source**: A string which is used as a basis for the substitution
 
 <div class="description">
 
-Domain: morph:RegexReplacement
+<domain>morph:RegexReplacement</domain>
 
-Range: string literal
+<range>xsd:string</range>
 </div>
 </div>
 
 
 <div class="entity">
 
-target (DatatypeProperty)
+<dataProperty>target</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#target](http://www.w3.org/ns/lemon/morph#target)
 
@@ -486,9 +486,9 @@ target (DatatypeProperty)
 
 <div class="description">
 
-Domain: morph:RegexReplacement
+<domain>morph:RegexReplacement</domain>
 
-Range: string literal
+<range>xsd:string</range>
 </div>
 </div>
 
@@ -539,7 +539,7 @@ It is often desirable to preserve information about which rules were used for a 
 
 <div class="entity">
 
-involves (ObjectProperty)
+<objectProperty>involves</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#involves](http://www.w3.org/ns/lemon/morph#involves)
 
@@ -547,9 +547,9 @@ involves (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:Rule
+<domain>morph:Rule</domain>
 
-Range: morph:Morph
+<range>morph:Morph</range>
 </div>
 </div>
  
@@ -587,7 +587,7 @@ modelling inflection.
 
 <div class="entity">
 
-InflectionRule (Class)
+<class>InflectionRule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#InflectionRule](http://www.w3.org/ns/lemon/morph#InflectionRule)
 
@@ -607,7 +607,7 @@ Range: morph:InflectionRule
 
 <div class="entity">
 
-InflectionClass (Class)
+<class>InflectionClass</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#InflectionClass](http://www.w3.org/ns/lemon/morph#InflectionClass)
 
@@ -620,7 +620,7 @@ The link between inflection classes and lexical entries is not defined in OntoLe
 
 <div class="entity">
 
-inflectionClass (ObjectProperty)
+<objectProperty>inflectionClass</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#inflectionClass](http://www.w3.org/ns/lemon/morph#inflectionClass)
 
@@ -628,9 +628,9 @@ inflectionClass (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:InflectionRule
+<domain>morph:InflectionRule</domain>
 
-Range: morph:InflectionClass
+<range>morph:InflectionClass</range>
 </div>
 </div>
 
@@ -655,7 +655,7 @@ Inflection slots are used in agglutinative languages to represent the different 
 
 <div class="entity">
 
-InflectionSlot (Class)
+<class>InflectionSlot</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#InflectionSlot](http://www.w3.org/ns/lemon/morph#InflectionSlot)
 
@@ -669,18 +669,17 @@ For agglutinative languages like Finno-Ugric, Turkic and many more, each grammat
 
 <div class="entity">
 
-inflectionSlot (ObjectProperty)
+<objectProperty>inflectionSlot</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#inflectionSlot](http://www.w3.org/ns/lemon/morph#inflectionSlot)
-
 
 **morph:inflectionSlot** links an inflection rule to the slot it pertains to
 
 <div class="description">
 
-Domain: morph:InflectionRule
+<domain>morph:InflectionRule</domain>
 
-Range: morph:InflectionSlot
+<range>morph:InflectionSlot</range>
 </div>
 </div>
 
@@ -689,7 +688,7 @@ In order to set the order of morphs and also simplify the process of form genera
 
 <div class="entity">
 
-next (ObjectProperty)
+<objectProperty>next</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#next](http://www.w3.org/ns/lemon/morph#next)
 
@@ -697,9 +696,9 @@ next (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:InflectionSlot
+<domain>morph:InflectionSlot</domain>
 
-Range: morph:InflectionSlot
+<range>morph:InflectionSlot</range>
 </div>
 </div>
 
@@ -813,7 +812,7 @@ In many cases, the inflectional paradigm of a single lexical entry involves diff
 
 <div class="entity">
 
-baseType (DatatypeProperty)
+<dataProperty>baseType</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#baseType](http://www.w3.org/ns/lemon/morph#baseType)
 
@@ -821,9 +820,9 @@ baseType (DatatypeProperty)
 
 <div class="description">
 
-Domain: ontolex:Form or morph:InflectionRule
+<domain>ontolex:Form or morph:InflectionRule</domain>
 
-Range: literal
+<range>xsd:string</range>
 </div>
 </div>
 
@@ -940,7 +939,7 @@ Since word formation relations are relations between different lexical entries, 
 
 <div class="entity">
 
-WordFormationRelation (Class)
+<class>WordFormationRelation</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#WordFormationRelation](http://www.w3.org/ns/lemon/morph#WordFormationRelation)
 
@@ -948,7 +947,7 @@ WordFormationRelation (Class)
 
 <div class="description">
 
-Subclass of: vartrans:LexicalRelation
+<subclass>vartrans:LexicalRelation</sub>
 
 </div>
 </div>
@@ -977,7 +976,7 @@ Since, by definition, compounds have more than one base, there will also be more
 
 <div class="entity">
 
-CompoundRelation (Class)
+<class>CompoundRelation</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#CompoundRelation](http://www.w3.org/ns/lemon/morph#CompoundRelation)
 
@@ -985,7 +984,7 @@ CompoundRelation (Class)
 
 <div class="description">
 
-Subclass of: morph:WordFormationRelation
+<subclass>morph:WordFormationRelation</subclass>
 
 </div>
 
@@ -995,7 +994,7 @@ Furthermore, compounds can have a head -- i.e., a constituent that imposes its m
 
 <div class="entity">
 
-CompoundHead (Class)
+<class>CompoundHead</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#CompoundHead](http://www.w3.org/ns/lemon/morph#CompoundHead)
 
@@ -1003,7 +1002,7 @@ CompoundHead (Class)
 
 <div class="description">
 
-Subclass of: morph:CompoundRelation
+<subclass>morph:CompoundRelation</subclass>
 
 </div>
 
@@ -1039,14 +1038,14 @@ Like inflection rules, word formation rules can take as input either the canonic
 
 <div class="entity">
 
-WordFormationRule (Class)
+<class>WordFormationRule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#WordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
 
 **morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain another, target LexicalEntry .
 
 <div class="description">
-Subclass of: morph:Rule
+<subclass>morph:Rule</sub>
 </div>
 
 </div>
@@ -1055,7 +1054,7 @@ Word formation rules can also be related to the word formation relations existin
 
 <div class="entity">
 
-wordFormationRule (ObjectProperty)
+<objectProperty>wordFormationRule</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#wordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
 
@@ -1063,9 +1062,9 @@ wordFormationRule (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:WordFormationRelation
+<domain>morph:WordFormationRelation</domain>
 
-Range: morph:WordFormationRule
+<range>morph:WordFormationRule</range>
 
 </div>
 </div>
@@ -1074,7 +1073,7 @@ Unlike inflection rules, word formation rules generate lexical entries rather th
 
 <div class="entity">
 
-generates (ObjectProperty)
+<objectProperty>generates</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#generates](http://www.w3.org/ns/lemon/morph#generates)
 
@@ -1082,9 +1081,9 @@ generates (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:WordFormationRule
+<domain>morph:WordFormationRule</domain>
 
-Range: ontolex:LexicalEntry
+<range>ontolex:LexicalEntry</range>
 
 </div>
 </div>
@@ -1117,7 +1116,7 @@ In derivation rules, lexemes are obtained from a single base through the additio
 
 <div class="entity">
 
-DerivationRule (Class)
+<class>DerivationRule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
 
@@ -1125,7 +1124,7 @@ DerivationRule (Class)
 
 <div class="description">
 
-subClassOf: morph:WordFormationRule
+<subclass>morph:WordFormationRule</subclass>
 
 </div>
 
@@ -1135,7 +1134,7 @@ In compounding rules, two different bases are combined to obtain a new lexeme, p
 
 <div class="entity">
 
-CompoundingRule (Class)
+<class>CompoundingRule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
 
@@ -1143,7 +1142,7 @@ CompoundingRule (Class)
 
 <div class="description">
 
-subClassOf: morph:WordFormationRule
+<subclass>morph:WordFormationRule</subclass>
 
 </div>
 
