@@ -12,12 +12,15 @@ roots = set([s for s, p, o in g if len(list(g.subjects(None, s))) == 0])
 
 
 def make_name(n):
+    print(n, file=sys.stderr)
     s = str(n)
     i = 0
     if '#' in s:
         i = s.rindex('#')
     if '/' in s:
         i = max(i, s.rindex('/'))
+    if s[0] == "n" and all('0' <= c <= '9' or 'a' <= c <= 'f' for c in s[1:]):
+        return "node" + s[1:4]
     if i + 1 < len(s) and s[i + 1].isdigit():
         return "Synset " + s[i + 1:]
     t = s[i + 1:]

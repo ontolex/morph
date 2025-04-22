@@ -13,12 +13,12 @@ digraph G {
       fontsize = 8
     ]
  
-d555ccd31286487f90a16483524cefbbb2 [ label="{d555ccd31286487f90a16483524cefbbb2|writtenRep=schön@de}" ]
-schoenentry -> d555ccd31286487f90a16483524cefbbb2 [ label="canonicalForm" ] 
+nodece3 [ label="{nodece3|writtenRep=schön@de}" ]
+schoenentry -> nodece3 [ label="canonicalForm" ] 
 schoenentry [ label="{schoen-entry : LexicalEntry}" ]
 schoen_heit -> schoenentry [ label="source" ] 
-d555ccd31286487f90a16483524cefbbb1 [ label="{d555ccd31286487f90a16483524cefbbb1|writtenRep=Schönheit@de}" ]
-schoenheitentry -> d555ccd31286487f90a16483524cefbbb1 [ label="canonicalForm" ] 
+nodece3 [ label="{nodece3|writtenRep=Schönheit@de}" ]
+schoenheitentry -> nodece3 [ label="canonicalForm" ] 
 schoenheitentry [ label="{schoenheit-entry : LexicalEntry}" ]
 schoen_heit -> schoenheitentry [ label="target" ] 
 schoen_heit [ label="{schoen_heit : WordFormationRelation}" ]
