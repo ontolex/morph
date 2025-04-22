@@ -1,0 +1,25 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+nodece3 [ label="{nodece3|writtenRep=schön@de}" ]
+schoenentry -> nodece3 [ label="canonicalForm" ] 
+schoenentry [ label="{schoen-entry : LexicalEntry}" ]
+schoen_heit -> schoenentry [ label="source" ] 
+nodece3 [ label="{nodece3|writtenRep=Schönheit@de}" ]
+schoenheitentry -> nodece3 [ label="canonicalForm" ] 
+schoenheitentry [ label="{schoenheit-entry : LexicalEntry}" ]
+schoen_heit -> schoenheitentry [ label="target" ] 
+schoen_heit [ label="{schoen_heit : WordFormationRelation}" ]
+}

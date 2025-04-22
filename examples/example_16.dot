@@ -1,0 +1,25 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+prsactind2sg [ label="{prs.act.ind.2.sg}" ]
+rumpis_form -> prsactind2sg [ label="grammaticalMeaning" ] 
+rumpis_form [ label="{rumpis_form : Form|writtenRep=rumpis@la\lbaseType=PresentStem}" ]
+prfactind2sg [ label="{prf.act.ind.2.sg}" ]
+rupisti_form -> prfactind2sg [ label="grammaticalMeaning" ] 
+rupisti_form [ label="{rupisti_form : Form|writtenRep=rupisti@la\lbaseType=PerfectStem}" ]
+futactptcp [ label="{fut.act.ptcp}" ]
+ruptus_form -> futactptcp [ label="grammaticalMeaning" ] 
+ruptus_form [ label="{ruptus_form : Form|writtenRep=rupturus@la\lbaseType=ThirdStem}" ]
+}

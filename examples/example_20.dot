@@ -1,0 +1,23 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+node8fc [ label="{node8fc|source=$\ltarget=heit}" ]
+_heitrule -> node8fc [ label="replacement" ] 
+_heitmorph [ label="{_heit-morph}" ]
+_heitrule -> _heitmorph [ label="involves" ] 
+schoenheitentry [ label="{schoenheit-entry}" ]
+_heitrule -> schoenheitentry [ label="generates" ] 
+_heitrule [ label="{_heit-rule : DerivationRule}" ]
+}

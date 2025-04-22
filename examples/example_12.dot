@@ -1,0 +1,30 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+nodef6b [ label="{nodef6b|source=us$\ltarget=i}" ]
+gen_sg_rule -> nodef6b [ label="replacement" ] 
+secondDeclension [ label="{secondDeclension}" ]
+gen_sg_rule -> secondDeclension [ label="inflectionClass" ] 
+gensg [ label="{gen.sg}" ]
+gen_sg_rule -> gensg [ label="grammaticalMeaning" ] 
+i -> gensg [ label="grammaticalMeaning" ] 
+i [ label="{i : Affix}" ]
+gen_sg_rule -> i [ label="involves" ] 
+gen_sg_rule [ label="{gen_sg_rule : InflectionRule|example=lupi}" ]
+lupus_form [ label="{lupus_form}" ]
+lupus -> lupus_form [ label="canonicalForm" ] 
+lupus -> secondDeclension [ label="morphologicalPattern" ] 
+lupus [ label="{lupus : LexicalEntry}" ]
+}

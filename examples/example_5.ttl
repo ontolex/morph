@@ -1,0 +1,18 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix morph: <http://www.w3.org/ns/lemon/morph#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
+@prefix : <http://www.example.com/#> .:s_pl a ontolex:Affix ;
+    morph:grammaticalMeaning lexinfo:plural ;
+    morph:baseConstraint [
+      lexinfo:partOfSpeech lexinfo:noun  ] .
+
+:s_3sg a ontolex:Affix ;
+    morph:grammaticalMeaning :3.sg ;
+    morph:baseConstraint [
+      lexinfo:partOfSpeech lexinfo:verb ] .

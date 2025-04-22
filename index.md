@@ -99,14 +99,14 @@ The class **morph:Morph** provides a way to represent sub-word elements and atta
 
 <div class="entity">
 
-Morph (class)
+<class>Morph</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#Morph](http://www.w3.org/ns/lemon/morph#Morph)
 
 **morph:Morph** represents any element of morphological analysis below the word level.
 
 <div class="description">
-Subclass of `ontolex:LexicalEntry`
+<subclass>ontolex:LexicalEntry</subclass>
 </div>
 
 </div>
@@ -125,7 +125,7 @@ The property **morph:consistsOf** relates a form with the morphs from which it i
 
 <div class="entity">
 
-consistsOf (ObjectProperty)
+<objectProperty>consistsOf</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#consistsOf](http://www.w3.org/ns/lemon/morph#consistsOf)
 
@@ -133,15 +133,17 @@ Property **morph:consistsOf** states into which Morph resources a Form resource 
 
 <div class="description">
 
-Domain: ontolex:Form
+<domain>ontolex:Form</domain>
 
-Range: morph:Morph
+<range>morph:Morph</range>
 </div>
 </div>
 
 Here is a simple example of a segmentation of the English plural form *cats*:
 
 <aside class="example" title="Example: Segmentation of the English plural form cats">
+
+![Example 1](examples/example_1.png)
 
 ```turtle
 :cats a ontolex:Form ;
@@ -159,6 +161,8 @@ may be useful for many applications. To give this information, the morphs can
 be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 <aside class="example" title="Example: Ordered segmentation of the English plural form cats">
+
+![Example 2](examples/example_2.png)
 
 ```turtle
 :cats a ontolex:Form ;
@@ -183,7 +187,7 @@ The class **morph:GrammaticalMeaning** is used to gloss information associated w
 
 <div class="entity">
 
-GrammaticalMeaning (Class)
+<class>GrammaticalMeaning</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#GrammaticalMeaning](http://www.w3.org/ns/lemon/morph#GrammaticalMeaning)
 
@@ -201,7 +205,7 @@ The property **morph:grammaticalMeaning** relates an instance of the class `morp
 
 <div class="entity">
 
-grammaticalMeaning (ObjectProperty)
+<objectProperty>grammaticalMeaning</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#grammaticalMeaning](http://www.w3.org/ns/lemon/morph#grammaticalMeaning)
 
@@ -209,15 +213,17 @@ property **morph:grammaticalMeaning** assigns a grammatical meaning to a morph, 
 
 <div class="description">
 
-Domain: ontolex:Form or morph:Morph or morph:Rule
+<domain>ontolex:Form or morph:Morph or morph:Rule</domain>
 
-Range: morph:GrammaticalMeaning
+<range>morph:GrammaticalMeaning</range>
 </div>
 </div>
 
 For instance, we can update the previous example of the English plural form *cats*, and add the assignment of grammatical meaning to the form and to the corresponding plural morph, which can be expressed in this way.
 
 <aside class="example" title="Example: Segmentation of the English plural form 'cats'">
+
+![Example 3](examples/example_3.png)
 
 ```turtle
 :cats a ontolex:Form ;
@@ -238,8 +244,10 @@ For example, in the Latin form *lupus*, nominative case and singular number are 
 
 <aside class="example" title="Example: Segmentation of the Latin nominative singular form 'lupus'">
 
+![Example 4](examples/example_4.png)
+
 ```turtle
-:lupus a ontolex:Form
+:lupus a ontolex:Form ;
     ontolex:writtenRep "lupus"@la ;
     morph:grammaticalMeaning :nom.sg ;
     morph:consistsOf :lup , :us .
@@ -268,7 +276,7 @@ The property **morph:baseConstraint** is used to encode information about morpho
 
 <div class="entity">
 
-baseConstraint (ObjectProperty)
+<objectProperty>baseConstraint</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#baseConstraint](http://www.w3.org/ns/lemon/morph#baseConstraint)
 
@@ -276,9 +284,9 @@ baseConstraint (ObjectProperty)
 
 <div class="description">
 
-Domain: ontolex:Morph or morph:Rule
+<domain>ontolex:Morph or morph:Rule</domain>
 
-Range: morph:GrammaticalMeaning
+<range>morph:GrammaticalMeaning</range>
 </div>
 </div>
 
@@ -287,6 +295,8 @@ For example, an element for nominal inflection can only be applied to nouns, and
 As a concrete example, the fact that the English affix -s expresses plural number if attached to nouns, and 3rd person singular agreement if attached to verbs, can be coded as follows using morph:baseConstraint.
 
 <aside class="example" title="Example: Base constraints for the English affix -s">
+
+![Example 5](examples/example_5.png)
 
 ```turtle
 :s_pl a ontolex:Affix ;
@@ -310,7 +320,7 @@ This property is necessary both to represent this information for manual consump
 
 <div class="entity">
 
-baseForm (ObjectProperty)
+<objectProperty>baseForm</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#baseForm](http://www.w3.org/ns/lemon/morph#baseForm)
 
@@ -318,9 +328,11 @@ baseForm (ObjectProperty)
 
 <div class="description">
 
-Domain: `ontolex:Word`
+<domain>ontolex:Word</domain>
 
-Range: `ontolex:Form`
+<range>ontolex:Form</range>
+
+<subproperty>ontolex:lexicalForm</subproperty>
 </div>
 </div>
 
@@ -329,7 +341,9 @@ One example is German verbal inflection (e.g., for `gehen` "to go"), where the c
 </section>
 </section>
 
-<aside class="Example" title="Example: Base form for the German verb 'gehen'">
+<aside class="example" title="Example: Base form for the German verb 'gehen'">
+
+![Example 6](examples/example_6.png)
 
 ```turtle
 :gehen a ontolex:LexicalEntry ;
@@ -363,7 +377,7 @@ In order to keep the model from becoming too complex, **one rule** is associated
 
 <div class="entity">
 
-Rule (Class)
+<class>Rule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#Rule](http://www.w3.org/ns/lemon/morph#Rule)
 
@@ -382,7 +396,7 @@ The property **morph:example** provides a way to link a rule to an example of a 
 
 <div class="entity">
 
-example (DatatypeProperty)
+<dataProperty>example</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#example](http://www.w3.org/ns/lemon/morph#example)
 
@@ -390,13 +404,15 @@ example (DatatypeProperty)
 
 <div class="description">
 
-Domain: morph:Rule
+<domain>morph:Rule</domain>
 
-Range: string literal
+<range>rdf:langString</range>
 </div>
 </div>
 
 <aside class="example" title="Example: A rule showing lenition in Irish">
+
+![Example 7](examples/example_7.png)
 
 ```turtle
 :lenition_rule a morph:Rule ;
@@ -415,7 +431,7 @@ zero or more characters by other characters.
 
 <div class="entity">
 
-Replacement (Class)
+<class>Replacement</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#Replacement](http://www.w3.org/ns/lemon/morph#Replacement)
 
@@ -429,7 +445,7 @@ Morph module does not limit the exact way to represent these transformations sin
 
 <div class="entity">
 
-replacement (DatatypeProperty)
+<dataProperty>replacement</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#replacement](http://www.w3.org/ns/lemon/morph#replacement)
 
@@ -437,9 +453,7 @@ replacement (DatatypeProperty)
 
 <div class="description">
 
-Domain: morph:Rule
-
-Range: any URI
+<domain>morph:Rule</domain>
 </div>
 
 </div>
@@ -449,7 +463,7 @@ The class **morph:RegexReplacement** is used to describe a morphological transfo
 
 <div class="entity">
 
-RegexReplacement (Class)
+<class>RegexReplacement</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#RegexReplacement](http://www.w3.org/ns/lemon/morph#RegexReplacement)
 
@@ -461,24 +475,24 @@ The source and the target for the substitution are expressed with the properties
 
 <div class="entity">
 
-source (DatatypeProperty)
+<dataProperty>source</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#source](http://www.w3.org/ns/lemon/morph#source)
 
-**morph:source**: A string which is used as a basis for the subsitution
+**morph:source**: A string which is used as a basis for the substitution
 
 <div class="description">
 
-Domain: morph:RegexReplacement
+<domain>morph:RegexReplacement</domain>
 
-Range: string literal
+<range>xsd:string</range>
 </div>
 </div>
 
 
 <div class="entity">
 
-target (DatatypeProperty)
+<dataProperty>target</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#target](http://www.w3.org/ns/lemon/morph#target)
 
@@ -486,13 +500,15 @@ target (DatatypeProperty)
 
 <div class="description">
 
-Domain: morph:RegexReplacement
+<domain>morph:RegexReplacement</domain>
 
-Range: string literal
+<range>xsd:string</range>
 </div>
 </div>
 
 <aside class="example" title="A rule for forming a genitive singular form of Latin word lupus">
+
+![Example 8](examples/example_8.png)
 
 ```turtle
 :gen_sg_rule a morph:Rule ;
@@ -510,12 +526,14 @@ The target can use backreferences (`\1`) to refer to the captured groups in the 
 
 <aside class="example" title="Formation of German perfect forms">
 
+![Example 9](examples/example_9.png)
+
 ```turtle
 :perfect_rule a morph:Rule ;
     morph:replacement [
         a morph:RegexReplacement ;
         morph:source "^(.*)en$" ;
-        morph:target "ge\1t" ;
+        morph:target "ge\\1t" ;
     ] .
 ```
 
@@ -539,7 +557,7 @@ It is often desirable to preserve information about which rules were used for a 
 
 <div class="entity">
 
-involves (ObjectProperty)
+<objectProperty>involves</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#involves](http://www.w3.org/ns/lemon/morph#involves)
 
@@ -547,20 +565,22 @@ involves (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:Rule
+<domain>morph:Rule</domain>
 
-Range: morph:Morph
+<range>morph:Morph</range>
 </div>
 </div>
  
 <aside class="example" title="Example: Inflection of the German verb 'aufstehen' in the perfect tense">
+
+![Example 10](examples/example_10.png)
 
 ```turtle
 :aufgestanden a ontolex:Form ;
     morph:consistsOf :auf , :ge, :stand , :en .
 
 :perfect_tense_rule a morph:Rule ;
-    morph:involves :auf, :ge, :stand, :en ;
+    morph:involves :auf, :ge, :stand, :en .
 ```
 
 </aside>
@@ -587,7 +607,7 @@ modelling inflection.
 
 <div class="entity">
 
-InflectionRule (Class)
+<class>InflectionRule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#InflectionRule](http://www.w3.org/ns/lemon/morph#InflectionRule)
 
@@ -607,7 +627,7 @@ Range: morph:InflectionRule
 
 <div class="entity">
 
-InflectionClass (Class)
+<class>InflectionClass</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#InflectionClass](http://www.w3.org/ns/lemon/morph#InflectionClass)
 
@@ -620,7 +640,7 @@ The link between inflection classes and lexical entries is not defined in OntoLe
 
 <div class="entity">
 
-inflectionClass (ObjectProperty)
+<objectProperty>inflectionClass</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#inflectionClass](http://www.w3.org/ns/lemon/morph#inflectionClass)
 
@@ -628,9 +648,9 @@ inflectionClass (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:InflectionRule
+<domain>morph:InflectionRule</domain>
 
-Range: morph:InflectionClass
+<range>morph:InflectionClass</range>
 </div>
 </div>
 
@@ -640,9 +660,11 @@ In a fusional language like Latin, there is no need to have different inflection
 
 <aside class="example" title="Example: Generation of the genitive singular form 'lupi'">
 
+![Example 11](examples/example_11.png)
+
 ```turtle
 :lupi a ontolex:Form ;
-    ontolex writtenRep "lupi"@la ;
+    ontolex:writtenRep "lupi"@la ;
     morph:grammaticalMeaning :gen.sg ;
     morph:consistsOf :lup , :i .
 ```
@@ -655,7 +677,7 @@ Inflection slots are used in agglutinative languages to represent the different 
 
 <div class="entity">
 
-InflectionSlot (Class)
+<class>InflectionSlot</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#InflectionSlot](http://www.w3.org/ns/lemon/morph#InflectionSlot)
 
@@ -669,18 +691,17 @@ For agglutinative languages like Finno-Ugric, Turkic and many more, each grammat
 
 <div class="entity">
 
-inflectionSlot (ObjectProperty)
+<objectProperty>inflectionSlot</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#inflectionSlot](http://www.w3.org/ns/lemon/morph#inflectionSlot)
-
 
 **morph:inflectionSlot** links an inflection rule to the slot it pertains to
 
 <div class="description">
 
-Domain: morph:InflectionRule
+<domain>morph:InflectionRule</domain>
 
-Range: morph:InflectionSlot
+<range>morph:InflectionSlot</range>
 </div>
 </div>
 
@@ -689,7 +710,7 @@ In order to set the order of morphs and also simplify the process of form genera
 
 <div class="entity">
 
-next (ObjectProperty)
+<objectProperty>next</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#next](http://www.w3.org/ns/lemon/morph#next)
 
@@ -697,15 +718,17 @@ next (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:InflectionSlot
+<domain>morph:InflectionSlot</domain>
 
-Range: morph:InflectionSlot
+<range>morph:InflectionSlot</range>
 </div>
 </div>
 
 The example below illustrates the modelling of inflection classes and rules for the generation of the genitive singular of *lupus* in Latin.
 
 <aside class="example" title="Example: Inflection rules for the genitive singular of 'lupus' in Latin">
+
+![Example 12](examples/example_12.png)
 
 ```turtle
 :lupus a ontolex:LexicalEntry ;
@@ -729,6 +752,8 @@ The example below illustrates the modelling of inflection classes and rules for 
 On the other hand, in an agglutinative language like Turkish, it is useful to define separate inflection slots for each morphosyntactic feature, and separate inflection rules for each inflection slot, as illustrated in the example below. 
 
 <aside class="example" title="Example: Inflection rules for the accusative plural of words that inflect like 'adam' in Turkish">
+
+![Example 13](examples/example_13.png)
 
 ```turtle
 :adam a ontolex:LexicalEntry ;
@@ -793,10 +818,14 @@ In the case of the example above, the successive application of the two appropri
 
 <aside class="example" title="Example: Generation of the accusative plural form 'adamlar'">
 
+![Example 14](examples/example_14.png)
+
 ```turtle
 :adamlari a ontolex:Form ;
-  ontolex writtenRep "adamlari"@tur ;
-  morph:grammaticalMeaning [ lexinfo:accusative , lexinfo:plural ] ;
+  ontolex:writtenRep "adamlari"@tr ;
+  morph:grammaticalMeaning [ 
+    lexinfo:case lexinfo:accusative ;
+    lexinfo:number lexinfo:plural ] ;
   morph:consistsOf :adam , :lar , :i .
 ```
 </aside>
@@ -811,7 +840,7 @@ In many cases, the inflectional paradigm of a single lexical entry involves diff
 
 <div class="entity">
 
-baseType (DatatypeProperty)
+<dataProperty>baseType</dataProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#baseType](http://www.w3.org/ns/lemon/morph#baseType)
 
@@ -819,9 +848,9 @@ baseType (DatatypeProperty)
 
 <div class="description">
 
-Domain: ontolex:Form or morph:InflectionRule
+<domain>ontolex:Form or morph:InflectionRule</domain>
 
-Range: literal
+<range>xsd:string</range>
 </div>
 </div>
 
@@ -835,10 +864,12 @@ This can be modelled with OntoLex-Morph as follows:
 
 <aside class="example" title="Example: Base types for the Latin verb 'rumpo'">
 
+![Example 15](examples/example_15.png)
+
 ```turtle
 :rumpo a ontolex:LexicalEntry ;
     ontolex:canonicalForm :rumpo_form ;
-    ontolex:baseForm :rupi_form , :ruptum_form .
+    ontolex:baseForm :rupi_form , :ruptum_form ;
     ontolex:morphologicalPattern :ThirdConjugation .
 
 :rumpo_form a ontolex:Form ;
@@ -856,25 +887,25 @@ This can be modelled with OntoLex-Morph as follows:
     morph:grammaticalMeaning :sup.acc ;
     morph:baseType "ThirdStem" .
 
-prs_act_ind_2_sg_rule a morph:InflectionRule ;
+:prs_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpis" ;
-    morph:replacement ? ;
-    morph:inflectionClass :thirdConjugation
+    morph:replacement "?" ;
+    morph:inflectionClass :thirdConjugation ;
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
     morph:involves :it ;
     morph:baseType "PresentStem" .
 
-prf_act_ind_2_sg_rule a morph:InflectionRule ;
+:prf_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpisti" ;
-    morph:replacement ? ;
+    morph:replacement "?" ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
     morph:involves :isti ;
     morph:baseType "PerfectStem" .
 
-fut_act_ptcp_rule a morph:InflectionRule ;
+:fut_act_ptcp_rule a morph:InflectionRule ;
     morph:example "rupturus" ;
-    morph:replacement ? ;
+    morph:replacement "?" ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :fut.act.ptcp ;
     morph:involves :urus ;
@@ -886,6 +917,8 @@ Note that the inflection rules operating on the perfect and third stem are not o
 By applying these rules, the following forms can be generated:
 
 <aside class="example" title="Example: Generation of the Latin verb forms *rumpis*, *rupisti*, *rupturus*">
+
+![Example 16](examples/example_16.png)
 
 ```turtle
 :rumpis_form a ontolex:Form ;
@@ -938,7 +971,7 @@ Since word formation relations are relations between different lexical entries, 
 
 <div class="entity">
 
-WordFormationRelation (Class)
+<class>WordFormationRelation</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#WordFormationRelation](http://www.w3.org/ns/lemon/morph#WordFormationRelation)
 
@@ -946,7 +979,7 @@ WordFormationRelation (Class)
 
 <div class="description">
 
-Subclass of: vartrans:LexicalRelation
+<subclass>vartrans:LexicalRelation</sub>
 
 </div>
 </div>
@@ -955,10 +988,12 @@ Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be
 
 <aside class="example" title="Example: Derivation of the German noun *Schönheit*">
 
+![Example 17](examples/example_17.png)
+
 ```turtle
 :schoenheit-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "Schönheit"@de ].
-:schoen-entry a ontolex:LexicalEntry.
+:schoen-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "schön"@de ].
 :schoen_heit a morph:WordFormationRelation;
              vartrans:source :schoen-entry;
@@ -975,7 +1010,7 @@ Since, by definition, compounds have more than one base, there will also be more
 
 <div class="entity">
 
-CompoundRelation (Class)
+<class>CompoundRelation</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#CompoundRelation](http://www.w3.org/ns/lemon/morph#CompoundRelation)
 
@@ -983,7 +1018,7 @@ CompoundRelation (Class)
 
 <div class="description">
 
-Subclass of: morph:WordFormationRelation
+<subclass>morph:WordFormationRelation</subclass>
 
 </div>
 
@@ -993,7 +1028,7 @@ Furthermore, compounds can have a head -- i.e., a constituent that imposes its m
 
 <div class="entity">
 
-CompoundHead (Class)
+<class>CompoundHead</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#CompoundHead](http://www.w3.org/ns/lemon/morph#CompoundHead)
 
@@ -1001,7 +1036,7 @@ CompoundHead (Class)
 
 <div class="description">
 
-Subclass of: morph:CompoundRelation
+<subclass>morph:CompoundRelation</subclass>
 
 </div>
 
@@ -1014,12 +1049,14 @@ Accordingly, the morphological derivation of Italian *capostazione* 'station mas
 
 <aside class="example" title="Example: Derivation of the Italian noun *capostazione*">
 
+![Example 18](examples/example_18.png)
+
 ```turtle
 :capostazione-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "capostazione"@it ].
-:capo-entry a ontolex:LexicalEntry.
+:capo-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "capo"@it ].
-:stazione-entry a ontolex:LexicalEntry.
+:stazione-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "stazione"@it ].
 :capo-capostazione a morph:CompoundHead;
              vartrans:source :capo-entry;
@@ -1037,14 +1074,14 @@ Like inflection rules, word formation rules can take as input either the canonic
 
 <div class="entity">
 
-WordFormationRule (Class)
+<class>WordFormationRule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#WordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
 
 **morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain another, target LexicalEntry .
 
 <div class="description">
-Subclass of: morph:Rule
+<subclass>morph:Rule</sub>
 </div>
 
 </div>
@@ -1053,7 +1090,7 @@ Word formation rules can also be related to the word formation relations existin
 
 <div class="entity">
 
-wordFormationRule (ObjectProperty)
+<objectProperty>wordFormationRule</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#wordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
 
@@ -1061,9 +1098,9 @@ wordFormationRule (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:WordFormationRelation
+<domain>morph:WordFormationRelation</domain>
 
-Range: morph:WordFormationRule
+<range>morph:WordFormationRule</range>
 
 </div>
 </div>
@@ -1072,7 +1109,7 @@ Unlike inflection rules, word formation rules generate lexical entries rather th
 
 <div class="entity">
 
-generates (ObjectProperty)
+<objectProperty>generates</objectProperty>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#generates](http://www.w3.org/ns/lemon/morph#generates)
 
@@ -1080,9 +1117,9 @@ generates (ObjectProperty)
 
 <div class="description">
 
-Domain: morph:WordFormationRule
+<domain>morph:WordFormationRule</domain>
 
-Range: ontolex:LexicalEntry
+<range>ontolex:LexicalEntry</range>
 
 </div>
 </div>
@@ -1090,6 +1127,8 @@ Range: ontolex:LexicalEntry
 Accordingly, if one wanted to express the formal operation involved in the morphological derivation of German *Schönheit* 'beauty', this can be done as follows:
 
 <aside class="example" title="Example: Formal operation involved in the derivation of the German noun *Schönheit*">
+
+![Example 19](examples/example_19.png)
 
 ```turtle
 
@@ -1115,7 +1154,7 @@ In derivation rules, lexemes are obtained from a single base through the additio
 
 <div class="entity">
 
-DerivationRule (Class)
+<class>DerivationRule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
 
@@ -1123,7 +1162,7 @@ DerivationRule (Class)
 
 <div class="description">
 
-subClassOf: morph:WordFormationRule
+<subclass>morph:WordFormationRule</subclass>
 
 </div>
 
@@ -1133,7 +1172,7 @@ In compounding rules, two different bases are combined to obtain a new lexeme, p
 
 <div class="entity">
 
-CompoundingRule (Class)
+<class>CompoundingRule</class>
 
 **URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
 
@@ -1141,7 +1180,7 @@ CompoundingRule (Class)
 
 <div class="description">
 
-subClassOf: morph:WordFormationRule
+<subclass>morph:WordFormationRule</subclass>
 
 </div>
 
@@ -1150,6 +1189,8 @@ subClassOf: morph:WordFormationRule
 To illustrate the usage of `morph:DerivationRule`, the reader is referred to the example given above for word formation rules: indeed, the rule used there can be assigned to the more specific class for derivation rules, with every other assertion remaining unchanged as this class is a sub-class of `morph:WordFormationRule`.
 
 <aside class="example" title="Example: Rule for German 'Schönheit' as an instance of morph:DerivationRule">
+
+![Example 20](examples/example_20.png)
 
 ```turtle
 
@@ -1168,13 +1209,15 @@ As for compounding, the example below illustrates the modelling of a rule involv
 
 <aside class="example" title="Example: Rules for Dutch 'schaapskop'">
 
+![Example 21](examples/example_21.png)
+
 ```turtle
 
 :schaapskop-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "schaapskop"@nl ].
-:schaap-entry a ontolex:LexicalEntry.
+:schaap-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "schaap"@nl ].
-:kop-entry a ontolex:LexicalEntry.
+:kop-entry a ontolex:LexicalEntry;
              ontolex:canonicalForm [ ontolex:writtenRep "kop"@nl ].
 :schaap-schaapskop a morph:WordFormationRelation;
              vartrans:source :schaap-entry;
@@ -1186,7 +1229,7 @@ As for compounding, the example below illustrates the modelling of a rule involv
              morph:wordFormationRule :NN-rule.
 :NN-rule a morph:WordFormationRule;
             morph:replacement [
-		        ??? (MP: here it is not clear to me how to implement the replacement with concatenation of both bases, I leave it to be discussed in the next meeting)
+		        # ??? (MP: here it is not clear to me how to implement the replacement with concatenation of both bases, I leave it to be discussed in the next meeting)
 			    ] ;
             morph:involves :_s-morph;
             morph:generates :schaapskop-entry.

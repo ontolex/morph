@@ -1,0 +1,31 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+nodee85 [ label="{nodee85|writtenRep=capo@it}" ]
+capoentry -> nodee85 [ label="canonicalForm" ] 
+capoentry [ label="{capo-entry : LexicalEntry}" ]
+capocapostazione -> capoentry [ label="source" ] 
+nodee85 [ label="{nodee85|writtenRep=capostazione@it}" ]
+capostazioneentry -> nodee85 [ label="canonicalForm" ] 
+capostazioneentry [ label="{capostazione-entry : LexicalEntry}" ]
+capocapostazione -> capostazioneentry [ label="target" ] 
+capocapostazione [ label="{capo-capostazione : CompoundHead}" ]
+nodee85 [ label="{nodee85|writtenRep=stazione@it}" ]
+stazioneentry -> nodee85 [ label="canonicalForm" ] 
+stazioneentry [ label="{stazione-entry : LexicalEntry}" ]
+stazionecapostazione -> stazioneentry [ label="source" ] 
+stazionecapostazione -> capostazioneentry [ label="target" ] 
+stazionecapostazione [ label="{stazione-capostazione : CompoundRelation}" ]
+}

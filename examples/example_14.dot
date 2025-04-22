@@ -1,0 +1,29 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+accusative [ label="{accusative}" ]
+noded03 -> accusative [ label="case" ] 
+plural [ label="{plural}" ]
+noded03 -> plural [ label="number" ] 
+noded03 [ label="{noded03}" ]
+adamlari -> noded03 [ label="grammaticalMeaning" ] 
+adam [ label="{adam}" ]
+adamlari -> adam [ label="consistsOf" ] 
+lar [ label="{lar}" ]
+adamlari -> lar [ label="consistsOf" ] 
+i [ label="{i}" ]
+adamlari -> i [ label="consistsOf" ] 
+adamlari [ label="{adamlari : Form|writtenRep=adamlari@tr}" ]
+}
