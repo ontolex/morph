@@ -541,11 +541,11 @@ The target can use backreferences (`\1`) to refer to the captured groups in the 
 
 In the above example, the source string `^(.*)en$` captures the stem of the verb, which is then used in the target string `ge\1t` to form the perfect tense of the verb. The `ge` prefix is added to the stem, and the `t` suffix is added to indicate the perfect tense such as *gemacht* "done" from *machen* "to do".
 
-<div class="note">
+<!--<div class="note">
 TO DISCUSS: RDF 1.1 recommends NFC normalization for all entities.
 
 Unless specified otherwise (in the documentation of a resource), implementations SHOULD provide NFD-normalized Unicode strings for `morph:source` and `morph:target`, so that diacritics are separated from the base character as combining characters. This is a best practice that simplifies the writing of rules in many cases, as diacritic and base characters can be manipulated independently from each other.
-<div>
+<div>-->
 
 </section>
 
