@@ -706,7 +706,7 @@ For agglutinative languages like Finno-Ugric, Turkic and many more, each grammat
 </div>
 
 
-In order to set the order of morphs and also simplify the process of form generation, the property `morph:next` points from one InflectionSlot to the next.
+In order to set the order of morphs and also simplify the process of form generation, the property `morph:next` points from one `morph:InflectionRule` to the next.
 
 <div class="entity">
 
@@ -714,13 +714,14 @@ In order to set the order of morphs and also simplify the process of form genera
 
 **URI:** [http://www.w3.org/ns/lemon/morph#next](http://www.w3.org/ns/lemon/morph#next)
 
-**morph:next** links two consecutive inflection types (“slots”), e.g. number and case in Finnish
+**morph:next** links two consecutive inflection rules. The object rule can be applied
+after the first rule has been applied.
 
 <div class="description">
 
-<domain>morph:InflectionSlot</domain>
+<domain>morph:InflectionRule</domain>
 
-<range>morph:InflectionSlot</range>
+<range>morph:InflectionRule</range>
 </div>
 </div>
 
@@ -770,7 +771,8 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
         morph:target ""@tur ;
     ] ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
-    morph:inflectionSlot :number_slot .
+    morph:inflectionSlot :number_slot ;
+    morph:next :acc_rule .
 
 :pl_rule a morph:InflectionRule ;
     morph:example "adamlar"@tur ;
@@ -781,7 +783,8 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:involves :lar ;
-    morph:inflectionSlot :number_slot . 
+    morph:inflectionSlot :number_slot ;
+    morph:next :acc_rule .
 
 :acc_rule a morph:InflectionRule ;
     morph:example "adami" ;
@@ -795,13 +798,16 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
     morph:inflectionSlot :case_slot .
 
 :number_slot a morph:InflectionSlot ;
-    rdfs:comment "slot for number in Turkish nominal inflection" ;
-    morph:next :case_slot .
+    rdfs:comment "slot for number in Turkish nominal inflection" .
 
 :case_slot a morph:InflectionSlot ;
     rdfs:comment "slot for case in Turkish nominal inflection" .
 ```
 </aside>
+
+<div class="note">
+TODO: Revise text based on if slots are removed
+</div>
 
 In order to generate forms of the entry `:adam`, all the rules associated with the corresponding morphological pattern must first be extracted, namely `sg_rule`, `pl_rule`, and `acc_rule`. Next, it establishes the order of inflection slots mentioned in the rules (by looking for the slot that is not used as an object in a `morph:next` property).
 
@@ -814,7 +820,7 @@ It is also possible to create Morph elements during generation in case they are 
 
 <div class="note">In case there are no inflection slots in the rules, the generation proceeds without using them.</div>
 
-In the case of the example above, the successive application of the two appropriate rules for accusative and plural formation -- in the order established by the use of the morph:next property -- allows for the generation of the accusative plural form as follows:
+In the case of the example above, the successive application of the two appropriate rules for accusative and plural formation -- in the order established by the use of the `morph:next` property -- allows for the generation of the accusative plural form as follows:
 
 <aside class="example" title="Example: Generation of the accusative plural form 'adamlar'">
 
