@@ -1051,7 +1051,7 @@ Furthermore, compounds can have a head -- i.e., a constituent that imposes its m
 
 </section>
 
-Accordingly, the morphological derivation of Italian *capostazione* 'station mastes' (from *capo* 'head'  + *stazione* 'station') can be encoded as follows:
+Accordingly, the morphological derivation of Italian *capostazione* 'station master' (from *capo* 'head'  + *stazione* 'station') can be encoded as follows:
 
 <aside class="example" title="Example: Derivation of the Italian noun *capostazione*">
 
@@ -1084,7 +1084,7 @@ Like inflection rules, word formation rules can take as input either the canonic
 
 **URI:** [http://www.w3.org/ns/lemon/morph#WordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
 
-**morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain another, target LexicalEntry .
+**morph:WordFormationRule** represents the formal operation applied to a base form of a source LexicalEntry to obtain the (canonical) form of another, target LexicalEntry .
 
 <div class="description">
 <subclass>morph:Rule</sub>
@@ -1100,7 +1100,7 @@ Word formation rules can also be related to the word formation relations existin
 
 **URI:** [http://www.w3.org/ns/lemon/morph#wordFormationRule](http://www.w3.org/ns/lemon/morph#WordFormationRule)
 
-**morph:wordFormationRule** relates a word formation relation to the word formation rule that is applied to the source lexical entry in order to obtain the target lexical entry.
+**morph:wordFormationRule** relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry.
 
 <div class="description">
 
@@ -1111,7 +1111,7 @@ Word formation rules can also be related to the word formation relations existin
 </div>
 </div>
 
-Unlike inflection rules, word formation rules generate lexical entries rather than forms -- this can be expressed through the property `morph:generates`.
+Word formation rules generate (canonical) forms of lexical entries rather than forms -- this can be expressed through the property `morph:generates`.
 
 <div class="entity">
 
@@ -1125,7 +1125,7 @@ Unlike inflection rules, word formation rules generate lexical entries rather th
 
 <domain>morph:WordFormationRule</domain>
 
-<range>ontolex:LexicalEntry</range>
+<range>ontolex:Form</range>
 
 </div>
 </div>
@@ -1148,7 +1148,7 @@ Accordingly, if one wanted to express the formal operation involved in the morph
 		        morph:target "heit" ;
 			    ] ;
             morph:involves :_heit-morph;
-            morph:generates :schoenheit-entry.
+            morph:generates :schoenheit-form.
 :_heit-morph a morph:Morph;
             ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
 
@@ -1164,7 +1164,7 @@ In derivation rules, lexemes are obtained from a single base through the additio
 
 **URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
 
-**morph:DerivationRule** refers to rules that take one LexicalEntry as input and generate another LexicalEntry as output through the addition of one or more derivational affix(es).
+**morph:DerivationRule** refers to rules that take the base form of one LexicalEntry as input and generate the (canonical) form of another LexicalEntry as output through the addition of one or more derivational affix(es).
 
 <div class="description">
 
@@ -1182,7 +1182,7 @@ In compounding rules, two different bases are combined to obtain a new lexeme, p
 
 **URI:** [http://www.w3.org/ns/lemon/morph#DerivationRule](http://www.w3.org/ns/lemon/morph#DerivationRule)
 
-**morph:CompoundingRule** refers to rules that take more than one LexicalEntry as input to generate the output LexicalEntry.
+**morph:CompoundingRule** refers to rules that take the base form of more than one LexicalEntry as input to generate the (canonical) form of the output LexicalEntry.
 
 <div class="description">
 
@@ -1206,7 +1206,7 @@ To illustrate the usage of `morph:DerivationRule`, the reader is referred to the
 		        morph:target "heit" ;
 			    ] ;
             morph:involves :_heit-morph;
-            morph:generates :schoenheit-entry.
+            morph:generates :schoenheit-form.
 
 ```
 </aside>
@@ -1238,7 +1238,7 @@ As for compounding, the example below illustrates the modelling of a rule involv
 		        # ??? (MP: here it is not clear to me how to implement the replacement with concatenation of both bases, I leave it to be discussed in the next meeting)
 			    ] ;
             morph:involves :_s-morph;
-            morph:generates :schaapskop-entry.
+            morph:generates :schaapskop-form.
 :s-morph a morph:Morph;
             ontolex:lexicalForm [ ontolex:writtenRep "-s"@nl ].
 
