@@ -1119,7 +1119,7 @@ Word formation rules generate (canonical) forms of lexical entries rather than f
 
 **URI:** [http://www.w3.org/ns/lemon/morph#generates](http://www.w3.org/ns/lemon/morph#generates)
 
-**morph:generates** connects a word formation rule to the  lexical entries that are generated from it
+**morph:generates** connects a word formation rule to the (canonical) forms of lexical entries that are generated from it.
 
 <div class="description">
 
