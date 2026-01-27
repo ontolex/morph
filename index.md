@@ -39,14 +39,14 @@ date: 2024-12-03
 
  OntoLex-Morph has been designed with the premise to make OntoLex-lemon applicable to morphologically rich languages of any type, supporting both fusional and agglutinating morphology, and thereby contributing to a truly multilingual web.
 
-The RDF file with the OntoLex lemon lexicography module can be found at http://www.w3.org/ns/lemon/morph
+The RDF file with the OntoLex lemon lexicography module can be found at [http://www.w3.org/ns/lemon/morph](http://www.w3.org/ns/lemon/morph).
 </section>
 
 <section id="sotd">
 
 This document is an official report of the OntoLex community group. It does not represent the view of single individuals but reflects the consensus and agreement reached as part of the regular group discussions. The report should be regarded as the official specification of lemon.
 
-If you wish to make comments regarding this document, please send them to public-ontolex@w3.org (subscribe, archives).
+If you wish to make comments regarding this document, please send them to [public-ontolex@w3.org](mailto:public-ontolex@w3.org) (subscribe, archives).
 
 </section>
 
@@ -54,7 +54,7 @@ If you wish to make comments regarding this document, please send them to public
 
 ## Introduction
 
-Morphology is a vital and, in many languages, very sophisticated part of language, and as such it has been an important part of the work of lexicographers. In the traditional print form, morphological information is provided in brief abbreviated terms that can only be deciphered with significant knowledge of the language, however, digital dictionaries are capable of representing this information in a more structured and machine-readable way. The OntoLex-Morph module is designed to provide a way to represent morphological information in a structured way that is compatible with the OntoLex-Lemon model.
+Morphology is a vital and, in many languages, very sophisticated part of language, and as such it has been an important part of the work of lexicographers. In traditional print dictionaries, morphological information is provided in brief abbreviated terms that can only be deciphered with significant knowledge of the language, however, digital dictionaries are capable of representing this information in a more structured and machine-readable way. The OntoLex-Morph module is designed to provide a way to represent morphological information in a structured way that is compatible with the OntoLex-Lemon model.
 
 The morphology module aims at fulfilling two modelling purposes:
 
@@ -156,8 +156,9 @@ Here is a simple example of a segmentation of the English plural form *cats*:
 ```
 </aside>
 
-This representation does not give the order of the morphs within the word, which 
-may be useful for many applications. To give this information, the morphs can
+This representation does not give the order of the morphs within the word, which
+is enough for some cases (and even useful when the order may be considered ambiguous, e.g. with infixation).
+However, for many applications it is necessary to provide this information. To do so, the morphs can
 be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 <aside class="example" title="Example: Ordered segmentation of the English plural form cats">
@@ -201,7 +202,7 @@ The class **morph:GrammaticalMeaning** is used to gloss information associated w
 - can represent *either* an individual feature or a feature bundle
 </div> -->
 
-The property **morph:grammaticalMeaning** relates an instance of the class `morph:Morph` to an instance of the class `morph:GrammaticalMeaning`. In addition to morphs, the subject of this property can be a `ontolex:Form` as an aggregate of morphs or `morph:Rule` — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](http://www.w3.org/ns/lemon/morph#Rule).
+The property **morph:grammaticalMeaning** relates an instance of the class `morph:Morph` to an instance of the class `morph:GrammaticalMeaning`. In addition to morphs, the subject of this property can be a `ontolex:Form` as an aggregate of morphs or `morph:Rule` — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](#morphological-rules).
 
 <div class="entity">
 
@@ -373,7 +374,8 @@ Here are the 4 most common situations regarding when and how the generation happ
 3. Like in the previous case the lexicon has canonical forms and a set of rules but the user does not want to pre-generate the forms: the forms are generated on the fly, during or immediately after the querying step.
 4. This can also be a mixture of the two approaches: for most of the entries there are rules and no pre-generated forms, but for highly irregular forms, ones which require complex morphophonological transformations — the forms are pre-generated: the generation can be started offline or on-the-fly for the entries which have rules.
 
-In order to keep the model from becoming too complex, **one rule** is associated with exactly **one morph** and is used to describe the production of exactly **one form** (in case of inflection) **or** exactly **one lexical entry** (in case of derivation).
+In order to keep the model from becoming too complex, **one rule** represents an an atomic transformation and almost always corresponds to exactly **one morph** (except for e.g. circumfixes that are analysed as two separate morphs). For fusional languages like Latin, it is used to describe the production of exactly **one form** (in case of inflection) **or** exactly **one lexical entry** (in case of derivation). <!-- added a clarification about circumfix-like derivation -->
+This does not hold for agglutination, where one form is created by applying several rules (i.e. adding several suffixes). More details on this can be found in the section on [inflection slots](#inflection-slots).
 
 <div class="entity">
 
@@ -449,7 +451,7 @@ Morph module does not limit the exact way to represent these transformations sin
 
 **URI:** [http://www.w3.org/ns/lemon/morph#replacement](http://www.w3.org/ns/lemon/morph#replacement)
 
-**morph:replacement** states the replacement pattern that is involved in a morphological rule for the generation of a form
+**morph:replacement** states the replacement pattern that is involved in a morphological rule for the generation of a form.
 
 <div class="description">
 
@@ -467,7 +469,7 @@ The class **morph:RegexReplacement** is used to describe a morphological transfo
 
 **URI:** [http://www.w3.org/ns/lemon/morph#RegexReplacement](http://www.w3.org/ns/lemon/morph#RegexReplacement)
 
-**morph:RegexReplacement** can be used to represent the regular expression-based substitution that produces an inflected or derived surface form
+**morph:RegexReplacement** can be used to represent the regular expression-based substitution that produces an inflected or derived surface form.
 
 </div>
 
@@ -479,7 +481,7 @@ The source and the target for the substitution are expressed with the properties
 
 **URI:** [http://www.w3.org/ns/lemon/morph#source](http://www.w3.org/ns/lemon/morph#source)
 
-**morph:source**: A string which is used as a basis for the substitution
+**morph:source**: A string which is used as a basis for the substitution.
 
 <div class="description">
 
@@ -496,7 +498,7 @@ The source and the target for the substitution are expressed with the properties
 
 **URI:** [http://www.w3.org/ns/lemon/morph#target](http://www.w3.org/ns/lemon/morph#target)
 
-**morph:target**: A string template that denotes a target for the substitution
+**morph:target**: A string template that denotes a target for the substitution.
 
 <div class="description">
 
@@ -580,12 +582,12 @@ It is often desirable to preserve information about which rules were used for a 
     morph:consistsOf :auf , :ge, :stand , :en .
 
 :perfect_tense_rule a morph:Rule ;
-    morph:involves :auf, :ge, :stand, :en .
+    morph:involves :ge .
 ```
 
 </aside>
 
-TO DISCUSS: This doesn't work!
+<!-- TO DISCUSS: This doesn't work! MI: morph:involves was used incorrectly hence it didn't work -->
 
 <!-- <div class="note">
 Note that this does not encode order. <br/> MI: Each rule corresponds to exactly one Morph, so there is no need for ordering
@@ -597,7 +599,7 @@ Note that this does not encode order. <br/> MI: Each rule corresponds to exactly
 
 ## Generates
 
-Both inflection and word formation rules generate forms: inflection rules generate word forms of a lexical entries other than the canonical and/or base forms, while word formation rules generate the canonical form (or possibly also other forms) of a lexical entry from the base form of another, morphologically related lexical entry.
+Both inflection and word formation rules can be used to generate forms: inflection rules generate word forms of a lexical entries other than the canonical and/or base forms, while word formation rules generate the canonical form (or possibly also other forms) of a lexical entry from the base form of another, morphologically related lexical entry.
 The form generated by a rule can be specified using the property `morph:generates`.
 
 <div class="entity">
@@ -618,7 +620,7 @@ The form generated by a rule can be specified using the property `morph:generate
 
 <aside class="example" title="Example: Generation of German forms 'aufgestanden' and 'Schönheit'">
 
-![Example X](examples/example_10.png)
+![Example 11](examples/example_11.png)
 
 ```turtle
 
@@ -641,6 +643,12 @@ The form generated by a rule can be specified using the property `morph:generate
 
 ## Inflection
 
+Inflectional morphology is a part of morphological description concerned with different forms of the same lexemes, their syntagmatic properties, i.e. how they are formed and paradigmatic properties, i.e how they are grouped together according to the sets of their forms.
+OntoLex-Morph provides a way to express both:
+
+  - **Inflection rules**, modelled with a subclass of [morph:Rule](http://www.w3.org/ns/lemon/morph#Rule), provide a way to model a transformation that creates an inflected form from a canonical form or [another inflected form](#base-types).
+  - **Inflection class** groups together words that share the same paradigm, i.e. have exactly the same set of rules applied to it to produce all possible inflected forms.
+
 ### Inflection Rules
 
 Inflection rules are used to represent operations that create an inflected form
@@ -656,17 +664,22 @@ modelling inflection.
 
 **morph:InflectionRule** represents the formal operation applied to a base form of a LexicalEntry to obtain another inflected form of that LexicalEntry.
 
-**morph:inflectionRule** provides information on how to generate inflected forms and, in the case of a dataset with pre-generated forms, links these forms to InflectionRules that were used to generate them. If inflection slots were used, forms might have several rules attached to them.
+<!-- **morph:inflectionRule** provides information on how to generate inflected forms and, in the case of a dataset with pre-generated forms, links these forms to InflectionRules that were used to generate them. If inflection slots were used, forms might have several rules attached to them. -->
 
 <div class="description">
 
-Domain: ontolex:Form
+**Subclass of**: morph:Rule
 
-Range: morph:InflectionRule
+**Domain**: ontolex:Form
+
+**Range**: morph:InflectionRule
 </div>
 </div>
 
 ### Inflection Classes
+
+While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An **inflection class** is a group of lexemes that share the same pattern of inflected forms. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
+In practice, this means that they share the **rules** for generating inflected forms.
 
 <div class="entity">
 
@@ -677,9 +690,11 @@ Range: morph:InflectionRule
 **morph:InflectionClass** represents the inflection class to which a LexicalEntry belongs/is assigned -- e.g., the declension of a noun, or the conjugation of a verb.
 </div>
 
-It may contain metadata information about this type of declension.
+While theoretically inflection classes can vary in their level of unimorfity (cf. [Latin noun third declension] which has plenty of variation in endings), in OntoLex-Morph, an inflection class should not contain allomorphy, i.e. each noun belonging to the same inflection class should share all the possible endings (or apply the exactly the same set or rules).
 
-The link between inflection classes and lexical entries is not defined in OntoLex-Morph, but modelled using `ontolex:morphologicalPattern`.
+In addition, an instance of `morph:InflectionClass` may contain metadata information about this class.
+
+The link between lexical entries and the corresponding inflection classes is not defined in OntoLex-Morph, but modelled by reusing [`ontolex:morphologicalPattern`](https://www.w3.org/2016/05/ontolex/#morphological-pattern-object-property). Inflection rules are connected to their corresponding inflection classes via the property **morph:inflectionClass**.
 
 <div class="entity">
 
@@ -697,78 +712,11 @@ The link between inflection classes and lexical entries is not defined in OntoLe
 </div>
 </div>
 
-In the case of fusional morphology — languages like Greek, Latin or English — there is usually only one morph attached to a form that carries information about inflection. The situation is different for languages with agglutination, where each inflectional value is represented by its own morph. In order to represent this, the model has another class.
+<!-- In the case of fusional morphology — languages like Greek, Latin or English — there is usually only one morph attached to a form that carries information about inflection. The situation is different for languages with agglutination, where each inflectional value is represented by its own morph. In order to represent this, the model has another class.
 
-In a fusional language like Latin, there is no need to have different inflection slots: a single inflection rule (specific for the inflection class to which the lexical entry is assigned) allows for the generation of the genitive singular form as follows:
+In a fusional language like Latin, there is no need to have different inflection slots: a single inflection rule (specific for the inflection class to which the lexical entry is assigned) allows for the generation of the genitive singular form as follows: -->
 
-<aside class="example" title="Example: Generation of the genitive singular form 'lupi'">
-
-![Example 11](examples/example_11.png)
-
-```turtle
-:lupi a ontolex:Form ;
-    ontolex:writtenRep "lupi"@la ;
-    morph:grammaticalMeaning :gen.sg ;
-    morph:consistsOf :lup , :i .
-```
-</aside>
-
-<section id="inflection-slots">
-## Inflection Slots
-
-Inflection slots are used in agglutinative languages to represent the different grammatical categories that can be expressed by a single morph. In this case, the inflection rule is used to generate a form that is composed of several morphs, each of which corresponds to a different grammatical category. The inflection slots are used to specify the order in which the morphs are applied to the base form.
-
-<div class="entity">
-
-<class>InflectionSlot</class>
-
-**URI:** [http://www.w3.org/ns/lemon/morph#InflectionSlot](http://www.w3.org/ns/lemon/morph#InflectionSlot)
-
-
-**morph:InflectionSlot**  represents a single slot that can be filled with a morph of a corresponding grammatical category. Since one rule can introduce only one morph, inflection slots are necessary when we need to represent forms that are generated by several independent morphological processes.
-</div>
-
-<div class="note">
-For agglutinative languages like Finno-Ugric, Turkic and many more, each grammatical value that is encoded with a morph: e.g. number and case for Finnish nouns — is associated with a single slot. This way, there should be two separate rules for adding number and case morphs to form an inflected Finnish noun form.
-</div>
-
-<div class="entity">
-
-<objectProperty>inflectionSlot</objectProperty>
-
-**URI:** [http://www.w3.org/ns/lemon/morph#inflectionSlot](http://www.w3.org/ns/lemon/morph#inflectionSlot)
-
-**morph:inflectionSlot** links an inflection rule to the slot it pertains to
-
-<div class="description">
-
-<domain>morph:InflectionRule</domain>
-
-<range>morph:InflectionSlot</range>
-</div>
-</div>
-
-
-In order to set the order of morphs and also simplify the process of form generation, the property `morph:next` points from one `morph:InflectionRule` to the next.
-
-<div class="entity">
-
-<objectProperty>next</objectProperty>
-
-**URI:** [http://www.w3.org/ns/lemon/morph#next](http://www.w3.org/ns/lemon/morph#next)
-
-**morph:next** links two consecutive inflection rules. The object rule can be applied
-after the first rule has been applied.
-
-<div class="description">
-
-<domain>morph:InflectionRule</domain>
-
-<range>morph:InflectionRule</range>
-</div>
-</div>
-
-The example below illustrates the modelling of inflection classes and rules for the generation of the genitive singular of *lupus* in Latin.
+The example below illustrates the modelling of an inflection class and a rule for the generation of the genitive singular of *lupus* in Latin.
 
 <aside class="example" title="Example: Inflection rules for the genitive singular of 'lupus' in Latin">
 
@@ -793,11 +741,84 @@ The example below illustrates the modelling of inflection classes and rules for 
     morph:grammaticalMeaning :gen.sg .
 ```
 </aside>
-On the other hand, in an agglutinative language like Turkish, it is useful to define separate inflection slots for each morphosyntactic feature, and separate inflection rules for each inflection slot, as illustrated in the example below. 
+
+A tool or a service capable of applying these inflectional rules and generating forms according to them will generate the following triples:
+
+<aside class="example" title="Example: Generation of the genitive singular form 'lupi'">
+
+![Example 13](examples/example_13.png)
+
+```turtle
+:gen_sg_rule morph:generates :lupi .
+
+:lupi a ontolex:Form ;
+    ontolex:writtenRep "lupi"@la ;
+    morph:grammaticalMeaning :gen.sg ;
+    morph:consistsOf :lup , :i .
+```
+</aside>
+
+<section id="inflection-slots">
+## Inflection Slots
+
+Inflection slots are used when a form cannot be formed in just one step and requires two or more morphs to be added.
+The main application is for agglutinative languages where it is used to represent the different grammatical categories that can be expressed by a single morph. In this case, the inflection rule is used to generate a form that is composed of several morphs, each of which corresponds to a different grammatical category. The inflection slots are used to specify the order in which the morphs are applied to the base form.
+
+<div class="entity">
+
+<class>InflectionSlot</class>
+
+**URI:** [http://www.w3.org/ns/lemon/morph#InflectionSlot](http://www.w3.org/ns/lemon/morph#InflectionSlot)
+
+
+**morph:InflectionSlot**  represents a single slot that can be filled with a morph of a corresponding grammatical category. Since one rule can introduce only one morph, inflection slots are necessary when we need to represent forms that are generated by several independent morphological processes.
+</div>
+
+<div class="note">
+For agglutinative languages like Finno-Ugric, Turkic and many more, each grammatical value that is encoded with a morph: e.g. number and case for Finnish nouns — is associated with a single slot. This way, there should be two separate rules for each "cell" in the paradigm: adding number and case morphs to form an inflected Finnish noun form.
+</div>
+
+<div class="entity">
+
+<objectProperty>inflectionSlot</objectProperty>
+
+**URI:** [http://www.w3.org/ns/lemon/morph#inflectionSlot](http://www.w3.org/ns/lemon/morph#inflectionSlot)
+
+**morph:inflectionSlot** links an inflection rule to the slot it pertains to
+
+<div class="description">
+
+<domain>morph:InflectionRule</domain>
+
+<range>morph:InflectionSlot</range>
+</div>
+</div>
+
+
+In order to set the order of morphs, the property `morph:next` points from one `morph:InflectionSlot` to the next.
+
+<div class="entity">
+
+<objectProperty>next</objectProperty>
+
+**URI:** [http://www.w3.org/ns/lemon/morph#next](http://www.w3.org/ns/lemon/morph#next)
+
+**morph:next** links two consecutive inflection slots. Rules belonging to the object slot can be applied
+after the first rule has been applied.
+
+<div class="description">
+
+<domain>morph:InflectionSlot</domain>
+
+<range>morph:InflectionSlot</range>
+</div>
+</div>
+
+The example below demonstrates using inflection slots for number and case grammatical categories in Turkish.
 
 <aside class="example" title="Example: Inflection rules for the accusative plural of words that inflect like 'adam' in Turkish">
 
-![Example 13](examples/example_13.png)
+![Example 14](examples/example_14.png)
 
 ```turtle
 :adam a ontolex:LexicalEntry ;
@@ -814,8 +835,7 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
         morph:target ""@tur ;
     ] ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
-    morph:inflectionSlot :number_slot ;
-    morph:next :acc_rule .
+    morph:inflectionSlot :number_slot .
 
 :pl_rule a morph:InflectionRule ;
     morph:example "adamlar"@tur ;
@@ -826,8 +846,7 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:involves :lar ;
-    morph:inflectionSlot :number_slot ;
-    morph:next :acc_rule .
+    morph:inflectionSlot :number_slot .
 
 :acc_rule a morph:InflectionRule ;
     morph:example "adami" ;
@@ -841,6 +860,7 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
     morph:inflectionSlot :case_slot .
 
 :number_slot a morph:InflectionSlot ;
+    morph:next :case_slot ;
     rdfs:comment "slot for number in Turkish nominal inflection" .
 
 :case_slot a morph:InflectionSlot ;
@@ -848,11 +868,7 @@ On the other hand, in an agglutinative language like Turkish, it is useful to de
 ```
 </aside>
 
-<div class="note">
-TODO: Revise text based on if slots are removed
-</div>
-
-In order to generate forms of the entry `:adam`, all the rules associated with the corresponding morphological pattern must first be extracted, namely `sg_rule`, `pl_rule`, and `acc_rule`. Next, it establishes the order of inflection slots mentioned in the rules (by looking for the slot that is not used as an object in a `morph:next` property).
+In order to generate forms of the entry `:adam`, all the rules associated with the corresponding morphological pattern must first be extracted, namely `sg_rule`, `pl_rule`, and `acc_rule`. Next, we must establish the order of inflection slots mentioned in the rules (by looking for the slot that is not used as an object in a `morph:next` property).
 
 Then, for the first inflection slot the correct form is chosen. If there is a `morph:baseType` specified in the rule, the corresponding form is chosen. Otherwise, the canonical form is used.
 Finally, for each inflection slot, the transformation is applied. For the first slot the initial form is used, after that, the output of one transformation is used as an input for the next.
@@ -867,7 +883,7 @@ In the case of the example above, the successive application of the two appropri
 
 <aside class="example" title="Example: Generation of the accusative plural form 'adamlar'">
 
-![Example 14](examples/example_14.png)
+![Example 15](examples/example_15.png)
 
 ```turtle
 :adamlari a ontolex:Form ;
@@ -913,7 +929,7 @@ This can be modelled with OntoLex-Morph as follows:
 
 <aside class="example" title="Example: Base types for the Latin verb 'rumpo'">
 
-![Example 15](examples/example_15.png)
+![Example 16](examples/example_16.png)
 
 ```turtle
 :rumpo a ontolex:LexicalEntry ;
@@ -939,8 +955,8 @@ This can be modelled with OntoLex-Morph as follows:
 :prs_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpis" ;
     	    morph:replacement [
-	    :source "o$"
-	    :target "is"@la
+	    morph:source "o$" ;
+	    morph:target "is"@la ;
 	    ] ;
     morph:inflectionClass :thirdConjugation ;
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
@@ -949,8 +965,8 @@ This can be modelled with OntoLex-Morph as follows:
 :prf_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpisti" ;
     morph:replacement [
-	    :source "$"
-	    :target "sti"@la
+	    morph:source "$" ;
+	    morph:target "sti"@la ;
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
@@ -959,8 +975,8 @@ This can be modelled with OntoLex-Morph as follows:
 :fut_act_ptcp_rule a morph:InflectionRule ;
     morph:example "rupturus" ;
     morph:replacement [
-	    :source "m$"
-	    :target "rus"@la
+	    morph:source "m$" ;
+	    morph:target "rus"@la ;
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :fut.act.ptcp ;
@@ -973,7 +989,7 @@ By applying these rules, the following forms can be generated:
 
 <aside class="example" title="Example: Generation of the Latin verb forms *rumpis*, *rupisti*, *rupturus*">
 
-![Example 16](examples/example_16.png)
+![Example 17](examples/example_17.png)
 
 ```turtle
 :rumpis_form a ontolex:Form ;
@@ -1043,7 +1059,7 @@ Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be
 
 <aside class="example" title="Example: Derivation of the German noun *Schönheit*">
 
-![Example 17](examples/example_17.png)
+![Example 18](examples/example_18.png)
 
 ```turtle
 :schoenheit-entry a ontolex:LexicalEntry;
@@ -1104,7 +1120,7 @@ Accordingly, the morphological derivation of Italian *capostazione* 'station mas
 
 <aside class="example" title="Example: Derivation of the Italian noun *capostazione*">
 
-![Example 18](examples/example_18.png)
+![Example 19](examples/example_19.png)
 
 ```turtle
 :capostazione-entry a ontolex:LexicalEntry;
@@ -1164,7 +1180,7 @@ Accordingly, if one wanted to express the formal operation involved in the morph
 
 <aside class="example" title="Example: Formal operation involved in the derivation of the German noun *Schönheit*">
 
-![Example 19](examples/example_19.png)
+![Example 20](examples/example_20.png)
 
 ```turtle
 
@@ -1226,7 +1242,7 @@ To illustrate the usage of `morph:DerivationRule`, the reader is referred to the
 
 <aside class="example" title="Example: Rule for German 'Schönheit' as an instance of morph:DerivationRule">
 
-![Example 20](examples/example_20.png)
+![Example 21](examples/example_21.png)
 
 ```turtle
 
@@ -1241,31 +1257,32 @@ To illustrate the usage of `morph:DerivationRule`, the reader is referred to the
 ```
 </aside>
 
-As for compounding, the example below illustrates the modelling of a rule involving a linking element for Dutch *schaapskop* 'sheep head'.
+As for compounding, the modelling differs slightly to accommodate the ternary input for the rules. The example below illustrates the modelling of a rule involving a linking element for Dutch *schaapskop* 'sheep head'.
 
 <aside class="example" title="Example: Rules for Dutch 'schaapskop'">
 
-![Example 21](examples/example_21.png)
+![Example 22](examples/example_22.png)
 
 ```turtle
 
-:schaapskop-entry a ontolex:LexicalEntry;
-             ontolex:canonicalForm [ ontolex:writtenRep "schaapskop"@nl ].
-:schaap-entry a ontolex:LexicalEntry;
-             ontolex:canonicalForm [ ontolex:writtenRep "schaap"@nl ].
-:kop-entry a ontolex:LexicalEntry;
-             ontolex:canonicalForm [ ontolex:writtenRep "kop"@nl ].
-:schaap-schaapskop a morph:WordFormationRelation;
-             vartrans:source :schaap-entry;
-             vartrans:target :schaapskop-entry;
-             morph:wordFormationRule :NN-rule.
-:kop-schaapskop a morph:WordFormationRelation;
-             vartrans:source :kop-entry;
-             vartrans:target :schaapskop-entry;
-             morph:wordFormationRule :NN-rule.
-:NN-rule a morph:WordFormationRule;
+:schaapskop-entry a ontolex:LexicalEntry ;
+             ontolex:canonicalForm [ ontolex:writtenRep "schaapskop"@nl ] .
+:schaap-entry a ontolex:LexicalEntry ;
+             ontolex:canonicalForm [ ontolex:writtenRep "schaap"@nl ] .
+:kop-entry a ontolex:LexicalEntry ;
+             ontolex:canonicalForm [ ontolex:writtenRep "kop"@nl ] .
+:schaap-schaapskop a morph:WordFormationRelation ;
+             vartrans:source :schaap-entry ;
+             vartrans:target :schaapskop-entry ;
+             morph:wordFormationRule :NN-rule .
+:kop-schaapskop a morph:WordFormationRelation ;
+             vartrans:source :kop-entry ;
+             vartrans:target :schaapskop-entry ;
+             morph:wordFormationRule :NN-rule .
+
+:NN-rule a morph:CompoundingRule ;
             morph:replacement [
-		        # ??? (MP: here it is not clear to me how to implement the replacement with concatenation of both bases, I leave it to be discussed in the next meeting)
+		          morph:target "\\1s\\2" ;
 			    ] ;
             morph:involves :_s-morph;
             morph:generates :schaapskop-form.
@@ -1273,6 +1290,7 @@ As for compounding, the example below illustrates the modelling of a rule involv
             ontolex:lexicalForm [ ontolex:writtenRep "-s"@nl ].
 
 ```
+</aside>
 
 Note that, like inflection rules, also word formation rules can operate on a form different from the canonical one. In such cases, the property `morph:baseType` can be used, in the same way as it was illustrated above for inflection. For instance, in Latin, deverbal agent and action nouns in _-or_ and _-io_ are formed on a stem allomorph different from the present stem that is displayed in the citation form of verbs - namely, on the so-called the "third stem" displayed in the supine and perfect participle. E.g., for the verb meaning 'to write', we have:
 - citation form of the verb: _scribo_ (displaying present stem _scrib_-)
@@ -1281,31 +1299,36 @@ Note that, like inflection rules, also word formation rules can operate on a for
 
 This state of affairs can be modelled as follows, using `morph:baseForm` and `morph:baseType` to coindex the supine form _scriptum_ and the rules generating the derivatives _scriptor_ and _scriptio_.
 
+<aside class="example" title="Example: Rules for derivation of Latin 'scriptor' and 'scriptio'">
+
+![Example 23](examples/example_23.png)
+
 ```turtle
 
- :scribo a ontolex:LexicalEntry ;
+:scribo a ontolex:LexicalEntry ;
 	    ontolex:canonicalForm :scribo_form ;
 	    morph:baseForm :scriptum_form .
     
-    :scribo_form a ontolex:Form ;
-	    ontolex:writtenRep "scribo"@la .
+:scribo_form a ontolex:Form ;
+	    ontolex:writtenRep "scribo"@la ;
 	    morph:baseType "PresentStem" .
 
-    :scriptum_form a ontolex:Form ;
+:scriptum_form a ontolex:Form ;
 	    ontolex:writtenRep "scriptum"@la ;
 	    morph:baseType "ThirdStem" .  
 		
-    agent_rule a morph:WordFormationRule ;
+:agent_rule a morph:WordFormationRule ;
 		morph:baseType "ThirdStem" ;
 	    morph:replacement [
-	    morph:source "um$"
-	    morph:target "or"@la] .
+	    morph:source "um$" ;
+	    morph:target "or"@la ;
+        ] .
     
-    action_rule a morph:WordFormationRule ;
+:action_rule a morph:WordFormationRule ;
 		morph:baseType "ThirdStem" ;
 	    morph:replacement [
-	    :source "um$"
-	    :target "io"@la
+	    morph:source "um$" ;
+	    morph:target "io"@la ;
 	    ] .
 ```
 
