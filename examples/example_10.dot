@@ -13,18 +13,15 @@ digraph G {
       fontsize = 8
     ]
  
-auf [ label="{auf}" ]
-perfect_tense_rule -> auf [ label="involves" ] 
 ge [ label="{ge}" ]
 perfect_tense_rule -> ge [ label="involves" ] 
-stand [ label="{stand}" ]
-perfect_tense_rule -> stand [ label="involves" ] 
-en [ label="{en}" ]
-perfect_tense_rule -> en [ label="involves" ] 
 perfect_tense_rule [ label="{perfect_tense_rule : Rule}" ]
+auf [ label="{auf}" ]
 aufgestanden -> auf [ label="consistsOf" ] 
 aufgestanden -> ge [ label="consistsOf" ] 
+stand [ label="{stand}" ]
 aufgestanden -> stand [ label="consistsOf" ] 
+en [ label="{en}" ]
 aufgestanden -> en [ label="consistsOf" ] 
 aufgestanden [ label="{aufgestanden : Form}" ]
 }

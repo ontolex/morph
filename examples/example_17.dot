@@ -13,13 +13,13 @@ digraph G {
       fontsize = 8
     ]
  
-nodece3 [ label="{nodece3|writtenRep=schön@de}" ]
-schoenentry -> nodece3 [ label="canonicalForm" ] 
-schoenentry [ label="{schoen-entry : LexicalEntry}" ]
-schoen_heit -> schoenentry [ label="source" ] 
-nodece3 [ label="{nodece3|writtenRep=Schönheit@de}" ]
-schoenheitentry -> nodece3 [ label="canonicalForm" ] 
-schoenheitentry [ label="{schoenheit-entry : LexicalEntry}" ]
-schoen_heit -> schoenheitentry [ label="target" ] 
-schoen_heit [ label="{schoen_heit : WordFormationRelation}" ]
+prfactind2sg [ label="{prf.act.ind.2.sg}" ]
+rupisti_form -> prfactind2sg [ label="grammaticalMeaning" ] 
+rupisti_form [ label="{rupisti_form : Form|writtenRep=rupisti@la\lbaseType=PerfectStem}" ]
+futactptcp [ label="{fut.act.ptcp}" ]
+ruptus_form -> futactptcp [ label="grammaticalMeaning" ] 
+ruptus_form [ label="{ruptus_form : Form|writtenRep=rupturus@la\lbaseType=ThirdStem}" ]
+prsactind2sg [ label="{prs.act.ind.2.sg}" ]
+rumpis_form -> prsactind2sg [ label="grammaticalMeaning" ] 
+rumpis_form [ label="{rumpis_form : Form|writtenRep=rumpis@la\lbaseType=PresentStem}" ]
 }

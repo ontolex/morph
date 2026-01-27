@@ -13,7 +13,7 @@ digraph G {
       fontsize = 8
     ]
  
-node2f0 [ label="{node2f0 : RegexReplacement|source=us$\ltarget=i}" ]
-gen_sg_rule -> node2f0 [ label="replacement" ] 
+n_ceb1 [ label="{n_ceb1 : RegexReplacement|source=us$\ltarget=i}" ]
+gen_sg_rule -> n_ceb1 [ label="replacement" ] 
 gen_sg_rule [ label="{gen_sg_rule : Rule}" ]
 }

@@ -8,11 +8,17 @@
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
 @prefix : <http://www.example.com/#> .
-:_heit-rule a morph:DerivationRule;
+:schoen_heit a morph:WordFormationRelation;
+             vartrans:source :schoen-entry;
+             vartrans:target :schoenheit-entry;
+             morph:wordFormationRule :_heit-rule.
+:_heit-rule a morph:WordFormationRule;
             morph:replacement [
 		        morph:source "$" ;
 		        morph:target "heit" ;
 			    ] ;
             morph:involves :_heit-morph;
-            morph:generates :schoenheit-entry.
+            morph:generates :schoenheit-form.
+:_heit-morph a morph:Morph;
+            ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
 

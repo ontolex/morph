@@ -11,4 +11,4 @@
     morph:consistsOf :auf , :ge, :stand , :en .
 
 :perfect_tense_rule a morph:Rule ;
-    morph:involves :auf, :ge, :stand, :en .
+    morph:involves :ge .

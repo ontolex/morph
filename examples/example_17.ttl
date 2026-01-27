@@ -7,10 +7,17 @@
 @prefix morph: <http://www.w3.org/ns/lemon/morph#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
-@prefix : <http://www.example.com/#> .:schoenheit-entry a ontolex:LexicalEntry;
-             ontolex:canonicalForm [ ontolex:writtenRep "Schönheit"@de ].
-:schoen-entry a ontolex:LexicalEntry;
-             ontolex:canonicalForm [ ontolex:writtenRep "schön"@de ].
-:schoen_heit a morph:WordFormationRelation;
-             vartrans:source :schoen-entry;
-             vartrans:target :schoenheit-entry.
+@prefix : <http://www.example.com/#> .:rumpis_form a ontolex:Form ;
+    ontolex:writtenRep "rumpis"@la ;
+    morph:grammaticalMeaning :prs.act.ind.2.sg ;
+    morph:baseType "PresentStem" .
+
+:rupisti_form a ontolex:Form ;
+    ontolex:writtenRep "rupisti"@la ;
+    morph:grammaticalMeaning :prf.act.ind.2.sg ;
+    morph:baseType "PerfectStem" .
+
+:ruptus_form a ontolex:Form ;
+    ontolex:writtenRep "rupturus"@la ;
+    morph:grammaticalMeaning :fut.act.ptcp ;
+    morph:baseType "ThirdStem" .

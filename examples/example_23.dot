@@ -1,0 +1,27 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+n_aab1 [ label="{n_aab1|source=um$\ltarget=or@la}" ]
+agent_rule -> n_aab1 [ label="replacement" ] 
+agent_rule [ label="{agent_rule : WordFormationRule|baseType=ThirdStem}" ]
+n_aab2 [ label="{n_aab2|source=um$\ltarget=io@la}" ]
+action_rule -> n_aab2 [ label="replacement" ] 
+action_rule [ label="{action_rule : WordFormationRule|baseType=ThirdStem}" ]
+scribo_form [ label="{scribo_form : Form|writtenRep=scribo@la\lbaseType=PresentStem}" ]
+scribo -> scribo_form [ label="canonicalForm" ] 
+scriptum_form [ label="{scriptum_form : Form|writtenRep=scriptum@la\lbaseType=ThirdStem}" ]
+scribo -> scriptum_form [ label="baseForm" ] 
+scribo [ label="{scribo : LexicalEntry}" ]
+}

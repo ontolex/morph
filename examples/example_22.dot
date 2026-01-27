@@ -1,0 +1,43 @@
+digraph G {
+  fontname = "Bitstream Vera Sans"
+    fontsize = 8
+
+    node [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+      shape = "record"
+    ]
+
+    edge [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 8
+    ]
+ 
+n_16b5 [ label="{n_16b5|writtenRep=-s@nl}" ]
+smorph -> n_16b5 [ label="lexicalForm" ] 
+smorph [ label="{s-morph : Morph}" ]
+n_16b3 [ label="{n_16b3|writtenRep=kop@nl}" ]
+kopentry -> n_16b3 [ label="canonicalForm" ] 
+kopentry [ label="{kop-entry : LexicalEntry}" ]
+kopschaapskop -> kopentry [ label="source" ] 
+n_16b1 [ label="{n_16b1|writtenRep=schaapskop@nl}" ]
+schaapskopentry -> n_16b1 [ label="canonicalForm" ] 
+schaapskopentry [ label="{schaapskop-entry : LexicalEntry}" ]
+kopschaapskop -> schaapskopentry [ label="target" ] 
+n_16b4 [ label="{n_16b4|target=\\1s\\2}" ]
+NNrule -> n_16b4 [ label="replacement" ] 
+_smorph [ label="{_s-morph}" ]
+NNrule -> _smorph [ label="involves" ] 
+schaapskopform [ label="{schaapskop-form}" ]
+NNrule -> schaapskopform [ label="generates" ] 
+NNrule [ label="{NN-rule : CompoundingRule}" ]
+kopschaapskop -> NNrule [ label="wordFormationRule" ] 
+kopschaapskop [ label="{kop-schaapskop : WordFormationRelation}" ]
+n_16b2 [ label="{n_16b2|writtenRep=schaap@nl}" ]
+schaapentry -> n_16b2 [ label="canonicalForm" ] 
+schaapentry [ label="{schaap-entry : LexicalEntry}" ]
+schaapschaapskop -> schaapentry [ label="source" ] 
+schaapschaapskop -> schaapskopentry [ label="target" ] 
+schaapschaapskop -> NNrule [ label="wordFormationRule" ] 
+schaapschaapskop [ label="{schaap-schaapskop : WordFormationRelation}" ]
+}

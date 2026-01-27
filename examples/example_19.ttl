@@ -7,18 +7,15 @@
 @prefix morph: <http://www.w3.org/ns/lemon/morph#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
-@prefix : <http://www.example.com/#> .
-:schoen_heit a morph:WordFormationRelation;
-             vartrans:source :schoen-entry;
-             vartrans:target :schoenheit-entry;
-             morph:wordFormationRule :_heit-rule.
-:_heit-rule a morph:WordFormationRule;
-            morph:replacement [
-		        morph:source "$" ;
-		        morph:target "heit" ;
-			    ] ;
-            morph:involves :_heit-morph;
-            morph:generates :schoenheit-entry.
-:_heit-morph a morph:Morph;
-            ontolex:lexicalForm [ ontolex:writtenRep "-heit"@de ].
-
+@prefix : <http://www.example.com/#> .:capostazione-entry a ontolex:LexicalEntry;
+             ontolex:canonicalForm [ ontolex:writtenRep "capostazione"@it ].
+:capo-entry a ontolex:LexicalEntry;
+             ontolex:canonicalForm [ ontolex:writtenRep "capo"@it ].
+:stazione-entry a ontolex:LexicalEntry;
+             ontolex:canonicalForm [ ontolex:writtenRep "stazione"@it ].
+:capo-capostazione a morph:CompoundHead;
+             vartrans:source :capo-entry;
+             vartrans:target :capostazione-entry.
+:stazione-capostazione a morph:CompoundRelation;
+             vartrans:source :stazione-entry;
+             vartrans:target :capostazione-entry.
