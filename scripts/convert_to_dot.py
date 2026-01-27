@@ -20,7 +20,7 @@ def make_name(n):
     if '/' in s:
         i = max(i, s.rindex('/'))
     if s[0] == "n" and all('0' <= c <= '9' or 'a' <= c <= 'f' for c in s[1:]):
-        return "node" + s[1:4]
+        return "n_" + s[-4:]
     if i + 1 < len(s) and s[i + 1].isdigit():
         return "Synset " + s[i + 1:]
     t = s[i + 1:]
@@ -36,9 +36,9 @@ def write_obj(o):
     elif isinstance(o, BNode):
         return "[]"
     elif o.language:
-        return "%s@%s" % (str(o), o.language)
+        return "%s@%s" % (str(o).replace("\\", "\\\\"), o.language)
     else:
-        return str(o)
+        return str(o).replace("\\", "\\\\")
 
 seen_node = set([])
 
