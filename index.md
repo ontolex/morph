@@ -7,7 +7,6 @@ editor:
 - name: Maxim Ionov
   company: University of Zaragoza
   companyURL: https://www.unizar.es/
-- name: Bettina Klimek
 - name: John P. McCrae
   companyURL: https://www.universityofgalway.ie/
   company: University of Galway
@@ -16,14 +15,35 @@ editor:
   company: University of Surrey
 author:
 - name: Julia Bosque-Gil
+  companyURL: https://www.unizar.es/
+  company: University of Zaragoza
 - name: Thierry Declerck
+  companyURL: https://www.dfki.de/web
+  company: DFKI
 - name: Jesse De Does
+  companyURL: https://ivdnt.org/
+  company: Institute for the Dutch Language
 - name: Katrien Depuydt
+  companyURL: https://ivdnt.org/
+  company: Institute for the Dutch Language
 - name: Katerina Gkirtzou
+  companyURL: https://www.ilsp.gr/en/
+  company: Institute for Language and Speech Processing, Greece
 - name: Fahad Khan
+  companyURL: https://www.ilc.cnr.it/
+  company: Institute for Computational Linguistics, Italy
 - name: Penny Labropoulou
+  companyURL: https://www.ilsp.gr/en/
+  company: Institute for Language and Speech Processing, Greece
 - name: Stefania Racioppa
+  companyURL: https://www.dfki.de/web
+  company: DFKI
 - name: James K. Tauber
+  company: FAU Erlangen-Nürnberg
+  companyURL: https://www.fau.eu/
+- name: Bettina Klimek
+  company: InfAI, University of Leipzig
+  companyURL: https://www.infai.org/
 date: 2024-12-03
 ---
 
