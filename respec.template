@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html
-  prefix="
-    rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
     rdfs: http://www.w3.org/2000/01/rdf-schema#
     owl: http://www.w3.org/2002/07/owl#
     xsd: http://www.w3.org/2001/XMLSchema#
@@ -9,7 +8,8 @@
     synsem: http://www.w3.org/ns/lemon/synsem#
     decomp: http://www.w3.org/ns/lemon/decomp#
     vartrans: http://www.w3.org/ns/lemon/vartrans#
-    lime: http://www.w3.org/ns/lemon/lime#">
+    lime: http://www.w3.org/ns/lemon/lime#
+    morph: http://www.w3.org/ns/lemon/morph#">
   <head>
     <meta charset="utf-8" />
     <title>$title$</title>

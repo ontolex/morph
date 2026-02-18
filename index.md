@@ -143,7 +143,7 @@ The property, '[=consists of=]', relates a form with the morphs from which it is
 
 <div class="entity" about="morph:consistsOf" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">consistsOf</objectProperty>
+<objectProperty property="rdfs:label">consists of</objectProperty>
 
 <div property="rdfs:comment">
 <dfn>Consists of</dfn> states into which morph resources a form resource can be segmented.
@@ -290,7 +290,7 @@ The property, '[=base constraint=]', is used to encode information about morphos
 
 <div class="entity" about="morph:baseConstraint" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">baseConstraint</objectProperty>
+<objectProperty property="rdfs:label">base constraint</objectProperty>
 
 <div property="rdfs:comment">
 <dfn>Base constraint</dfn> defines the grammatical characteristics of the stem or base that a derivational or inflectional morpheme can be combined with
@@ -334,7 +334,7 @@ This property is necessary both to represent this information for manual consump
 
 <div class="entity" about="morph:baseForm" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">baseForm</objectProperty>
+<objectProperty property="rdfs:label">base form</objectProperty>
 
 <div property="rdfs:comment">
 <dfn>Base form</dfn> is a subproperty of <a data-cite="ontolex">[=lexical form=]</a> that indicates the form that is taken as base for the application of inflection or derivation rules to generate other forms.
@@ -397,7 +397,7 @@ This does not hold for agglutination, where one form is created by applying seve
 
 <div property="rdfs:comment">
 A <dfn>rule</dfn> represents the formal operation applied to a base form to obtain another form (inflectionally or derivationally related to it).
-It must contain either `morph:example` or `morph:replacement` (or both). “Tabular” value of a morpheme must be stored in `rdfs:label` (e.g. “-s”@en for usual PL in English). One rule applies exactly one morphological transformation, i.e. adds one morph.
+It must contain either 'example' or 'replacement' (or both). “Tabular” value of a morpheme must be stored in a RDFS label (e.g. “-s”@en for usual PL in English). One rule applies exactly one morphological transformation, i.e. adds one morph.
 </div>
 
 </div>
@@ -409,7 +409,7 @@ It must contain either `morph:example` or `morph:replacement` (or both). “Tabu
 
 The property [=example=] provides a way to link a rule to an example of a class of forms that share a morphological process. It is necessary in cases where the way the form is generated is not specified, but we still want to represent a morphological transformation. This is a common case for retrodigitised dictionaries.
 
-<div class="entity" about="morph:example" typeof="owl:DatatypeProperty"
+<div class="entity" about="morph:example" typeof="owl:DatatypeProperty">
 
 <dataProperty property="rdfs:label">example</dataProperty>
 
@@ -419,7 +419,7 @@ An <dfn>Example</dfn> is a single form that demonstrates a class of forms that c
 
 <div class="description">
 
-<domain>morph:Rule</domain>
+<domain>[=Rule=]</domain>
 
 <range>rdf:langString</range>
 </div>
@@ -470,6 +470,7 @@ The <dfn>replacement property</dfn> states the replacement pattern that is invol
 <div class="description">
 
 <domain>[=Rule=]</domain>
+<range>[=Replacement=]</range>
 </div>
 
 </div>
@@ -483,6 +484,10 @@ The class [=regex replacement=] is used to describe a morphological transformati
 
 <div property="rdfs:comment">
 <dfn>Regex replacement</dfn> can be used to represent the regular expression-based substitution that produces an inflected or derived surface form.
+</div>
+
+<div class="description">
+<subclass>[=Replacement=]</subclass>
 </div>
 
 </div>
@@ -626,7 +631,7 @@ The <dfn>generates</dfn> property connects a rule to the form generated from it.
 
 <div class="description">
 
-<domain>[=Rule=]</domain>
+<domain>[=Word Formation Rule=]</domain>
 
 <range>ontolex:Form</range>
 
@@ -673,7 +678,7 @@ modelling inflection.
 
 <div class="entity" about="morph:InflectionRule" typeof="owl:Class">
 
-<class property="rdfs:label">InflectionRule</class>
+<class property="rdfs:label">Inflection Rule</class>
 
 <div property="rdfs:comment">
 <dfn>Inflection rule</dfn> represents the formal operation applied to a base form of a <a data-cite="ontolex">[=lexical entry=]</a> to obtain another inflected form of that lexical entry.
@@ -684,8 +689,6 @@ modelling inflection.
 <div class="description">
 
 <subclass>[=Rule=]</subclass>
-<domain>ontolex:Form</domain>
-<range>[=Inflection Rule=]</range>
 </div>
 </div>
 
@@ -712,7 +715,7 @@ The link between lexical entries and the corresponding inflection classes is not
 
 <div class="entity" about="morph:inflectionClass" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">inflectionClass</objectProperty>
+<objectProperty property="rdfs:label">inflection class</objectProperty>
 
 <div property="rdfs:comment">
 The <dfn>inflection class property</dfn> links an inflection rule to the inflection class it pertains to.
@@ -925,7 +928,7 @@ In many cases, the inflectional paradigm of a single lexical entry involves diff
 
 <div class="description">
 
-<domain>ontolex:Form OR [=Rule=]</domain>
+<domain>ontolex:Form OR [=Inflection Rule=]</domain>
 
 <range>xsd:string</range>
 </div>
@@ -1112,7 +1115,7 @@ Furthermore, compounds can have a head -- i.e., a constituent that imposes its m
 
 <div class="entity" about="morph:CompoundHead" typeof="owl:Class">
 
-<class property="rdfs:label">CompoundHead</class>
+<class property="rdfs:label">Compound Head</class>
 
 <div property="rdfs:comment">
 <dfn>Compound Head</dfn> is a [=Word Formation Relation=] that connects the (lexical entry representing the) morphological head of a compound with the (lexical entry representing the) compound.
@@ -1219,7 +1222,7 @@ In derivation rules, lexemes are obtained from a single base through the additio
 
 <div class="entity" about="morph:DerivationRule" typeof="owl:Class">
 
-<class property="rdfs:label">DerivationRule</class>
+<class property="rdfs:label">Derivation Rule</class>
 
 <div property="rdfs:comment">
 <dfn>Derivation Rule</dfn> refers to rules that take the base form of one lexical entry as input and generate the (canonical) form of another lexical entry as output through the addition of one or more derivational affix(es).
