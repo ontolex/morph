@@ -37,13 +37,23 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc
+      - name: Install Rapper
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y raptor2-utils
+
+      - name: Install Python Packages
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install beautifulsoup4 rdflib
 
       # Step 3: Convert index.md to index.html
       - name: Convert Markdown to HTML with Pandoc
         run: pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o index.html
       - name: Expand tags
         run: python3 expand_tags.py index.html index.html
-
+      - name: Convert RDFa to Turtle
+        run: rapper -i rdfa index.html -o turtle | python3 build_ontology.py morph
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
