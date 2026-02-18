@@ -1,5 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html
+  prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    rdfs: http://www.w3.org/2000/01/rdf-schema#
+    owl: http://www.w3.org/2002/07/owl#
+    xsd: http://www.w3.org/2001/XMLSchema#
+    ontolex: http://www.w3.org/ns/lemon/ontolex#
+    synsem: http://www.w3.org/ns/lemon/synsem#
+    decomp: http://www.w3.org/ns/lemon/decomp#
+    vartrans: http://www.w3.org/ns/lemon/vartrans#
+    lime: http://www.w3.org/ns/lemon/lime#
+    morph: http://www.w3.org/ns/lemon/morph#">
   <head>
     <meta charset="utf-8" />
     <title>$title$</title>
@@ -38,6 +48,14 @@ $endfor$
         shortName: "morph",
         group: "ontolex",
         latestVersion: "https://ontolex.github.io/morph/",
+        localBiblio: {
+            "ontolex": {
+                href: "https://ontolex.github.io/ontolex/specification.html",
+                title: "lemon - Lexicon Model for Ontologies",
+                status: "CG-DRAFT",
+                publisher: "W3C"
+            }
+        }
       };
     </script>
     <style>
@@ -47,6 +65,7 @@ $endfor$
      margin-left: auto;
      margin-right: auto;
      padding: 10px;
+     margin-bottom: 10px;
  }
 .entity > p:first-child {
      margin-top: 3px;
@@ -58,47 +77,19 @@ $endfor$
      page-break-inside: avoid;
      line-height: 1.2;        /* Keep wrapped headings compact */
      hyphens: manual;         /* Hyphenated headings look weird */
- }
- .description {
+}
+.description {
      border-top: 1px dashed #808080;
      margin-top: 5px;
      padding-bottom: 5px;
- }
+}
+.example img {
+    max-width: 100%;
+}
 
- class::after {
-     content: " (Class)";
- }
- 
- objectProperty::after {
-     content: " (Object Property)";
- }
-
- dataProperty::after {
-     content: " (Data Property)";
- }
-
- subclass::before {
-     content: "Subclass of: ";
-     font-weight: bold;
- }
-
- domain::before {
-     content: "Domain: ";
-     font-weight: bold;
- }
-
- range::before {
-     content: "Range: ";
-     font-weight: bold;
- }
-
- subproperty::before {
-     content: "Subproperty of: ";
-     font-weight: bold;
- }
  </style>
   </head>
-  <body>
+  <body lang="en">
   $body$
   </body>
 </html>
