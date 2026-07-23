@@ -1,0 +1,13 @@
+# combinatorics of atausiulugu
+
+# 1. modelling as a rdf:Seq, revised
+
+# REVISION Seq with forms
+:atausiulugu_le a ontolex:Word;
+	ontolex:canonicalForm :atausiulugu_atausiulugu_f.
+:atausiulugu_atausiulugu_f a ontolex:Form;
+	ontolex:writtenRep "atausiulugu"@iu-Latn.
+:atausiulugu_atausiulugu_f	a rdfs:Seq;
+	rdf:_1 :atausiq_atausi_f;
+	rdf:_2 :u_u_f;
+	rdf:_3 :lugu_lugu_f.

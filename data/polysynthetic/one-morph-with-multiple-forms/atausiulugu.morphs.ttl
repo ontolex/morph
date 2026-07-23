@@ -1,0 +1,280 @@
+# Naming conventions
+
+# as morph:grammaticalMeaning is a morph:Morph-level feature, the following two lines must be put into different entries
+# that means that we need to mint distinct URIs for them. I take the number (.../1...) to identify senses for all homographic morphemes
+# in an umambiguous fashion, so a URI of the type CANONICAL_FORM + "_" + NUMBER + "_le" should be unambiguous
+
+# Root morphemes (nothing really morphy here, except for lexinfo:RootMorph)
+
+# {ata:ata/1n}	{bottom}
+:ata_1_le a lexinfo:RootMorph, ontolex:LexicalEntry; # .../1n
+	ontolex:canonicalForm :ata_ata_f;				# ata:, no :otherForm, because :ata is identical
+	ontolex:sense :ata_1n;							# {bottom}, .../1n is the sense number
+	lexinfo:partOfSpeech lexinfo:noun.				# .../1n
+:ata_ata_f a ontolex:Form;							# for forms, we provide both the canonical and the current form in the URI, 
+													# so that assimilation patterns are respected. 
+													# Form URIs created in this way are not unique, but this is not an OntoLex requirement.
+	ontolex:writtenRep "ata"@iu-Latn.				# latin transliteration
+:ata_1n a ontolex:LexicalSense;						# we encode the sense number (.../1n) only in URI
+	skos:definition "bottom"@en.
+
+# {atausi:atausiq/1n}	{one}
+# this is formed by ata/1n u/1nv siq/2vn "the thing which is at the bottom", lit. "bottom is (it's) habit" 
+# but the analyzer doesn't tell us
+:atausiq_1_le a lexinfo:RootMorph, ontolex:LexicalEntry; 	# .../1n
+	ontolex:canonicalForm :atausiq_atausiq_f;				# :atausiq
+	ontolex:otherForm :atausiq_atausi_f;					# atausi:, assimilated form
+	ontolex:sense :atausiq_1n;								# {one}, .../1n
+	lexinfo:partOfSpeech lexinfo:noun.						# .../1n
+:atausiq_atausi_f a ontolex:Form;
+	ontolex:writtenRep "atausi"@iu-Latn.
+:atausiq_atausiq_f a ontolex:Form;
+	ontolex:writtenRep "atausiq"@iu-Latn.
+:atausiq_1n a ontolex:LexicalSense;
+	skos:definition "one"@en.
+
+# Derivation
+
+:verb a morph:GrammaticalMeaning;
+	rdfs:comment "for derivation morphemes that produce or require verbs"@en;
+	lexinfo:partOfSpeech lexinfo:verb.
+:noun a morph:GrammaticalMeaning;
+	rdfs:comment "for derivation morphemes that produce or require verbs"@en;
+	lexinfo:partOfSpeech lexinfo:noun.
+
+# {u:u/1nv}	{existence; is}
+:u_1_le a ontolex:Affix;					# morph:Morph is redundant here, but ok ...
+	ontolex:canonicalForm :u_u_f;					# we have more than one u-form, so the ids have to be more specific, 
+													# as these forms differ in their phonological context
+	ontolex:sense :u_1nv;
+	morph:grammaticalMeaning :verb;					# ../1n*v*
+	morph:baseConstraint :noun.						# ../1*n*v
+:u_1nv a ontolex:LexicalSense;
+	skos:definition "existence; is"@en.
+:u_u_f a ontolex:Form;
+	ontolex:writtenRep "u".
+# BTW: ata=u- is an example of incorporation, so this is covered here, as well
+
+# {u:uq/3vv}	{frequentative: many subjects; many objects}
+:uq_3_le a ontolex:Affix;
+	ontolex:canonicalForm :uq_uq_f;
+	ontolex:otherForm :uq_u_f;
+	ontolex:sense :uq_3vv;
+	morph:grammaticalMeaning :verb;
+	morph:baseConstraint :verb.
+:uq_uq_f a ontolex:Form;
+	ontolex:writtenRep "uq"@iu-Latn.
+:uq_u_f a ontolex:Form;
+	ontolex:writtenRep "u"@iu-Latn.
+:uq_3vv a ontolex:LexicalSense;
+	skos:definition "frequentative: many subjects; many objects"@en.
+
+# {u:ut/2nn}	{bag, container for; s.t. which has\...}
+:ut_2_le a ontolex:Affix;
+	ontolex:canonicalForm :ut_ut_f;
+	ontolex:otherForm :ut_u_f;
+	ontolex:sense :ut_2nn;
+	morph:grammaticalMeaning :noun;
+	morph:baseConstraint :noun.
+:ut_ut_f a ontolex:Form;
+	ontolex:writtenRep "ut"@iu-Latn.
+:ut_u_f a ontolex:Form;
+	ontolex:writtenRep "u"@iu-Latn.
+:ut_2nn a ontolex:LexicalSense;
+	skos:definition "bag, container for; s.t. which has ..."@en.
+
+# {si:liq/2nv}	{to provide, supply; to put s.t. (trans.: to, on s.o.)}
+:liq_2_le a ontolex:Affix;
+	ontolex:canonicalForm :liq_liq_f;
+	ontolex:otherForm :liq_si_f;
+	ontolex:sense :liq_2nv;
+	morph:grammaticalMeaning :noun;
+	morph:baseConstraint :verb.
+:liq_liq_f a ontolex:Form;
+	ontolex:writtenRep "liq"@iu-Latn.
+:liq_si_f a ontolex:Form;
+	ontolex:writtenRep "si"@iu-Latn.
+:liq_2nv a ontolex:LexicalSense;
+	skos:definition "to provide, supply; to put s.t. (trans.: to, on s.o.)"@en.
+
+# {si:si/2vv}	{the action is being done now, where it was not the case before; readiness, commencement of action or    motion}
+:si_2_le a ontolex:Affix;
+	ontolex:canonicalForm :si_si_f;
+	ontolex:sense :si_2vv;
+	morph:grammaticalMeaning :verb;
+	morph:baseConstraint :verb.
+:si_si_f a ontolex:Form;
+	ontolex:writtenRep "si"@iu-Latn.
+:si_2vv a ontolex:LexicalSense;
+	skos:definition "the action is being done now, where it was not the case before; readiness, commencement of action or motion"@en.
+
+# {si:siq/1vv}	{to put or bring out, to be put or brought up for some natural process; to be waiting for an action to be performed or completed}
+:siq_1_le a ontolex:Affix;
+	ontolex:canonicalForm :siq_siq_f;
+	ontolex:otherForm :siq_si_f;
+	ontolex:sense :siq_1vv;
+	morph:grammaticalMeaning :verb;
+	morph:baseConstaint :verb.
+:siq_1vv a ontolex:LexicalSense;
+	skos:definition "to put or bring out, to be put or brought up for some natural process; to be waiting for an action to be performed or completed"@en.
+:siq_siq_f a ontolex:Form;
+	ontolex:writtenRep "siq"@iu-Latn.
+:siq_si_f a ontolex:Form;
+	ontolex:writtenRep "si"@iu-Latn.
+
+# {si:siq/2vn}	{custom; way; habit; manner of doing s.t.}
+# Note: must be a different entry because it has a different grammaticalMeaning, coupled with a different sense
+:siq_2_le a ontolex:Affix;
+	ontolex:canonicalForm :siq_siq_f;
+	ontolex:otherForm :siq_si_f;
+	ontolex:sense :siq_2vn;
+	morph:grammaticalMeaning :noun;
+	morph:baseConstaint :verb.
+:siq_2vn a ontolex:LexicalSense;
+	skos:definition "custom; way; habit; manner of doing s.t."@en.
+# :siq_siq_f and :siq_si_f are the same as for si:siq/1vv, and this is ok, because they have the same assimilation patterns
+
+# {lu:luk/3vv}	{to perform an action in a poor or bad manner}
+# Note: ...lugu can be either -lu=gu or -lugu
+:luk_3_le a ontolex:Affix;
+	ontolex:canonicalForm :luk_luk_f;
+	ontolex:otherForm :luk_lu_f;
+	ontolex:sense :luk_3vv;
+	morph:grammaticalMeaning :verb;
+	morph:baseConstraint :verb.
+:luk_luk_f a ontolex:Form;
+	ontolex:writtenRep "luk"@iu-Latn.
+:luk_lu_f a ontolex:Form;
+	ontolex:writtenRep "lu"@iu-Latn.
+:luk_3vv a ontolex:LexicalSense;
+	skos:definition "to perform an action in a poor or bad manner"@en.
+
+# Note: by using grammatical meaning and base constraint, we can ensure proper combinatoric semantics, 
+# BUT we cannot indicate whether a form is complete or not: all the verbal forms *require* inflection morphemes
+
+# Inflection morphemes
+
+# for -lugu: conventionally, Inuktitut inflection morphemes for transitive 
+# verbs indicate subject and object agreement. -lugu is different in 
+# indicating only object agreement (i.e., with absolutive argument)
+# However, it is also a shift-reference marker, so it cannot refer to a 
+# third person subject, but only to a fourth (obviative/distal third) person subject
+# here, we use multiple grammatical meanings to express different agreement patterns
+
+# Lexinfo extensions (as for number/person agreement, there may be better ways to do that)
+:fourthPerson a lexinfo:Person;
+	rdfs:comment "third person argument marked for switch reference (*different* third person)"@en.
+:sbjPerson rdfs:subPropertyOf lexinfo:person;
+	rdfs:comment "person of subject argument in transitive or ditransive verbs in languages with polypersonal agreement"@en.
+:objPerson rdfs:subPropertyOf lexinfo:person;
+	rdfs:comment "person of direct object argument in transitive or ditransive verbs in languages with polypersonal agreement"@en.
+:sbjNumber rdfs:subPropertyOf lexinfo:number;
+	rdfs:comment "number of subject argument in transitive or ditransive verbs in languages with polypersonal agreement"@en.
+:objNumber rdfs:subPropertyOf lexinfo:number;
+	rdfs:comment "person of direct object argument in transitive or ditransive verbs in languages with polypersonal agreement"@en.
+
+# grammatical meanings for inflection morphemes
+:tv_1d_3s a morph:GrammaticalMeaning;
+	:sbjPerson lexinfo:firstPerson;
+	:sbjNumber lexinfo:dual;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:tv_1s_3s a morph:GrammaticalMeaning;
+	:sbjPerson lexinfo:firstPerson;
+	:sbjNumber lexinfo:singular;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:tv_1p_3s a morph:GrammaticalMeaning;
+	:sbjPerson lexinfo:firstPerson;
+	:sbjNumber lexinfo:plural;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:tv_2d_3s a morph:GrammaticalMeaning;
+	:sbjPerson lexinfo:secondPerson;
+	:sbjNumber lexinfo:dual;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:tv_2s_3s a morph:GrammaticalMeaning;
+	:sbjPerson lexinfo:secondPerson;
+	:sbjNumber lexinfo:singular;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:tv_2p_3s a morph:GrammaticalMeaning;
+	:sbjPerson lexinfo:secondPerson;
+	:sbjNumber lexinfo:plural;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:tv_4d_3s a morph:GrammaticalMeaning;
+	:sbjPerson :fourthPerson;
+	:sbjNumber lexinfo:dual;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:tv_4s_3s a morph:GrammaticalMeaning;
+	:sbjPerson :fourthPerson;
+	:sbjNumber lexinfo:singular;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:tv_4p_3s a morph:GrammaticalMeaning;
+	:sbjPerson :fourthPerson;
+	:sbjNumber lexinfo:plural;
+	:objPerson lexinfo:thirdPerson;
+	:objNumber lexinfo:singular.
+
+:verbal_participle a lexinfo:Mood;
+	rdfs:comment "Inuktitut verbal participles are finite verbs (sic!) in subordinate clauses. They tend to be translated by present participles in English, hence the name."@en.
+
+# for -lugu
+# {lugu:lugu/tv-part-1d-3s-fut}	{part. future: while we (two) \...him/her/it}   
+# {lugu:lugu/tv-part-1p-3s-fut}	{part. future: while we (many) \...him/her/it}  
+# {lugu:lugu/tv-part-1s-3s-fut}	{part. future: while I \...him/her/it}  
+# {lugu:lugu/tv-part-2d-3s-fut}	{part. future: while you (two) \...him/her/it}  
+# {lugu:lugu/tv-part-2p-3s-fut}	{part. future: while you (many) \...him/her/it} 
+# {lugu:lugu/tv-part-2s-3s-fut}	{part. future: while you \...him/her/it}    
+# {lugu:lugu/tv-part-4d-3s-fut}	{part. future: while they (two) \...him/her/it} 
+# {lugu:lugu/tv-part-4p-3s-fut}	{part. future: while they (many) \...him/her/it}    
+# {lugu:lugu/tv-part-4s-3s-fut}	{part. future: while he/she/it \...him/her/it}  
+:lugu_tv_le a ontolex:Affix;
+	ontolex:canonicalForm :lugu_lugu_f;
+	ontolex:sense :lugu_tv_part_fut;
+	ontolex:baseConstraint :verb;		 # we're doing verbal inflection here, so we can attach to a verbal base, only
+	ontolex:grammaticalMeaning 
+		:tv_1d_3s, :tv_1p_3s, :tv_1s_3s, # these are alternative meanings
+		:tv_2d_3s, :tv_2p_3s, :tv_2s_3s,
+		:tv_4d_3s, :tv_4p_3s, :tv_4s_3s;
+		# Note: In this way, we cannot disambiguate forms for their different grammatical meanings
+		#       If that would be intended, we would need to create one lexical entry per feature combination.
+	# the following features are shared across all forms (meanings), so we encode them directly at the entry level
+	lexinfo:mood :verbal_participle;
+	lexinfo:tense :future. 
+	# Note: Inuktitut does not inflect for grammatical tense, but only for mood. Some moods have future readings, though.
+	# Explicit tense (temporal) information is provided in derivation morphemes -- which is optional, though.
+
+:lugu_tv_part_fut a ontolex:LexicalSense;
+	skos:definiton "part. future: while s.o. does something to s.t. (object)"@en.
+:lugu_lugu_f a ontolex:Form;
+	ontolex:writtenRep "lugu"@iu-Latn.
+
+# the following is for the analysis -lu=gu
+# {gu:guk/tv-imp-2s-3s}	{order: you \...him/her/it}  
+:guk_tv_le a ontolex:Affix;
+	ontolex:canonicalForm :guk_gu_f;
+	ontolex:otherForm :guk_guk_f;
+	ontolex:sense :guk_tv_imp;
+	morph:baseConstraint :verb;
+	morph:grammaticalMeaning :tv_2s_3s;
+	lexinfo:mood lexinfo:imperative. # yes, that's there, already 
+
+:guk_gu_f a ontolex:Form;
+	ontolex:writtenRep "gu"@iu-Latn.
+:guk_guk_f a ontolex:Form;
+	ontolex:writtenRep "guk"@iu-Latn.
+:guk_tv_imp a ontolex:LexicalSense;
+	skos:definition "order: you \...him/her/it"@en.

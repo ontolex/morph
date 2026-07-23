@@ -1,0 +1,8 @@
+PREFIX : <http://make-sth.up/>
+PREFIX ontolex: <http://placeholder.tmp/>
+PREFIX rdfs: <http://placeholder.tmp/>
+PREFIX lexinfo: <http://placeholder.tmp/>
+PREFIX morph: <http://placeholder.tmp/>
+PREFIX skos: <http://placeholder.tmp/>
+PREFIX lime: <http://placeholder.tmp/>
+PREFIX rdf: <http://placeholder.tmp/>
