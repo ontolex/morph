@@ -542,7 +542,7 @@ A <dfn>source</dfn> is a string which is used as a basis for the substitution.
 </aside>
 
 
-The target can use backreferences (`\1`) to refer to the captured groups in the source string.
+The target can use variables `$N` to refer to the substrings captured by parenthesised expressions in the source string (e.g. `$1` for the first pair of parenthesis, `$2` for the second, etc.).
 
 
 <aside class="example" title="Formation of German perfect forms">
@@ -554,13 +554,13 @@ The target can use backreferences (`\1`) to refer to the captured groups in the 
     morph:replacement [
         a morph:RegexReplacement ;
         morph:source "^(.*)en$" ;
-        morph:target "ge\\1t" ;
+        morph:target "ge$1t" ;
     ] .
 ```
 
 </aside>
 
-In the above example, the source string `^(.*)en$` captures the stem of the verb, which is then used in the target string `ge\1t` to form the perfect tense of the verb. The `ge` prefix is added to the stem, and the `t` suffix is added to indicate the perfect tense, such as *gemacht* "done" from *machen* "to do".
+In the above example, the source string `^(.*)en$` captures the stem of the verb, which is then used in the target string `ge$1t` to form the perfect tense of the verb. The `ge` prefix is added to the stem, and the `t` suffix is added to indicate the perfect tense, such as *gemacht* "done" from *machen* "to do".
 
 <!--<div class="note">
 TO DISCUSS: RDF 1.1 recommends NFC normalization for all entities.
@@ -1298,7 +1298,7 @@ As for compounding, the modelling differs slightly to accommodate the ternary in
 
 :NN-rule a morph:CompoundingRule ;
             morph:replacement [
-		          morph:target "\\1s\\2" ;
+		          morph:target "$1s$2" ;
 			    ] ;
             morph:involves :_s-morph;
             morph:generates :schaapskop-form.
