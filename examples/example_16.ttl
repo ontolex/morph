@@ -31,7 +31,7 @@
     morph:example "rumpis" ;
     	    morph:replacement [
 	    morph:source "o$" ;
-	    morph:target "is"@la ;
+	    morph:target "is" ;
 	    ] ;
     morph:inflectionClass :thirdConjugation ;
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
@@ -41,7 +41,7 @@
     morph:example "rumpisti" ;
     morph:replacement [
 	    morph:source "$" ;
-	    morph:target "sti"@la ;
+	    morph:target "sti" ;
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
@@ -51,7 +51,7 @@
     morph:example "rupturus" ;
     morph:replacement [
 	    morph:source "m$" ;
-	    morph:target "rus"@la ;
+	    morph:target "rus" ;
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :fut.act.ptcp ;

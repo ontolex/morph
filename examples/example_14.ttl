@@ -18,7 +18,7 @@
     morph:example "adam" ;
     morph:replacement [
         morph:source "$" ;
-        morph:target ""@tur ;
+        morph:target "" ;
     ] ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
     morph:inflectionSlot :number_slot .
@@ -27,7 +27,7 @@
     morph:example "adamlar"@tur ;
     morph:replacement [
         morph:source "$" ;
-        morph:target "lar"@tur ;
+        morph:target "lar" ;
     ] ;
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
@@ -38,7 +38,7 @@
     morph:example "adami" ;
     morph:replacement [
         morph:source "$" ;
-        morph:target "i"@tur ;
+        morph:target "i" ;
     ] ;
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning lexinfo:accusativeCase ;

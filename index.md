@@ -397,11 +397,10 @@ This does not hold for agglutination, where one form is created by applying seve
 
 <div property="rdfs:comment">
 A <dfn>rule</dfn> represents the formal operation applied to a base form to obtain another form (inflectionally or derivationally related to it).
-It must contain either 'example' or 'replacement' (or both). “Tabular” value of a morpheme must be stored in a RDFS label (e.g. “-s”@en for usual PL in English). One rule applies exactly one morphological transformation, i.e. adds one morph.
+It must contain either 'example' or 'replacement' (or both). In addition, a human-readable string representation of a morph should be provided as an RDFS label, e.g. “-s”@en for usual PL in English. One rule applies exactly one morphological transformation, i.e. adds one morph.
 </div>
 
 </div>
-
 
 <section id="examples">
 
@@ -493,6 +492,9 @@ The class [=regex replacement=] is used to describe a morphological transformati
 </div>
 
 The source and the target for the substitution are expressed with the properties [=source=] and [=target=] correspondingly.
+
+These properties should not have a language tag since these are patterns with special characters, not natural language strings.
+Note, however, that implementations of generators that use these properties should insert a language code when generating properties that require one (e.g. ontolex:writtenRep).
 
 <div class="entity" about="morph:source" typeof="owl:DatatypeProperty">
 
@@ -847,7 +849,7 @@ The example below demonstrates using inflection slots for number and case gramma
     morph:example "adam" ;
     morph:replacement [
         morph:source "$" ;
-        morph:target ""@tur ;
+        morph:target "" ;
     ] ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
     morph:inflectionSlot :number_slot .
@@ -856,7 +858,7 @@ The example below demonstrates using inflection slots for number and case gramma
     morph:example "adamlar"@tur ;
     morph:replacement [
         morph:source "$" ;
-        morph:target "lar"@tur ;
+        morph:target "lar" ;
     ] ;
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
@@ -867,7 +869,7 @@ The example below demonstrates using inflection slots for number and case gramma
     morph:example "adami" ;
     morph:replacement [
         morph:source "$" ;
-        morph:target "i"@tur ;
+        morph:target "i" ;
     ] ;
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning lexinfo:accusativeCase ;
@@ -971,7 +973,7 @@ This can be modelled with OntoLex-Morph as follows:
     morph:example "rumpis" ;
     	    morph:replacement [
 	    morph:source "o$" ;
-	    morph:target "is"@la ;
+	    morph:target "is" ;
 	    ] ;
     morph:inflectionClass :thirdConjugation ;
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
@@ -981,7 +983,7 @@ This can be modelled with OntoLex-Morph as follows:
     morph:example "rumpisti" ;
     morph:replacement [
 	    morph:source "$" ;
-	    morph:target "sti"@la ;
+	    morph:target "sti" ;
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
@@ -991,7 +993,7 @@ This can be modelled with OntoLex-Morph as follows:
     morph:example "rupturus" ;
     morph:replacement [
 	    morph:source "m$" ;
-	    morph:target "rus"@la ;
+	    morph:target "rus" ;
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :fut.act.ptcp ;
@@ -1337,14 +1339,14 @@ This state of affairs can be modelled as follows, using [=base form=] and [=base
 		morph:baseType "ThirdStem" ;
 	    morph:replacement [
 	    morph:source "um$" ;
-	    morph:target "or"@la ;
+	    morph:target "or" ;
         ] .
     
 :action_rule a morph:WordFormationRule ;
 		morph:baseType "ThirdStem" ;
 	    morph:replacement [
 	    morph:source "um$" ;
-	    morph:target "io"@la ;
+	    morph:target "io" ;
 	    ] .
 ```
 
