@@ -13,7 +13,7 @@ digraph G {
       fontsize = 8
     ]
  
-n_dbb1 [ label="{n_dbb1 : RegexReplacement|source=^(.*)en$\ltarget=ge\\1t}" ]
-perfect_rule -> n_dbb1 [ label="replacement" ] 
+n_bdb1 [ label="{n_bdb1 : RegexReplacement|source=^(.*)en$\ntarget=ge$1t}" ]
+perfect_rule -> n_bdb1 [ label="replacement" ] 
 perfect_rule [ label="{perfect_rule : Rule}" ]
 }
