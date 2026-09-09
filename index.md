@@ -200,7 +200,7 @@ be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 ## Grammatical Meanings
 
-The class [=grammatical meaning=] is used to gloss information associated with the morph. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. Typically, the bundles will be expressed as blank nodes. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
+The class [=grammatical meaning=] is used to gloss information associated with the morph. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
 
 <div class="entity" about="morph:GrammaticalMeaning" typeof="owl:Class">
 
@@ -252,7 +252,7 @@ For instance, we can update the previous example of the English plural form *cat
 ```
 </aside>
 
-In this case, we create a blank node for the grammatical meaning that corresponds to a single feature in Lexinfo. In practice, it might be better to define instances for common morphological meanings and reuse these objects.
+In this case, we create a blank node for the grammatical meaning that corresponds to a single feature in Lexinfo. We could also define instances for common morphological meanings and reuse these objects.
 
 For example, in the Latin form *lupus*, the nominative case and singular number are expressed cumulatively by the affix *-us*. This is a common combination; therefore, an instance of [=Grammatical Meaning=] is introduced for that feature bundle. This time we use Lexinfo vocabulary alongside the [Paralex vocabulary](https://www.paralex-standard.org/) — even though Lexinfo is the preferred way to represent grammatical features in OntoLex, there is no restriction on this.
 
