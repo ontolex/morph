@@ -18,8 +18,4 @@
         morph:target "i" ;
     ] ;
     morph:inflectionClass :secondDeclension ;
-    morph:grammaticalMeaning :gen.sg ;
-    morph:involves :i .
-
-:i a ontolex:Affix ;
     morph:grammaticalMeaning :gen.sg .
