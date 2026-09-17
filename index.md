@@ -79,11 +79,9 @@ Morphology is a vital and, in many languages, very sophisticated part of languag
 The morphology module aims at fulfilling two modelling purposes:
 
 1. Stating elements that are involved in the decomposition of lexical entries and forms.
-  - Morphological decomposition on the lexical entry level.<br/>
-    The kind of elements of which a lexical entry can consist should be as non-restrictive as possible, i.e., the decomposition of lexical entries encompasses lexical entries, components, derivational affixes, inflectional affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be composed of a form!
+  - Morphological decomposition on the lexical entry level can be achieved with the ontolex <i>decomp</i> module. Lexical entries can be decomposed into components of different kinds, such as lexical entries, inflectional and derivational affixes, stems, roots. However, a lexical entry cannot be composed of a form.
 
-  - Morphological decomposition on the form level.<br/>
-    Elements of which a form can consist of roots, stems, inflectional affixes and zero morphs. 
+  - Morphological decomposition on the form level can be achieved with the property '[=consists of=]' in this module. Elements of which a form can consist are roots, stems and all kinds of morphs including inflectional and derivational affixes and zero morphs.
 
 2. Enabling the representation of building patterns that are involved in the formation of lexical entries and forms.
   - Representation of decompositional building patterns for lexical entries.
