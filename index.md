@@ -59,7 +59,7 @@ date: 2024-12-03
 
  OntoLex-Morph has been designed with the premise of making OntoLex-lemon applicable to morphologically rich languages of any type, supporting both fusional and agglutinative morphology, and thereby contributing to a truly multilingual web.
 
-The RDF file with the OntoLex lemon lexicography module can be found at [http://www.w3.org/ns/lemon/morph](http://www.w3.org/ns/lemon/morph).
+The RDF file with the OntoLex lemon morph module can be found at [http://www.w3.org/ns/lemon/morph](http://www.w3.org/ns/lemon/morph).
 </section>
 
 <section id="sotd">
