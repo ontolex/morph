@@ -23,13 +23,13 @@
 :agent_rule a morph:WordFormationRule ;
 		morph:baseType "ThirdStem" ;
 	    morph:replacement [
-	    morph:source "um$" ;
-	    morph:target "or" ;
+	    morph:sourceRegex "um$" ;
+	    morph:targetRegex "or" ;
         ] .
     
 :action_rule a morph:WordFormationRule ;
 		morph:baseType "ThirdStem" ;
 	    morph:replacement [
-	    morph:source "um$" ;
-	    morph:target "io" ;
+	    morph:sourceRegex "um$" ;
+	    morph:targetRegex "io" ;
 	    ] .
