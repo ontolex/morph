@@ -83,7 +83,7 @@ The morphology module aims at fulfilling two modelling purposes:
     The kind of elements of which a lexical entry can consist should be as non-restrictive as possible, i.e., the decomposition of lexical entries encompasses lexical entries, components, derivational affixes, inflectional affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be composed of a form!
 
   - Morphological decomposition on the form level.<br/>
-    Elements of which a form can consist of roots, stems, inflectional affixes and zero morphs. 
+    Elements of which a form can consist of roots, stems and all kinds of morphs including inflectional & derivational affixes and zero morphs.
 
 2. Enabling the representation of building patterns that are involved in the formation of lexical entries and forms.
   - Representation of decompositional building patterns for lexical entries.
@@ -106,7 +106,7 @@ OntoLex-Morph is an extension of the OntoLex model designed to represent morphol
 ## Morphological Segments
 
 _Morphs_ are the basic building blocks within the module that represent a single 
-unit of meaning or grammatical function. They can be roots, stems, affixes, or even zero morphs. 
+unit of meaning or grammatical function. They can be roots, stems and all kinds of morphs including inflectional & derivational affixes and zero morphs.
 Morphs represent a single version (allomorph) of a morpheme, which is a more abstract concept. Morphs can be
 either bound morphs, which cannot stand alone, or free morphs, which can stand alone as a word. A free morph 
 may be a single concept such as "tea" or "pot" in "teapots", while the plural suffix "-s" is a bound morph.
