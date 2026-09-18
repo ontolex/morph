@@ -430,7 +430,7 @@ An <dfn>Example</dfn> is a single form that demonstrates a class of forms that c
 
 ```turtle
 :lenition_rule a morph:Rule ;
-    morph:example "bhean" .
+    morph:example "bhean"@ga .
 ```
 </aside>
 
