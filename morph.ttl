@@ -161,5 +161,5 @@ morph:WordFormationRule a owl:Class ;
 
 morph:Rule a owl:Class ;
     rdfs:label "Rule"@en ;
-    rdfs:comment "A rule represents the formal operation applied to a base form to obtain another form (inflectionally or derivationally related to it). It must contain either ‘example’ or ‘replacement’ (or both). “Tabular” value of a morpheme must be stored in a RDFS label (e.g. “-s”@en for usual PL in English). One rule applies exactly one morphological transformation, i.e. adds one morph."@en .
+    rdfs:comment "A rule represents the formal operation applied to a base form to obtain another form (inflectionally or derivationally related to it). It must contain either ‘example’ or ‘replacement’ (or both). In addition, a human-readable string representation of a morph should be provided as an RDFS label, e.g. “-s”@en for usual PL in English. One rule applies exactly one morphological transformation, i.e. adds one morph."@en .
 
