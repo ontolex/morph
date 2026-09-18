@@ -96,7 +96,7 @@ morph:replacement a owl:DatatypeProperty ;
 
 morph:source a owl:DatatypeProperty ;
     rdfs:label "source"@en ;
-    rdfs:comment "A source is a string which is used as a basis for the substitution."@en ;
+    rdfs:comment "A source is a string pattern which is used as a basis for the substitution."@en ;
     rdfs:domain morph:RegexReplacement ;
     rdfs:range xsd:string .
 

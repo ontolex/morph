@@ -59,7 +59,7 @@ date: 2024-12-03
 
  OntoLex-Morph has been designed with the premise of making OntoLex-lemon applicable to morphologically rich languages of any type, supporting both fusional and agglutinative morphology, and thereby contributing to a truly multilingual web.
 
-The RDF file with the OntoLex lemon lexicography module can be found at [http://www.w3.org/ns/lemon/morph](http://www.w3.org/ns/lemon/morph).
+The RDF file with the OntoLex lemon morph module can be found at [http://www.w3.org/ns/lemon/morph](http://www.w3.org/ns/lemon/morph).
 </section>
 
 <section id="sotd">
@@ -74,16 +74,16 @@ If you wish to make comments regarding this document, please send them to [publi
 
 ## Introduction
 
-Morphology is a vital and, in many languages, very sophisticated part of language, and as such, it has been an important part of the work of lexicographers. In traditional print dictionaries, morphological information is provided in abbreviated terms that can only be deciphered with significant knowledge of the language; however, digital dictionaries are capable of representing this information in a more structured and machine-readable way. The OntoLex-Morph module is designed to provide a way to represent morphological information in a structured way that is compatible with the OntoLex-Lemon model.
+Morphology is a vital and, in many languages, very sophisticated part of language, and as such, it has been an important part of the work of lexicographers. In traditional print dictionaries, irregular morphological information is provided in abbreviated terms that can only be deciphered with significant knowledge of the language; however, digital dictionaries are capable of representing this information in a more structured and machine-readable way. The OntoLex-Morph module is designed to provide a way to represent morphological information in a structured way that is compatible with the OntoLex-Lemon model.
 
 The morphology module aims at fulfilling two modelling purposes:
 
 1. Stating elements that are involved in the decomposition of lexical entries and forms.
   - Morphological decomposition on the lexical entry level.<br/>
-    The kind of elements of which a lexical entry can consist should be as non-restrictive as possible, i.e., the decomposition of lexical entries encompasses lexical entries, components, derivational affixes, inflectional affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be composed of a form!
+    The kind of elements of which a lexical entry can consist of should be as non-restrictive as possible, i.e., the decomposition of lexical entries encompasses lexical entries, components, derivational affixes, inflectional affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be composed of a form!
 
   - Morphological decomposition on the form level.<br/>
-    Elements of which a form can consist of roots, stems, inflectional affixes and zero morphs. 
+    Elements of which a form can consist of roots, stems and all kinds of morphs including inflectional & derivational affixes and zero morphs.
 
 2. Enabling the representation of building patterns that are involved in the formation of lexical entries and forms.
   - Representation of decompositional building patterns for lexical entries.
@@ -106,10 +106,10 @@ OntoLex-Morph is an extension of the OntoLex model designed to represent morphol
 ## Morphological Segments
 
 _Morphs_ are the basic building blocks within the module that represent a single 
-indivisible unit of meaning or grammatical function. They can be roots, stems, affixes, or even zero morphs. 
+unit of meaning or grammatical function. They can be roots, stems and all kinds of morphs including inflectional & derivational affixes and zero morphs.
 Morphs represent a single version (allomorph) of a morpheme, which is a more abstract concept. Morphs can be
 either bound morphs, which cannot stand alone, or free morphs, which can stand alone as a word. A free morph 
-may be a single concept such as "tea" or "pot" in "teapots", while the plural suffix "-s" is a bound morph.
+may be a single concept such as "tea" or "pot" in "teapots", while a bound morph may be the plural suffix "-s".
 
 <section id="morphs">
 
@@ -139,7 +139,7 @@ The class [=Morph=] provides a way to represent sub-word elements and attach gra
 - other types of morph (roots, stems, transfix, etc.) are not defined in the module but should be defined in Lexinfo
 </div> -->
 
-The property, '[=consists of=]', relates a form with the morphs from which it is constructed.
+The property [=consists of=] relates a form with the morphs from which it is constructed.
 
 <div class="entity" about="morph:consistsOf" typeof="owl:ObjectProperty">
 
@@ -200,7 +200,7 @@ be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 ## Grammatical Meanings
 
-The class [=grammatical meaning=] is used to gloss information associated with the morph. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
+The class [=grammatical meaning=] is used to gloss information associated with the morph, form or rule. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
 
 <div class="entity" about="morph:GrammaticalMeaning" typeof="owl:Class">
 
@@ -284,9 +284,9 @@ For example, in the Latin form *lupus*, the nominative case and singular number 
 
 ## Constraints and Base Forms
 
-Constraints may be specified on a morph to indicate which grammatical features it can be combined with. This is important for the generation of inflected forms, as it allows us to specify which morphs can be used together in a particular context. For example, in the case of the English plural morpheme '-s', it can only be used with nouns. This information can be encoded using the property '[=base constraint=]', which links a morph to its constraints.
+Constraints may be specified on a morph to indicate which grammatical features it can be combined with. This is important for the generation of inflected forms, as it allows us to specify which morphs can be used together in a particular context. For example, in the case of the English plural morpheme '-s', it can only be used with nouns. This information can be encoded using the property [=base constraint=], which links a morph to its constraints.
 
-The property, '[=base constraint=]', is used to encode information about morphosyntactic constraints for a certain morph, i.e. which grammatical characteristics it requires.
+The property [=base constraint=] is used to encode information about morphosyntactic constraints for a certain morph, i.e. which grammatical characteristics it requires.
 
 <div class="entity" about="morph:baseConstraint" typeof="owl:ObjectProperty">
 
@@ -306,7 +306,7 @@ The property, '[=base constraint=]', is used to encode information about morphos
 
 For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to a <a href="https://ontolex.github.io/ontolex/specification.html#Form">form</a> because this describes only the result of the application of a rule or the addition of a particular form.
 
-As a concrete example, the fact that the English affix -s expresses plural number if attached to nouns, and 3rd person singular agreement if attached to verbs, can be coded as follows using '[=base constraint=]'.
+As a concrete example, the fact that the English affix -s expresses plural number if attached to nouns, and 3rd person singular agreement if attached to verbs, can be coded as follows using [=base constraint=].
 
 <aside class="example" title="Example: Base constraints for the English affix -s">
 
@@ -501,7 +501,7 @@ Note, however, that implementations of generators that use these properties shou
 <dataProperty property="rdfs:label">source</dataProperty>
 
 <div property="rdfs:comment">
-A <dfn>source</dfn> is a string which is used as a basis for the substitution.
+A <dfn>source</dfn> is a string pattern which is used as a basis for the substitution.
 </div>
 
 <div class="description">
@@ -576,7 +576,7 @@ Unless specified otherwise (in the documentation of a resource), implementations
 
 ## Involves
 
-It is a good practice to preserve information about the morph that is used to generate a form or an entry. The property, '[=involves=]' provides a way to do exactly that.
+It is a good practice to preserve information about the morph that is used to generate a form or an entry. The property [=involves=] provides a way to do exactly that.
 We recommend adding this property to every rule. In cases where [=Morph=] instances are created dynamically during the generation process, this property should be added dynamically during generation.
 
 <div class="entity" about="morph:involves" typeof="owl:ObjectProperty">
@@ -698,7 +698,7 @@ modelling inflection.
 
 ### Inflection Classes
 
-While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An [=inflection class=] is a group of lexemes that share the same pattern of inflected forms. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
+While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An [=inflection class=] is a group of lexemes that share the same pattern of inflected behaviours. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
 In practice, this means that they share the [=rules=] for generating inflected forms.
 
 <div class="entity" about="morph:InflectionClass" typeof="owl:Class">
@@ -897,7 +897,7 @@ In order to generate forms of the entry `:adam`, all the rules associated with t
 Then, for the first inflection slot, the correct form is chosen. If there is a [=base type=] specified in the rule, the corresponding form is chosen. Otherwise, the canonical form is used.
 Finally, for each inflection slot, the transformation is applied. For the first slot, the initial form is used; after that, the output of one transformation is used as an input for the next.
 
-With each transformation, all the properties in the grammatical meaning associated with the rule are copied to a newly created grammatical meaning. After all the transformations have been applied, the form is created with the constructed grammatical meaning. The initial form and the morphs are added as objects for the '[=consists of=]' statements.
+With each transformation, all the properties in the grammatical meaning associated with the rule are copied to a newly created grammatical meaning. After all the transformations have been applied, the form is created with the constructed grammatical meaning. The initial form and the morphs are added as objects for the [=consists of=] statements.
 
 It is also possible to create Morph elements during generation in case they are not present in the data.
 
@@ -1318,6 +1318,7 @@ As for compounding, the modelling differs slightly to accommodate the ternary in
 </aside>
 
 Note that, like inflection rules, word formation rules can also operate on a form different from the canonical one. In such cases, the property [=base type=] can be used in the same way as it was illustrated above for inflection. For instance, in Latin, deverbal agent and action nouns in _-or_ and _-io_ are formed on a stem allomorph different from the present stem that is displayed in the citation form of verbs - namely, on the so-called "third stem" displayed in the supine and perfect participle. E.g., for the verb meaning 'to write', we have:
+
 - citation form of the verb: _scribo_ (displaying present stem _scrib_-)
 - supine: _scriptum_ (displaying third stem _script_-)
 - agent and action nouns: _script-or_, _script-io_.
