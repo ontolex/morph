@@ -152,6 +152,7 @@ The property, '[=consists of=]', relates a form with the morphs from which it is
 <div class="description">
 <domain>ontolex:Form</domain>
 <range>[=Morph=]</range>
+<subproperty>rdfs:member</subproperty>
 </div>
 </div>
 
@@ -430,7 +431,7 @@ A <dfn>rule example</dfn> is a single form that demonstrates a class of forms th
 
 ```turtle
 :lenition_rule a morph:Rule ;
-    morph:ruleExample "bhean" .
+    morph:ruleExample "bhean"@ga .
 ```
 </aside>
 
