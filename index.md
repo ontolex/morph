@@ -698,7 +698,7 @@ modelling inflection.
 
 ### Inflection Classes
 
-While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An [=inflection class=] is a group of lexemes that share the same pattern of inflected forms. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
+While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An [=inflection class=] is a group of lexemes that share the same pattern of inflected behaviours. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
 In practice, this means that they share the [=rules=] for generating inflected forms.
 
 <div class="entity" about="morph:InflectionClass" typeof="owl:Class">
