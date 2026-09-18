@@ -152,6 +152,7 @@ The property, '[=consists of=]', relates a form with the morphs from which it is
 <div class="description">
 <domain>ontolex:Form</domain>
 <range>[=Morph=]</range>
+<subproperty>rdfs:member</subproperty>
 </div>
 </div>
 

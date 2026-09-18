@@ -44,7 +44,8 @@ morph:consistsOf a owl:ObjectProperty ;
     rdfs:label "consists of"@en ;
     rdfs:comment "Consists of states into which morph resources a form resource can be segmented."@en ;
     rdfs:domain ontolex:Form ;
-    rdfs:range morph:Morph .
+    rdfs:range morph:Morph ;
+    rdfs:subPropertyOf rdfs:member .
 
 morph:example a owl:DatatypeProperty ;
     rdfs:label "example"@en ;
