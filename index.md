@@ -501,7 +501,7 @@ Note, however, that implementations of generators that use these properties shou
 <dataProperty property="rdfs:label">source</dataProperty>
 
 <div property="rdfs:comment">
-A <dfn>source</dfn> is a string which is used as a basis for the substitution.
+A <dfn>source</dfn> is a string pattern which is used as a basis for the substitution.
 </div>
 
 <div class="description">
