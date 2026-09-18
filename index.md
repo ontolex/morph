@@ -101,6 +101,31 @@ OntoLex-Morph is an extension of the OntoLex model designed to represent morphol
 
 </section>
 
+<section id="namespaces">
+
+## Namespaces
+
+The following namespace prefixes are used throughout this document, including in the Turtle examples:
+
+```turtle
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix morph: <http://www.w3.org/ns/lemon/morph#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
+```
+
+`morph:` is the namespace defined by this module. `ontolex:` and `vartrans:` are namespaces of the OntoLex-Lemon core model and its variation & translation module, which this module extends. `rdf:`, `rdfs:`, `owl:` and `xsd:` are standard W3C namespaces used throughout. `skos:`, `lexinfo:` and `paralex:` are external vocabularies used in the examples to represent grammatical meanings and concepts.
+
+In addition, examples use the prefix `:` bound to `http://www.example.com/#` for illustrative data that is not part of any of the above namespaces.
+
+</section>
+
 <section id="morphological-segments">
 
 ## Morphological Segments
@@ -1359,5 +1384,29 @@ This state of affairs can be modelled as follows, using [=base form=] and [=base
 ```
 
 </aside>
+
+</section>
+
+<section id="references">
+
+## References
+
+### Normative References
+
+- **[OntoLex-Lemon](https://ontolex.github.io/ontolex/specification.html)** — Lexicon Model for Ontologies, the core model extended by this module (including its *vartrans* variation & translation module).
+- **[RDF 1.1 Concepts and Abstract Syntax](https://www.w3.org/TR/rdf11-concepts/)**
+- **[RDF Schema 1.1](https://www.w3.org/TR/rdf-schema/)**
+- **[OWL 2 Web Ontology Language](https://www.w3.org/TR/owl2-overview/)**
+- **[XML Schema Definition Language (XSD) 1.1](https://www.w3.org/TR/xmlschema11-2/)**
+
+### Informative References
+
+- **[LexInfo](https://lexinfo.net/)** — recommended vocabulary for representing grammatical meanings.
+- **[SKOS Simple Knowledge Organization System Reference](https://www.w3.org/TR/skos-reference/)**
+- **[Paralex](https://www.paralex-standard.org/)** — a standard for the representation of inflectional paradigms, used alongside LexInfo in some examples.
+- **[MMoOn Core – The Multilingual Morpheme Ontology](https://github.com/MMoOn-Project/MMoOn)** — recommended for modelling more complex morphological representations than covered by this module.
+- **[KIMMO](https://software.sil.org/pc-kimmo/)** — an example of a two-level morphology formalism, mentioned as an alternative to the regular expression-based replacements used in this document's examples.
+- **[XPath and XQuery Functions and Operators](https://www.w3.org/TR/xpath-functions/)** — source of the regular expression syntax used for `morph:source` and `morph:target`, chosen for compatibility with SPARQL.
+- **[SPARQL 1.1 Query Language](https://www.w3.org/TR/sparql11-query/)**
 
 </section>
