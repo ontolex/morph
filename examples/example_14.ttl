@@ -15,7 +15,7 @@
     ontolex:writtenRep "adam"@tur .
 
 :sg_rule a morph:InflectionRule ;
-    morph:example "adam" ;
+    morph:ruleExample "adam" ;
     morph:replacement [
         morph:sourceRegex "$" ;
         morph:targetRegex "" ;
@@ -24,7 +24,7 @@
     morph:slot :number_slot .
 
 :pl_rule a morph:InflectionRule ;
-    morph:example "adamlar"@tur ;
+    morph:ruleExample "adamlar"@tur ;
     morph:replacement [
         morph:sourceRegex "$" ;
         morph:targetRegex "lar" ;
@@ -35,7 +35,7 @@
     morph:slot :number_slot .
 
 :acc_rule a morph:InflectionRule ;
-    morph:example "adami" ;
+    morph:ruleExample "adami" ;
     morph:replacement [
         morph:sourceRegex "$" ;
         morph:targetRegex "i" ;

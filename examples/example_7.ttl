@@ -8,4 +8,4 @@
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
 @prefix : <http://www.example.com/#> .:lenition_rule a morph:Rule ;
-    morph:example "bhean" .
+    morph:ruleExample "bhean" .

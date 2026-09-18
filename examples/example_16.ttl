@@ -28,7 +28,7 @@
     morph:baseType "ThirdStem" .
 
 :prs_act_ind_2_sg_rule a morph:InflectionRule ;
-    morph:example "rumpis" ;
+    morph:ruleExample "rumpis" ;
     	    morph:replacement [
 	    morph:sourceRegex "o$" ;
 	    morph:targetRegex "is" ;
@@ -38,7 +38,7 @@
     morph:baseType "PresentStem" .
 
 :prf_act_ind_2_sg_rule a morph:InflectionRule ;
-    morph:example "rumpisti" ;
+    morph:ruleExample "rumpisti" ;
     morph:replacement [
 	    morph:sourceRegex "$" ;
 	    morph:targetRegex "sti" ;
@@ -48,7 +48,7 @@
     morph:baseType "PerfectStem" .
 
 :fut_act_ptcp_rule a morph:InflectionRule ;
-    morph:example "rupturus" ;
+    morph:ruleExample "rupturus" ;
     morph:replacement [
 	    morph:sourceRegex "m$" ;
 	    morph:targetRegex "rus" ;
