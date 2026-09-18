@@ -200,7 +200,7 @@ be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 ## Grammatical Meanings
 
-The class [=grammatical meaning=] is used to gloss information associated with the morph. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
+The class [=grammatical meaning=] is used to gloss information associated with the morph, form or rule. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
 
 <div class="entity" about="morph:GrammaticalMeaning" typeof="owl:Class">
 
