@@ -58,21 +58,21 @@ morph:generates a owl:ObjectProperty ;
     rdfs:domain morph:WordFormationRule ;
     rdfs:range ontolex:Form .
 
-morph:grammaticalMeaning a owl:ObjectProperty ;
-    rdfs:label "grammatical meaning"@en ;
-    rdfs:comment "The grammatical meaning property assigns a grammatical meaning to a morph, form, or rule"@en ;
+morph:meaning a owl:ObjectProperty ;
+    rdfs:label "meaning"@en ;
+    rdfs:comment "The meaning property assigns a grammatical meaning to a morph, form, or rule"@en ;
     rdfs:domain [ owl:unionOf ( ontolex:Form morph:Morph morph:Rule ) ] ;
     rdfs:range morph:GrammaticalMeaning .
 
-morph:inflectionClass a owl:ObjectProperty ;
-    rdfs:label "inflection class"@en ;
-    rdfs:comment "The inflection class property links an inflection rule to the inflection class it pertains to."@en ;
+morph:inflection a owl:ObjectProperty ;
+    rdfs:label "inflection"@en ;
+    rdfs:comment "The inflection property links an inflection rule to the inflection class it pertains to."@en ;
     rdfs:domain morph:InflectionRule ;
     rdfs:range morph:InflectionClass .
 
-morph:inflectionSlot a owl:ObjectProperty ;
-    rdfs:label "inflection slot"@en ;
-    rdfs:comment "The inflection slot property links an inflection rule to the slot it pertains to"@en ;
+morph:slot a owl:ObjectProperty ;
+    rdfs:label "slot"@en ;
+    rdfs:comment "The slot property links an inflection rule to the inflection slot it pertains to"@en ;
     rdfs:domain morph:InflectionRule ;
     rdfs:range morph:InflectionSlot .
 
@@ -92,23 +92,23 @@ morph:replacement a owl:DatatypeProperty ;
     rdfs:label "replacement"@en ;
     rdfs:comment "The replacement property states the replacement pattern that is involved in a morphological rule for the generation of a form."@en ;
     rdfs:domain morph:Rule ;
-    rdfs:range morph:Replacement .
+    rdfs:range morph:ReplacementFormula .
 
-morph:source a owl:DatatypeProperty ;
-    rdfs:label "source"@en ;
-    rdfs:comment "A source is a string which is used as a basis for the substitution."@en ;
+morph:sourceRegex a owl:DatatypeProperty ;
+    rdfs:label "source regex"@en ;
+    rdfs:comment "A source regex is a string which is used as a basis for the substitution."@en ;
     rdfs:domain morph:RegexReplacement ;
     rdfs:range xsd:string .
 
-morph:target a owl:DatatypeProperty ;
-    rdfs:label "target"@en ;
-    rdfs:comment "Target is a string template that denotes a target for the substitution."@en ;
+morph:targetRegex a owl:DatatypeProperty ;
+    rdfs:label "target regex"@en ;
+    rdfs:comment "Target regex is a string template that denotes a target for the substitution."@en ;
     rdfs:domain morph:RegexReplacement ;
     rdfs:range xsd:string .
 
-morph:wordFormationRule a owl:ObjectProperty ;
-    rdfs:label "word formation rule"@en ;
-    rdfs:comment "The word formation rule property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry."@en ;
+morph:formationRule a owl:ObjectProperty ;
+    rdfs:label "formation rule"@en ;
+    rdfs:comment "The formation rule property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry."@en ;
     rdfs:domain morph:WordFormationRelation ;
     rdfs:range morph:WordFormationRule .
 
@@ -128,11 +128,11 @@ morph:GrammaticalMeaning a owl:Class ;
 morph:RegexReplacement a owl:Class ;
     rdfs:label "Regex Replacement"@en ;
     rdfs:comment "Regex replacement can be used to represent the regular expression-based substitution that produces an inflected or derived surface form."@en ;
-    rdfs:subClassOf morph:Replacement .
+    rdfs:subClassOf morph:ReplacementFormula .
 
-morph:Replacement a owl:Class ;
-    rdfs:label "Replacement"@en ;
-    rdfs:comment "Replacement is a class that can be used to represent the morphological transformation that is applied to a base form to obtain another form (inflectionally or derivationally related to it)."@en .
+morph:ReplacementFormula a owl:Class ;
+    rdfs:label "Replacement Formula"@en ;
+    rdfs:comment "Replacement Formula is a class that can be used to represent the morphological transformation that is applied to a base form to obtain another form (inflectionally or derivationally related to it)."@en .
 
 morph:WordFormationRelation a owl:Class ;
     rdfs:label "Word Formation Relation"@en ;

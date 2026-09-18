@@ -10,6 +10,6 @@
 @prefix : <http://www.example.com/#> .:perfect_rule a morph:Rule ;
     morph:replacement [
         a morph:RegexReplacement ;
-        morph:source "^(.*)en$" ;
-        morph:target "ge$1t" ;
+        morph:sourceRegex "^(.*)en$" ;
+        morph:targetRegex "ge$1t" ;
     ] .

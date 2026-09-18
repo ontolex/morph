@@ -17,15 +17,15 @@
 :schaap-schaapskop a morph:WordFormationRelation ;
              vartrans:source :schaap-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:wordFormationRule :NN-rule .
+             morph:formationRule :NN-rule .
 :kop-schaapskop a morph:WordFormationRelation ;
              vartrans:source :kop-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:wordFormationRule :NN-rule .
+             morph:formationRule :NN-rule .
 
 :NN-rule a morph:CompoundingRule ;
             morph:replacement [
-		          morph:target "$1s$2" ;
+		          morph:targetRegex "$1s$2" ;
 			    ] ;
             morph:involves :_s-morph;
             morph:generates :schaapskop-form.

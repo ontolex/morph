@@ -14,45 +14,45 @@
 
 :rumpo_form a ontolex:Form ;
     ontolex:writtenRep "rumpo"@la ;
-    morph:grammaticalMeaning :prs.act.ind.1.sg ;
+    morph:meaning :prs.act.ind.1.sg ;
     morph:baseType "PresentStem" .
 
 :rupi_form a ontolex:Form ;
     ontolex:writtenRep "rupi"@la ;
-    morph:grammaticalMeaning :prf.act.ind.1.sg ;
+    morph:meaning :prf.act.ind.1.sg ;
     morph:baseType "PerfectStem" .
 
 :ruptum_form a ontolex:Form ;
     ontolex:writtenRep "ruptum"@la ;
-    morph:grammaticalMeaning :sup.acc ;
+    morph:meaning :sup.acc ;
     morph:baseType "ThirdStem" .
 
 :prs_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpis" ;
     	    morph:replacement [
-	    morph:source "o$" ;
-	    morph:target "is" ;
+	    morph:sourceRegex "o$" ;
+	    morph:targetRegex "is" ;
 	    ] ;
-    morph:inflectionClass :thirdConjugation ;
-    morph:grammaticalMeaning :prs.act.ind.2.sg ;
+    morph:inflection :thirdConjugation ;
+    morph:meaning :prs.act.ind.2.sg ;
     morph:baseType "PresentStem" .
 
 :prf_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpisti" ;
     morph:replacement [
-	    morph:source "$" ;
-	    morph:target "sti" ;
+	    morph:sourceRegex "$" ;
+	    morph:targetRegex "sti" ;
 	    ] ;
-    morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-    morph:grammaticalMeaning :prf.act.ind.2.sg ;
+    morph:inflection :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
+    morph:meaning :prf.act.ind.2.sg ;
     morph:baseType "PerfectStem" .
 
 :fut_act_ptcp_rule a morph:InflectionRule ;
     morph:example "rupturus" ;
     morph:replacement [
-	    morph:source "m$" ;
-	    morph:target "rus" ;
+	    morph:sourceRegex "m$" ;
+	    morph:targetRegex "rus" ;
 	    ] ;
-    morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-    morph:grammaticalMeaning :fut.act.ptcp ;
+    morph:inflection :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
+    morph:meaning :fut.act.ptcp ;
     morph:baseType "ThirdStem" .
