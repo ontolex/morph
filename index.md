@@ -299,7 +299,7 @@ The property, '[=base constraint=]', is used to encode information about morphos
 
 <div class="description">
 
-<domain>ontolex:Morph OR [=Rule=]</domain>
+<domain>[=Morph=] OR [=Rule=]</domain>
 
 <range>[=Grammatical Meaning=]</range>
 </div>
