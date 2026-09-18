@@ -9,15 +9,15 @@
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
 @prefix : <http://www.example.com/#> .:rumpis_form a ontolex:Form ;
     ontolex:writtenRep "rumpis"@la ;
-    morph:grammaticalMeaning :prs.act.ind.2.sg ;
+    morph:meaning :prs.act.ind.2.sg ;
     morph:baseType "PresentStem" .
 
 :rupisti_form a ontolex:Form ;
     ontolex:writtenRep "rupisti"@la ;
-    morph:grammaticalMeaning :prf.act.ind.2.sg ;
+    morph:meaning :prf.act.ind.2.sg ;
     morph:baseType "PerfectStem" .
 
 :ruptus_form a ontolex:Form ;
     ontolex:writtenRep "rupturus"@la ;
-    morph:grammaticalMeaning :fut.act.ptcp ;
+    morph:meaning :fut.act.ptcp ;
     morph:baseType "ThirdStem" .

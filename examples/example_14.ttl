@@ -15,35 +15,35 @@
     ontolex:writtenRep "adam"@tur .
 
 :sg_rule a morph:InflectionRule ;
-    morph:example "adam" ;
+    morph:ruleExample "adam" ;
     morph:replacement [
-        morph:source "$" ;
-        morph:target "" ;
+        morph:sourceRegex "$" ;
+        morph:targetRegex "" ;
     ] ;
-    morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
-    morph:inflectionSlot :number_slot .
+    morph:meaning [ lexinfo:number lexinfo:singular ; ] ;
+    morph:slot :number_slot .
 
 :pl_rule a morph:InflectionRule ;
-    morph:example "adamlar"@tur ;
+    morph:ruleExample "adamlar"@tur ;
     morph:replacement [
-        morph:source "$" ;
-        morph:target "lar" ;
+        morph:sourceRegex "$" ;
+        morph:targetRegex "lar" ;
     ] ;
-    morph:inflectionClass :noun1_infl_vowelHarmony1 ;
-    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
+    morph:inflection :noun1_infl_vowelHarmony1 ;
+    morph:meaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:involves :lar ;
-    morph:inflectionSlot :number_slot .
+    morph:slot :number_slot .
 
 :acc_rule a morph:InflectionRule ;
-    morph:example "adami" ;
+    morph:ruleExample "adami" ;
     morph:replacement [
-        morph:source "$" ;
-        morph:target "i" ;
+        morph:sourceRegex "$" ;
+        morph:targetRegex "i" ;
     ] ;
-    morph:inflectionClass :noun1_infl_vowelHarmony1 ;
-    morph:grammaticalMeaning lexinfo:accusativeCase ;
+    morph:inflection :noun1_infl_vowelHarmony1 ;
+    morph:meaning lexinfo:accusativeCase ;
     morph:involves :i ;
-    morph:inflectionSlot :case_slot .
+    morph:slot :case_slot .
 
 :number_slot a morph:InflectionSlot ;
     morph:next :case_slot ;

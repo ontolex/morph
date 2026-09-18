@@ -12,10 +12,10 @@
     ontolex:morphologicalPattern :secondDeclension .
 
 :gen_sg_rule a morph:InflectionRule ;
-    morph:example "lupi" ;
+    morph:ruleExample "lupi" ;
     morph:replacement [
-        morph:source "us$" ;
-        morph:target "i" ;
+        morph:sourceRegex "us$" ;
+        morph:targetRegex "i" ;
     ] ;
-    morph:inflectionClass :secondDeclension ;
-    morph:grammaticalMeaning :gen.sg .
+    morph:inflection :secondDeclension ;
+    morph:meaning :gen.sg .
