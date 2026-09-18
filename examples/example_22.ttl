@@ -25,7 +25,7 @@
 
 :NN-rule a morph:CompoundingRule ;
             morph:replacement [
-		          morph:target "\\1s\\2" ;
+		          morph:target "$1s$2" ;
 			    ] ;
             morph:involves :_s-morph;
             morph:generates :schaapskop-form.

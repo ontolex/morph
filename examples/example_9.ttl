@@ -11,5 +11,5 @@
     morph:replacement [
         a morph:RegexReplacement ;
         morph:source "^(.*)en$" ;
-        morph:target "ge\\1t" ;
+        morph:target "ge$1t" ;
     ] .

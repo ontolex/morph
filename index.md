@@ -200,7 +200,7 @@ be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 ## Grammatical Meanings
 
-The class [=grammatical meaning=] is used to gloss information associated with the morph. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. Typically, the bundles will be expressed as blank nodes. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
+The class [=grammatical meaning=] is used to gloss information associated with the morph. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
 
 <div class="entity" about="morph:GrammaticalMeaning" typeof="owl:Class">
 
@@ -252,7 +252,7 @@ For instance, we can update the previous example of the English plural form *cat
 ```
 </aside>
 
-In this case, we create a blank node for the grammatical meaning that corresponds to a single feature in Lexinfo. In practice, it might be better to define instances for common morphological meanings and reuse these objects.
+In this case, we create a blank node for the grammatical meaning that corresponds to a single feature in Lexinfo. We could also define instances for common morphological meanings and reuse these objects.
 
 For example, in the Latin form *lupus*, the nominative case and singular number are expressed cumulatively by the affix *-us*. This is a common combination; therefore, an instance of [=Grammatical Meaning=] is introduced for that feature bundle. This time we use Lexinfo vocabulary alongside the [Paralex vocabulary](https://www.paralex-standard.org/) — even though Lexinfo is the preferred way to represent grammatical features in OntoLex, there is no restriction on this.
 
@@ -397,11 +397,10 @@ This does not hold for agglutination, where one form is created by applying seve
 
 <div property="rdfs:comment">
 A <dfn>rule</dfn> represents the formal operation applied to a base form to obtain another form (inflectionally or derivationally related to it).
-It must contain either 'example' or 'replacement' (or both). “Tabular” value of a morpheme must be stored in a RDFS label (e.g. “-s”@en for usual PL in English). One rule applies exactly one morphological transformation, i.e. adds one morph.
+It must contain either 'example' or 'replacement' (or both). In addition, a human-readable string representation of a morph should be provided as an RDFS label, e.g. “-s”@en for usual PL in English. One rule applies exactly one morphological transformation, i.e. adds one morph.
 </div>
 
 </div>
-
 
 <section id="examples">
 
@@ -494,6 +493,9 @@ The class [=regex replacement=] is used to describe a morphological transformati
 
 The source and the target for the substitution are expressed with the properties [=source=] and [=target=] correspondingly.
 
+These properties should not have a language tag since these are patterns with special characters, not natural language strings.
+Note, however, that implementations of generators that use these properties should insert a language code when generating properties that require one (e.g. ontolex:writtenRep).
+
 <div class="entity" about="morph:source" typeof="owl:DatatypeProperty">
 
 <dataProperty property="rdfs:label">source</dataProperty>
@@ -542,7 +544,7 @@ A <dfn>source</dfn> is a string which is used as a basis for the substitution.
 </aside>
 
 
-The target can use backreferences (`\1`) to refer to the captured groups in the source string.
+The target can use variables `$N` to refer to the substrings captured by parenthesised expressions in the source string (e.g. `$1` for the first pair of parenthesis, `$2` for the second, etc.).
 
 
 <aside class="example" title="Formation of German perfect forms">
@@ -554,13 +556,13 @@ The target can use backreferences (`\1`) to refer to the captured groups in the 
     morph:replacement [
         a morph:RegexReplacement ;
         morph:source "^(.*)en$" ;
-        morph:target "ge\\1t" ;
+        morph:target "ge$1t" ;
     ] .
 ```
 
 </aside>
 
-In the above example, the source string `^(.*)en$` captures the stem of the verb, which is then used in the target string `ge\1t` to form the perfect tense of the verb. The `ge` prefix is added to the stem, and the `t` suffix is added to indicate the perfect tense, such as *gemacht* "done" from *machen* "to do".
+In the above example, the source string `^(.*)en$` captures the stem of the verb, which is then used in the target string `ge$1t` to form the perfect tense of the verb. The `ge` prefix is added to the stem, and the `t` suffix is added to indicate the perfect tense, such as *gemacht* "done" from *machen* "to do".
 
 <!--<div class="note">
 TO DISCUSS: RDF 1.1 recommends NFC normalization for all entities.
@@ -574,7 +576,8 @@ Unless specified otherwise (in the documentation of a resource), implementations
 
 ## Involves
 
-It is often desirable to preserve information about which rules were used for a form or an entry to be generated. The property, '[=involves=]', provides a way to do exactly that. We recommend adding this property to generated items in any implementation of the generation process.
+It is a good practice to preserve information about the morph that is used to generate a form or an entry. The property, '[=involves=]' provides a way to do exactly that.
+We recommend adding this property to every rule. In cases where [=Morph=] instances are created dynamically during the generation process, this property should be added dynamically during generation.
 
 <div class="entity" about="morph:involves" typeof="owl:ObjectProperty">
 
@@ -601,7 +604,7 @@ The <dfn>involves</dfn> property links a [=Rule=] to the [=Morph=] that is invol
     morph:consistsOf :auf , :ge, :stand , :en .
 
 :perfect_tense_rule a morph:Rule ;
-    morph:involves :ge .
+    morph:involves :ge, :en .
 ```
 
 </aside>
@@ -610,6 +613,7 @@ The <dfn>involves</dfn> property links a [=Rule=] to the [=Morph=] that is invol
 
 <!-- <div class="note">
 Note that this does not encode order. <br/> MI: Each rule corresponds to exactly one Morph, so there is no need for ordering
+MI correcting MI: In this case we need two morphs (:auf will be there already, the rule involves only :ge and :en). The ordering will be based on the replacement and adding ordering to morph:consistsOf is on the side of implementations, not on the specs.
 </div> -->
 
 </section>
@@ -619,7 +623,7 @@ Note that this does not encode order. <br/> MI: Each rule corresponds to exactly
 ## Generates
 
 Both inflection and word formation rules can be used to generate forms: inflection rules generate word forms of a lexical entry other than the canonical and/or base forms, while word formation rules generate the canonical form (or possibly also other forms) of a lexical entry from the base form of another, morphologically related lexical entry.
-The form generated by a rule can be specified using the property [=generates=].
+The form and the rule that was used to generate it can be connected using the property [=generates=].
 
 <div class="entity" about="morph:generates" typeof="owl:ObjectProperty">
 
@@ -751,10 +755,6 @@ The example below illustrates the modelling of an inflection class and a rule fo
         morph:target "i" ;
     ] ;
     morph:inflectionClass :secondDeclension ;
-    morph:grammaticalMeaning :gen.sg ;
-    morph:involves :i .
-
-:i a ontolex:Affix ;
     morph:grammaticalMeaning :gen.sg .
 ```
 </aside>
@@ -766,7 +766,11 @@ A tool or a service capable of applying these inflectional rules and generating 
 ![Example 13](examples/example_13.png)
 
 ```turtle
-:gen_sg_rule morph:generates :lupi .
+:gen_sg_rule morph:generates :lupi ;
+    morph:involves :i .
+
+:i a ontolex:Affix ;
+    morph:grammaticalMeaning :gen.sg .
 
 :lupi a ontolex:Form ;
     ontolex:writtenRep "lupi"@la ;
@@ -774,6 +778,11 @@ A tool or a service capable of applying these inflectional rules and generating 
     morph:consistsOf :lup , :i .
 ```
 </aside>
+
+<div class="note">
+  In the two examples above, a Morph instance (`:i`) was not defined in the original data and was generated by the generation implementation.
+  In some resources, the information about morphs and morphemes will be readily available. In these cases, [=Morph=] instances and corresponding [=involve=] properties should be reused and only a <a href="https://ontolex.github.io/ontolex/specification.html#Form">Form</a> instances and [=generates=] properties should be added dynamically by the generation process.
+</div>
 
 <section id="inflection-slots">
 ## Inflection Slots
@@ -847,7 +856,7 @@ The example below demonstrates using inflection slots for number and case gramma
     morph:example "adam" ;
     morph:replacement [
         morph:source "$" ;
-        morph:target ""@tur ;
+        morph:target "" ;
     ] ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
     morph:inflectionSlot :number_slot .
@@ -856,7 +865,7 @@ The example below demonstrates using inflection slots for number and case gramma
     morph:example "adamlar"@tur ;
     morph:replacement [
         morph:source "$" ;
-        morph:target "lar"@tur ;
+        morph:target "lar" ;
     ] ;
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
@@ -867,7 +876,7 @@ The example below demonstrates using inflection slots for number and case gramma
     morph:example "adami" ;
     morph:replacement [
         morph:source "$" ;
-        morph:target "i"@tur ;
+        morph:target "i" ;
     ] ;
     morph:inflectionClass :noun1_infl_vowelHarmony1 ;
     morph:grammaticalMeaning lexinfo:accusativeCase ;
@@ -971,7 +980,7 @@ This can be modelled with OntoLex-Morph as follows:
     morph:example "rumpis" ;
     	    morph:replacement [
 	    morph:source "o$" ;
-	    morph:target "is"@la ;
+	    morph:target "is" ;
 	    ] ;
     morph:inflectionClass :thirdConjugation ;
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
@@ -981,7 +990,7 @@ This can be modelled with OntoLex-Morph as follows:
     morph:example "rumpisti" ;
     morph:replacement [
 	    morph:source "$" ;
-	    morph:target "sti"@la ;
+	    morph:target "sti" ;
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
@@ -991,7 +1000,7 @@ This can be modelled with OntoLex-Morph as follows:
     morph:example "rupturus" ;
     morph:replacement [
 	    morph:source "m$" ;
-	    morph:target "rus"@la ;
+	    morph:target "rus" ;
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :fut.act.ptcp ;
@@ -1298,7 +1307,7 @@ As for compounding, the modelling differs slightly to accommodate the ternary in
 
 :NN-rule a morph:CompoundingRule ;
             morph:replacement [
-		          morph:target "\\1s\\2" ;
+		          morph:target "$1s$2" ;
 			    ] ;
             morph:involves :_s-morph;
             morph:generates :schaapskop-form.
@@ -1337,14 +1346,14 @@ This state of affairs can be modelled as follows, using [=base form=] and [=base
 		morph:baseType "ThirdStem" ;
 	    morph:replacement [
 	    morph:source "um$" ;
-	    morph:target "or"@la ;
+	    morph:target "or" ;
         ] .
     
 :action_rule a morph:WordFormationRule ;
 		morph:baseType "ThirdStem" ;
 	    morph:replacement [
 	    morph:source "um$" ;
-	    morph:target "io"@la ;
+	    morph:target "io" ;
 	    ] .
 ```
 
