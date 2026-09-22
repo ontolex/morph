@@ -78,16 +78,16 @@ Morphology is a vital and, in many languages, very sophisticated part of languag
 
 The morphology module aims at fulfilling two modelling purposes:
 
-1. Stating elements that are involved in the decomposition of lexical entries and forms.
-  - Morphological decomposition on the lexical entry level.<br/>
-    The kind of elements of which a lexical entry can consist should be as non-restrictive as possible, i.e., the decomposition of lexical entries encompasses lexical entries, components, derivational affixes, inflectional affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be composed of a form!
+1. Stating elements that are involved in the decomposition of <a data-cite="ontolex#LexicalEntry">lexical entries</a> and <a data-cite="ontolex#Form">forms</a>, both of which are established in the OntoLex-Lemon core model and are extended here.
+    - Morphological decomposition on the lexical entry level.<br/>
+      The kind of elements of which a lexical entry can consist should be as non-restrictive as possible, i.e., the decomposition of lexical entries encompasses lexical entries, components, derivational affixes, inflectional affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be composed of a form!
 
-  - Morphological decomposition on the form level.<br/>
-    Elements of which a form can consist of roots, stems, inflectional affixes and zero morphs. 
+    - Morphological decomposition on the form level.<br/>
+      Elements of which a form can consist of roots, stems, inflectional affixes and zero morphs. 
 
-2. Enabling the representation of building patterns that are involved in the formation of lexical entries and forms.
-  - Representation of decompositional building patterns for lexical entries.
-  - Representation of decompositional building patterns for forms.
+2. Enabling the representation of building patterns that are involved in the formation of <a data-cite="ontolex#LexicalEntry">lexical entries</a> and <a data-cite="ontolex#Form">forms</a>.
+    - Representation of decompositional building patterns for lexical entries.
+    - Representation of decompositional building patterns for forms.
 
 While the model is not capable of providing fine-grained descriptions of phonological and morphophonological processes, the module is capable of representing the morphological processes that are involved in the formation of lexical entries and forms. The module covers use cases typically found in the representation of dictionary data, such as the representation of inflectional and derivational paradigms, as well as the representation of morphological rules that are used in computational morphology.
 In order to model more complex morphological representations, users can employ the MMoOn Core ontology --- [The Multilingual Morpheme Ontology](https://github.com/MMoOn-Project/MMoOn).
@@ -218,7 +218,7 @@ The class [=grammatical meaning=] is used to gloss information associated with t
 - can represent *either* an individual feature or a feature bundle
 </div> -->
 
-The [=grammatical meaning property=] relates an instance of the class [=morph=] to an instance of the class [=grammatical meaning=]. In addition to morphs, the subject of this property can be a <a href="https://ontolex.github.io/ontolex/specification.html#Form">form</a> as an aggregate of morphs or a [=rule=] — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](#morphological-rules).
+The [=grammatical meaning property=] relates an instance of the class [=morph=] to an instance of the class [=grammatical meaning=]. In addition to morphs, the subject of this property can be a <a data-cite="ontolex#Form">form</a> as an aggregate of morphs or a [=rule=] — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](#morphological-rules).
 
 <div class="entity" about="morph:grammaticalMeaning" typeof="owl:ObjectProperty">
 
@@ -305,7 +305,7 @@ The property, '[=base constraint=]', is used to encode information about morphos
 </div>
 </div>
 
-For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to a <a href="https://ontolex.github.io/ontolex/specification.html#Form">form</a> because this describes only the result of the application of a rule or the addition of a particular form.
+For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to a <a data-cite="ontolex#Form">form</a> because this describes only the result of the application of a rule or the addition of a particular form.
 
 As a concrete example, the fact that the English affix -s expresses plural number if attached to nouns, and 3rd person singular agreement if attached to verbs, can be coded as follows using '[=base constraint=]'.
 
@@ -338,7 +338,7 @@ This property is necessary both to represent this information for manual consump
 <objectProperty property="rdfs:label">base form</objectProperty>
 
 <div property="rdfs:comment">
-<dfn>Base form</dfn> is a subproperty of <a href="https://ontolex.github.io/ontolex/specification.html#lexicalForm">lexical form</a> that indicates the form that is taken as base for the application of inflection or derivation rules to generate other forms.
+<dfn>Base form</dfn> is a subproperty of <a data-cite="ontolex#lexicalForm">lexical form</a> that indicates the form that is taken as base for the application of inflection or derivation rules to generate other forms.
 </div>
 
 <div class="description">
@@ -686,7 +686,7 @@ modelling inflection.
 <class property="rdfs:label">Inflection Rule</class>
 
 <div property="rdfs:comment">
-<dfn>Inflection rule</dfn> represents the formal operation applied to a base form of a <a href="https://ontolex.github.io/ontolex/specification.html#LexicalEntry">lexical entry</a> to obtain another inflected form of that lexical entry.
+<dfn>Inflection rule</dfn> represents the formal operation applied to a base form of a <a data-cite="ontolex#LexicalEntry">lexical entry</a> to obtain another inflected form of that lexical entry.
 </div>
 
 <!-- **morph:inflectionRule** provides information on how to generate inflected forms and, in the case of a dataset with pre-generated forms, links these forms to InflectionRules that were used to generate them. If inflection slots were used, forms might have several rules attached to them. -->
@@ -707,7 +707,7 @@ In practice, this means that they share the [=rules=] for generating inflected f
 <class property="rdfs:label">Inflection Class</class>
 
 <div property="rdfs:comment">
-<dfn>Inflection Class</dfn> represents the inflection class to which a <a href="https://ontolex.github.io/ontolex/specification.html#LexicalEntry">lexical entry</a> belongs/is assigned -- e.g., the declension of a noun, or the conjugation of a verb.
+<dfn>Inflection Class</dfn> represents the inflection class to which a <a data-cite="ontolex#LexicalEntry">lexical entry</a> belongs/is assigned -- e.g., the declension of a noun, or the conjugation of a verb.
 </div>
 </div>
 
@@ -716,7 +716,7 @@ While theoretically inflection classes can vary in their level of uniformity (cf
 In addition, an instance of [=Inflection Class=] may contain metadata information about this class.
 
 The link between lexical entries and the corresponding inflection classes is not defined in OntoLex-Morph, but modelled by reusing a
-<a href="https://ontolex.github.io/ontolex/specification.html#MorphologicalPattern">morphological pattern</a>. Inflection rules are connected to their corresponding inflection classes via the [=inflection class property=].
+<a data-cite="ontolex#MorphologicalPattern">morphological pattern</a>. Inflection rules are connected to their corresponding inflection classes via the [=inflection class property=].
 
 <div class="entity" about="morph:inflectionClass" typeof="owl:ObjectProperty">
 
@@ -782,7 +782,7 @@ A tool or a service capable of applying these inflectional rules and generating 
 
 <div class="note">
   In the two examples above, a Morph instance (`:i`) was not defined in the original data and was generated by the generation implementation.
-  In some resources, the information about morphs and morphemes will be readily available. In these cases, [=Morph=] instances and corresponding [=involve=] properties should be reused and only a <a href="https://ontolex.github.io/ontolex/specification.html#Form">Form</a> instances and [=generates=] properties should be added dynamically by the generation process.
+  In some resources, the information about morphs and morphemes will be readily available. In these cases, [=Morph=] instances and corresponding [=involve=] properties should be reused and only a <a data-cite="ontolex#Form">Form</a> instances and [=generates=] properties should be added dynamically by the generation process.
 </div>
 
 <section id="inflection-slots">
@@ -1034,7 +1034,7 @@ By applying these rules, the following forms can be generated:
 ```
 </aside>
 
-For an inflection rule with [=base type=] defined: If the lexical entry to which it is applied features a [=base form=] or (if these are not defined) a <a href="https://ontolex.github.io/ontolex/specification.html#CanonicalForm">canonical form</a> with identical [=base type=], apply the rule to this form, only. For a (generated) form, [=base type=] can be used to indicate from which form or with which rule it was generated. [=base type=] can also be used to mark stem classes in resources for which no explicit inflection rules are given.
+For an inflection rule with [=base type=] defined: If the lexical entry to which it is applied features a [=base form=] or (if these are not defined) a <a data-cite="ontolex#CanonicalForm">canonical form</a> with identical [=base type=], apply the rule to this form, only. For a (generated) form, [=base type=] can be used to indicate from which form or with which rule it was generated. [=base type=] can also be used to mark stem classes in resources for which no explicit inflection rules are given.
 
 This was introduced for modelling stem alternations. In this definition, we assume that we have one lexical entry for each stem variant so that an inflection rule whose [=base type=] doesn't match will not fire if its lexical entry doesn't fire.
 
@@ -1063,7 +1063,7 @@ A piece of information regarding word formation that is often provided for both 
 **trattaménto** s. m. [der. di *trattare*]
 
 To be able to not only encode this descriptive information but also possibly further specify it by expressing additional details, in OntoLex-Morph, word formation relations are reified in a dedicated class, [=word formation rule=].
-Since word formation relations are relations between different lexical entries, this class is defined as a subclass of the class introduced in the <i>vartrans</i> module of OntoLex for such relations -- namely, <a href="https://ontolex.github.io/ontolex/specification.html#LexicalRelation">lexical relation</a>.
+Since word formation relations are relations between different lexical entries, this class is defined as a subclass of the class introduced in the <a data-cite="vartrans">vartrans</a> module of OntoLex for such relations -- namely, <a data-cite="vartrans#LexicalRelation">lexical relation</a>.
 As a consequence, vartrans properties are also used to link lexical entries to the relations holding between them: specifically, each word formation relation is linked through [=source=] to its base(s) and through [=target=] to the derivative.
 
 <div class="entity" about="morph:WordFormationRelation" typeof="owl:Class">
@@ -1071,7 +1071,7 @@ As a consequence, vartrans properties are also used to link lexical entries to t
 <class property="rdfs:label">Word Formation Relation</class>
 
 <div property="rdfs:comment">
-<dfn>Word Formation Relation</dfn> is a subclass of <a href="https://ontolex.github.io/ontolex/specification.html#LexicalRelation">lexical relation</a>  that relates two lexical entries that are morphologically related, with the property [=target=] linking the relation to the resulting lexical entry, and the property [=source=] linking it to the morphological base (in derivation) or head and other constituents (in compounding).
+<dfn>Word Formation Relation</dfn> is a subclass of <a data-cite="vartrans#LexicalRelation">lexical relation</a>  that relates two lexical entries that are morphologically related, with the property [=target=] linking the relation to the resulting lexical entry, and the property [=source=] linking it to the morphological base (in derivation) or head and other constituents (in compounding).
 </div>
 
 <div class="description">
@@ -1100,9 +1100,9 @@ Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be
 
 The same kind of modelling can be applied to compounds -- i.e., lexemes that are morphologically related to two or more bases; e.g. English  *wallpaper*.
 
-It should be noted that there is another OntoLex module that was envisaged to be usable also for compounding, namely <i>decomp</i>, devised for the decomposition of complex lexical entries (like Multi-Word Expressions) in their parts. However, in OntoLex-<i>decomp</i>, the relationship between complex lexical entries and their parts is not reified, as there is no dedicated class, differently than what happens in OntoLex-morph for word formation relations.
+It should be noted that there is another OntoLex module that was envisaged to be usable also for compounding, namely <a data-cite="decomp">decomp</a>, devised for the decomposition of complex lexical entries (like Multi-Word Expressions) in their parts. However, in OntoLex-<a data-cite="decomp">decomp</a>, the relationship between complex lexical entries and their parts is not reified, as there is no dedicated class, differently than what happens in OntoLex-morph for word formation relations.
 
-As a consequence, to allow for a parallel treatment of different word formation processes (derivation and compounding), a subclass of [=Word Formation Relation=] is introduced for compounding -- namely, [=Compound Relation=]. This can be considered as a reification of the property <a href="https://ontolex.github.io/ontolex/specification.html#Subterm">sub term</a> introduced in the <i>decomp</i> module of OntoLex, which can be used to decompose lexical entries into other lexical entries: hence, the existence of a compound relation entails that the source lexical entry is a subterm of the compound.
+As a consequence, to allow for a parallel treatment of different word formation processes (derivation and compounding), a subclass of [=Word Formation Relation=] is introduced for compounding -- namely, [=Compound Relation=]. This can be considered as a reification of the property <a data-cite="decomp#subterm">sub term</a> introduced in the <a data-cite="decomp">decomp</a> module of OntoLex, which can be used to decompose lexical entries into other lexical entries: hence, the existence of a compound relation entails that the source lexical entry is a subterm of the compound.
 Since, by definition, compounds have more than one base, there will also be more than one compound relation: one relation with the target compound should be introduced for each of the constituents of the compound.
 
 <div class="entity" about="morph:CompoundRelation" typeof="owl:Class">
