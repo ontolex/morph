@@ -1076,7 +1076,7 @@ As a consequence, vartrans properties are also used to link lexical entries to t
 
 <div class="description">
 
-<subclass>vartrans:LexicalRelation</sub>
+<subclass>vartrans:LexicalRelation</subclass>
 
 </div>
 </div>
