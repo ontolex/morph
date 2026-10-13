@@ -10,14 +10,14 @@
 @prefix : <http://www.example.com/#> .:rumpis_form a ontolex:Form ;
     ontolex:writtenRep "rumpis"@la ;
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
-    morph:baseType "PresentStem" .
+    morph:baseType lexinfo:presentStem .
 
 :rupisti_form a ontolex:Form ;
     ontolex:writtenRep "rupisti"@la ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
-    morph:baseType "PerfectStem" .
+    morph:baseType lexinfo:perfectStem .
 
 :ruptus_form a ontolex:Form ;
     ontolex:writtenRep "rupturus"@la ;
     morph:grammaticalMeaning :fut.act.ptcp ;
-    morph:baseType "ThirdStem" .
+    morph:baseType lexinfo:thirdStem .

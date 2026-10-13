@@ -15,17 +15,17 @@
 :rumpo_form a ontolex:Form ;
     ontolex:writtenRep "rumpo"@la ;
     morph:grammaticalMeaning :prs.act.ind.1.sg ;
-    morph:baseType "PresentStem" .
+    morph:baseType lexinfo:presentStem .
 
 :rupi_form a ontolex:Form ;
     ontolex:writtenRep "rupi"@la ;
     morph:grammaticalMeaning :prf.act.ind.1.sg ;
-    morph:baseType "PerfectStem" .
+    morph:baseType lexinfo:perfectStem .
 
 :ruptum_form a ontolex:Form ;
     ontolex:writtenRep "ruptum"@la ;
     morph:grammaticalMeaning :sup.acc ;
-    morph:baseType "ThirdStem" .
+    morph:baseType lexinfo:thirdStem .
 
 :prs_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpis" ;
@@ -35,7 +35,7 @@
 	    ] ;
     morph:inflectionClass :thirdConjugation ;
     morph:grammaticalMeaning :prs.act.ind.2.sg ;
-    morph:baseType "PresentStem" .
+    morph:baseType lexinfo:presentStem .
 
 :prf_act_ind_2_sg_rule a morph:InflectionRule ;
     morph:example "rumpisti" ;
@@ -45,7 +45,7 @@
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :prf.act.ind.2.sg ;
-    morph:baseType "PerfectStem" .
+    morph:baseType lexinfo:perfectStem .
 
 :fut_act_ptcp_rule a morph:InflectionRule ;
     morph:example "rupturus" ;
@@ -55,4 +55,4 @@
 	    ] ;
     morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
     morph:grammaticalMeaning :fut.act.ptcp ;
-    morph:baseType "ThirdStem" .
+    morph:baseType lexinfo:thirdStem .
