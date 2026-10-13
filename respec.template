@@ -54,6 +54,18 @@ $endfor$
                 title: "lemon - Lexicon Model for Ontologies",
                 status: "CG-DRAFT",
                 publisher: "W3C"
+            },
+            "decomp": {
+                href: "https://ontolex.github.io/ontolex/specification.html",
+                title: "lemon - Lexicon Model for Ontologies",
+                status: "CG-DRAFT",
+                publisher: "W3C"
+            },
+            "vartrans": {
+                href: "https://ontolex.github.io/ontolex/specification.html",
+                title: "lemon - Lexicon Model for Ontologies",
+                status: "CG-DRAFT",
+                publisher: "W3C"
             }
         }
       };
