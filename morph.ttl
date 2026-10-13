@@ -24,7 +24,7 @@ morph:DerivationRule a owl:Class ;
 morph:baseConstraint a owl:ObjectProperty ;
     rdfs:label "base constraint"@en ;
     rdfs:comment "Base constraint defines the grammatical characteristics of the stem or base that a derivational or inflectional morpheme can be combined with"@en ;
-    rdfs:domain [ owl:unionOf ( ontolex:Morph morph:Rule ) ] ;
+    rdfs:domain [ owl:unionOf ( morph:Morph morph:Rule ) ] ;
     rdfs:range morph:GrammaticalMeaning .
 
 morph:baseForm a owl:ObjectProperty ;
