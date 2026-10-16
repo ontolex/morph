@@ -14,6 +14,8 @@ NAMESPACES = {
     "vartrans": "http://www.w3.org/ns/lemon/vartrans#",
     "lime": "http://www.w3.org/ns/lemon/lime#",
     "morph": "http://www.w3.org/ns/lemon/morph#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "cc": "http://creativecommons.org/ns#",
     "frac": "http://example.org/frac#"
     }
 

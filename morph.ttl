@@ -1,3 +1,5 @@
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix morph: <http://www.w3.org/ns/lemon/morph#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -5,6 +7,18 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.w3.org/ns/lemon/morph> a owl:Ontology ;
+    rdfs:label "The OntoLex Module for Morphology"@en ;
+    dcterms:title "The OntoLex Module for Morphology"@en ;
+    dcterms:description "The OntoLex Morphology module (morph) extends the OntoLex-Lemon core model with classes and properties for the morphological decomposition of lexical entries and forms, and for the representation of morphological rules and inflection classes."@en ;
+    dcterms:creator "Julia Bosque-Gil", "Thierry Declerck", "Jesse De Does", "Katrien Depuydt", "Katerina Gkirtzou", "Fahad Khan", "Penny Labropoulou", "Stefania Racioppa", "James K. Tauber", "Bettina Klimek" ;
+    dcterms:contributor "Christian Chiarcos", "Maxim Ionov", "John P. McCrae", "Matteo Pellegrini" ;
+    dcterms:publisher <http://www.w3.org/community/ontolex> ;
+    dcterms:rights "CC-Zero" ;
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    rdfs:seeAlso <https://www.w3.org/community/ontolex/> ;
+    owl:imports <http://www.w3.org/ns/lemon/ontolex> , <http://www.w3.org/ns/lemon/vartrans> .
 
 morph:CompoundHead a owl:Class ;
     rdfs:label "Compound Head"@en ;
