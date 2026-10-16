@@ -59,7 +59,7 @@ date: 2024-12-03
 
  OntoLex-Morph has been designed with the premise of making OntoLex-lemon applicable to morphologically rich languages of any type, supporting both fusional and agglutinative morphology, and thereby contributing to a truly multilingual web.
 
-The RDF file with the OntoLex lemon lexicography module can be found at [http://www.w3.org/ns/lemon/morph](http://www.w3.org/ns/lemon/morph).
+The RDF file with the OntoLex lemon morph module can be found at [http://www.w3.org/ns/lemon/morph](http://www.w3.org/ns/lemon/morph).
 </section>
 
 <section id="sotd">
@@ -74,18 +74,18 @@ If you wish to make comments regarding this document, please send them to [publi
 
 ## Introduction
 
-Morphology is a vital and, in many languages, very sophisticated part of language, and as such, it has been an important part of the work of lexicographers. In traditional print dictionaries, morphological information is provided in abbreviated terms that can only be deciphered with significant knowledge of the language; however, digital dictionaries are capable of representing this information in a more structured and machine-readable way. The OntoLex-Morph module is designed to provide a way to represent morphological information in a structured way that is compatible with the OntoLex-Lemon model.
+Morphology is a vital and, in many languages, very sophisticated part of language, and as such, it has been an important part of the work of lexicographers. In traditional print dictionaries, irregular morphological information is provided in abbreviated terms that can only be deciphered with significant knowledge of the language; however, digital dictionaries are capable of representing this information in a more structured and machine-readable way. The OntoLex-Morph module is designed to provide a way to represent morphological information in a structured way that is compatible with the OntoLex-Lemon model.
 
 The morphology module aims at fulfilling two modelling purposes:
 
-1. Stating elements that are involved in the decomposition of lexical entries and forms.
-  - Morphological decomposition on the lexical entry level can be achieved with the ontolex <i>decomp</i> module. Lexical entries can be decomposed into components of different kinds, such as lexical entries, inflectional and derivational affixes, stems, roots. However, a lexical entry cannot be composed of a form.
+1. Stating elements that are involved in the decomposition of <a data-cite="ontolex#LexicalEntry">lexical entries</a> and <a data-cite="ontolex#Form">forms</a>, both of which are established in the OntoLex-Lemon core model and are extended here.
+    - Morphological decomposition on the lexical entry level can be achieved with the ontolex <i>decomp</i> module. Lexical entries can be decomposed into components of different kinds, such as lexical entries, inflectional and derivational affixes, stems, roots. However, a lexical entry cannot be composed of a form.
 
-  - Morphological decomposition on the form level can be achieved with the property '[=consists of=]' in this module. Elements of which a form can consist are roots, stems and all kinds of morphs including inflectional and derivational affixes and zero morphs.
+    - Morphological decomposition on the form level can be achieved with the property '[=consists of=]' in this module. Elements of which a form can consist are roots, stems and all kinds of morphs including inflectional and derivational affixes and zero morphs.
 
-2. Enabling the representation of building patterns that are involved in the formation of lexical entries and forms.
-  - Representation of decompositional building patterns for lexical entries.
-  - Representation of decompositional building patterns for forms.
+2. Enabling the representation of building patterns that are involved in the formation of <a data-cite="ontolex#LexicalEntry">lexical entries</a> and <a data-cite="ontolex#Form">forms</a>.
+    - Representation of decompositional building patterns for lexical entries.
+    - Representation of decompositional building patterns for forms.
 
 While the model is not capable of providing fine-grained descriptions of phonological and morphophonological processes, the module is capable of representing the morphological processes that are involved in the formation of lexical entries and forms. The module covers use cases typically found in the representation of dictionary data, such as the representation of inflectional and derivational paradigms, as well as the representation of morphological rules that are used in computational morphology.
 In order to model more complex morphological representations, users can employ the MMoOn Core ontology --- [The Multilingual Morpheme Ontology](https://github.com/MMoOn-Project/MMoOn).
@@ -95,7 +95,34 @@ The OntoLex-Morph module aims to represent both traditional dictionary content (
 
 ![Overall structure of the OntoLex-Morph module](OntoLex Morph.drawio.png)
 
+The diagram above follows UML class diagram conventions: boxes are classes (with datatype properties listed as attributes), arrows with a hollow triangle head denote `rdfs:subClassOf`, plain arrows labelled with a property name denote object properties from domain to range, and the diamond on `consistsOf` marks that a form consists of morphs. Grey boxes and grey labels are classes and properties defined outside this module, in the OntoLex core and the Variation and Translation module; all other classes are defined by the Morph module.
+
 OntoLex-Morph is an extension of the OntoLex model designed to represent morphological processes—such as inflection, derivation, and compounding—across languages, supporting both structural and semantic aspects of morphemes, rules, and grammatical constraints. It enables the formalization of morphological data from various sources, facilitates interoperability between computational morphologies, and supports use cases like generating linguistic labels for ontologies or modelling morphology as a knowledge graph. Central to the model are three classes—morph, rule, and grammatical meaning—which interact to describe how base forms are transformed into surface forms while capturing their morphosyntactic and semantic features.
+
+</section>
+
+<section id="namespaces">
+
+## Namespaces
+
+The following namespace prefixes are used throughout this document, including in the Turtle examples:
+
+```turtle
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix morph: <http://www.w3.org/ns/lemon/morph#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
+```
+
+`morph:` is the namespace defined by this module. `ontolex:` and `vartrans:` are namespaces of the OntoLex-Lemon core model and its variation & translation module, which this module extends. `rdf:`, `rdfs:`, `owl:` and `xsd:` are standard W3C namespaces used throughout. `skos:`, `lexinfo:` and `paralex:` are external vocabularies used in the examples to represent grammatical meanings and concepts.
+
+In addition, examples use the prefix `:` bound to `http://www.example.com/#` for illustrative data that is not part of any of the above namespaces.
 
 </section>
 
@@ -104,10 +131,10 @@ OntoLex-Morph is an extension of the OntoLex model designed to represent morphol
 ## Morphological Segments
 
 _Morphs_ are the basic building blocks within the module that represent a single 
-indivisible unit of meaning or grammatical function. They can be roots, stems, affixes, or even zero morphs. 
+unit of meaning or grammatical function. They can be roots, stems and all kinds of morphs including inflectional & derivational affixes and zero morphs.
 Morphs represent a single version (allomorph) of a morpheme, which is a more abstract concept. Morphs can be
 either bound morphs, which cannot stand alone, or free morphs, which can stand alone as a word. A free morph 
-may be a single concept such as "tea" or "pot" in "teapots", while the plural suffix "-s" is a bound morph.
+may be a single concept such as "tea" or "pot" in "teapots", while a bound morph may be the plural suffix "-s".
 
 <section id="morphs">
 
@@ -131,13 +158,13 @@ The class [=Morph=] provides a way to represent sub-word elements and attach gra
 - can carry `lexinfo:termElement` (for what?)
 - can consist of other morphs [MP: not in the last version of the diagram; is that intended?] [MI: true, this is no longer the case, but LexicalForms can be, using decomp, so I think we cannot restrict it]
 - the model is agnostic as to whether this represents a morpheme or one of its allomorphs, but as a lexical entry
-- grammaticalMeaning: glossing information associated with the morph
+- meaning: glossing information associated with the morph
 - baseConstraint: (for affixes) contraints on the elements that this morph can be applied to
 - `ontolex:Affix` is defined as a subclass of `morph:Morph`.
 - other types of morph (roots, stems, transfix, etc.) are not defined in the module but should be defined in Lexinfo
 </div> -->
 
-The property, '[=consists of=]', relates a form with the morphs from which it is constructed.
+The property [=consists of=] relates a form with the morphs from which it is constructed.
 
 <div class="entity" about="morph:consistsOf" typeof="owl:ObjectProperty">
 
@@ -150,14 +177,13 @@ The property, '[=consists of=]', relates a form with the morphs from which it is
 <div class="description">
 <domain>ontolex:Form</domain>
 <range>[=Morph=]</range>
+<subproperty>rdfs:member</subproperty>
 </div>
 </div>
 
 Here is a simple example of a segmentation of the English plural form *cats*:
 
-<aside class="example" title="Example: Segmentation of the English plural form cats">
-
-![Example 1](examples/example_1.png)
+<aside class="example" src="examples/example_1.ttl" title="Example: Segmentation of the English plural form cats">
 
 ```turtle
 :cats a ontolex:Form ;
@@ -175,9 +201,7 @@ is enough for some cases (and even useful when the order may be considered ambig
 However, for many applications,  it is necessary to provide this information. To do so, the morphs can
 be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
-<aside class="example" title="Example: Ordered segmentation of the English plural form cats">
-
-![Example 2](examples/example_2.png)
+<aside class="example" src="examples/example_2.ttl" title="Example: Ordered segmentation of the English plural form cats">
 
 ```turtle
 :cats a ontolex:Form ;
@@ -198,7 +222,7 @@ be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 ## Grammatical Meanings
 
-The class [=grammatical meaning=] is used to gloss information associated with the morph. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
+The class [=grammatical meaning=] is used to gloss information associated with the morph, form or rule. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
 
 <div class="entity" about="morph:GrammaticalMeaning" typeof="owl:Class">
 
@@ -215,14 +239,14 @@ The class [=grammatical meaning=] is used to gloss information associated with t
 - can represent *either* an individual feature or a feature bundle
 </div> -->
 
-The [=grammatical meaning property=] relates an instance of the class [=morph=] to an instance of the class [=grammatical meaning=]. In addition to morphs, the subject of this property can be a <a href="https://ontolex.github.io/ontolex/specification.html#Form">form</a> as an aggregate of morphs or a [=rule=] — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](#morphological-rules).
+The [=meaning=] relates an instance of the class [=morph=] to an instance of the class [=grammatical meaning=]. In addition to morphs, the subject of this property can be a <a data-cite="ontolex#Form">form</a> as an aggregate of morphs or a [=rule=] — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](#morphological-rules).
 
-<div class="entity" about="morph:grammaticalMeaning" typeof="owl:ObjectProperty">
+<div class="entity" about="morph:meaning" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">grammatical meaning</objectProperty>
+<objectProperty property="rdfs:label">meaning</objectProperty>
 
 <div property="rdfs:comment">
-The <dfn>grammatical meaning property</dfn> assigns a grammatical meaning to a morph, form, or rule
+The <dfn>meaning</dfn> property assigns a grammatical meaning to a morph, form, or rule
 </div>
 
 <div class="description">
@@ -233,20 +257,18 @@ The <dfn>grammatical meaning property</dfn> assigns a grammatical meaning to a m
 
 For instance, we can update the previous example of the English plural form *cats*, and add the assignment of grammatical meaning to the form and to the corresponding plural morph, which can be expressed in this way.
 
-<aside class="example" title="Example: Segmentation of the English plural form 'cats'">
-
-![Example 3](examples/example_3.png)
+<aside class="example" src="examples/example_3.ttl" title="Example: Segmentation of the English plural form 'cats'">
 
 ```turtle
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
-    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
+    morph:meaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:consistsOf :cat,  :s .
 
 :cat a morph:Morph .
 
 :s a ontolex:Affix ;
-    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ] .
+    morph:meaning [ lexinfo:number lexinfo:plural ] .
 ```
 </aside>
 
@@ -254,20 +276,18 @@ In this case, we create a blank node for the grammatical meaning that correspond
 
 For example, in the Latin form *lupus*, the nominative case and singular number are expressed cumulatively by the affix *-us*. This is a common combination; therefore, an instance of [=Grammatical Meaning=] is introduced for that feature bundle. This time we use Lexinfo vocabulary alongside the [Paralex vocabulary](https://www.paralex-standard.org/) — even though Lexinfo is the preferred way to represent grammatical features in OntoLex, there is no restriction on this.
 
-<aside class="example" title="Example: Segmentation of the Latin nominative singular form 'lupus'">
-
-![Example 4](examples/example_4.png)
+<aside class="example" src="examples/example_4.ttl" title="Example: Segmentation of the Latin nominative singular form 'lupus'">
 
 ```turtle
 :lupus a ontolex:Form ;
     ontolex:writtenRep "lupus"@la ;
-    morph:grammaticalMeaning :nom.sg ;  
+    morph:meaning :nom.sg ;  
     morph:consistsOf :lup , :us .
 
 :lup a morph:Morph .
 
 :us a ontolex:Affix ;
-    morph:grammaticalMeaning :nom.sg .
+    morph:meaning :nom.sg .
 
 :nom.sg a morph:GrammaticalMeaning ;
     lexinfo:case lexinfo:nominativeCase ;
@@ -282,9 +302,9 @@ For example, in the Latin form *lupus*, the nominative case and singular number 
 
 ## Constraints and Base Forms
 
-Constraints may be specified on a morph to indicate which grammatical features it can be combined with. This is important for the generation of inflected forms, as it allows us to specify which morphs can be used together in a particular context. For example, in the case of the English plural morpheme '-s', it can only be used with nouns. This information can be encoded using the property '[=base constraint=]', which links a morph to its constraints.
+Constraints may be specified on a morph to indicate which grammatical features it can be combined with. This is important for the generation of inflected forms, as it allows us to specify which morphs can be used together in a particular context. For example, in the case of the English plural morpheme '-s', it can only be used with nouns. This information can be encoded using the property [=base constraint=], which links a morph to its constraints.
 
-The property, '[=base constraint=]', is used to encode information about morphosyntactic constraints for a certain morph, i.e. which grammatical characteristics it requires.
+The property [=base constraint=] is used to encode information about morphosyntactic constraints for a certain morph, i.e. which grammatical characteristics it requires.
 
 <div class="entity" about="morph:baseConstraint" typeof="owl:ObjectProperty">
 
@@ -296,35 +316,33 @@ The property, '[=base constraint=]', is used to encode information about morphos
 
 <div class="description">
 
-<domain>ontolex:Morph OR [=Rule=]</domain>
+<domain>[=Morph=] OR [=Rule=]</domain>
 
 <range>[=Grammatical Meaning=]</range>
 </div>
 </div>
 
-For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to a <a href="https://ontolex.github.io/ontolex/specification.html#Form">form</a> because this describes only the result of the application of a rule or the addition of a particular form.
+For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to a <a data-cite="ontolex#Form">form</a> because this describes only the result of the application of a rule or the addition of a particular form.
 
-As a concrete example, the fact that the English affix -s expresses plural number if attached to nouns, and 3rd person singular agreement if attached to verbs, can be coded as follows using '[=base constraint=]'.
+As a concrete example, the fact that the English affix -s expresses plural number if attached to nouns, and 3rd person singular agreement if attached to verbs, can be coded as follows using [=base constraint=].
 
-<aside class="example" title="Example: Base constraints for the English affix -s">
-
-![Example 5](examples/example_5.png)
+<aside class="example" src="examples/example_5.ttl" title="Example: Base constraints for the English affix -s">
 
 ```turtle
 :s_pl a ontolex:Affix ;
-    morph:grammaticalMeaning lexinfo:plural ;
+    morph:meaning lexinfo:plural ;
     morph:baseConstraint [
       lexinfo:partOfSpeech lexinfo:noun  ] .
 
 :s_3sg a ontolex:Affix ;
-    morph:grammaticalMeaning :3.sg ;
+    morph:meaning :3.sg ;
     morph:baseConstraint [
       lexinfo:partOfSpeech lexinfo:verb ] .
 ```
 </aside>
 
 <!-- Discussion/History:
-- CC 2022-10-24: by analogy with morph:grammaticalMeaning, this property should also be applicable to rules to specify necessary preconditions.
+- CC 2022-10-24: by analogy with morph:meaning, this property should also be applicable to rules to specify necessary preconditions.
  -->
 
 The property [=base form=] is used when some of the derived or inflected forms are formed from a non-canonical form of a lexical entry.
@@ -335,7 +353,7 @@ This property is necessary both to represent this information for manual consump
 <objectProperty property="rdfs:label">base form</objectProperty>
 
 <div property="rdfs:comment">
-<dfn>Base form</dfn> is a subproperty of <a href="https://ontolex.github.io/ontolex/specification.html#lexicalForm">lexical form</a> that indicates the form that is taken as base for the application of inflection or derivation rules to generate other forms.
+<dfn>Base form</dfn> is a subproperty of <a data-cite="ontolex#lexicalForm">lexical form</a> that indicates the form that is taken as base for the application of inflection or derivation rules to generate other forms.
 </div>
 
 <div class="description">
@@ -353,9 +371,7 @@ One example is German verbal inflection (e.g., for `gehen` "to go"), where the c
 </section>
 </section>
 
-<aside class="example" title="Example: Base form for the German verb 'gehen'">
-
-![Example 6](examples/example_6.png)
+<aside class="example" src="examples/example_6.ttl" title="Example: Base form for the German verb 'gehen'">
 
 ```turtle
 :gehen a ontolex:LexicalEntry ;
@@ -395,7 +411,7 @@ This does not hold for agglutination, where one form is created by applying seve
 
 <div property="rdfs:comment">
 A <dfn>rule</dfn> represents the formal operation applied to a base form to obtain another form (inflectionally or derivationally related to it).
-It must contain either 'example' or 'replacement' (or both). In addition, a human-readable string representation of a morph should be provided as an RDFS label, e.g. “-s”@en for usual PL in English. One rule applies exactly one morphological transformation, i.e. adds one morph.
+It must contain either 'rule example' or 'replacement' (or both). In addition, a human-readable string representation of a morph should be provided as an RDFS label, e.g. “-s”@en for usual PL in English. One rule applies exactly one morphological transformation, i.e. adds one morph.
 </div>
 
 </div>
@@ -404,14 +420,14 @@ It must contain either 'example' or 'replacement' (or both). In addition, a huma
 
 ## Examples
 
-The property [=example=] provides a way to link a rule to an example of a class of forms that share a morphological process. It is necessary in cases where the way the form is generated is not specified, but we still want to represent a morphological transformation. This is a common case for retrodigitised dictionaries.
+The property [=rule example=] provides a way to link a rule to an example of a class of forms that share a morphological process. It is necessary in cases where the way the form is generated is not specified, but we still want to represent a morphological transformation. This is a common case for retrodigitised dictionaries.
 
-<div class="entity" about="morph:example" typeof="owl:DatatypeProperty">
+<div class="entity" about="morph:ruleExample" typeof="owl:DatatypeProperty">
 
-<dataProperty property="rdfs:label">example</dataProperty>
+<dataProperty property="rdfs:label">rule example</dataProperty>
 
 <div property="rdfs:comment">
-An <dfn>Example</dfn> is a single form that demonstrates a class of forms that can be generated by a single rule with no allomorphy.
+A <dfn>rule example</dfn> is a single form that demonstrates a class of forms that can be generated by a single rule with no allomorphy.
 </div>
 
 <div class="description">
@@ -422,13 +438,11 @@ An <dfn>Example</dfn> is a single form that demonstrates a class of forms that c
 </div>
 </div>
 
-<aside class="example" title="Example: A rule showing lenition in Irish">
-
-![Example 7](examples/example_7.png)
+<aside class="example" src="examples/example_7.ttl" title="Example: A rule showing lenition in Irish">
 
 ```turtle
 :lenition_rule a morph:Rule ;
-    morph:example "bhean" .
+    morph:ruleExample "bhean"@ga .
 ```
 </aside>
 
@@ -441,17 +455,17 @@ An <dfn>Example</dfn> is a single form that demonstrates a class of forms that c
 Replacements are used to describe transformations of stems by the replacement of 
 zero or more characters by other characters. 
 
-<div class="entity" about="morph:Replacement" typeof="owl:Class">
+<div class="entity" about="morph:ReplacementFormula" typeof="owl:Class">
 
-<class property="rdfs:label">Replacement</class>
+<class property="rdfs:label">Replacement Formula</class>
 
 <div property="rdfs:comment">
-<dfn>Replacement</dfn> is a class that can be used to represent the morphological transformation that is applied to a base form to obtain another form (inflectionally or derivationally related to it). 
+<dfn>Replacement Formula</dfn> is a class that can be used to represent the morphological transformation that is applied to a base form to obtain another form (inflectionally or derivationally related to it). 
 </div>
 
 </div>
 
-The [=replacement property=] relates a rule to an object that describes the morphological transformation required to produce a valid form according to the rule.
+The [=replacement=] property relates a rule to an object that describes the morphological transformation required to produce a valid form according to the rule.
 
 The Morph module does not limit the exact way to represent these transformations since this can be represented in many ways that have been developed and used in the field of computational morphology and beyond: finite state automata and equivalent to them regular expressions, morphology-specific formalisms like [KIMMO](https://software.sil.org/pc-kimmo/) for two-level morphology. As part of the model, we provide one such way — replacement with regular expressions, which will be used in the examples in the subsequent sections.
 
@@ -461,13 +475,13 @@ The Morph module does not limit the exact way to represent these transformations
 
 
 <div property="rdfs:comment">
-The <dfn>replacement property</dfn> states the replacement pattern that is involved in a morphological rule for the generation of a form.
+The <dfn>replacement</dfn> property states the replacement pattern that is involved in a morphological rule for the generation of a form.
 </div>
 
 <div class="description">
 
 <domain>[=Rule=]</domain>
-<range>[=Replacement=]</range>
+<range>[=Replacement Formula=]</range>
 </div>
 
 </div>
@@ -484,22 +498,22 @@ The class [=regex replacement=] is used to describe a morphological transformati
 </div>
 
 <div class="description">
-<subclass>[=Replacement=]</subclass>
+<subclass>[=Replacement Formula=]</subclass>
 </div>
 
 </div>
 
-The source and the target for the substitution are expressed with the properties [=source=] and [=target=] correspondingly.
+The source and the target for the substitution are expressed with the properties [=source regex=] and [=target regex=] correspondingly.
 
 These properties should not have a language tag since these are patterns with special characters, not natural language strings.
 Note, however, that implementations of generators that use these properties should insert a language code when generating properties that require one (e.g. ontolex:writtenRep).
 
-<div class="entity" about="morph:source" typeof="owl:DatatypeProperty">
+<div class="entity" about="morph:sourceRegex" typeof="owl:DatatypeProperty">
 
-<dataProperty property="rdfs:label">source</dataProperty>
+<dataProperty property="rdfs:label">source regex</dataProperty>
 
 <div property="rdfs:comment">
-A <dfn>source</dfn> is a string which is used as a basis for the substitution.
+A <dfn>source regex</dfn> is a string pattern which is used as a basis for the substitution.
 </div>
 
 <div class="description">
@@ -511,12 +525,12 @@ A <dfn>source</dfn> is a string which is used as a basis for the substitution.
 </div>
 
 
-<div class="entity" about="morph:target" typeof="owl:DatatypeProperty">
+<div class="entity" about="morph:targetRegex" typeof="owl:DatatypeProperty">
 
-<dataProperty property="rdfs:label">target</dataProperty>
+<dataProperty property="rdfs:label">target regex</dataProperty>
 
 <div property="rdfs:comment">
-<dfn>Target</dfn> is a string template that denotes a target for the substitution.
+<dfn>Target regex</dfn> is a string template that denotes a target for the substitution.
 </div>
 
 <div class="description">
@@ -527,16 +541,14 @@ A <dfn>source</dfn> is a string which is used as a basis for the substitution.
 </div>
 </div>
 
-<aside class="example" title="A rule for forming a genitive singular form of Latin word lupus">
-
-![Example 8](examples/example_8.png)
+<aside class="example" src="examples/example_8.ttl" title="A rule for forming a genitive singular form of Latin word lupus">
 
 ```turtle
 :gen_sg_rule a morph:Rule ;
     morph:replacement [
         a morph:RegexReplacement ;
-        morph:source "us$" ;
-        morph:target "i" ;
+        morph:sourceRegex "us$" ;
+        morph:targetRegex "i" ;
     ] .
 ```
 </aside>
@@ -545,16 +557,14 @@ A <dfn>source</dfn> is a string which is used as a basis for the substitution.
 The target can use variables `$N` to refer to the substrings captured by parenthesised expressions in the source string (e.g. `$1` for the first pair of parenthesis, `$2` for the second, etc.).
 
 
-<aside class="example" title="Formation of German perfect forms">
-
-![Example 9](examples/example_9.png)
+<aside class="example" src="examples/example_9.ttl" title="Formation of German perfect forms">
 
 ```turtle
 :perfect_rule a morph:Rule ;
     morph:replacement [
         a morph:RegexReplacement ;
-        morph:source "^(.*)en$" ;
-        morph:target "ge$1t" ;
+        morph:sourceRegex "^(.*)en$" ;
+        morph:targetRegex "ge$1t" ;
     ] .
 ```
 
@@ -565,7 +575,7 @@ In the above example, the source string `^(.*)en$` captures the stem of the verb
 <!--<div class="note">
 TO DISCUSS: RDF 1.1 recommends NFC normalization for all entities.
 
-Unless specified otherwise (in the documentation of a resource), implementations SHOULD provide NFD-normalized Unicode strings for `morph:source` and `morph:target`, so that diacritics are separated from the base character as combining characters. This is a best practice that simplifies the writing of rules in many cases, as diacritic and base characters can be manipulated independently from each other.
+Unless specified otherwise (in the documentation of a resource), implementations SHOULD provide NFD-normalized Unicode strings for `morph:sourceRegex` and `morph:targetRegex`, so that diacritics are separated from the base character as combining characters. This is a best practice that simplifies the writing of rules in many cases, as diacritic and base characters can be manipulated independently from each other.
 <div>-->
 
 </section>
@@ -574,7 +584,7 @@ Unless specified otherwise (in the documentation of a resource), implementations
 
 ## Involves
 
-It is a good practice to preserve information about the morph that is used to generate a form or an entry. The property, '[=involves=]' provides a way to do exactly that.
+It is a good practice to preserve information about the morph that is used to generate a form or an entry. The property [=involves=] provides a way to do exactly that.
 We recommend adding this property to every rule. In cases where [=Morph=] instances are created dynamically during the generation process, this property should be added dynamically during generation.
 
 <div class="entity" about="morph:involves" typeof="owl:ObjectProperty">
@@ -593,9 +603,7 @@ The <dfn>involves</dfn> property links a [=Rule=] to the [=Morph=] that is invol
 </div>
 </div>
  
-<aside class="example" title="Example: Inflection of the German verb 'aufstehen' in the perfect tense">
-
-![Example 10](examples/example_10.png)
+<aside class="example" src="examples/example_10.ttl" title="Example: Inflection of the German verb 'aufstehen' in the perfect tense">
 
 ```turtle
 :aufgestanden a ontolex:Form ;
@@ -604,7 +612,6 @@ The <dfn>involves</dfn> property links a [=Rule=] to the [=Morph=] that is invol
 :perfect_tense_rule a morph:Rule ;
     morph:involves :ge, :en .
 ```
-
 </aside>
 
 <!-- TO DISCUSS: This doesn't work! MI: morph:involves was used incorrectly hence it didn't work -->
@@ -640,9 +647,7 @@ The <dfn>generates</dfn> property connects a rule to the form generated from it.
 </div>
 </div>
 
-<aside class="example" title="Example: Generation of German forms 'aufgestanden' and 'Schönheit'">
-
-![Example 11](examples/example_11.png)
+<aside class="example" src="examples/example_11.ttl" title="Example: Generation of German forms 'aufgestanden' and 'Schönheit'">
 
 ```turtle
 
@@ -683,7 +688,7 @@ modelling inflection.
 <class property="rdfs:label">Inflection Rule</class>
 
 <div property="rdfs:comment">
-<dfn>Inflection rule</dfn> represents the formal operation applied to a base form of a <a href="https://ontolex.github.io/ontolex/specification.html#LexicalEntry">lexical entry</a> to obtain another inflected form of that lexical entry.
+<dfn>Inflection rule</dfn> represents the formal operation applied to a base form of a <a data-cite="ontolex#LexicalEntry">lexical entry</a> to obtain another inflected form of that lexical entry.
 </div>
 
 <!-- **morph:inflectionRule** provides information on how to generate inflected forms and, in the case of a dataset with pre-generated forms, links these forms to InflectionRules that were used to generate them. If inflection slots were used, forms might have several rules attached to them. -->
@@ -696,7 +701,7 @@ modelling inflection.
 
 ### Inflection Classes
 
-While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An [=inflection class=] is a group of lexemes that share the same pattern of inflected forms. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
+While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An [=inflection class=] is a group of lexemes that share the same pattern of inflected behaviours. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
 In practice, this means that they share the [=rules=] for generating inflected forms.
 
 <div class="entity" about="morph:InflectionClass" typeof="owl:Class">
@@ -704,7 +709,7 @@ In practice, this means that they share the [=rules=] for generating inflected f
 <class property="rdfs:label">Inflection Class</class>
 
 <div property="rdfs:comment">
-<dfn>Inflection Class</dfn> represents the inflection class to which a <a href="https://ontolex.github.io/ontolex/specification.html#LexicalEntry">lexical entry</a> belongs/is assigned -- e.g., the declension of a noun, or the conjugation of a verb.
+<dfn>Inflection Class</dfn> represents the inflection class to which a <a data-cite="ontolex#LexicalEntry">lexical entry</a> belongs/is assigned -- e.g., the declension of a noun, or the conjugation of a verb.
 </div>
 </div>
 
@@ -713,14 +718,14 @@ While theoretically inflection classes can vary in their level of uniformity (cf
 In addition, an instance of [=Inflection Class=] may contain metadata information about this class.
 
 The link between lexical entries and the corresponding inflection classes is not defined in OntoLex-Morph, but modelled by reusing a
-<a href="https://ontolex.github.io/ontolex/specification.html#MorphologicalPattern">morphological pattern</a>. Inflection rules are connected to their corresponding inflection classes via the [=inflection class property=].
+<a data-cite="ontolex#MorphologicalPattern">morphological pattern</a>. Inflection rules are connected to their corresponding inflection classes via the [=inflection=].
 
-<div class="entity" about="morph:inflectionClass" typeof="owl:ObjectProperty">
+<div class="entity" about="morph:inflection" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">inflection class</objectProperty>
+<objectProperty property="rdfs:label">inflection</objectProperty>
 
 <div property="rdfs:comment">
-The <dfn>inflection class property</dfn> links an inflection rule to the inflection class it pertains to.
+The <dfn>inflection</dfn> property links an inflection rule to the inflection class it pertains to.
 </div>
 
 <div class="description">
@@ -737,9 +742,7 @@ In a fusional language like Latin, there is no need to have different inflection
 
 The example below illustrates the modelling of an inflection class and a rule for the generation of the genitive singular of *lupus* in Latin.
 
-<aside class="example" title="Example: Inflection rules for the genitive singular of 'lupus' in Latin">
-
-![Example 12](examples/example_12.png)
+<aside class="example" src="examples/example_10.ttl" title="Example: Inflection rules for the genitive singular of 'lupus' in Latin">
 
 ```turtle
 :lupus a ontolex:LexicalEntry ;
@@ -747,46 +750,44 @@ The example below illustrates the modelling of an inflection class and a rule fo
     ontolex:morphologicalPattern :secondDeclension .
 
 :gen_sg_rule a morph:InflectionRule ;
-    morph:example "lupi" ;
+    morph:ruleExample "lupi" ;
     morph:replacement [
-        morph:source "us$" ;
-        morph:target "i" ;
+        morph:sourceRegex "us$" ;
+        morph:targetRegex "i" ;
     ] ;
-    morph:inflectionClass :secondDeclension ;
-    morph:grammaticalMeaning :gen.sg .
+    morph:inflection :secondDeclension ;
+    morph:meaning :gen.sg .
 ```
 </aside>
 
 A tool or a service capable of applying these inflectional rules and generating forms according to them will generate the following triples:
 
-<aside class="example" title="Example: Generation of the genitive singular form 'lupi'">
-
-![Example 13](examples/example_13.png)
+<aside class="example" src="examples/example_11.ttl" title="Example: Generation of the genitive singular form 'lupi'">
 
 ```turtle
 :gen_sg_rule morph:generates :lupi ;
     morph:involves :i .
 
 :i a ontolex:Affix ;
-    morph:grammaticalMeaning :gen.sg .
+    morph:meaning :gen.sg .
 
 :lupi a ontolex:Form ;
     ontolex:writtenRep "lupi"@la ;
-    morph:grammaticalMeaning :gen.sg ;
+    morph:meaning :gen.sg ;
     morph:consistsOf :lup , :i .
 ```
 </aside>
 
 <div class="note">
   In the two examples above, a Morph instance (`:i`) was not defined in the original data and was generated by the generation implementation.
-  In some resources, the information about morphs and morphemes will be readily available. In these cases, [=Morph=] instances and corresponding [=involve=] properties should be reused and only a <a href="https://ontolex.github.io/ontolex/specification.html#Form">Form</a> instances and [=generates=] properties should be added dynamically by the generation process.
+  In some resources, the information about morphs and morphemes will be readily available. In these cases, [=Morph=] instances and corresponding [=involve=] properties should be reused and only a <a data-cite="ontolex#Form">Form</a> instances and [=generates=] properties should be added dynamically by the generation process.
 </div>
 
 <section id="inflection-slots">
 ## Inflection Slots
 
 [=Inflection slots=] are used when a form cannot be formed in just one step and requires two or more morphs to be added.
-The main application is for agglutinative languages, where it is used to represent the different grammatical categories that can be expressed by a single morph. In this case, the inflection rule is used to generate a form that is composed of several morphs, each of which corresponds to a different grammatical category. The [=inflection slot property=] is used to specify the order in which the morphs are applied to the base form.
+The main application is for agglutinative languages, where it is used to represent the different grammatical categories that can be expressed by a single morph. In this case, the inflection rule is used to generate a form that is composed of several morphs, each of which corresponds to a different grammatical category. The [=slot=] property is used to specify the order in which the morphs are applied to the base form.
 
 <div class="entity" about="morph:InflectionSlot" typeof="owl:Class">
 
@@ -801,12 +802,12 @@ The main application is for agglutinative languages, where it is used to represe
 For agglutinative languages like Finno-Ugric, Turkic and many more, each grammatical value that is encoded with a morph: e.g. number and case for Finnish nouns — is associated with a single slot. This way, there should be two separate rules for each "cell" in the paradigm: adding number and case morphs to form an inflected Finnish noun form.
 </div>
 
-<div class="entity" about="morph:inflectionSlot" typeof="owl:ObjectProperty">
+<div class="entity" about="morph:slot" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">inflection slot</objectProperty>
+<objectProperty property="rdfs:label">slot</objectProperty>
 
 <div property="rdfs:comment">
-The <dfn>inflection slot property</dfn> links an inflection rule to the slot it pertains to
+The <dfn>slot</dfn> property links an inflection rule to the inflection slot it pertains to
 </div>
 
 <div class="description">
@@ -838,9 +839,7 @@ In order to set the order of morphs, the property [=next=] points from one [=Inf
 
 The example below demonstrates using inflection slots for number and case grammatical categories in Turkish.
 
-<aside class="example" title="Example: Inflection rules for the accusative plural of words that inflect like 'adam' in Turkish">
-
-![Example 14](examples/example_14.png)
+<aside class="example" src="examples/example_12.ttl" title="Example: Inflection rules for the accusative plural of words that inflect like 'adam' in Turkish">
 
 ```turtle
 :adam a ontolex:LexicalEntry ;
@@ -851,35 +850,35 @@ The example below demonstrates using inflection slots for number and case gramma
     ontolex:writtenRep "adam"@tur .
 
 :sg_rule a morph:InflectionRule ;
-    morph:example "adam" ;
+    morph:ruleExample "adam" ;
     morph:replacement [
-        morph:source "$" ;
-        morph:target "" ;
+        morph:sourceRegex "$" ;
+        morph:targetRegex "" ;
     ] ;
-    morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
-    morph:inflectionSlot :number_slot .
+    morph:meaning [ lexinfo:number lexinfo:singular ; ] ;
+    morph:slot :number_slot .
 
 :pl_rule a morph:InflectionRule ;
-    morph:example "adamlar"@tur ;
+    morph:ruleExample "adamlar"@tur ;
     morph:replacement [
-        morph:source "$" ;
-        morph:target "lar" ;
+        morph:sourceRegex "$" ;
+        morph:targetRegex "lar" ;
     ] ;
-    morph:inflectionClass :noun1_infl_vowelHarmony1 ;
-    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
+    morph:inflection :noun1_infl_vowelHarmony1 ;
+    morph:meaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:involves :lar ;
-    morph:inflectionSlot :number_slot .
+    morph:slot :number_slot .
 
 :acc_rule a morph:InflectionRule ;
-    morph:example "adami" ;
+    morph:ruleExample "adami" ;
     morph:replacement [
-        morph:source "$" ;
-        morph:target "i" ;
+        morph:sourceRegex "$" ;
+        morph:targetRegex "i" ;
     ] ;
-    morph:inflectionClass :noun1_infl_vowelHarmony1 ;
-    morph:grammaticalMeaning lexinfo:accusativeCase ;
+    morph:inflection :noun1_infl_vowelHarmony1 ;
+    morph:meaning lexinfo:accusativeCase ;
     morph:involves :i ;
-    morph:inflectionSlot :case_slot .
+    morph:slot :case_slot .
 
 :number_slot a morph:InflectionSlot ;
     morph:next :case_slot ;
@@ -895,7 +894,7 @@ In order to generate forms of the entry `:adam`, all the rules associated with t
 Then, for the first inflection slot, the correct form is chosen. If there is a [=base type=] specified in the rule, the corresponding form is chosen. Otherwise, the canonical form is used.
 Finally, for each inflection slot, the transformation is applied. For the first slot, the initial form is used; after that, the output of one transformation is used as an input for the next.
 
-With each transformation, all the properties in the grammatical meaning associated with the rule are copied to a newly created grammatical meaning. After all the transformations have been applied, the form is created with the constructed grammatical meaning. The initial form and the morphs are added as objects for the '[=consists of=]' statements.
+With each transformation, all the properties in the grammatical meaning associated with the rule are copied to a newly created grammatical meaning. After all the transformations have been applied, the form is created with the constructed grammatical meaning. The initial form and the morphs are added as objects for the [=consists of=] statements.
 
 It is also possible to create Morph elements during generation in case they are not present in the data.
 
@@ -903,14 +902,12 @@ It is also possible to create Morph elements during generation in case they are 
 
 In the case of the example above, the successive application of the two appropriate rules for accusative and plural formation, in the order established by the use of the [=next=] property, allows for the generation of the accusative plural form as follows:
 
-<aside class="example" title="Example: Generation of the accusative plural form 'adamlar'">
-
-![Example 15](examples/example_15.png)
+<aside class="example" src="examples/example_13.ttl" title="Example: Generation of the accusative plural form 'adamlar'">
 
 ```turtle
 :adamlari a ontolex:Form ;
   ontolex:writtenRep "adamlari"@tr ;
-  morph:grammaticalMeaning [ 
+  morph:meaning [ 
     lexinfo:case lexinfo:accusative ;
     lexinfo:number lexinfo:plural ] ;
   morph:consistsOf :adam , :lar , :i .
@@ -925,9 +922,9 @@ In the case of the example above, the successive application of the two appropri
 
 In many cases, the inflectional paradigm of a single lexical entry involves different bases, e.g., stems. In these cases, it is useful to be able to coindex a base form, a rule and the forms generated by the rule from the respective base. The property [=base type=] is used for this purpose.
 
-<div class="entity" about="morph:baseType" typeof="owl:DatatypeProperty">
+<div class="entity" about="morph:baseType" typeof="owl:ObjectProperty">
 
-<dataProperty property="rdfs:label">base type</dataProperty>
+<objectProperty property="rdfs:label">base type</objectProperty>
 
 <div property="rdfs:comment">
 <dfn>Base Type</dfn> is used for coindexing a base form, a rule and the forms generated by the rule from the respective base in cases in which the inflectional paradigm of a single lexical entry involves different bases, e.g., stems. 
@@ -936,10 +933,11 @@ In many cases, the inflectional paradigm of a single lexical entry involves diff
 <div class="description">
 
 <domain>ontolex:Form OR [=Inflection Rule=]</domain>
+</div>
+</div>
 
-<range>xsd:string</range>
-</div>
-</div>
+The values of a base type are URLs that can be further specified in a local 
+ontology and some examples values are provided by [LexInfo](https://github.com/ontolex/lexinfo).
 
 For instance, for Latin verbs, in addition to the citation form, dictionaries also record "principal parts" -- i.e., a set of forms from which the full paradigm of a lexeme can be inferred. For example, the entry for *rumpo* in the Lewis and Short dictionary lists the forms:
 
@@ -949,9 +947,7 @@ For instance, for Latin verbs, in addition to the citation form, dictionaries al
 
 This can be modelled with OntoLex-Morph as follows:
 
-<aside class="example" title="Example: Base types for the Latin verb 'rumpo'">
-
-![Example 16](examples/example_16.png)
+<aside class="example" src="examples/example_14.ttl" title="Example: Base types for the Latin verb 'rumpo'">
 
 ```turtle
 :rumpo a ontolex:LexicalEntry ;
@@ -961,77 +957,75 @@ This can be modelled with OntoLex-Morph as follows:
 
 :rumpo_form a ontolex:Form ;
     ontolex:writtenRep "rumpo"@la ;
-    morph:grammaticalMeaning :prs.act.ind.1.sg ;
-    morph:baseType "PresentStem" .
+    morph:meaning :prs.act.ind.1.sg ;
+    morph:baseType lexinfo:presentStem .
 
 :rupi_form a ontolex:Form ;
     ontolex:writtenRep "rupi"@la ;
-    morph:grammaticalMeaning :prf.act.ind.1.sg ;
-    morph:baseType "PerfectStem" .
+    morph:meaning :prf.act.ind.1.sg ;
+    morph:baseType lexinfo:perfectStem .
 
 :ruptum_form a ontolex:Form ;
     ontolex:writtenRep "ruptum"@la ;
-    morph:grammaticalMeaning :sup.acc ;
-    morph:baseType "ThirdStem" .
+    morph:meaning :sup.acc ;
+    morph:baseType lexinfo:thirdStem .
 
 :prs_act_ind_2_sg_rule a morph:InflectionRule ;
-    morph:example "rumpis" ;
+    morph:ruleExample "rumpis" ;
     	    morph:replacement [
-	    morph:source "o$" ;
-	    morph:target "is" ;
+	    morph:sourceRegex "o$" ;
+	    morph:targetRegex "is" ;
 	    ] ;
-    morph:inflectionClass :thirdConjugation ;
-    morph:grammaticalMeaning :prs.act.ind.2.sg ;
-    morph:baseType "PresentStem" .
+    morph:inflection :thirdConjugation ;
+    morph:meaning :prs.act.ind.2.sg ;
+    morph:baseType lexinfo:presentStem .
 
 :prf_act_ind_2_sg_rule a morph:InflectionRule ;
-    morph:example "rumpisti" ;
+    morph:ruleExample "rumpisti" ;
     morph:replacement [
-	    morph:source "$" ;
-	    morph:target "sti" ;
+	    morph:sourceRegex "$" ;
+	    morph:targetRegex "sti" ;
 	    ] ;
-    morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-    morph:grammaticalMeaning :prf.act.ind.2.sg ;
-    morph:baseType "PerfectStem" .
+    morph:inflection :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
+    morph:meaning :prf.act.ind.2.sg ;
+    morph:baseType lexinfo:perfectStem .
 
 :fut_act_ptcp_rule a morph:InflectionRule ;
-    morph:example "rupturus" ;
+    morph:ruleExample "rupturus" ;
     morph:replacement [
-	    morph:source "m$" ;
-	    morph:target "rus" ;
+	    morph:sourceRegex "m$" ;
+	    morph:targetRegex "rus" ;
 	    ] ;
-    morph:inflectionClass :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-    morph:grammaticalMeaning :fut.act.ptcp ;
-    morph:baseType "ThirdStem" .
+    morph:inflection :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
+    morph:meaning :fut.act.ptcp ;
+    morph:baseType lexinfo:thirdStem .
 ```
 </aside>
 
 Note that the inflection rules operating on the perfect and third stem are not only connected to the inflection class of *rumpo*, but also other ones, as they are valid across conjugations.
 By applying these rules, the following forms can be generated:
 
-<aside class="example" title="Example: Generation of the Latin verb forms *rumpis*, *rupisti*, *rupturus*">
-
-![Example 17](examples/example_17.png)
+<aside class="example" src="examples/example_15.ttl" title="Example: Generation of the Latin verb forms *rumpis*, *rupisti*, *rupturus*">
 
 ```turtle
 :rumpis_form a ontolex:Form ;
     ontolex:writtenRep "rumpis"@la ;
-    morph:grammaticalMeaning :prs.act.ind.2.sg ;
-    morph:baseType "PresentStem" .
+    morph:meaning :prs.act.ind.2.sg ;
+    morph:baseType lexinfo:presentStem .
 
 :rupisti_form a ontolex:Form ;
     ontolex:writtenRep "rupisti"@la ;
-    morph:grammaticalMeaning :prf.act.ind.2.sg ;
-    morph:baseType "PerfectStem" .
+    morph:meaning :prf.act.ind.2.sg ;
+    morph:baseType lexinfo:perfectStem .
 
 :ruptus_form a ontolex:Form ;
     ontolex:writtenRep "rupturus"@la ;
-    morph:grammaticalMeaning :fut.act.ptcp ;
-    morph:baseType "ThirdStem" .
+    morph:meaning :fut.act.ptcp ;
+    morph:baseType lexinfo:thirdStem .
 ```
 </aside>
 
-For an inflection rule with [=base type=] defined: If the lexical entry to which it is applied features a [=base form=] or (if these are not defined) a <a href="https://ontolex.github.io/ontolex/specification.html#CanonicalForm">canonical form</a> with identical [=base type=], apply the rule to this form, only. For a (generated) form, [=base type=] can be used to indicate from which form or with which rule it was generated. [=base type=] can also be used to mark stem classes in resources for which no explicit inflection rules are given.
+For an inflection rule with [=base type=] defined: If the lexical entry to which it is applied features a [=base form=] or (if these are not defined) a <a data-cite="ontolex#CanonicalForm">canonical form</a> with identical [=base type=], apply the rule to this form, only. For a (generated) form, [=base type=] can be used to indicate from which form or with which rule it was generated. [=base type=] can also be used to mark stem classes in resources for which no explicit inflection rules are given.
 
 This was introduced for modelling stem alternations. In this definition, we assume that we have one lexical entry for each stem variant so that an inflection rule whose [=base type=] doesn't match will not fire if its lexical entry doesn't fire.
 
@@ -1060,7 +1054,7 @@ A piece of information regarding word formation that is often provided for both 
 **trattaménto** s. m. [der. di *trattare*]
 
 To be able to not only encode this descriptive information but also possibly further specify it by expressing additional details, in OntoLex-Morph, word formation relations are reified in a dedicated class, [=word formation rule=].
-Since word formation relations are relations between different lexical entries, this class is defined as a subclass of the class introduced in the <i>vartrans</i> module of OntoLex for such relations -- namely, <a href="https://ontolex.github.io/ontolex/specification.html#LexicalRelation">lexical relation</a>.
+Since word formation relations are relations between different lexical entries, this class is defined as a subclass of the class introduced in the <a data-cite="vartrans">vartrans</a> module of OntoLex for such relations -- namely, <a data-cite="vartrans#LexicalRelation">lexical relation</a>.
 As a consequence, vartrans properties are also used to link lexical entries to the relations holding between them: specifically, each word formation relation is linked through [=source=] to its base(s) and through [=target=] to the derivative.
 
 <div class="entity" about="morph:WordFormationRelation" typeof="owl:Class">
@@ -1068,21 +1062,19 @@ As a consequence, vartrans properties are also used to link lexical entries to t
 <class property="rdfs:label">Word Formation Relation</class>
 
 <div property="rdfs:comment">
-<dfn>Word Formation Relation</dfn> is a subclass of <a href="https://ontolex.github.io/ontolex/specification.html#LexicalRelation">lexical relation</a>  that relates two lexical entries that are morphologically related, with the property [=target=] linking the relation to the resulting lexical entry, and the property [=source=] linking it to the morphological base (in derivation) or head and other constituents (in compounding).
+<dfn>Word Formation Relation</dfn> is a subclass of <a data-cite="vartrans#LexicalRelation">lexical relation</a>  that relates two lexical entries that are morphologically related, with the property [=target=] linking the relation to the resulting lexical entry, and the property [=source=] linking it to the morphological base (in derivation) or head and other constituents (in compounding).
 </div>
 
 <div class="description">
 
-<subclass>vartrans:LexicalRelation</sub>
+<subclass>vartrans:LexicalRelation</subclass>
 
 </div>
 </div>
 
 Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be encoded as follows:
 
-<aside class="example" title="Example: Derivation of the German noun *Schönheit*">
-
-![Example 18](examples/example_18.png)
+<aside class="example" src="examples/example_16.ttl" title="Example: Derivation of the German noun *Schönheit*">
 
 ```turtle
 :schoenheit-entry a ontolex:LexicalEntry;
@@ -1097,9 +1089,9 @@ Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be
 
 The same kind of modelling can be applied to compounds -- i.e., lexemes that are morphologically related to two or more bases; e.g. English  *wallpaper*.
 
-It should be noted that there is another OntoLex module that was envisaged to be usable also for compounding, namely <i>decomp</i>, devised for the decomposition of complex lexical entries (like Multi-Word Expressions) in their parts. However, in OntoLex-<i>decomp</i>, the relationship between complex lexical entries and their parts is not reified, as there is no dedicated class, differently than what happens in OntoLex-morph for word formation relations.
+It should be noted that there is another OntoLex module that was envisaged to be usable also for compounding, namely <a data-cite="decomp">decomp</a>, devised for the decomposition of complex lexical entries (like Multi-Word Expressions) in their parts. However, in OntoLex-<a data-cite="decomp">decomp</a>, the relationship between complex lexical entries and their parts is not reified, as there is no dedicated class, differently than what happens in OntoLex-morph for word formation relations.
 
-As a consequence, to allow for a parallel treatment of different word formation processes (derivation and compounding), a subclass of [=Word Formation Relation=] is introduced for compounding -- namely, [=Compound Relation=]. This can be considered as a reification of the property <a href="https://ontolex.github.io/ontolex/specification.html#Subterm">sub term</a> introduced in the <i>decomp</i> module of OntoLex, which can be used to decompose lexical entries into other lexical entries: hence, the existence of a compound relation entails that the source lexical entry is a subterm of the compound.
+As a consequence, to allow for a parallel treatment of different word formation processes (derivation and compounding), a subclass of [=Word Formation Relation=] is introduced for compounding -- namely, [=Compound Relation=]. This can be considered as a reification of the property <a data-cite="decomp#subterm">sub term</a> introduced in the <a data-cite="decomp">decomp</a> module of OntoLex, which can be used to decompose lexical entries into other lexical entries: hence, the existence of a compound relation entails that the source lexical entry is a subterm of the compound.
 Since, by definition, compounds have more than one base, there will also be more than one compound relation: one relation with the target compound should be introduced for each of the constituents of the compound.
 
 <div class="entity" about="morph:CompoundRelation" typeof="owl:Class">
@@ -1141,9 +1133,7 @@ Furthermore, compounds can have a head -- i.e., a constituent that imposes its m
 
 Accordingly, the morphological derivation of Italian *capostazione* 'station master' (from *capo* 'head'  + *stazione* 'station') can be encoded as follows:
 
-<aside class="example" title="Example: Derivation of the Italian noun *capostazione*">
-
-![Example 19](examples/example_19.png)
+<aside class="example" src="examples/example_17.ttl" title="Example: Derivation of the Italian noun *capostazione*">
 
 ```turtle
 :capostazione-entry a ontolex:LexicalEntry;
@@ -1180,14 +1170,14 @@ Like inflection rules, word formation rules can take as input either the canonic
 
 </div>
 
-Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the [=word formation rule property=].
+Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the [=formation rule=] property.
 
-<div class="entity" about="morph:wordFormationRule" typeof="owl:ObjectProperty">
+<div class="entity" about="morph:formationRule" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">word formation rule</objectProperty>
+<objectProperty property="rdfs:label">formation rule</objectProperty>
 
 <div property="rdfs:comment">
-The <dfn>word formation rule property</dfn> relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry.
+The <dfn>formation rule</dfn> property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry.
 </div>
 
 <div class="description">
@@ -1201,20 +1191,18 @@ The <dfn>word formation rule property</dfn> relates a word formation relation to
 
 Accordingly, if one wanted to express the formal operation involved in the morphological derivation of German *Schönheit* 'beauty', this can be done as follows:
 
-<aside class="example" title="Example: Formal operation involved in the derivation of the German noun *Schönheit*">
-
-![Example 20](examples/example_20.png)
+<aside class="example" src="examples/example_18.ttl" title="Example: Formal operation involved in the derivation of the German noun *Schönheit*">
 
 ```turtle
 
 :schoen_heit a morph:WordFormationRelation;
              vartrans:source :schoen-entry;
              vartrans:target :schoenheit-entry;
-             morph:wordFormationRule :_heit-rule.
+             morph:formationRule :_heit-rule.
 :_heit-rule a morph:WordFormationRule;
             morph:replacement [
-		        morph:source "$" ;
-		        morph:target "heit" ;
+		        morph:sourceRegex "$" ;
+		        morph:targetRegex "heit" ;
 			    ] ;
             morph:involves :_heit-morph;
             morph:generates :schoenheit-form.
@@ -1263,16 +1251,14 @@ A <dfn>Compounding Rule</dfn> refers to rules that take the base form of more th
 
 To illustrate the usage of a [=derivation rule=], the reader is referred to the example given above for word formation rules: indeed, the rule used there can be assigned to the more specific class for derivation rules, with every other assertion remaining unchanged, as this class is a subclass of [=word formation rule=].
 
-<aside class="example" title="Example: Rule for German 'Schönheit' as an instance of morph:DerivationRule">
-
-![Example 21](examples/example_21.png)
+<aside class="example" src="examples/example_19.ttl" title="Example: Rule for German 'Schönheit' as an instance of morph:DerivationRule">
 
 ```turtle
 
 :_heit-rule a morph:DerivationRule;
             morph:replacement [
-		        morph:source "$" ;
-		        morph:target "heit" ;
+		        morph:sourceRegex "$" ;
+		        morph:targetRegex "heit" ;
 			    ] ;
             morph:involves :_heit-morph;
             morph:generates :schoenheit-form.
@@ -1282,9 +1268,7 @@ To illustrate the usage of a [=derivation rule=], the reader is referred to the 
 
 As for compounding, the modelling differs slightly to accommodate the ternary input for the rules. The example below illustrates the modelling of a rule involving a linking element for Dutch *schaapskop* 'sheep head'.
 
-<aside class="example" title="Example: Rules for Dutch 'schaapskop'">
-
-![Example 22](examples/example_22.png)
+<aside class="example" src="examples/example_20.ttl" title="Example: Rules for Dutch 'schaapskop'">
 
 ```turtle
 
@@ -1297,15 +1281,15 @@ As for compounding, the modelling differs slightly to accommodate the ternary in
 :schaap-schaapskop a morph:WordFormationRelation ;
              vartrans:source :schaap-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:wordFormationRule :NN-rule .
+             morph:formationRule :NN-rule .
 :kop-schaapskop a morph:WordFormationRelation ;
              vartrans:source :kop-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:wordFormationRule :NN-rule .
+             morph:formationRule :NN-rule .
 
 :NN-rule a morph:CompoundingRule ;
             morph:replacement [
-		          morph:target "$1s$2" ;
+		          morph:targetRegex "$1s$2" ;
 			    ] ;
             morph:involves :_s-morph;
             morph:generates :schaapskop-form.
@@ -1316,15 +1300,14 @@ As for compounding, the modelling differs slightly to accommodate the ternary in
 </aside>
 
 Note that, like inflection rules, word formation rules can also operate on a form different from the canonical one. In such cases, the property [=base type=] can be used in the same way as it was illustrated above for inflection. For instance, in Latin, deverbal agent and action nouns in _-or_ and _-io_ are formed on a stem allomorph different from the present stem that is displayed in the citation form of verbs - namely, on the so-called "third stem" displayed in the supine and perfect participle. E.g., for the verb meaning 'to write', we have:
+
 - citation form of the verb: _scribo_ (displaying present stem _scrib_-)
 - supine: _scriptum_ (displaying third stem _script_-)
 - agent and action nouns: _script-or_, _script-io_.
 
 This state of affairs can be modelled as follows, using [=base form=] and [=base type=] to coindex the supine form _scriptum_ and the rules generating the derivatives _scriptor_ and _scriptio_.
 
-<aside class="example" title="Example: Rules for derivation of Latin 'scriptor' and 'scriptio'">
-
-![Example 23](examples/example_23.png)
+<aside class="example" src="examples/example_23.ttl" title="Example: Rules for derivation of Latin 'scriptor' and 'scriptio'">
 
 ```turtle
 
@@ -1334,27 +1317,50 @@ This state of affairs can be modelled as follows, using [=base form=] and [=base
     
 :scribo_form a ontolex:Form ;
 	    ontolex:writtenRep "scribo"@la ;
-	    morph:baseType "PresentStem" .
+	    morph:baseType lexinfo:presentStem .
 
 :scriptum_form a ontolex:Form ;
 	    ontolex:writtenRep "scriptum"@la ;
-	    morph:baseType "ThirdStem" .  
+	    morph:baseType lexinfo:thirdStem .  
 		
 :agent_rule a morph:WordFormationRule ;
-		morph:baseType "ThirdStem" ;
+		morph:baseType lexinfo:thirdStem ;
 	    morph:replacement [
-	    morph:source "um$" ;
-	    morph:target "or" ;
+	    morph:sourceRegex "um$" ;
+	    morph:targetRegex "or" ;
         ] .
     
 :action_rule a morph:WordFormationRule ;
-		morph:baseType "ThirdStem" ;
+		morph:baseType lexinfo:thirdStem ;
 	    morph:replacement [
-	    morph:source "um$" ;
-	    morph:target "io" ;
+	    morph:sourceRegex "um$" ;
+	    morph:targetRegex "io" ;
 	    ] .
 ```
-
 </aside>
+
+</section>
+
+<section id="references">
+
+## References
+
+### Normative References
+
+- **[OntoLex-Lemon](https://ontolex.github.io/ontolex/specification.html)** — Lexicon Model for Ontologies, the core model extended by this module (including its *vartrans* variation & translation module).
+- **[RDF 1.1 Concepts and Abstract Syntax](https://www.w3.org/TR/rdf11-concepts/)**
+- **[RDF Schema 1.1](https://www.w3.org/TR/rdf-schema/)**
+- **[OWL 2 Web Ontology Language](https://www.w3.org/TR/owl2-overview/)**
+- **[XML Schema Definition Language (XSD) 1.1](https://www.w3.org/TR/xmlschema11-2/)**
+
+### Informative References
+
+- **[LexInfo](https://lexinfo.net/)** — recommended vocabulary for representing grammatical meanings.
+- **[SKOS Simple Knowledge Organization System Reference](https://www.w3.org/TR/skos-reference/)**
+- **[Paralex](https://www.paralex-standard.org/)** — a standard for the representation of inflectional paradigms, used alongside LexInfo in some examples.
+- **[MMoOn Core – The Multilingual Morpheme Ontology](https://github.com/MMoOn-Project/MMoOn)** — recommended for modelling more complex morphological representations than covered by this module.
+- **[KIMMO](https://software.sil.org/pc-kimmo/)** — an example of a two-level morphology formalism, mentioned as an alternative to the regular expression-based replacements used in this document's examples.
+- **[XPath and XQuery Functions and Operators](https://www.w3.org/TR/xpath-functions/)** — source of the regular expression syntax used for `morph:source` and `morph:target`, chosen for compatibility with SPARQL.
+- **[SPARQL 1.1 Query Language](https://www.w3.org/TR/sparql11-query/)**
 
 </section>

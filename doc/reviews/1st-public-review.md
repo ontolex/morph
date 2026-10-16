@@ -74,3 +74,55 @@ John McCrae Comments
 - The figure and example numbers are not synced.
 - The figures are drawn with GraphViz and look a bit ugly, it would be better to use Mermaid to draw them instead.
 - The base type property is a datatype property, but refers to a fixed taxonomy of objects. It would make much more sense for this to be an object property and an inventory of possible values stored in LexInfo.
+
+Matteo Pelligrini Comments
+==========================
+
+
+## Section 1
+
+"The RDF file with the OntoLex lemon lexicography module can be found at http://www.w3.org/ns/lemon/morph."
+> lemon morphology module
+
+"Morphological decomposition on the lexical entry level.
+The kind of elements of which a lexical entry can consist should be as non-restrictive as possible, i.e., the decomposition of lexical entries encompasses lexical entries, components, derivational affixes, inflectional affixes, stems, roots and zero morphs. However, a lexical entry can NEVER be composed of a form!": While this is in principle completely reasonable, I find it contradictory with the fact that the domain of morph:consistsOf is currently stated to be ontolex:Form (see below) - so instances LexicalyEntrie do not technically consist of anything in terms of our modelling. I agree with the modelling choice, because lexical entries are more abstract entities that are not directly segmentable, but then I think it would be better to rephrase this section to avoid confusion.
+
+## Section 2
+
+"Elements of which a form can consist of roots, stems, inflectional affixes and zero morphs." > Forms can also consist of derivational affixes and non-zero morphs, so I would drop the "inflectional" and "zero".
+
+"Morphs are the basic building blocks within the module that represent a single indivisible unit of meaning or grammatical function." I would drop "indivisible" to match the definition (and at least stems are often divisible, indeed)
+
+"The property, ‘consists of’, relates": drop commas and single quotes? (same in many other places, check throughout)
+
+"The class grammatical meaning is used to gloss information associated with the morph" > "The class grammatical meaning is used to gloss information associated with the morph, form or rule" (for consistency with what we state later)
+
+Example 5/Figure 6: why is there "Synset" in the figure (it is not in the underlying .ttl)
+
+## Section 3
+
+"“Tabular” value of a morpheme must be stored in a RDFS label" > Not fully clear what is meant by "tabular". Perhaps reformulate?
+
+naming of the property morph:example: since in Ontolex 2.0 there will also be the property ontolex:example, is it worth distinguishing this in the naming, e.g. morph:ruleExample? Or perhaps we might consider dropping the restriction on the domain of ontolex:example and just use ontolex:example for rules too?
+
+"A source is a string which is used as a basis for the substitution." > "A source is a string pattern which is used as a basis for the substitution." (for consistency with the definition below)
+
+## Section 4
+
+"An inflection class is a group of lexemes that share the same pattern of inflected forms." > "An inflection class is a group of lexemes that share the same pattern of inflectional behaviour."
+
+"In this definition, we assume that we have one lexical entry for each stem variant so that an inflection rule whose base type doesn’t match will not fire if its lexical entry doesn’t fire.": this is unclear to me, why would we have one *lexical entry* for each stem variant?
+
+## Section 5
+
+"As a consequence, vartrans properties are also used to link lexical entries to the relations holding between them: specifically, each word formation relation is linked through source to its base(s) and through target to the derivative." : Correct links: they currently point to morph:source and morph:target, but here we are referring to vartrans:source and vartrans:target. Same in the definition below.
+
+Language tags are often missing in the string patterns of morph:target in many examples; check and correct throughout.
+
+"E.g., for the verb meaning ‘to write’, we have: - citation form of the verb: scribo (displaying present stem scrib-) - supine: scriptum (displaying third stem script-) - agent and action nouns: script-or, script-io.": fix .md formatting of bullet point list
+
+I would also like to add a comment on John's observation that 
+
+>>>The base type property is a datatype property, but refers to a fixed taxonomy of objects. It would make much more sense for this to be an object property and an inventory of possible values stored in LexInfo.
+
+I don' think this can be reduced to a set of predefined closed values. While in the Latin example provided there is a correspondence with meaning classes, in many other cases ths will just be an index to group forms that share the same stem in a given language, and those sets are often completely arbitrary and not reusable across languages.
