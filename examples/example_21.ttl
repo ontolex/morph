@@ -10,8 +10,8 @@
 @prefix : <http://www.example.com/#> .
 :_heit-rule a morph:DerivationRule;
             morph:replacement [
-		        morph:source "$" ;
-		        morph:target "heit" ;
+		        morph:sourceRegex "$" ;
+		        morph:targetRegex "heit" ;
 			    ] ;
             morph:involves :_heit-morph;
             morph:generates :schoenheit-form.

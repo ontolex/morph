@@ -10,6 +10,6 @@
 @prefix : <http://www.example.com/#> .:gen_sg_rule a morph:Rule ;
     morph:replacement [
         a morph:RegexReplacement ;
-        morph:source "us$" ;
-        morph:target "i" ;
+        morph:sourceRegex "us$" ;
+        morph:targetRegex "i" ;
     ] .

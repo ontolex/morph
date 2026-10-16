@@ -11,11 +11,11 @@
 :schoen_heit a morph:WordFormationRelation;
              vartrans:source :schoen-entry;
              vartrans:target :schoenheit-entry;
-             morph:wordFormationRule :_heit-rule.
+             morph:formationRule :_heit-rule.
 :_heit-rule a morph:WordFormationRule;
             morph:replacement [
-		        morph:source "$" ;
-		        morph:target "heit" ;
+		        morph:sourceRegex "$" ;
+		        morph:targetRegex "heit" ;
 			    ] ;
             morph:involves :_heit-morph;
             morph:generates :schoenheit-form.

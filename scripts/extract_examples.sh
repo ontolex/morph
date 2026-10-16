@@ -1,9 +1,8 @@
 #!/bin/bash
 
-python scripts/extract_examples.py 
+# Regenerates examples/example_N.ttl from the Turtle embedded in each
+# `<aside class="example" src="examples/example_N.ttl">` block in index.md.
+# The Mermaid diagram for each example is generated from its .ttl file at
+# HTML-build time (see expand_tags.py), not here.
 
-for f in examples/*.ttl
-do
-    python scripts/convert_to_dot.py $f > ${f/%.ttl/.dot}
-    dot -Tpng ${f/%.ttl/.dot} -o ${f/%.ttl/.png}
-done
+python scripts/extract_examples.py

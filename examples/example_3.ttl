@@ -9,10 +9,10 @@
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
 @prefix : <http://www.example.com/#> .:cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
-    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
+    morph:meaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:consistsOf :cat,  :s .
 
 :cat a morph:Morph .
 
 :s a ontolex:Affix ;
-    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ] .
+    morph:meaning [ lexinfo:number lexinfo:plural ] .
