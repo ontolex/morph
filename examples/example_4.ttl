@@ -9,7 +9,7 @@
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
 @prefix : <http://www.example.com/#> .:lupus a ontolex:Form ;
     ontolex:writtenRep "lupus"@la ;
-    morph:meaning :nom.sg ;
+    morph:meaning :nom.sg ;  
     morph:consistsOf :lup , :us .
 
 :lup a morph:Morph .

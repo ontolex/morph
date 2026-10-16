@@ -14,21 +14,21 @@
     
 :scribo_form a ontolex:Form ;
 	    ontolex:writtenRep "scribo"@la ;
-	    morph:baseType "PresentStem" .
+	    morph:baseType lexinfo:presentStem .
 
 :scriptum_form a ontolex:Form ;
 	    ontolex:writtenRep "scriptum"@la ;
-	    morph:baseType "ThirdStem" .  
+	    morph:baseType lexinfo:thirdStem .  
 		
 :agent_rule a morph:WordFormationRule ;
-		morph:baseType "ThirdStem" ;
+		morph:baseType lexinfo:thirdStem ;
 	    morph:replacement [
 	    morph:sourceRegex "um$" ;
 	    morph:targetRegex "or" ;
         ] .
     
 :action_rule a morph:WordFormationRule ;
-		morph:baseType "ThirdStem" ;
+		morph:baseType lexinfo:thirdStem ;
 	    morph:replacement [
 	    morph:sourceRegex "um$" ;
 	    morph:targetRegex "io" ;

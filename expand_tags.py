@@ -1,5 +1,10 @@
 from bs4 import BeautifulSoup
 import argparse
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
+from mermaid_lib import turtle_to_mermaid
 
 namespaces = {
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -189,6 +194,27 @@ def expand_tags(soup):
             new_tag.append(strong_tag)
             tag.replace_with(new_tag)
 
+def expand_asides(soup, base_dir):
+    """Render the Mermaid diagram for each `<aside src="...">` example,
+    generated at build time from the Turtle file it points at (the same
+    file that supplies the aside's inline Turtle listing), and insert it
+    as a `<pre class="mermaid">` before that listing. See
+    https://github.com/ontolex/morph/issues/43 and #55 for why this is
+    generated rather than hand-drawn, and #48 for the switch to Mermaid.
+    """
+    for aside in soup.find_all("aside", src=True):
+        src = aside["src"]
+        ttl_path = os.path.join(base_dir, src)
+        with open(ttl_path) as f:
+            text = f.read()
+        mermaid_text = turtle_to_mermaid(text)
+
+        pre = soup.new_tag("pre", **{"class": "mermaid"})
+        pre.string = mermaid_text
+        aside.insert(0, pre)
+        del aside["src"]
+
+
 def build_dfn_about_map(soup):
     dfn_about_map = {}
 
@@ -223,6 +249,7 @@ if __name__ == "__main__":
     soup = BeautifulSoup(content, 'html.parser')
 
     expand_tags(soup)
+    expand_asides(soup, os.path.dirname(os.path.abspath(args.input_file)))
 
     with open(args.output_file, 'w', encoding='utf-8') as file:
         result = str(soup)
