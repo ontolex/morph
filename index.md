@@ -47,6 +47,33 @@ author:
 date: 2024-12-03
 ---
 
+<!-- Ontology header metadata, emitted as RDFa into the generated morph.ttl -->
+<div about="http://www.w3.org/ns/lemon/morph" typeof="owl:Ontology" hidden="hidden">
+<meta property="rdfs:label" content="The OntoLex Module for Morphology" lang="en" />
+<meta property="dcterms:title" content="The OntoLex Module for Morphology" lang="en" />
+<meta property="dcterms:description" content="The OntoLex Morphology module (morph) extends the OntoLex-Lemon core model with classes and properties for the morphological decomposition of lexical entries and forms, and for the representation of morphological rules and inflection classes." lang="en" />
+<meta property="dcterms:creator" content="Julia Bosque-Gil" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="Thierry Declerck" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="Jesse De Does" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="Katrien Depuydt" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="Katerina Gkirtzou" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="Fahad Khan" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="Penny Labropoulou" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="Stefania Racioppa" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="James K. Tauber" xml:lang="" lang="" />
+<meta property="dcterms:creator" content="Bettina Klimek" xml:lang="" lang="" />
+<meta property="dcterms:contributor" content="Christian Chiarcos" xml:lang="" lang="" />
+<meta property="dcterms:contributor" content="Maxim Ionov" xml:lang="" lang="" />
+<meta property="dcterms:contributor" content="John P. McCrae" xml:lang="" lang="" />
+<meta property="dcterms:contributor" content="Matteo Pellegrini" xml:lang="" lang="" />
+<link rel="dcterms:publisher" resource="http://www.w3.org/community/ontolex" />
+<meta property="dcterms:rights" content="CC-Zero" />
+<link rel="cc:license" resource="https://creativecommons.org/publicdomain/zero/1.0/" />
+<link rel="rdfs:seeAlso" resource="https://www.w3.org/community/ontolex/" />
+<link rel="owl:imports" resource="http://www.w3.org/ns/lemon/ontolex" />
+<link rel="owl:imports" resource="http://www.w3.org/ns/lemon/vartrans" />
+</div>
+
 <section id="abstract">
 
  This document describes the morphology module of the Lexicon Model for Ontologies as a result of the work of the Ontology Lexicon community group (OntoLex-Morph). The module is targeted at the representation of linguistic morphology in dictionaries and other linguistic resources, as well as the formalization of rules for word formation and inflection as employed in computational morphology and grammatical appendices as frequently provided as part of bilingual dictionaries.

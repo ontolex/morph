@@ -9,6 +9,8 @@
     decomp: http://www.w3.org/ns/lemon/decomp#
     vartrans: http://www.w3.org/ns/lemon/vartrans#
     lime: http://www.w3.org/ns/lemon/lime#
+    dcterms: http://purl.org/dc/terms/
+    cc: http://creativecommons.org/ns#
     morph: http://www.w3.org/ns/lemon/morph#">
   <head>
     <meta charset="utf-8" />
