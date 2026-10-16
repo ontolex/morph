@@ -9,7 +9,7 @@
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
 @prefix : <http://www.example.com/#> .:adamlari a ontolex:Form ;
   ontolex:writtenRep "adamlari"@tr ;
-  morph:grammaticalMeaning [ 
+  morph:meaning [ 
     lexinfo:case lexinfo:accusative ;
     lexinfo:number lexinfo:plural ] ;
   morph:consistsOf :adam , :lar , :i .
