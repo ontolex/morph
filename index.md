@@ -834,7 +834,7 @@ For agglutinative languages like Finno-Ugric, Turkic and many more, each grammat
 <objectProperty property="rdfs:label">slot</objectProperty>
 
 <div property="rdfs:comment">
-The <dfn>slot</dfn> property links an inflection rule to the inflection slot it pertains to
+The <dfn>slot</dfn> property links an inflection rule to the inflection slot it pertains to.
 </div>
 
 <div class="description">
