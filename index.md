@@ -349,7 +349,7 @@ The property [=base constraint=] is used to encode information about morphosynta
 </div>
 </div>
 
-For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to a <a data-cite="ontolex#Form">form</a> because this describes only the result of the application of a rule or the addition of a particular form.
+For example, an element for nominal inflection can only be applied to nouns, and derivational affixes can have similar constraints. Note that such information is not applicable to a <a data-cite="ontolex#Form">form</a> because this describes only the result of the application of a rule or the addition of a particular morph.
 
 As a concrete example, the fact that the English affix -s expresses plural number if attached to nouns, and 3rd person singular agreement if attached to verbs, can be coded as follows using [=base constraint=].
 
