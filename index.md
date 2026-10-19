@@ -447,7 +447,7 @@ It must contain either 'rule example' or 'replacement' (or both). In addition, a
 
 ## Examples
 
-The property [=rule example=] provides a way to link a rule to an example of a class of forms that share a morphological process. It is necessary in cases where the way the form is generated is not specified, but we still want to represent a morphological transformation. This is a common case for retrodigitised dictionaries.
+The property [=rule example=] provides a way to link a rule to an example of a class of forms that share a morphological process. It is necessary in cases where the way the form that is generated is not specified, but we still want to represent a morphological transformation. This is a common case for retrodigitised dictionaries.
 
 <div class="entity" about="morph:ruleExample" typeof="owl:DatatypeProperty">
 
