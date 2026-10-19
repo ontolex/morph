@@ -667,7 +667,7 @@ The <dfn>generates</dfn> property connects a rule to the form generated from it.
 
 <div class="description">
 
-<domain>[=Word Formation Rule=]</domain>
+<domain>[=Rule=]</domain>
 
 <range>ontolex:Form</range>
 
