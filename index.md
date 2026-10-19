@@ -826,7 +826,7 @@ The main application is for agglutinative languages, where it is used to represe
 </div>
 
 <div class="note">
-For agglutinative languages like Finno-Ugric, Turkic and many more, each grammatical value that is encoded with a morph: e.g. number and case for Finnish nouns — is associated with a single slot. This way, there should be two separate rules for each "cell" in the paradigm: adding number and case morphs to form an inflected Finnish noun form.
+For agglutinative languages like Finno-Ugric, Turkic and many more, each grammatical value that is encoded with a morph — e.g. number and case for Finnish nouns — is associated with a single slot. This way, there should be two separate rules for each "cell" in the paradigm: adding number and case morphs to form an inflected Finnish noun form.
 </div>
 
 <div class="entity" about="morph:slot" typeof="owl:ObjectProperty">
