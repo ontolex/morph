@@ -1069,7 +1069,7 @@ This was introduced for modelling stem alternations. In this definition, we assu
 Another important component of morphological structure is word formation. While inflection is concerned with morphologically related forms of the same lexeme(s), word formation is concerned with morphologically related lexemes, focusing on the specific relationships between them on the one hand, and on the processes by which derivatives can be obtained from their bases (or from each other) on the other hand.
 Accordingly, at its core, the modelling of word formation in  OntoLex-Morph operates with two main components:
 
-- Word formation **relations** are established between lexical entries that are morphologically related
+- Word formation **relations** are established between lexical entries that are morphologically related.
 - Word formation **rules** are used to describe the formal instructions involved in the processes of formation of derivatives.
 
 In the following (sub)sections, these two components are described in detail and exemplified.
