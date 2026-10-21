@@ -20,7 +20,7 @@
         morph:sourceRegex "$" ;
         morph:targetRegex "" ;
     ] ;
-    morph:meaning [ lexinfo:number lexinfo:singular ; ] ;
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
     morph:slot :number_slot .
 
 :pl_rule a morph:InflectionRule ;
@@ -30,7 +30,7 @@
         morph:targetRegex "lar" ;
     ] ;
     morph:inflection :noun1_infl_vowelHarmony1 ;
-    morph:meaning [ lexinfo:number lexinfo:plural ; ] ;
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:involves :lar ;
     morph:slot :number_slot .
 
@@ -41,7 +41,7 @@
         morph:targetRegex "i" ;
     ] ;
     morph:inflection :noun1_infl_vowelHarmony1 ;
-    morph:meaning lexinfo:accusativeCase ;
+    morph:grammaticalMeaning lexinfo:accusativeCase ;
     morph:involves :i ;
     morph:slot :case_slot .
 

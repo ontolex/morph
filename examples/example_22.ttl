@@ -17,11 +17,11 @@
 :schaap-schaapskop a morph:WordFormationRelation ;
              vartrans:source :schaap-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:formationRule :NN-rule .
+             morph:wordRule :NN-rule .
 :kop-schaapskop a morph:WordFormationRelation ;
              vartrans:source :kop-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:formationRule :NN-rule .
+             morph:wordRule :NN-rule .
 
 :NN-rule a morph:CompoundingRule ;
             morph:replacement [

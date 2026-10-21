@@ -18,4 +18,4 @@
         morph:targetRegex "i" ;
     ] ;
     morph:inflection :secondDeclension ;
-    morph:meaning :gen.sg .
+    morph:grammaticalMeaning :gen.sg .
