@@ -11,9 +11,9 @@
     morph:involves :i .
 
 :i a ontolex:Affix ;
-    morph:meaning :gen.sg .
+    morph:grammaticalMeaning :gen.sg .
 
 :lupi a ontolex:Form ;
     ontolex:writtenRep "lupi"@la ;
-    morph:meaning :gen.sg ;
+    morph:grammaticalMeaning :gen.sg ;
     morph:consistsOf :lup , :i .

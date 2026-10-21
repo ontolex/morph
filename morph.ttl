@@ -39,7 +39,7 @@ morph:baseConstraint a owl:ObjectProperty ;
     rdfs:label "base constraint"@en ;
     rdfs:comment "Base constraint defines the grammatical characteristics of the stem or base that a derivational or inflectional morpheme can be combined with"@en ;
     rdfs:domain [ owl:unionOf ( morph:Morph morph:Rule ) ] ;
-    rdfs:range morph:GrammaticalMeaning .
+    rdfs:range morph:GrammaticalMeaningValue .
 
 morph:baseForm a owl:ObjectProperty ;
     rdfs:label "base form"@en ;
@@ -72,11 +72,11 @@ morph:generates a owl:ObjectProperty ;
     rdfs:domain morph:WordFormationRule ;
     rdfs:range ontolex:Form .
 
-morph:meaning a owl:ObjectProperty ;
-    rdfs:label "meaning"@en ;
-    rdfs:comment "The meaning property assigns a grammatical meaning to a morph, form, or rule"@en ;
+morph:grammaticalMeaning a owl:ObjectProperty ;
+    rdfs:label "grammatical meaning"@en ;
+    rdfs:comment "The grammatical meaning property assigns a grammatical meaning to a morph, form, or rule"@en ;
     rdfs:domain [ owl:unionOf ( ontolex:Form morph:Morph morph:Rule ) ] ;
-    rdfs:range morph:GrammaticalMeaning .
+    rdfs:range morph:GrammaticalMeaningValue .
 
 morph:inflection a owl:ObjectProperty ;
     rdfs:label "inflection"@en ;
@@ -120,9 +120,9 @@ morph:targetRegex a owl:DatatypeProperty ;
     rdfs:domain morph:RegexReplacement ;
     rdfs:range xsd:string .
 
-morph:formationRule a owl:ObjectProperty ;
-    rdfs:label "formation rule"@en ;
-    rdfs:comment "The formation rule property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry."@en ;
+morph:wordFormation a owl:ObjectProperty ;
+    rdfs:label "word formation"@en ;
+    rdfs:comment "The word formation property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry."@en ;
     rdfs:domain morph:WordFormationRelation ;
     rdfs:range morph:WordFormationRule .
 
@@ -135,9 +135,9 @@ morph:InflectionClass a owl:Class ;
     rdfs:label "Inflection Class"@en ;
     rdfs:comment "Inflection Class represents the inflection class to which a lexical entry belongs/is assigned – e.g., the declension of a noun, or the conjugation of a verb."@en .
 
-morph:GrammaticalMeaning a owl:Class ;
-    rdfs:label "Grammatical Meaning"@en ;
-    rdfs:comment "Grammatical meaning can be used to represent (bundles of) values of different morpho-syntactic or morpho-semantic features expressed by a form, morph or rule (e.g., value ‘nominative’ for feature ‘case’, value ‘singular’ for feature ‘number’, etc.; or the feature bundle composed by the latter two values, in a fusional language where they are expressed cumulatively, e.g. Latin)"@en .
+morph:GrammaticalMeaningValue a owl:Class ;
+    rdfs:label "Grammatical Meaning Value"@en ;
+    rdfs:comment "Grammatical meaning value can be used to represent (bundles of) values of different morpho-syntactic or morpho-semantic features expressed by a form, morph or rule (e.g., value ‘nominative’ for feature ‘case’, value ‘singular’ for feature ‘number’, etc.; or the feature bundle composed by the latter two values, in a fusional language where they are expressed cumulatively, e.g. Latin)"@en .
 
 morph:RegexReplacement a owl:Class ;
     rdfs:label "Regex Replacement"@en ;

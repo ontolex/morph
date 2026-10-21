@@ -14,17 +14,17 @@
 
 :rumpo_form a ontolex:Form ;
     ontolex:writtenRep "rumpo"@la ;
-    morph:meaning :prs.act.ind.1.sg ;
+    morph:grammaticalMeaning :prs.act.ind.1.sg ;
     morph:baseType lexinfo:presentStem .
 
 :rupi_form a ontolex:Form ;
     ontolex:writtenRep "rupi"@la ;
-    morph:meaning :prf.act.ind.1.sg ;
+    morph:grammaticalMeaning :prf.act.ind.1.sg ;
     morph:baseType lexinfo:perfectStem .
 
 :ruptum_form a ontolex:Form ;
     ontolex:writtenRep "ruptum"@la ;
-    morph:meaning :sup.acc ;
+    morph:grammaticalMeaning :sup.acc ;
     morph:baseType lexinfo:thirdStem .
 
 :prs_act_ind_2_sg_rule a morph:InflectionRule ;
@@ -34,7 +34,7 @@
 	    morph:targetRegex "is" ;
 	    ] ;
     morph:inflection :thirdConjugation ;
-    morph:meaning :prs.act.ind.2.sg ;
+    morph:grammaticalMeaning :prs.act.ind.2.sg ;
     morph:baseType lexinfo:presentStem .
 
 :prf_act_ind_2_sg_rule a morph:InflectionRule ;
@@ -44,7 +44,7 @@
 	    morph:targetRegex "sti" ;
 	    ] ;
     morph:inflection :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-    morph:meaning :prf.act.ind.2.sg ;
+    morph:grammaticalMeaning :prf.act.ind.2.sg ;
     morph:baseType lexinfo:perfectStem .
 
 :fut_act_ptcp_rule a morph:InflectionRule ;
@@ -54,5 +54,5 @@
 	    morph:targetRegex "rus" ;
 	    ] ;
     morph:inflection :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-    morph:meaning :fut.act.ptcp ;
+    morph:grammaticalMeaning :fut.act.ptcp ;
     morph:baseType lexinfo:thirdStem .
