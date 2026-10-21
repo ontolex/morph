@@ -769,7 +769,7 @@ In a fusional language like Latin, there is no need to have different inflection
 
 The example below illustrates the modelling of an inflection class and a rule for the generation of the genitive singular of *lupus* in Latin.
 
-<aside class="example" src="examples/example_10.ttl" title="Example: Inflection rules for the genitive singular of 'lupus' in Latin">
+<aside class="example" src="examples/example_12.ttl" title="Example: Inflection rules for the genitive singular of 'lupus' in Latin">
 
 ```turtle
 :lupus a ontolex:LexicalEntry ;
@@ -789,7 +789,7 @@ The example below illustrates the modelling of an inflection class and a rule fo
 
 A tool or a service capable of applying these inflectional rules and generating forms according to them will generate the following triples:
 
-<aside class="example" src="examples/example_11.ttl" title="Example: Generation of the genitive singular form 'lupi'">
+<aside class="example" src="examples/example_13.ttl" title="Example: Generation of the genitive singular form 'lupi'">
 
 ```turtle
 :gen_sg_rule morph:generates :lupi ;
@@ -866,7 +866,7 @@ In order to set the order of morphs, the property [=next=] points from one [=Inf
 
 The example below demonstrates using inflection slots for number and case grammatical categories in Turkish.
 
-<aside class="example" src="examples/example_12.ttl" title="Example: Inflection rules for the accusative plural of words that inflect like 'adam' in Turkish">
+<aside class="example" src="examples/example_14.ttl" title="Example: Inflection rules for the accusative plural of words that inflect like 'adam' in Turkish">
 
 ```turtle
 :adam a ontolex:LexicalEntry ;
@@ -929,7 +929,7 @@ It is also possible to create Morph elements during generation in case they are 
 
 In the case of the example above, the successive application of the two appropriate rules for accusative and plural formation, in the order established by the use of the [=next=] property, allows for the generation of the accusative plural form as follows:
 
-<aside class="example" src="examples/example_13.ttl" title="Example: Generation of the accusative plural form 'adamlar'">
+<aside class="example" src="examples/example_15.ttl" title="Example: Generation of the accusative plural form 'adamlar'">
 
 ```turtle
 :adamlari a ontolex:Form ;
@@ -974,7 +974,7 @@ For instance, for Latin verbs, in addition to the citation form, dictionaries al
 
 This can be modelled with OntoLex-Morph as follows:
 
-<aside class="example" src="examples/example_14.ttl" title="Example: Base types for the Latin verb 'rumpo'">
+<aside class="example" src="examples/example_16.ttl" title="Example: Base types for the Latin verb 'rumpo'">
 
 ```turtle
 :rumpo a ontolex:LexicalEntry ;
@@ -1032,7 +1032,7 @@ This can be modelled with OntoLex-Morph as follows:
 Note that the inflection rules operating on the perfect and third stem are not only connected to the inflection class of *rumpo*, but also other ones, as they are valid across conjugations.
 By applying these rules, the following forms can be generated:
 
-<aside class="example" src="examples/example_15.ttl" title="Example: Generation of the Latin verb forms *rumpis*, *rupisti*, *rupturus*">
+<aside class="example" src="examples/example_17.ttl" title="Example: Generation of the Latin verb forms *rumpis*, *rupisti*, *rupturus*">
 
 ```turtle
 :rumpis_form a ontolex:Form ;
@@ -1101,7 +1101,7 @@ As a consequence, vartrans properties are also used to link lexical entries to t
 
 Accordingly, the morphological derivation of German *Schönheit* 'beauty' can be encoded as follows:
 
-<aside class="example" src="examples/example_16.ttl" title="Example: Derivation of the German noun *Schönheit*">
+<aside class="example" src="examples/example_18.ttl" title="Example: Derivation of the German noun *Schönheit*">
 
 ```turtle
 :schoenheit-entry a ontolex:LexicalEntry;
@@ -1160,7 +1160,7 @@ Furthermore, compounds can have a head -- i.e., a constituent that imposes its m
 
 Accordingly, the morphological derivation of Italian *capostazione* 'station master' (from *capo* 'head'  + *stazione* 'station') can be encoded as follows:
 
-<aside class="example" src="examples/example_17.ttl" title="Example: Derivation of the Italian noun *capostazione*">
+<aside class="example" src="examples/example_19.ttl" title="Example: Derivation of the Italian noun *capostazione*">
 
 ```turtle
 :capostazione-entry a ontolex:LexicalEntry;
@@ -1218,7 +1218,7 @@ The <dfn>formation rule</dfn> property relates a word formation relation to the 
 
 Accordingly, if one wanted to express the formal operation involved in the morphological derivation of German *Schönheit* 'beauty', this can be done as follows:
 
-<aside class="example" src="examples/example_18.ttl" title="Example: Formal operation involved in the derivation of the German noun *Schönheit*">
+<aside class="example" src="examples/example_20.ttl" title="Example: Formal operation involved in the derivation of the German noun *Schönheit*">
 
 ```turtle
 
@@ -1278,7 +1278,7 @@ A <dfn>Compounding Rule</dfn> refers to rules that take the base form of more th
 
 To illustrate the usage of a [=derivation rule=], the reader is referred to the example given above for word formation rules: indeed, the rule used there can be assigned to the more specific class for derivation rules, with every other assertion remaining unchanged, as this class is a subclass of [=word formation rule=].
 
-<aside class="example" src="examples/example_19.ttl" title="Example: Rule for German 'Schönheit' as an instance of morph:DerivationRule">
+<aside class="example" src="examples/example_21.ttl" title="Example: Rule for German 'Schönheit' as an instance of morph:DerivationRule">
 
 ```turtle
 
@@ -1295,7 +1295,7 @@ To illustrate the usage of a [=derivation rule=], the reader is referred to the 
 
 As for compounding, the modelling differs slightly to accommodate the ternary input for the rules. The example below illustrates the modelling of a rule involving a linking element for Dutch *schaapskop* 'sheep head'.
 
-<aside class="example" src="examples/example_20.ttl" title="Example: Rules for Dutch 'schaapskop'">
+<aside class="example" src="examples/example_22.ttl" title="Example: Rules for Dutch 'schaapskop'">
 
 ```turtle
 
