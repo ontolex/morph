@@ -11,7 +11,7 @@
 :schoen_heit a morph:WordFormationRelation;
              vartrans:source :schoen-entry;
              vartrans:target :schoenheit-entry;
-             morph:wordRule :_heit-rule.
+             morph:wordFormation :_heit-rule.
 :_heit-rule a morph:WordFormationRule;
             morph:replacement [
 		        morph:sourceRegex "$" ;

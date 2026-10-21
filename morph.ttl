@@ -106,9 +106,9 @@ morph:targetRegex a owl:DatatypeProperty ;
     rdfs:domain morph:RegexReplacement ;
     rdfs:range xsd:string .
 
-morph:wordRule a owl:ObjectProperty ;
-    rdfs:label "word rule"@en ;
-    rdfs:comment "The word rule property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry."@en ;
+morph:wordFormation a owl:ObjectProperty ;
+    rdfs:label "word formation"@en ;
+    rdfs:comment "The word formation property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry."@en ;
     rdfs:domain morph:WordFormationRelation ;
     rdfs:range morph:WordFormationRule .
 

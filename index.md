@@ -1170,14 +1170,14 @@ Like inflection rules, word formation rules can take as input either the canonic
 
 </div>
 
-Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the [=word rule=] property.
+Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the [=word formation=] property.
 
-<div class="entity" about="morph:wordRule" typeof="owl:ObjectProperty">
+<div class="entity" about="morph:wordFormation" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">word rule</objectProperty>
+<objectProperty property="rdfs:label">word formation</objectProperty>
 
 <div property="rdfs:comment">
-The <dfn>word rule</dfn> property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry.
+The <dfn>word formation</dfn> property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry.
 </div>
 
 <div class="description">
@@ -1198,7 +1198,7 @@ Accordingly, if one wanted to express the formal operation involved in the morph
 :schoen_heit a morph:WordFormationRelation;
              vartrans:source :schoen-entry;
              vartrans:target :schoenheit-entry;
-             morph:wordRule :_heit-rule.
+             morph:wordFormation :_heit-rule.
 :_heit-rule a morph:WordFormationRule;
             morph:replacement [
 		        morph:sourceRegex "$" ;
@@ -1281,11 +1281,11 @@ As for compounding, the modelling differs slightly to accommodate the ternary in
 :schaap-schaapskop a morph:WordFormationRelation ;
              vartrans:source :schaap-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:wordRule :NN-rule .
+             morph:wordFormation :NN-rule .
 :kop-schaapskop a morph:WordFormationRelation ;
              vartrans:source :kop-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:wordRule :NN-rule .
+             morph:wordFormation :NN-rule .
 
 :NN-rule a morph:CompoundingRule ;
             morph:replacement [
