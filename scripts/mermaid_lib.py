@@ -9,6 +9,9 @@ from rdflib.namespace import RDF
 from rdflib import Graph, URIRef, BNode
 import re
 
+# Diagrams with at least this many nodes are laid out left to right.
+WIDE_DIAGRAM_NODES = 12
+
 
 def make_name(n):
     s = str(n)
@@ -72,7 +75,7 @@ def turtle_to_mermaid(ttl_text):
         return make_id(make_name(n))
 
     seen_node = set([])
-    lines_out = ["flowchart TD"]
+    lines_out = ["flowchart"]
 
     def gen(s):
         id = node_id(s)
@@ -113,5 +116,12 @@ def turtle_to_mermaid(ttl_text):
             gen(s)
     else:
         gen(next(g.subjects()))
+
+    # Top-down layouts spread sibling nodes sideways, so big graphs become
+    # very wide and unreadable once scaled to the page (see
+    # https://github.com/ontolex/morph/issues/78); lay those out left to
+    # right instead, which spreads siblings vertically.
+    n_nodes = sum(1 for l in lines_out if l.endswith('"]'))
+    lines_out[0] = "flowchart %s" % ("LR" if n_nodes >= WIDE_DIAGRAM_NODES else "TD")
 
     return "\n".join(lines_out) + "\n"
