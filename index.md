@@ -249,14 +249,14 @@ be modelled as an `rdf:Seq` by means of the `rdf:_1`, `rdf:_2`, etc. properties.
 
 ## Grammatical Meanings
 
-The class [=grammatical meaning=] is used to gloss information associated with the morph, form or rule. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
+The class [=grammatical meaning value=] is used to gloss information associated with the morph, form or rule. This can be either a single element or a node which bundles together several grammatical meanings, e.g. first person and singular. The recommended vocabulary to use for the meanings is [LexInfo](https://lexinfo.net/).
 
-<div class="entity" about="morph:GrammaticalMeaning" typeof="owl:Class">
+<div class="entity" about="morph:GrammaticalMeaningValue" typeof="owl:Class">
 
-<class property="rdfs:label">Grammatical Meaning</class>
+<class property="rdfs:label">Grammatical Meaning Value</class>
 
 <div property="rdfs:comment">
-<dfn>Grammatical meaning</dfn> can be used to represent (bundles of) values of different morpho-syntactic or morpho-semantic features expressed by a form, morph or rule (e.g., value 'nominative' for feature 'case', value 'singular' for feature 'number', etc.; or the feature bundle composed by the latter two values, in a fusional language where they are expressed cumulatively, e.g. Latin)
+<dfn>Grammatical meaning value</dfn> can be used to represent (bundles of) values of different morpho-syntactic or morpho-semantic features expressed by a form, morph or rule (e.g., value 'nominative' for feature 'case', value 'singular' for feature 'number', etc.; or the feature bundle composed by the latter two values, in a fusional language where they are expressed cumulatively, e.g. Latin)
 </div>
 
 </div>
@@ -266,14 +266,14 @@ The class [=grammatical meaning=] is used to gloss information associated with t
 - can represent *either* an individual feature or a feature bundle
 </div> -->
 
-The [=meaning=] relates an instance of the class [=morph=] to an instance of the class [=grammatical meaning=]. In addition to morphs, the subject of this property can be a <a data-cite="ontolex#Form">form</a> as an aggregate of morphs or a [=rule=] — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](#morphological-rules).
+The [=grammatical meaning=] relates an instance of the class [=morph=] to an instance of the class [=grammatical meaning value=]. In addition to morphs, the subject of this property can be a <a data-cite="ontolex#Form">form</a> as an aggregate of morphs or a [=rule=] — a rule stating how the form was formed. More details on the rules can be found in the [corresponding section](#morphological-rules).
 
-<div class="entity" about="morph:meaning" typeof="owl:ObjectProperty">
+<div class="entity" about="morph:grammaticalMeaning" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">meaning</objectProperty>
+<objectProperty property="rdfs:label">grammatical meaning</objectProperty>
 
 <div property="rdfs:comment">
-The <dfn>meaning</dfn> property assigns a grammatical meaning to a morph, form, or rule
+The <dfn>grammatical meaning</dfn> property assigns a grammatical meaning to a morph, form, or rule
 </div>
 
 <div class="description">
@@ -289,13 +289,13 @@ For instance, we can update the previous example of the English plural form *cat
 ```turtle
 :cats a ontolex:Form ;
     ontolex:writtenRep "cats"@en ;
-    morph:meaning [ lexinfo:number lexinfo:plural ; ] ;
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:consistsOf :cat,  :s .
 
 :cat a morph:Morph .
 
 :s a ontolex:Affix ;
-    morph:meaning [ lexinfo:number lexinfo:plural ] .
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ] .
 ```
 </aside>
 
@@ -308,15 +308,15 @@ For example, in the Latin form *lupus*, the nominative case and singular number 
 ```turtle
 :lupus a ontolex:Form ;
     ontolex:writtenRep "lupus"@la ;
-    morph:meaning :nom.sg ;  
+    morph:grammaticalMeaning :nom.sg ;  
     morph:consistsOf :lup , :us .
 
 :lup a morph:Morph .
 
 :us a ontolex:Affix ;
-    morph:meaning :nom.sg .
+    morph:grammaticalMeaning :nom.sg .
 
-:nom.sg a morph:GrammaticalMeaning ;
+:nom.sg a morph:GrammaticalMeaningValue ;
     lexinfo:case lexinfo:nominativeCase ;
     lexinfo:number lexinfo:singular ;
     paralex:composedOf lexinfo:nominativeCase , lexinfo:singular . 
@@ -357,19 +357,19 @@ As a concrete example, the fact that the English affix -s expresses plural numbe
 
 ```turtle
 :s_pl a ontolex:Affix ;
-    morph:meaning lexinfo:plural ;
+    morph:grammaticalMeaning lexinfo:plural ;
     morph:baseConstraint [
       lexinfo:partOfSpeech lexinfo:noun  ] .
 
 :s_3sg a ontolex:Affix ;
-    morph:meaning :3.sg ;
+    morph:grammaticalMeaning :3.sg ;
     morph:baseConstraint [
       lexinfo:partOfSpeech lexinfo:verb ] .
 ```
 </aside>
 
 <!-- Discussion/History:
-- CC 2022-10-24: by analogy with morph:meaning, this property should also be applicable to rules to specify necessary preconditions.
+- CC 2022-10-24: by analogy with morph:grammaticalMeaning, this property should also be applicable to rules to specify necessary preconditions.
  -->
 
 The property [=base form=] is used when some of the derived or inflected forms are formed from a non-canonical form of a lexical entry.
@@ -783,7 +783,7 @@ The example below illustrates the modelling of an inflection class and a rule fo
         morph:targetRegex "i" ;
     ] ;
     morph:inflection :secondDeclension ;
-    morph:meaning :gen.sg .
+    morph:grammaticalMeaning :gen.sg .
 ```
 </aside>
 
@@ -796,11 +796,11 @@ A tool or a service capable of applying these inflectional rules and generating 
     morph:involves :i .
 
 :i a ontolex:Affix ;
-    morph:meaning :gen.sg .
+    morph:grammaticalMeaning :gen.sg .
 
 :lupi a ontolex:Form ;
     ontolex:writtenRep "lupi"@la ;
-    morph:meaning :gen.sg ;
+    morph:grammaticalMeaning :gen.sg ;
     morph:consistsOf :lup , :i .
 ```
 </aside>
@@ -882,7 +882,7 @@ The example below demonstrates using inflection slots for number and case gramma
         morph:sourceRegex "$" ;
         morph:targetRegex "" ;
     ] ;
-    morph:meaning [ lexinfo:number lexinfo:singular ; ] ;
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:singular ; ] ;
     morph:slot :number_slot .
 
 :pl_rule a morph:InflectionRule ;
@@ -892,7 +892,7 @@ The example below demonstrates using inflection slots for number and case gramma
         morph:targetRegex "lar" ;
     ] ;
     morph:inflection :noun1_infl_vowelHarmony1 ;
-    morph:meaning [ lexinfo:number lexinfo:plural ; ] ;
+    morph:grammaticalMeaning [ lexinfo:number lexinfo:plural ; ] ;
     morph:involves :lar ;
     morph:slot :number_slot .
 
@@ -903,7 +903,7 @@ The example below demonstrates using inflection slots for number and case gramma
         morph:targetRegex "i" ;
     ] ;
     morph:inflection :noun1_infl_vowelHarmony1 ;
-    morph:meaning lexinfo:accusativeCase ;
+    morph:grammaticalMeaning lexinfo:accusativeCase ;
     morph:involves :i ;
     morph:slot :case_slot .
 
@@ -934,7 +934,7 @@ In the case of the example above, the successive application of the two appropri
 ```turtle
 :adamlari a ontolex:Form ;
   ontolex:writtenRep "adamlari"@tr ;
-  morph:meaning [ 
+  morph:grammaticalMeaning [ 
     lexinfo:case lexinfo:accusative ;
     lexinfo:number lexinfo:plural ] ;
   morph:consistsOf :adam , :lar , :i .
@@ -984,17 +984,17 @@ This can be modelled with OntoLex-Morph as follows:
 
 :rumpo_form a ontolex:Form ;
     ontolex:writtenRep "rumpo"@la ;
-    morph:meaning :prs.act.ind.1.sg ;
+    morph:grammaticalMeaning :prs.act.ind.1.sg ;
     morph:baseType lexinfo:presentStem .
 
 :rupi_form a ontolex:Form ;
     ontolex:writtenRep "rupi"@la ;
-    morph:meaning :prf.act.ind.1.sg ;
+    morph:grammaticalMeaning :prf.act.ind.1.sg ;
     morph:baseType lexinfo:perfectStem .
 
 :ruptum_form a ontolex:Form ;
     ontolex:writtenRep "ruptum"@la ;
-    morph:meaning :sup.acc ;
+    morph:grammaticalMeaning :sup.acc ;
     morph:baseType lexinfo:thirdStem .
 
 :prs_act_ind_2_sg_rule a morph:InflectionRule ;
@@ -1004,7 +1004,7 @@ This can be modelled with OntoLex-Morph as follows:
 	    morph:targetRegex "is" ;
 	    ] ;
     morph:inflection :thirdConjugation ;
-    morph:meaning :prs.act.ind.2.sg ;
+    morph:grammaticalMeaning :prs.act.ind.2.sg ;
     morph:baseType lexinfo:presentStem .
 
 :prf_act_ind_2_sg_rule a morph:InflectionRule ;
@@ -1014,7 +1014,7 @@ This can be modelled with OntoLex-Morph as follows:
 	    morph:targetRegex "sti" ;
 	    ] ;
     morph:inflection :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-    morph:meaning :prf.act.ind.2.sg ;
+    morph:grammaticalMeaning :prf.act.ind.2.sg ;
     morph:baseType lexinfo:perfectStem .
 
 :fut_act_ptcp_rule a morph:InflectionRule ;
@@ -1024,7 +1024,7 @@ This can be modelled with OntoLex-Morph as follows:
 	    morph:targetRegex "rus" ;
 	    ] ;
     morph:inflection :firstConjugation , :secondConjugation , :thirdConjugation , :fourthConjugation ;
-    morph:meaning :fut.act.ptcp ;
+    morph:grammaticalMeaning :fut.act.ptcp ;
     morph:baseType lexinfo:thirdStem .
 ```
 </aside>
@@ -1037,17 +1037,17 @@ By applying these rules, the following forms can be generated:
 ```turtle
 :rumpis_form a ontolex:Form ;
     ontolex:writtenRep "rumpis"@la ;
-    morph:meaning :prs.act.ind.2.sg ;
+    morph:grammaticalMeaning :prs.act.ind.2.sg ;
     morph:baseType lexinfo:presentStem .
 
 :rupisti_form a ontolex:Form ;
     ontolex:writtenRep "rupisti"@la ;
-    morph:meaning :prf.act.ind.2.sg ;
+    morph:grammaticalMeaning :prf.act.ind.2.sg ;
     morph:baseType lexinfo:perfectStem .
 
 :ruptus_form a ontolex:Form ;
     ontolex:writtenRep "rupturus"@la ;
-    morph:meaning :fut.act.ptcp ;
+    morph:grammaticalMeaning :fut.act.ptcp ;
     morph:baseType lexinfo:thirdStem .
 ```
 </aside>
@@ -1195,14 +1195,14 @@ Like inflection rules, word formation rules can take as input either the canonic
 
 </div>
 
-Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the [=formation rule=] property.
+Word formation rules can also be related to the word formation relations existing between the lexical entries involved through the [=word formation=] property.
 
-<div class="entity" about="morph:formationRule" typeof="owl:ObjectProperty">
+<div class="entity" about="morph:wordFormation" typeof="owl:ObjectProperty">
 
-<objectProperty property="rdfs:label">formation rule</objectProperty>
+<objectProperty property="rdfs:label">word formation</objectProperty>
 
 <div property="rdfs:comment">
-The <dfn>formation rule</dfn> property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry.
+The <dfn>word formation</dfn> property relates a word formation relation to the word formation rule that is applied to the base form of the source lexical entry in order to obtain the (canonical) form of the target lexical entry.
 </div>
 
 <div class="description">
@@ -1223,7 +1223,7 @@ Accordingly, if one wanted to express the formal operation involved in the morph
 :schoen_heit a morph:WordFormationRelation;
              vartrans:source :schoen-entry;
              vartrans:target :schoenheit-entry;
-             morph:formationRule :_heit-rule.
+             morph:wordFormation :_heit-rule.
 :_heit-rule a morph:WordFormationRule;
             morph:replacement [
 		        morph:sourceRegex "$" ;
@@ -1306,11 +1306,11 @@ As for compounding, the modelling differs slightly to accommodate the ternary in
 :schaap-schaapskop a morph:WordFormationRelation ;
              vartrans:source :schaap-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:formationRule :NN-rule .
+             morph:wordFormation :NN-rule .
 :kop-schaapskop a morph:WordFormationRelation ;
              vartrans:source :kop-entry ;
              vartrans:target :schaapskop-entry ;
-             morph:formationRule :NN-rule .
+             morph:wordFormation :NN-rule .
 
 :NN-rule a morph:CompoundingRule ;
             morph:replacement [

@@ -9,15 +9,15 @@
 @prefix paralex: <https://www.paralex-standard.org/paralex_ontology.xml#> .
 @prefix : <http://www.example.com/#> .:lupus a ontolex:Form ;
     ontolex:writtenRep "lupus"@la ;
-    morph:meaning :nom.sg ;  
+    morph:grammaticalMeaning :nom.sg ;  
     morph:consistsOf :lup , :us .
 
 :lup a morph:Morph .
 
 :us a ontolex:Affix ;
-    morph:meaning :nom.sg .
+    morph:grammaticalMeaning :nom.sg .
 
-:nom.sg a morph:GrammaticalMeaning ;
+:nom.sg a morph:GrammaticalMeaningValue ;
     lexinfo:case lexinfo:nominativeCase ;
     lexinfo:number lexinfo:singular ;
     paralex:composedOf lexinfo:nominativeCase , lexinfo:singular . 
