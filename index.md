@@ -191,7 +191,7 @@ The class [=Morph=] provides a way to represent sub-word elements and attach gra
 - other types of morph (roots, stems, transfix, etc.) are not defined in the module but should be defined in Lexinfo
 </div> -->
 
-The property [=consists of=] relates a form with the morphs from which it is constructed.
+The property [=consists of=] relates a form with the morphs from which it is constructed. The <span about="http://www.w3.org/ns/lemon/ontolex#Affix">Affix class in the core is <span property="rdfs:subClassOf" resource="http://www.w3.org/ns/lemon/morph#Morph">a subclass of Morph.</span></span> 
 
 <div class="entity" about="morph:consistsOf" typeof="owl:ObjectProperty">
 
