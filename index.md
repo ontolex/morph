@@ -211,7 +211,7 @@ The property [=consists of=] relates a form with the morphs from which it is con
 </div>
 
 <div class="note">
-While it might seem counterintuitive that <a data-cite="ontolex#Form">forms</a> can consist of <a data-cite="ontolex#LexicalEntry">lexical entries</a>, in reality this just means that a form can be decomposed into abstract entities (morphs) with the form's grammatical meaning emerging from the grammatical meaning of its components and its <a data-cite="ontolex#writtenRep">written representation</a> based on their <a data-cite="ontolex#canonicalForm">canonical forms</a>.
+While it might seem counterintuitive that <a data-cite="ontolex#Form">forms</a> can consist of <a data-cite="ontolex#LexicalEntry">lexical entries</a>, in reality this is related to the fact that <code>ontolex:Affix</code> is a sub-class of <code>morph:Morph</code>, which is in turn a sub-class of <code>ontolex:LexicalEntry</code>, and it means that a form can be decomposed into abstract entities (morphs) with the form's grammatical meaning emerging from the grammatical meaning of its components and its <a data-cite="ontolex#writtenRep">written representation</a> based on their <a data-cite="ontolex#canonicalForm">canonical forms</a>.
 </div>
 
 Here is a simple example of a segmentation of the English plural form *cats*:
