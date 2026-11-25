@@ -167,6 +167,8 @@ morph:Morph a owl:Class ;
     rdfs:comment "A Morph represents any element of morphological analysis below the word level."@en ;
     rdfs:subClassOf ontolex:LexicalEntry .
 
+ontolex:Affix rdfs:subClassOf morph:Morph .
+
 morph:WordFormationRule a owl:Class ;
     rdfs:label "Word Formation Rule"@en ;
     rdfs:comment "Word Formation Rule represents the formal operation applied to a base form of a source lexical entry to obtain the (canonical) form of another, target lexical entry ."@en ;
