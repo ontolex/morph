@@ -187,12 +187,11 @@ The class [=Morph=] provides a way to represent sub-word elements and attach gra
 - the model is agnostic as to whether this represents a morpheme or one of its allomorphs, but as a lexical entry
 - meaning: glossing information associated with the morph
 - baseConstraint: (for affixes) contraints on the elements that this morph can be applied to
-- `ontolex:Affix` is defined as a subclass of `morph:Morph`.
 - other types of morph (roots, stems, transfix, etc.) are not defined in the module but should be defined in Lexinfo
 </div> -->
 
- The <span about="http://www.w3.org/ns/lemon/ontolex#Affix">Affix class in the core module is <span property="rdfs:subClassOf" resource="http://www.w3.org/ns/lemon/morph#Morph">a subclass of Morph.</span></span> 
- 
+The <span about="http://www.w3.org/ns/lemon/ontolex#Affix"><a data-cite="ontolex#Affix">Affix</a> class in the core module is <span property="rdfs:subClassOf" resource="http://www.w3.org/ns/lemon/morph#Morph">a subclass of Morph.</span></span>
+
 The property [=consists of=] relates a form with the morphs from which it is constructed.
 
 <div class="entity" about="morph:consistsOf" typeof="owl:ObjectProperty">
@@ -211,7 +210,7 @@ The property [=consists of=] relates a form with the morphs from which it is con
 </div>
 
 <div class="note">
-While it might seem counterintuitive that <a data-cite="ontolex#Form">forms</a> can consist of <a data-cite="ontolex#LexicalEntry">lexical entries</a>, since [=Morph =] is a subclass of <a data-cite="ontolex#LexicalEntry">Lexical Entry</a>, in reality this means that a form can be decomposed into abstract entities (morphs) with the form's grammatical meaning emerging from the grammatical meaning of its components and its <a data-cite="ontolex#writtenRep">written representation</a> based on their <a data-cite="ontolex#canonicalForm">canonical forms</a>.
+While it might seem counterintuitive that <a data-cite="ontolex#Form">forms</a> can consist of <a data-cite="ontolex#LexicalEntry">lexical entries</a>, this follows from the class hierarchy: <a data-cite="ontolex#Affix">affix</a> is a subclass of [=Morph=], which is in turn a subclass of <a data-cite="ontolex#LexicalEntry">lexical entry</a>. In reality, this means that a form can be decomposed into abstract entities (morphs) with the form's grammatical meaning emerging from the grammatical meaning of its components and its <a data-cite="ontolex#writtenRep">written representation</a> based on their <a data-cite="ontolex#canonicalForm">canonical forms</a>.
 </div>
 
 Here is a simple example of a segmentation of the English plural form *cats*:
