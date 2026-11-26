@@ -6,6 +6,6 @@
 :adamlari a ontolex:Form ;
   ontolex:writtenRep "adamlari"@tr ;
   morph:grammaticalMeaning [ 
-    lexinfo:case lexinfo:accusative ;
+    lexinfo:case lexinfo:accusativeCase ;
     lexinfo:number lexinfo:plural ] ;
   morph:consistsOf :adam , :lar , :i .
