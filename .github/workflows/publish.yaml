@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - master
+  # Build (but do not deploy) on pull requests so that a broken specification,
+  # out-of-date example files or a failing ontology extraction are caught
+  # before they are merged.
+  pull_request:
+    branches:
+      - master
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -12,17 +18,8 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       # Step 1: Check out the repository
@@ -30,36 +27,51 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
 
-      # Step 2: Set up Pandoc
-      - name: Install Pandoc
+      # Step 2: Install the tools
+      - name: Install Pandoc and Rapper
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc
-      - name: Install Rapper
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y raptor2-utils
-
+          sudo apt-get install -y pandoc raptor2-utils
       - name: Install Python Packages
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install beautifulsoup4 rdflib
 
-      # Step 3: Convert index.md to index.html
+      # Step 3: Check that the example files match their listings in index.md
+      - name: Check examples
+        run: python3 scripts/extract_examples.py --check
+
+      # Step 4: Convert index.md to index.html and extract the ontology
       - name: Convert Markdown to HTML with Pandoc
         run: pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o index.html
       - name: Expand tags
         run: python3 expand_tags.py index.html index.html
       - name: Convert RDFa to Turtle
         run: rapper -i rdfa index.html -o turtle | python3 build_ontology.py morph
+
       - name: Upload artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+    # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

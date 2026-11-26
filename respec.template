@@ -52,22 +52,11 @@ $endfor$
         latestVersion: "https://ontolex.github.io/morph/",
         localBiblio: {
             "ontolex": {
-                href: "https://ontolex.github.io/ontolex/specification.html",
-                title: "lemon - Lexicon Model for Ontologies",
-                status: "CG-DRAFT",
-                publisher: "W3C"
-            },
-            "decomp": {
-                href: "https://ontolex.github.io/ontolex/specification.html",
-                title: "lemon - Lexicon Model for Ontologies",
-                status: "CG-DRAFT",
-                publisher: "W3C"
-            },
-            "vartrans": {
-                href: "https://ontolex.github.io/ontolex/specification.html",
-                title: "lemon - Lexicon Model for Ontologies",
-                status: "CG-DRAFT",
-                publisher: "W3C"
+                href: "https://www.w3.org/2016/05/ontolex/",
+                title: "Lexicon Model for Ontologies: Community Report",
+                status: "CG-FINAL",
+                publisher: "W3C Ontology-Lexica Community Group",
+                date: "10 May 2016"
             }
         }
       };
