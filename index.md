@@ -162,7 +162,7 @@ _Morphs_ are the basic building blocks within the module that map to a single
 unit of meaning or grammatical function. They can be roots, stems and all kinds of morphs including inflectional & derivational affixes and zero morphs.
 Morphs represent a single version (allomorph) of a morpheme, which is a more abstract concept. Morphs can be
 either bound morphs, which cannot stand alone, or free morphs, which can stand alone as a word. A free morph 
-may correspond a single concept such as "tea" or "pot" in "teapots", while a bound morph may be the plural suffix "-s".
+may correspond to a single concept such as "tea" or "pot" in "teapots", while a bound morph may be the plural suffix "-s".
 
 <section id="morphs">
 
