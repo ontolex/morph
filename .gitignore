@@ -1,3 +1,5 @@
 .venv
 index.html
 scripts/__pycache__
+preview.html
+__pycache__
