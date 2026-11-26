@@ -39,6 +39,9 @@ def convert_turtle(input_data, base_url, custom_namespaces=NAMESPACES):
             cleaned_value = str(o).strip()
             # Remove any tags like [=text=]
             cleaned_value = cleaned_value.replace("[=", "").replace("=]", "")
+            # Pandoc turns the space after abbreviations such as "e.g." into a
+            # non-breaking space, which does not belong in the ontology
+            cleaned_value = cleaned_value.replace("\u00a0", " ")
             # Recreate the Literal with original datatype/language tag
             new_o = Literal(cleaned_value, lang=o.language, datatype=o.datatype)
             cleaned_g.add((s, p, new_o))

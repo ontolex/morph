@@ -283,7 +283,7 @@ The <dfn>grammatical meaning</dfn> property assigns a grammatical meaning to a m
 
 <div class="description">
 <domain>ontolex:Form OR [=Morph=] OR [=Rule=]</domain>
-<range>[=Grammatical Meaning=]</range>
+<range>[=Grammatical Meaning Value=]</range>
 </div>
 </div>
 
@@ -306,7 +306,7 @@ For instance, we can update the previous example of the English plural form *cat
 
 In this case, we create a blank node for the grammatical meaning that corresponds to a single feature in Lexinfo. We could also define instances for common morphological meanings and reuse these objects.
 
-For example, in the Latin form *lupus*, the nominative case and singular number are expressed cumulatively by the affix *-us*. This is a common combination; therefore, an instance of [=Grammatical Meaning=] is introduced for that feature bundle. This time we use Lexinfo vocabulary alongside the [Paralex vocabulary](https://www.paralex-standard.org/) — even though Lexinfo is the preferred way to represent grammatical features in OntoLex, there is no restriction on this.
+For example, in the Latin form *lupus*, the nominative case and singular number are expressed cumulatively by the affix *-us*. This is a common combination; therefore, an instance of [=Grammatical Meaning Value=] is introduced for that feature bundle. This time we use Lexinfo vocabulary alongside the [Paralex vocabulary](https://www.paralex-standard.org/) — even though Lexinfo is the preferred way to represent grammatical features in OntoLex, there is no restriction on this.
 
 <aside class="example" src="examples/example_4.ttl" title="Example: Segmentation of the Latin nominative singular form 'lupus'">
 
@@ -350,7 +350,7 @@ The property [=base constraint=] is used to encode information about morphosynta
 
 <domain>[=Morph=] OR [=Rule=]</domain>
 
-<range>[=Grammatical Meaning=]</range>
+<range>[=Grammatical Meaning Value=]</range>
 </div>
 </div>
 
