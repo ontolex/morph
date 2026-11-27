@@ -158,11 +158,11 @@ The empty prefix `:` is used in the examples for illustrative data that is not p
 
 ## Morphological Segments
 
-_Morphs_ are the basic building blocks within the module that represent a single 
+_Morphs_ are the basic building blocks within the module that map to a single 
 unit of meaning or grammatical function. They can be roots, stems and all kinds of morphs including inflectional & derivational affixes and zero morphs.
 Morphs represent a single version (allomorph) of a morpheme, which is a more abstract concept. Morphs can be
 either bound morphs, which cannot stand alone, or free morphs, which can stand alone as a word. A free morph 
-may be a single concept such as "tea" or "pot" in "teapots", while a bound morph may be the plural suffix "-s".
+may correspond to a single concept such as "tea" or "pot" in "teapots", while a bound morph may be the plural suffix "-s".
 
 <section id="morphs">
 
@@ -734,7 +734,7 @@ modelling inflection.
 
 ### Inflection Classes
 
-While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An [=inflection class=] is a group of lexemes that share the same pattern of inflected behaviours. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
+While classes and properties described in the previous section describe the way forms are built, what they consist of, it is also important to group lexical entries together based on sets of their inflected forms, i.e. their paradigms. An [=inflection class=] is a group of lexemes that share the same pattern of inflectional behaviour. Members of an inflection class realize grammatical features (such as tense, number, case, or person) using the same set of affixes, stem changes, or other morphological processes.
 In practice, this means that they share the [=rules=] for generating inflected forms.
 
 <div class="entity" about="morph:InflectionClass" typeof="owl:Class">
@@ -1084,7 +1084,7 @@ A piece of information regarding word formation that is often provided for both 
 
 **trattaménto** s. m. [der. di *trattare*]
 
-To be able to not only encode this descriptive information but also possibly further specify it by expressing additional details, in OntoLex-Morph, word formation relations are reified in a dedicated class, [=word formation rule=].
+To be able to not only encode this descriptive information but also possibly further specify it by expressing additional details, in OntoLex-Morph, word formation relations are reified in a dedicated class, [=word formation relation=].
 Since word formation relations are relations between different lexical entries, this class is defined as a subclass of the class introduced in the *vartrans* module of OntoLex for such relations -- namely, <a data-cite="ontolex#LexicalRelation">lexical relation</a>.
 As a consequence, *vartrans* properties are also used to link lexical entries to the relations holding between them: specifically, each word formation relation is linked through <a data-cite="ontolex#source">source</a> to its base(s) and through <a data-cite="ontolex#target">target</a> to the derivative.
 
